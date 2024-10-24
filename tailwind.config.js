@@ -7,7 +7,15 @@ module.exports = {
     "./src/**/*.{html,scss,ts}"
   ],
   theme: {
-    extend: {},
+    extend: {
+      listStyleType: {
+        none: 'none',
+        disc: 'disc',
+        decimal: 'decimal',
+        square: 'square',
+        roman: 'upper-roman',
+      },
+    },
   },
   plugins: [],
 }
