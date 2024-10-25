@@ -23,5 +23,7 @@ export class GlobalChangesService {
     console.log(
       `Global descisions made: Semi-natural land will become: ${globalSeminaturalChange}, Agricultural land will become: ${globalAgriculturalChange}, Urban land will become: ${globalUrbanChange}.`,
     );
+    const global_controls = document.getElementById("global_controls");
+    
   }
 }

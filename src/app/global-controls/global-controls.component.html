@@ -8,24 +8,23 @@
         </ul>
     <p class="my-2">Will become <ng-icon name="heroArrowTurnRightDown"></ng-icon> (click to change)</p>
     <form [formGroup]="globalChangesForm" (submit)="submitGlobalChanges()">
-        <div class="list-none content-stretch grid grid-cols-3 gap-0 shadow-md text-slate-800 text-center">
-            <select formControlName="globalSeminaturalChange" class="form-select bg-none h-full p-1 py-5 rounded-l flex items-center justify-center align-text-middle bg-lime-700 text-lime-200 border-2 border-lime-700 hover:bg-lime-300 hover:border-indigo-700 hover:text-indigo-700 hover:cursor-pointer focus:bg-lime-500 focus:border-indigo-700">
-                <option value="semi-nat" selected="selected" class="text-center">Semi-natural</option>
+        <div id="global_controls" class="list-none content-stretch grid grid-cols-3 gap-0 shadow-md text-slate-800 text-center">
+            <select #globalSeminatural id="globalSeminatural" (change)="onSelected(globalSeminatural.value, globalSeminatural.id)" formControlName="globalSeminaturalChange" class="{{ selectedSeminaturalClasses }} form-select bg-none h-full p-1 py-5 rounded-l flex items-center justify-center align-text-middle border-2 hover:border-indigo-700 hover:text-indigo-700 hover:cursor-pointer focus:border-indigo-700">
+                <option value="semi-nat" default selected class="text-center">Semi-natural</option>
                 <option value="agri" class="text-center">Agricultural</option>
                 <option value="urban" class="text-center">Urban</option>
             </select>
-            <select formControlName="globalAgriculturalChange" class="form-select bg-none h-full p-1 py-5 flex items-center justify-center align-text-middle bg-amber-500 text-amber-950 border-2 border-amber-500 hover:bg-amber-300 hover:border-indigo-700 hover:text-indigo-700 hover:cursor-pointer focus:bg-amber-300 focus:border-indigo-700">
+            <select #globalAgricultural id="globalAgricultural" (change)="onSelected(globalAgricultural.value, globalAgricultural.id)" formControlName="globalAgriculturalChange" class="{{ selectedAgriculturalClasses }} form-select bg-none h-full p-1 py-5 flex items-center justify-center align-text-middle border-2 hover:border-indigo-700 hover:text-indigo-700 hover:cursor-pointer focus:border-indigo-700">
                 <option value="semi-nat" class="text-center">Semi-natural</option>
-                <option value="agri" selected="selected" class="text-center">Agricultural</option>
+                <option value="agri" default selected="selected" class="text-center">Agricultural</option>
                 <option value="urban" class="text-center">Urban</option>
             </select>
-            <select formControlName="globalUrbanChange" class="form-select bg-none h-full p-1 py-5 rounded-r flex items-center justify-center align-text-middle text-stone-200 bg-stone-500 border-2 border-stone-500 hover:bg-stone-300 hover:border-indigo-700 hover:text-indigo-700 hover:cursor-pointer focus:bg-stone-300 focus:border-indigo-700">
+            <select #globalUrban id="globalUrban" (change)="onSelected(globalUrban.value, globalUrban.id)" formControlName="globalUrbanChange" class="{{ selectedUrbanClasses }} form-select bg-none h-full p-1 py-5 rounded-r flex items-center justify-center align-text-middle border-2 hover:border-indigo-700 hover:text-indigo-700 hover:cursor-pointer focus:border-indigo-700">
                 <option value="semi-nat" class="text-center">Semi-natural</option>
                 <option value="agri" class="text-center">Agricultural</option>
-                <option value="urban" selected="selected" class="text-center">Urban</option>
+                <option value="urban" default selected="selected" class="text-center">Urban</option>
             </select>                
         </div>
-        <p class="my-2 text-red-500">NB: make these colours update on selection.</p>
         <div class="text-right pt-2">
             <button class="bg-slate-800 text-slate-200 hover:bg-slate-200 border-slate-800 border-2 hover:text-indigo-700 hover:border-indigo-700 hover:shadow-md rounded-lg px-2 py-1">Save descisions</button>
         </div>
