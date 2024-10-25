@@ -19,9 +19,9 @@ export class GlobalControlsComponent {
   route: ActivatedRoute = inject(ActivatedRoute);
   globalChangesService = inject(GlobalChangesService);
   globalChangesForm = new FormGroup({
-    globalSeminaturalChange: new FormControl(''),
-    globalAgriculturalChange: new FormControl(''),
-    globalUrbanChange: new FormControl(''),
+    globalSeminatural: new FormControl(''),
+    globalAgricultural: new FormControl(''),
+    globalUrban: new FormControl(''),
   });
 
   seminaturalClasses = 'bg-lime-700 text-lime-300 border-lime-700 hover:bg-lime-300';
@@ -32,45 +32,36 @@ export class GlobalControlsComponent {
   selectedAgriculturalClasses = this.agriculturalClasses;
   selectedUrbanClasses = this.urbanClasses;
 
-  onSelected(value:string, id:string): void {
-    console.log(id, value);
-		if(value == 'semi-nat'){
-      if(id == 'globalSeminatural'){
-        this.selectedSeminaturalClasses = this.seminaturalClasses;
-      } else if(id == 'globalAgricultural'){
-        this.selectedAgriculturalClasses = this.seminaturalClasses;
-      } else if(id == 'globalUrban'){
-        this.selectedUrbanClasses = this.seminaturalClasses;
-      }
-    } else if(value == 'agri'){
-      if(id == 'globalSeminatural'){
-        this.selectedSeminaturalClasses = this.agriculturalClasses;
-      } else if(id == 'globalAgricultural'){
-        this.selectedAgriculturalClasses = this.agriculturalClasses;
-      } else if(id == 'globalUrban'){
-        this.selectedUrbanClasses = this.agriculturalClasses;
-      }
-    } else if(value == 'urban'){
-      if(id == 'globalSeminatural'){
-        this.selectedSeminaturalClasses = this.urbanClasses;
-      } else if(id == 'globalAgricultural'){
-        this.selectedAgriculturalClasses = this.urbanClasses;
-      } else if(id == 'globalUrban'){
-        this.selectedUrbanClasses = this.urbanClasses;
-      }
-    } else {
-      console.log('onSelected: no change registered.')
+  updateGlobalControlClasses(id:string, classes:string): void {
+    console.log('triggered updateGlobalControlClasses');
+    if(id == 'globalSeminatural'){
+      this.selectedSeminaturalClasses = classes;
+    } else if(id == 'globalAgricultural'){
+      this.selectedAgriculturalClasses = classes;
+    } else if(id == 'globalUrban'){
+      this.selectedUrbanClasses = classes;
     }
-	}
+  }
 
-  
+  onSelectedGlobalControl(value:string, id:string): void {
+    console.log('triggered onSelectedGlobalControl', id, value);
+		if(value == 'semi-nat'){
+      this.updateGlobalControlClasses(id, this.seminaturalClasses);
+    } else if(value == 'agri'){
+      this.updateGlobalControlClasses(id, this.agriculturalClasses);
+    } else if(value == 'urban'){
+      this.updateGlobalControlClasses(id, this.urbanClasses);
+    }
+    let button = <HTMLButtonElement>document.getElementById('buttonSubmitGlobalChanges');
+    button.disabled = false;
+	}
   constructor() {
   }
   submitGlobalChanges() {
     this.globalChangesService.submitGlobalChanges(
-      this.globalChangesForm.value.globalSeminaturalChange ?? '',
-      this.globalChangesForm.value.globalAgriculturalChange ?? '',
-      this.globalChangesForm.value.globalUrbanChange ?? '',
+      this.globalChangesForm.value.globalSeminatural ?? '',
+      this.globalChangesForm.value.globalAgricultural ?? '',
+      this.globalChangesForm.value.globalUrban ?? '',
     );
   }  
 }

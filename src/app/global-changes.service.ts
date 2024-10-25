@@ -19,9 +19,9 @@ export class GlobalChangesService {
     return (await data.json()) ?? {};
   }
   constructor() { }
-  submitGlobalChanges(globalSeminaturalChange: string, globalAgriculturalChange: string, globalUrbanChange: string) {
+  submitGlobalChanges(globalSeminatural: string, globalAgricultural: string, globalUrban: string) {
     console.log(
-      `Global descisions made: Semi-natural land will become: ${globalSeminaturalChange}, Agricultural land will become: ${globalAgriculturalChange}, Urban land will become: ${globalUrbanChange}.`,
+      `Global descisions made: Semi-natural land will become: ${globalSeminatural}, Agricultural land will become: ${globalAgricultural}, Urban land will become: ${globalUrban}.`,
     );
     const global_controls = document.getElementById("global_controls");
     

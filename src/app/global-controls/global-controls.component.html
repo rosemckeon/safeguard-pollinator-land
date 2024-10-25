@@ -1,33 +1,33 @@
 <div class="global-controls">
     <p class="mb-2"><strong>You can make global descisions to change all habitats of a particular type.</strong></p>
     <p class="mb-2">So, when you advance time, these habitats <ng-icon name="heroArrowTurnRightDown"></ng-icon></p>
-        <ul class="list-none content-stretch grid grid-cols-3 gap-0 shadow-md text-center">
-            <li class="h-full p-1 py-5 rounded-l flex items-center justify-center align-text-middle bg-lime-700 text-lime-200">Semi-natural</li>
-            <li class="h-full p-1 py-5 flex items-center justify-center align-text-middle bg-amber-500 text-amber-950">Agricultural</li>
-            <li class="h-full p-1 py-5 rounded-r flex items-center justify-center align-text-middle bg-stone-500 text-stone-200">Urban</li>
-        </ul>
+    <ul class="list-none content-stretch grid grid-cols-3 gap-0 shadow-md text-center mb-2">
+        <li class="h-full p-1 py-5 rounded-l flex items-center justify-center align-text-middle bg-lime-700 text-lime-200">Semi-natural</li>
+        <li class="h-full p-1 py-5 flex items-center justify-center align-text-middle bg-amber-500 text-amber-950">Agricultural</li>
+        <li class="h-full p-1 py-5 rounded-r flex items-center justify-center align-text-middle bg-stone-500 text-stone-200">Urban</li>
+    </ul>   
     <p class="my-2">Will become <ng-icon name="heroArrowTurnRightDown"></ng-icon> (click to change)</p>
     <form [formGroup]="globalChangesForm" (submit)="submitGlobalChanges()">
         <div id="global_controls" class="list-none content-stretch grid grid-cols-3 gap-0 shadow-md text-slate-800 text-center">
-            <select #globalSeminatural id="globalSeminatural" (change)="onSelected(globalSeminatural.value, globalSeminatural.id)" formControlName="globalSeminaturalChange" class="{{ selectedSeminaturalClasses }} form-select bg-none h-full p-1 py-5 rounded-l flex items-center justify-center align-text-middle border-2 hover:border-indigo-700 hover:text-indigo-700 hover:cursor-pointer focus:border-indigo-700">
-                <option value="semi-nat" default selected class="text-center">Semi-natural</option>
+            <select #globalSeminatural id="globalSeminatural" name="globalSeminatural" (change)="onSelectedGlobalControl(globalSeminatural.value, globalSeminatural.id)" formControlName="globalSeminatural" class="{{ selectedSeminaturalClasses }} form-select bg-none h-full p-1 py-5 rounded-l flex items-center justify-center align-text-middle border-2 hover:border-indigo-700 hover:text-indigo-700 hover:cursor-pointer focus:border-indigo-700">
+                <option value="" class="text-center" disabled selected>Semi-natural</option>
                 <option value="agri" class="text-center">Agricultural</option>
                 <option value="urban" class="text-center">Urban</option>
             </select>
-            <select #globalAgricultural id="globalAgricultural" (change)="onSelected(globalAgricultural.value, globalAgricultural.id)" formControlName="globalAgriculturalChange" class="{{ selectedAgriculturalClasses }} form-select bg-none h-full p-1 py-5 flex items-center justify-center align-text-middle border-2 hover:border-indigo-700 hover:text-indigo-700 hover:cursor-pointer focus:border-indigo-700">
+            <select #globalAgricultural id="globalAgricultural" name="globalAgricultural" (change)="onSelectedGlobalControl(globalAgricultural.value, globalAgricultural.id)" formControlName="globalAgricultural" class="{{ selectedAgriculturalClasses }} form-select bg-none h-full p-1 py-5 flex items-center justify-center align-text-middle border-2 hover:border-indigo-700 hover:text-indigo-700 hover:cursor-pointer focus:border-indigo-700">
                 <option value="semi-nat" class="text-center">Semi-natural</option>
-                <option value="agri" default selected="selected" class="text-center">Agricultural</option>
+                <option value="" class="text-center" disabled selected>Agricultural</option>
                 <option value="urban" class="text-center">Urban</option>
             </select>
-            <select #globalUrban id="globalUrban" (change)="onSelected(globalUrban.value, globalUrban.id)" formControlName="globalUrbanChange" class="{{ selectedUrbanClasses }} form-select bg-none h-full p-1 py-5 rounded-r flex items-center justify-center align-text-middle border-2 hover:border-indigo-700 hover:text-indigo-700 hover:cursor-pointer focus:border-indigo-700">
+            <select #globalUrban id="globalUrban" name="globalUrban" (change)="onSelectedGlobalControl(globalUrban.value, globalUrban.id)" formControlName="globalUrban" class="{{ selectedUrbanClasses }} form-select bg-none h-full p-1 py-5 rounded-r flex items-center justify-center align-text-middle border-2 hover:border-indigo-700 hover:text-indigo-700 hover:cursor-pointer focus:border-indigo-700">
                 <option value="semi-nat" class="text-center">Semi-natural</option>
                 <option value="agri" class="text-center">Agricultural</option>
-                <option value="urban" default selected="selected" class="text-center">Urban</option>
-            </select>                
+                <option value="" class="text-center" disabled selected>Urban</option>
+            </select>
         </div>
         <div class="text-right pt-2">
-            <button class="bg-slate-800 text-slate-200 hover:bg-slate-200 border-slate-800 border-2 hover:text-indigo-700 hover:border-indigo-700 hover:shadow-md rounded-lg px-2 py-1">Save descisions</button>
+            <button id="buttonSubmitGlobalChanges" disabled class="disabled:opacity-25 bg-slate-800 text-slate-200 enabled:hover:bg-slate-200 border-slate-800 border-2 enabled:hover:text-indigo-700 enabled:hover:border-indigo-700 enabled:hover:shadow-md enabled:hover:cursor-pointer rounded-lg px-2 py-1">Save descisions</button>
         </div>
     </form>
-    <p class="my-5">You can also select habitat cells on the map (<ng-icon name="heroArrowLongLeft"></ng-icon>) and <strong>locally overide your global descisions</strong>.</p>
+    <p class="my-10">You can also select habitat cells on the map (<ng-icon name="heroArrowLongLeft"></ng-icon>) and <strong>locally overide your global descisions</strong>.</p>
 </div>
