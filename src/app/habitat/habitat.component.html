@@ -1,12 +1,13 @@
-<div id="id_{{ habitat.id }}" class="h-full flex items-center justify-center p-5 text-slate-800 border-0 border-violet-700 {{ habitat.classes}}">
+<div id="habitat_{{ habitat.id }}" class="habitat {{ habitat.type.toLowerCase() }} h-full flex items-center justify-center p-5 hover:border-violet-700 border-2 hover:cursor-pointer">
     <div class="inline-block align-text-middle">
-      <h3>{{ habitat.id }}) {{ habitat.type }}</h3>
-        <ul class="habitat-stats">
-          <li>Coordinates: {{ habitat.x }}, {{ habitat.y }}</li>
-          <li>Pollinators: {{ habitat.pollinators }}</li>
-          <li>Pollinator health: {{ habitat.pollinatorHealth }}</li>
-          <li>Nesting: {{ habitat.nesting }}</li>
-          <li>Floral resources: {{ habitat.floralResources }}</li>
-        </ul>
-    </div>
+      <h3 class="text-center">{{ habitat.id }}) {{ habitat.type }}</h3>
+      <ul id="habitatStats_{{ habitat.id}}" class="hidden">
+        <li>Coordinates: {{ habitat.x }}, {{ habitat.y }}</li>
+        <li>Pollinators: {{ habitat.pollinators }}</li>
+        <li>Pollinator health: {{ habitat.pollinatorHealth }}</li>
+        <li>Nesting: {{ habitat.nesting }}</li>
+        <li>Floral resources: {{ habitat.floralResources }}</li>
+      </ul>
+    <div id="habitatChange_{{habitat.id}}" class="habitat-change {{ habitat.globalChangeTypeTo.toLowerCase() }} text-center inline-block size-24 m-5"><span class="text-sm">{{ habitat.globalChangeTypeTo }}</span></div>
+  </div>
 </div>

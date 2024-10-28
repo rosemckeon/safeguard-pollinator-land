@@ -16,4 +16,45 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     h3 {
       @apply text-lg;
     }
+    .semi-natural {
+      @apply bg-lime-700;
+      @apply text-lime-200;
+    }
+    .agricultural {
+      @apply bg-amber-500;
+      @apply text-amber-950;
+    }
+    .urban {
+      @apply bg-stone-500;
+      @apply text-stone-200;
+    }
+    .habitat, 
+    #global_controls select {
+      &.semi-natural {
+        @apply border-lime-700;
+        @apply hover:bg-lime-300;
+      }
+      &.agricultural {
+        @apply border-amber-500;
+        @apply hover:bg-amber-300;
+      }
+      &.urban {
+        @apply border-stone-500;
+        @apply hover:bg-stone-300;
+      }
+      &:hover{
+        @apply border-indigo-700;
+        @apply text-indigo-700;
+        @apply cursor-pointer;
+      }
+      &:focus {
+        @apply border-indigo-700;
+      }
+      .habitat-change {
+          &.semi-natural, &.agricultural, &.urban {
+             @apply border-2;
+             @apply border-slate-800;
+          }
+      }
+  }
   }

@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { GlobalChangesService } from './global-changes.service';
+import { habitatService } from './habitat.service';
 
-describe('GlobalChangesService', () => {
-  let service: GlobalChangesService;
+describe('habitatService', () => {
+  let service: habitatService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(GlobalChangesService);
+    service = TestBed.inject(habitatService);
   });
 
   it('should be created', () => {
