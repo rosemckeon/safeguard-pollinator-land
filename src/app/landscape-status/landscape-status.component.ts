@@ -12,5 +12,4 @@ import { heroHandThumbUpSolid } from '@ng-icons/heroicons/solid';
   styleUrl: './landscape-status.component.scss'
 })
 export class LandscapeStatusComponent {
-
 }

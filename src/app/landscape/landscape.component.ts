@@ -1,7 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HabitatComponent } from '../habitat/habitat.component'
-import { Habitat } from '../habitat';
 import { HabitatService } from '../habitat.service';
 
 @Component({
@@ -13,12 +12,5 @@ import { HabitatService } from '../habitat.service';
 })
 export class LandscapeComponent {
   habitatService: HabitatService = inject(HabitatService);
-    
-  constructor() {
-    this.habitatService.getAllHabitats().then((habitatList: Habitat[]) => {
-      this.habitatService.habitatList = habitatList;
-      this.habitatService.habitatGlobalUpdateList = habitatList;
-      //this.habitatService.habitatLocalUpdateList = this.habitatService.habitatGlobalUpdateList;
-    });
-  }
+  constructor() {}
 }
