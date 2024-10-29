@@ -3,8 +3,12 @@
     <app-landscape />
   </section>
   <section class="controls h-full w-1/4 p-10">
+    <h1 class="mb-2">This game has three rounds:</h1>
+    <div class="grid grid-cols-4 gap-2 mb-5">
       <app-round-details  *ngFor="let round of roundService.roundList" [round]="round"></app-round-details>
-      <app-global-controls />
+    </div>
+    <!-- include landscape status for active round here -->
+    <app-global-controls />
       <div> <!-- wrapper for absolute/sticky positioning? -->
         <div class="flex gap-5">
           <div class="w-2/3">
