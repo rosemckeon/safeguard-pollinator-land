@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HabitatService } from '../habitat.service';
-import { Habitat } from '../habitat';
+import { RoundService } from '../round.service';
 import { LandscapeComponent } from '../landscape/landscape.component';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
@@ -20,6 +20,7 @@ import { ActivatedRoute } from '@angular/router';
 export class GlobalControlsComponent {
   route: ActivatedRoute = inject(ActivatedRoute);
   habitatService = inject(HabitatService);
+  roundService = inject(RoundService);
 
   globalChangesForm = new FormGroup({
     globalSeminatural: new FormControl(''),
@@ -65,6 +66,7 @@ export class GlobalControlsComponent {
 	}
 
   constructor() {
+    this.globalChangesForm.controls.globalSeminatural.disabled == true;
   }
 
   submitGlobalChanges() {

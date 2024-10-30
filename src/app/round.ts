@@ -2,8 +2,13 @@ import { Habitat } from "./habitat";
 
 export interface Round {
     id: number;
-    active: boolean;
+    disabled?: string;
     score: number;
     player?: string;
-    landscape: [Habitat];
+    landscape: Habitat[];
+    activeHabitatTypes?: {
+        "Semi-natural": number;
+        "Agricultural": number;
+        "Urban": number;
+    };
 }

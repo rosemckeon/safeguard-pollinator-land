@@ -2,7 +2,6 @@
   "rounds": [
     {
       "id": 0,
-      "active": true,
       "score": 0,
       "landscape": [
         {
@@ -229,24 +228,29 @@
             "x": 4,
             "y": 1
           }
-        ]
+        ],
+        "activeHabitatTypes": {
+          "Semi-natural": 9,
+          "Agricultural": 4,
+          "Urban": 3
+        }
       },
       {
         "id": 1,
-        "active": false,
         "score": 0,
+        "disabled": "disabled",
         "landscape": []
       },
       {
         "id": 2,
-        "active": false,
         "score": 0,
+        "disabled": "disabled",
         "landscape": []
       },
       {
         "id": 3,
-        "active": false,
         "score": 0,
+        "disabled": "disabled",
         "landscape": []
       }   
   ]

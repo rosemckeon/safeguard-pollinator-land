@@ -23,22 +23,68 @@ export class AppComponent {
   habitatService: HabitatService = inject(HabitatService);
   roundService: RoundService = inject(RoundService);
   title = 'game';
-  
+
+  resetGlobalControls(): void {
+    console.log('triggered resetGlobalControls from GlobalControlsComponent');
+    let activeHabitatTypes = this.roundService.roundList[this.roundService.activeRound].activeHabitatTypes;
+    // put these into a loop to be more concise
+    let globalSeminatural = <HTMLButtonElement>document.getElementById('globalSeminatural');
+    globalSeminatural.value = "";
+    //this.GlobalControlComponent.updateGlobalControlClasses(id, this.urbanClasses);
+    if(activeHabitatTypes?.['Semi-natural'] == 0){
+      globalSeminatural.disabled = true;
+    }
+
+    let globalAgricultural = <HTMLButtonElement>document.getElementById('globalAgricultural');
+    globalAgricultural.value = "";
+    if(activeHabitatTypes?.Agricultural == 0){
+      globalAgricultural.disabled = true;
+    }
+
+    let globalUrban = <HTMLButtonElement>document.getElementById('globalUrban');
+    globalSeminatural.value = "";
+    if(activeHabitatTypes?.Urban == 0){
+      globalUrban.disabled = true;
+    }
+  }
+
   constructor() {
     // Set the default loaded rounds
     // and apply the list of rounds/habitats to the constants defined as empty arrays in each service.
     this.roundService.getAllRounds().then(
-      (roundList: Round[]) => {
-        // could assign an active round here?
+      (roundList: Round[], activeRound = 0) => {
+        // game always loads on round zero
+        // may need a way to handle crashes later to load mid-game
+        //console.log('Active Round: ', this.roundService.activeRound);  
+        this.roundService.activeRound = activeRound;
+        console.log('Active Round: ', this.roundService.activeRound);  
         this.roundService.roundList = roundList;
         this.roundService.roundAdvancedUpdateList = roundList;
-        this.habitatService.habitatList = roundList[0].landscape;
-        this.habitatService.habitatGlobalUpdateList = roundList[0].landscape;
+        this.habitatService.habitatList = roundList[activeRound].landscape;
+        this.habitatService.habitatGlobalUpdateList = roundList[activeRound].landscape;
+        console.log('Active Habitat Types: ', roundList[activeRound].activeHabitatTypes);
       }
     );
   }
-  advanceTime() {
-    //console.log(this.landscapeService.getLandscape());
-    //this.landscapeService.advanceTime(this.landscape.currentRound, this.landscape.score);
+
+  // this function is actionable from the AppComponent template
+  advanceTime(from = this.roundService.activeRound) {
+    console.log('triggered advanceTime from AppComponent')
+    console.log('Next Round: ', from + 1);
+    // the fancy round specific stuff happens in the service function,
+    // but anything that aslo uses the habitat service happens here.
+    this.roundService.advanceTime(from + 1).then(
+      (roundList: Round[], previousRound = from, activeRound = this.roundService.activeRound) => {
+        this.roundService.roundList = this.roundService.updateDisabledRounds(roundList);
+        this.habitatService.applyGlobalHabitatChanges(this.habitatService.habitatGlobalUpdateList);
+        roundList[activeRound].landscape = this.habitatService.habitatList;
+        roundList[activeRound].activeHabitatTypes = this.habitatService.getActiveHabitatTypes(this.habitatService.habitatList);
+        console.log(roundList[activeRound]);
+        this.habitatService.habitatList = roundList[activeRound].landscape;
+        this.habitatService.habitatGlobalUpdateList = roundList[activeRound].landscape;
+        this.resetGlobalControls();
+      }
+    );
+    console.log('Active Round: ', this.roundService.activeRound);   
   }
 }

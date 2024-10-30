@@ -53,6 +53,41 @@ export class HabitatService {
     //return;
     //return (await data.json()) ?? [];
   }
+  applyGlobalHabitatChanges(habitats: Habitat[]){
+    //console.log(habitats);
+    // need to return updated habitat array and apply said array to this.habtaList and other default habitat lists ready for this rounds new changes.
+    for (var i = 0; i < habitats.length; i++) {
+      if(habitats[i].globalChangeTypeTo != ''){
+        habitats[i].type = habitats[i].globalChangeTypeTo;
+        habitats[i].globalChangeTypeTo = '';
+      }
+    }
+    this.habitatList = habitats;
+    this.habitatGlobalUpdateList = habitats;
+    return habitats;
+  }
+  getActiveHabitatTypes(habitats: Habitat[]){
+    // is there a better way to count things that doesn't use loops?
+    let N_seminatural = 0;
+    let N_agricultural = 0;
+    let N_urban = 0;
+    for (var i = 0; i < habitats.length; i++){
+      if(this.habitatGlobalUpdateList[i].type == 'Semi-natural'){
+        N_seminatural++;
+      }
+      else if(this.habitatGlobalUpdateList[i].type == 'Agricultural'){
+        N_agricultural++
+      }
+      else if(this.habitatGlobalUpdateList[i].type == 'Urban'){
+        N_urban++
+      }
+    }
+    return {
+      "Semi-natural": N_seminatural,
+      "Agricultural": N_agricultural,
+      "Urban": N_urban,
+    }
+  }
   constructor() {
   }
   submitGlobalChanges(globalSeminatural: string, globalAgricultural: string, globalUrban: string) {
