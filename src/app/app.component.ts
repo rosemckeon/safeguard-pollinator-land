@@ -24,6 +24,7 @@ export class AppComponent {
   roundService: RoundService = inject(RoundService);
   @ViewChild(GlobalControlsComponent) globalControlsComponent?: GlobalControlsComponent;
   title = 'game';
+  endRound = 3;
 
   resetGlobalControls(): void {
     console.log('triggered resetGlobalControls from AppComponent');
@@ -55,7 +56,9 @@ export class AppComponent {
         // may need a way to handle crashes later to load mid-game
         //console.log('Active Round: ', this.roundService.activeRound);  
         this.roundService.activeRound = activeRound;
-        console.log('Active Round: ', this.roundService.activeRound);  
+        this.endRound = roundList.length - 1;
+        console.log('Active Round: ', this.roundService.activeRound, 'Last Round: ', this.endRound);  
+        console.log(roundList);
         this.roundService.roundList = roundList;
         this.roundService.roundAdvancedUpdateList = roundList;
         this.habitatService.habitatList = roundList[activeRound].landscape;
@@ -80,7 +83,9 @@ export class AppComponent {
         console.log(roundList[activeRound]);
         this.habitatService.habitatList = roundList[activeRound].landscape;
         this.habitatService.habitatGlobalUpdateList = roundList[activeRound].landscape;
-        this.resetGlobalControls();
+        if(this.endRound != activeRound){
+          this.resetGlobalControls();
+        }
       }
     );
     console.log('Active Round: ', this.roundService.activeRound);   
