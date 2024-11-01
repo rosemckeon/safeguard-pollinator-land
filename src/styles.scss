@@ -19,27 +19,45 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     .semi-natural {
       @apply bg-lime-700;
       @apply text-lime-200;
+      @apply border-lime-700;
     }
     .agricultural {
       @apply bg-amber-500;
       @apply text-amber-950;
+      @apply border-amber-500;
     }
     .urban {
+      @apply border-stone-500;
       @apply bg-stone-500;
       @apply text-stone-200;
     }
-    .habitat, 
+    .habitat {
+      &.semi-natural {
+        @apply hover:bg-lime-300;
+      }
+      &.agricultural {
+        @apply hover:bg-amber-300;
+      }
+      &.urban {
+        @apply hover:bg-stone-300;
+      }
+      &:hover {
+        @apply border-indigo-700;
+        @apply text-indigo-700;
+        @apply cursor-pointer;
+      }
+      &:focus {
+        @apply border-indigo-700;
+      }
+    }
     #global_controls select {
       &.semi-natural {
-        @apply border-lime-700;
         @apply enabled:hover:bg-lime-300;
       }
       &.agricultural {
-        @apply border-amber-500;
         @apply enabled:hover:bg-amber-300;
       }
       &.urban {
-        @apply border-stone-500;
         @apply enabled:hover:bg-stone-300;
       }
       &:hover:not([disabled]){
