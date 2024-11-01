@@ -9,13 +9,14 @@ import { RoundDetailsComponent } from './round-details/round-details.component';
 import { GlobalControlsComponent } from './global-controls/global-controls.component';
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
 import { heroArrowRight } from '@ng-icons/heroicons/outline';
+import { heroArrowPath } from '@ng-icons/heroicons/outline';
 import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [RouterOutlet, LandscapeComponent, LandscapeStatusComponent, GlobalControlsComponent, NgIconComponent, CommonModule, RoundDetailsComponent],
-  providers: [provideIcons({ heroArrowRight })],
+  providers: [provideIcons({ heroArrowRight, heroArrowPath })],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
@@ -88,6 +89,9 @@ export class AppComponent {
         }
       }
     );
-    console.log('Active Round: ', this.roundService.activeRound);   
+    console.log('New Active Round: ', this.roundService.activeRound);
+  }
+  resetGame(){
+    console.log('triggered resetGame from AppComponent');
   }
 }

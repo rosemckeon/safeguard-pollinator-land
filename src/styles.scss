@@ -16,6 +16,15 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     h3 {
       @apply text-lg;
     }
+    .button {
+      @apply bg-indigo-700;
+      @apply text-slate-200;
+      @apply hover:bg-slate-200;
+      @apply border-indigo-700 border-2;
+      @apply hover:text-indigo-700;
+      @apply hover:shadow-md;
+      @apply rounded-lg
+    }
     .semi-natural {
       @apply bg-lime-700;
       @apply text-lime-200;
