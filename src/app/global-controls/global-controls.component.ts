@@ -64,7 +64,6 @@ export class GlobalControlsComponent {
     checkCircle?.setAttribute('class', 'invisible');
     button.disabled = false;
 	}
-
   constructor() {
     this.globalChangesForm.controls.globalSeminatural.disabled == true;
   }

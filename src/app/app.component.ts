@@ -24,30 +24,6 @@ export class AppComponent {
   roundService: RoundService = inject(RoundService);
   title = 'game';
 
-  resetGlobalControls(): void {
-    console.log('triggered resetGlobalControls from GlobalControlsComponent');
-    let activeHabitatTypes = this.roundService.roundList[this.roundService.activeRound].activeHabitatTypes;
-    // put these into a loop to be more concise
-    let globalSeminatural = <HTMLButtonElement>document.getElementById('globalSeminatural');
-    globalSeminatural.value = "";
-    //this.GlobalControlComponent.updateGlobalControlClasses(id, this.urbanClasses);
-    if(activeHabitatTypes?.['Semi-natural'] == 0){
-      globalSeminatural.disabled = true;
-    }
-
-    let globalAgricultural = <HTMLButtonElement>document.getElementById('globalAgricultural');
-    globalAgricultural.value = "";
-    if(activeHabitatTypes?.Agricultural == 0){
-      globalAgricultural.disabled = true;
-    }
-
-    let globalUrban = <HTMLButtonElement>document.getElementById('globalUrban');
-    globalSeminatural.value = "";
-    if(activeHabitatTypes?.Urban == 0){
-      globalUrban.disabled = true;
-    }
-  }
-
   constructor() {
     // Set the default loaded rounds
     // and apply the list of rounds/habitats to the constants defined as empty arrays in each service.
@@ -82,7 +58,7 @@ export class AppComponent {
         console.log(roundList[activeRound]);
         this.habitatService.habitatList = roundList[activeRound].landscape;
         this.habitatService.habitatGlobalUpdateList = roundList[activeRound].landscape;
-        this.resetGlobalControls();
+        this.roundService.resetGlobalControls();
       }
     );
     console.log('Active Round: ', this.roundService.activeRound);   

@@ -88,6 +88,7 @@ export class HabitatService {
       "Urban": N_urban,
     }
   }
+  
   constructor() {
   }
   submitGlobalChanges(globalSeminatural: string, globalAgricultural: string, globalUrban: string) {
