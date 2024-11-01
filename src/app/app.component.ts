@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, ViewChild } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { HabitatService } from './habitat.service';
 import { RoundService } from './round.service';
@@ -22,7 +22,29 @@ import { CommonModule } from '@angular/common';
 export class AppComponent {
   habitatService: HabitatService = inject(HabitatService);
   roundService: RoundService = inject(RoundService);
+  @ViewChild(GlobalControlsComponent) globalControlsComponent?: GlobalControlsComponent;
   title = 'game';
+
+  resetGlobalControls(): void {
+    console.log('triggered resetGlobalControls from AppComponent');
+    let activeHabitatTypes = this.roundService.roundList[this.roundService.activeRound].activeHabitatTypes;
+    console.log(activeHabitatTypes);
+    // put these into a loop to be more concise? Bit tricky 
+    let globalSeminatural = <HTMLButtonElement>document.getElementById('globalSeminatural');
+    globalSeminatural.value = "";
+    this.globalControlsComponent?.updateGlobalControlClasses('globalSeminatural', this.globalControlsComponent?.seminaturalClasses);
+    if(activeHabitatTypes?.['Semi-natural'] == 0){ globalSeminatural.disabled = true; } else { globalSeminatural.disabled = false; }
+
+    let globalAgricultural = <HTMLButtonElement>document.getElementById('globalAgricultural');
+    globalAgricultural.value = "";
+    this.globalControlsComponent?.updateGlobalControlClasses('globalAgricultural', this.globalControlsComponent?.agriculturalClasses);
+    if(activeHabitatTypes?.Agricultural == 0){ globalAgricultural.disabled = true; } else { globalAgricultural.disabled = false; }
+
+    let globalUrban = <HTMLButtonElement>document.getElementById('globalUrban');
+    globalUrban.value = "";
+    this.globalControlsComponent?.updateGlobalControlClasses('globalUrban', this.globalControlsComponent?.urbanClasses);
+    if(activeHabitatTypes?.Urban == 0){ globalUrban.disabled = true; } else { globalUrban.disabled = false; }
+  }
 
   constructor() {
     // Set the default loaded rounds
@@ -58,7 +80,7 @@ export class AppComponent {
         console.log(roundList[activeRound]);
         this.habitatService.habitatList = roundList[activeRound].landscape;
         this.habitatService.habitatGlobalUpdateList = roundList[activeRound].landscape;
-        this.roundService.resetGlobalControls();
+        this.resetGlobalControls();
       }
     );
     console.log('Active Round: ', this.roundService.activeRound);   

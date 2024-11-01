@@ -28,9 +28,6 @@ export class GlobalControlsComponent {
     globalUrban: new FormControl(''),
   });
 
-  //seminaturalClasses = 'bg-lime-700 text-lime-700 border-lime-700 hover:bg-lime-300';
-  //agriculturalClasses = 'bg-amber-500 text-amber-950 border-amber-500 hover:bg-amber-300';
-  //urbanClasses = 'text-stone-200 bg-stone-500 border-stone-500 hover:bg-stone-300';
   seminaturalClasses = 'semi-natural';
   agriculturalClasses = 'agricultural';
   urbanClasses = 'urban';

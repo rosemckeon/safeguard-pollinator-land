@@ -32,17 +32,17 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     #global_controls select {
       &.semi-natural {
         @apply border-lime-700;
-        @apply hover:bg-lime-300;
+        @apply enabled:hover:bg-lime-300;
       }
       &.agricultural {
         @apply border-amber-500;
-        @apply hover:bg-amber-300;
+        @apply enabled:hover:bg-amber-300;
       }
       &.urban {
         @apply border-stone-500;
-        @apply hover:bg-stone-300;
+        @apply enabled:hover:bg-stone-300;
       }
-      &:hover{
+      &:hover:not([disabled]){
         @apply border-indigo-700;
         @apply text-indigo-700;
         @apply cursor-pointer;
