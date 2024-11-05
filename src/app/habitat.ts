@@ -3,7 +3,7 @@ export interface Habitat {
     type: string;
     globalChangeTypeTo: string;
     localChangeTypeTo: string;
-    score: number;
+    score?: number;
     nesting: number;
     floralResources: number;
     actionsActive: boolean;

@@ -8,7 +8,7 @@
       <app-round-details  *ngFor="let round of roundService.roundList" [round]="round"></app-round-details>
     </div>
     <!-- include landscape status for active round here -->
-    @if(endRound != roundService.activeRound){
+    @if(roundService.endRound != roundService.activeRound){
     <app-global-controls />
       <div> <!-- wrapper for absolute/sticky positioning? -->
         <div class="flex gap-5">
