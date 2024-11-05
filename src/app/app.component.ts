@@ -2,20 +2,20 @@ import { Component, inject, ViewChild } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { HabitatService } from './habitat.service';
 import { RoundService } from './round.service';
-import { Round } from './round';
 import { LandscapeComponent } from './landscape/landscape.component';
 import { LandscapeStatusComponent } from './landscape-status/landscape-status.component';
 import { RoundDetailsComponent } from './round-details/round-details.component';
 import { GlobalControlsComponent } from './global-controls/global-controls.component';
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
 import { heroArrowRight } from '@ng-icons/heroicons/outline';
+import { heroArrowPath } from '@ng-icons/heroicons/outline';
 import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [RouterOutlet, LandscapeComponent, LandscapeStatusComponent, GlobalControlsComponent, NgIconComponent, CommonModule, RoundDetailsComponent],
-  providers: [provideIcons({ heroArrowRight })],
+  providers: [provideIcons({ heroArrowRight, heroArrowPath })],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
@@ -23,8 +23,8 @@ export class AppComponent {
   habitatService: HabitatService = inject(HabitatService);
   roundService: RoundService = inject(RoundService);
   @ViewChild(GlobalControlsComponent) globalControlsComponent?: GlobalControlsComponent;
+  @ViewChild(LandscapeComponent) landscapeComponent?: LandscapeComponent;
   title = 'game';
-  endRound = 3;
 
   resetGlobalControls(): void {
     console.log('triggered resetGlobalControls from AppComponent');
@@ -48,46 +48,19 @@ export class AppComponent {
   }
 
   constructor() {
-    // Set the default loaded rounds
-    // and apply the list of rounds/habitats to the constants defined as empty arrays in each service.
-    this.roundService.getAllRounds().then(
-      (roundList: Round[], activeRound = 0) => {
-        // game always loads on round zero
-        // may need a way to handle crashes later to load mid-game
-        //console.log('Active Round: ', this.roundService.activeRound);  
-        this.roundService.activeRound = activeRound;
-        this.endRound = roundList.length - 1;
-        console.log('Active Round: ', this.roundService.activeRound, 'Last Round: ', this.endRound);  
-        console.log(roundList);
-        this.roundService.roundList = roundList;
-        this.roundService.roundAdvancedUpdateList = roundList;
-        this.habitatService.habitatList = roundList[activeRound].landscape;
-        this.habitatService.habitatGlobalUpdateList = roundList[activeRound].landscape;
-        console.log('Active Habitat Types: ', roundList[activeRound].activeHabitatTypes);
-      }
-    );
+    //makes sure scenario is never undefined.
+    this.roundService.scenario = 'A';
   }
 
   // this function is actionable from the AppComponent template
   advanceTime(from = this.roundService.activeRound) {
-    console.log('triggered advanceTime from AppComponent')
-    console.log('Next Round: ', from + 1);
-    // the fancy round specific stuff happens in the service function,
-    // but anything that aslo uses the habitat service happens here.
-    this.roundService.advanceTime(from + 1).then(
-      (roundList: Round[], previousRound = from, activeRound = this.roundService.activeRound) => {
-        this.roundService.roundList = this.roundService.updateDisabledRounds(roundList);
-        this.habitatService.applyGlobalHabitatChanges(this.habitatService.habitatGlobalUpdateList);
-        roundList[activeRound].landscape = this.habitatService.habitatList;
-        roundList[activeRound].activeHabitatTypes = this.habitatService.getActiveHabitatTypes(this.habitatService.habitatList);
-        console.log(roundList[activeRound]);
-        this.habitatService.habitatList = roundList[activeRound].landscape;
-        this.habitatService.habitatGlobalUpdateList = roundList[activeRound].landscape;
-        if(this.endRound != activeRound){
-          this.resetGlobalControls();
-        }
-      }
-    );
-    console.log('Active Round: ', this.roundService.activeRound);   
+    console.log('triggered advanceTime from AppComponent');
+    console.log("Scenario in AppComponent advanceTime", this.roundService.scenario);
+    this.roundService.advanceTime(from + 1);
+    if(this.roundService.endRound != this.roundService.activeRound){
+      this.resetGlobalControls();
+    } else {
+      // save the complete round json file.
+    }
   }
 }
