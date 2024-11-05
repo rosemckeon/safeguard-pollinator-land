@@ -6,16 +6,16 @@ import { LandscapeComponent } from './landscape/landscape.component';
 import { LandscapeStatusComponent } from './landscape-status/landscape-status.component';
 import { RoundDetailsComponent } from './round-details/round-details.component';
 import { GlobalControlsComponent } from './global-controls/global-controls.component';
+import { GlobalResponsesComponent } from './global-responses/global-responses.component';
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
-import { heroArrowRight } from '@ng-icons/heroicons/outline';
-import { heroArrowPath } from '@ng-icons/heroicons/outline';
+import { heroArrowRight, heroArrowLongLeft, heroArrowPath} from '@ng-icons/heroicons/outline';
 import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, LandscapeComponent, LandscapeStatusComponent, GlobalControlsComponent, NgIconComponent, CommonModule, RoundDetailsComponent],
-  providers: [provideIcons({ heroArrowRight, heroArrowPath })],
+  imports: [RouterOutlet, LandscapeComponent, LandscapeStatusComponent, GlobalControlsComponent, GlobalResponsesComponent, NgIconComponent, CommonModule, RoundDetailsComponent],
+  providers: [provideIcons({ heroArrowRight, heroArrowLongLeft, heroArrowPath })],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
@@ -23,6 +23,7 @@ export class AppComponent {
   habitatService: HabitatService = inject(HabitatService);
   roundService: RoundService = inject(RoundService);
   @ViewChild(GlobalControlsComponent) globalControlsComponent?: GlobalControlsComponent;
+  @ViewChild(GlobalResponsesComponent) globalResponsesComponent?: GlobalResponsesComponent;
   @ViewChild(LandscapeComponent) landscapeComponent?: LandscapeComponent;
   title = 'game';
 
