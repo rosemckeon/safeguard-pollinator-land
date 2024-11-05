@@ -1,7 +1,8 @@
-import { Component, inject, ViewChild } from '@angular/core';
+import { Component, inject, ViewChild, OnInit} from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { HabitatService } from './habitat.service';
 import { RoundService } from './round.service';
+import { FlowbiteService } from './flowbite.service';
 import { LandscapeComponent } from './landscape/landscape.component';
 import { LandscapeStatusComponent } from './landscape-status/landscape-status.component';
 import { RoundDetailsComponent } from './round-details/round-details.component';
@@ -19,7 +20,7 @@ import { CommonModule } from '@angular/common';
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   habitatService: HabitatService = inject(HabitatService);
   roundService: RoundService = inject(RoundService);
   @ViewChild(GlobalControlsComponent) globalControlsComponent?: GlobalControlsComponent;
@@ -48,11 +49,17 @@ export class AppComponent {
     if(activeHabitatTypes?.Urban == 0){ globalUrban.disabled = true; } else { globalUrban.disabled = false; }
   }
 
-  constructor() {
+  constructor(private flowbiteService: FlowbiteService) {
     //makes sure scenario is never undefined.
     this.roundService.scenario = 'A';
   }
 
+  ngOnInit(): void {
+    this.flowbiteService.loadFlowbite(flowbite => {
+      // Your custom code here
+      console.log('Flowbite loaded', flowbite);
+    });
+  }
   // this function is actionable from the AppComponent template
   advanceTime(from = this.roundService.activeRound) {
     console.log('triggered advanceTime from AppComponent');
