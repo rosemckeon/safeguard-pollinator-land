@@ -14,6 +14,7 @@ export class RoundService {
   //roundListA:Round[] = RoundListA;
   //roundListB:Round[] = RoundListB;
   habitatService: HabitatService = inject(HabitatService);
+  scenario?: string;
   roundList:Round[] = [];
   activeRound!: number;
   endRound!: number;
@@ -21,6 +22,7 @@ export class RoundService {
   async getStartingScenario(value: string) {
     console.log("triggered getStartingScenario from RoundService");
     console.log('Scenario: ', value);
+    this.scenario = value;
     if(value == "A"){
       this.roundList = RoundListA;
     } else {

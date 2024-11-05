@@ -23,6 +23,7 @@ export class AppComponent {
   habitatService: HabitatService = inject(HabitatService);
   roundService: RoundService = inject(RoundService);
   @ViewChild(GlobalControlsComponent) globalControlsComponent?: GlobalControlsComponent;
+  @ViewChild(LandscapeComponent) landscapeComponent?: LandscapeComponent;
   title = 'game';
 
   resetGlobalControls(): void {
@@ -47,19 +48,19 @@ export class AppComponent {
   }
 
   constructor() {
-    // Set the default loaded rounds
-    this.roundService.getStartingScenario("A");
+    //makes sure scenario is never undefined.
+    this.roundService.scenario = 'A';
   }
 
   // this function is actionable from the AppComponent template
   advanceTime(from = this.roundService.activeRound) {
-    console.log('triggered advanceTime from AppComponent')
+    console.log('triggered advanceTime from AppComponent');
+    console.log("Scenario in AppComponent advanceTime", this.roundService.scenario);
     this.roundService.advanceTime(from + 1);
     if(this.roundService.endRound != this.roundService.activeRound){
       this.resetGlobalControls();
+    } else {
+      // save the complete round json file.
     }
-  }
-  resetGame(){
-    console.log('triggered resetGame from AppComponent');
   }
 }
