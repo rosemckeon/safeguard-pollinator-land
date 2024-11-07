@@ -5,26 +5,28 @@ import { Habitat } from './habitat';
   providedIn: 'root'
 })
 export class HabitatService {
-  //url = 'http://localhost:3000/habitats';
-  //url = 'http://localhost:3000/rounds?id=0';
   habitatList: Habitat[] = [];
-  //habitatGlobalUpdateList: Habitat[] = [];
-  //habitatLocalUpdateList: Habitat[] = [];
 
-  //These functions use asynchronous code to make a GET request over HTTP using fetch. 
-  //For more advanced use cases consider using HttpClient provided by Angular.
-  //async getAllHabitats(): Promise<Habitat[]> {
-  //  const data = await fetch(this.url);
-  //  return (await data.json()) ?? [];
-  //}
-  //async getHabitatById(id: number): Promise<Habitat | undefined> {
-  //  const data = await fetch(`${this.url}/${id}`);
-  //  return (await data.json()) ?? {};
-  //}
-  //async getHabitatByType(type: string): Promise<Habitat | undefined> {
-  //  const data = await fetch(`${this.url}/${type}`);
-  //  return (await data.json()) ?? {};
-  //}
+  setGlobalResponseChange(habitatType: string, responseType: string, value: boolean){
+    console.log('Triggered setGlobalResponseChange: ', habitatType, responseType, value);
+    // loop through habitats
+    for (var i = 0; i < this.habitatList.length; i++) {
+      // to match habitatType
+      if(this.habitatList[i].type.active == habitatType){
+        // loop through responses
+        for (var r = 0; r < this.habitatList[i].response!.length; r++){
+          // to match responseType
+          if(this.habitatList[i].response![r].type == responseType){
+            // update response
+            console.log('Updating response on habitat: ', this.habitatList[i].id);
+            this.habitatList[i].response![r].globalChange = value;
+            console.log(this.habitatList[i].response![r]);
+          }
+        }
+        //console.log(this.habitatList[i])
+      }
+    }
+  }
 
   makeGlobalHabitatChanges(globalSeminatural: string, globalAgricultural: string, globalUrban: string) {
     console.log('triggered makeGlobalHabitatChanges');

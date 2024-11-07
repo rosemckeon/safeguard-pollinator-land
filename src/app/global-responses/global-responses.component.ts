@@ -36,7 +36,7 @@ export class GlobalResponsesComponent implements OnInit {
     globalUrbanRestoration: new FormControl(''),
     globalUrbanIPM: new FormControl(''),
   });
-
+  
   isGlobalSeminaturalRestorationChecked: boolean = false;
   isGlobalAgriculturalRestorationChecked: boolean = false;
   isGlobalAgriculturalFarmingSysChecked: boolean = false;
@@ -44,11 +44,13 @@ export class GlobalResponsesComponent implements OnInit {
   isGlobalUrbanRestorationChecked: boolean = false;
   isGlobalUrbanIPMChecked: boolean = false;
 
-  toggleEvents: string[] = [];
+  //toggleEvents: string[] = [];
 
+  /*
   alertFormValues(globalResponsesForm: FormGroup) {
     alert(JSON.stringify(globalResponsesForm.value, null, 2));
   }
+  */
 
   onGlobalResponseChange(value:string, id:string): void {
     console.log('triggered onGlobalResponseChange from GlobalResponsesComponent', id, value);
@@ -74,9 +76,36 @@ export class GlobalResponsesComponent implements OnInit {
   ngOnInit(): void {}
 
   toggleChanges($event: MatSlideToggleChange) {
-    //console.log($event);
+    console.log('Triggered toggleChanges from GlobalResponsesComponent')
     console.log($event.source.ariaLabel, $event.checked);
-    //this.isSlideChecked = $event.checked;
+    switch($event.source.ariaLabel){
+      case('globalSeminaturalRestoration'):
+        this.habitatService.setGlobalResponseChange('Semi-natural', 'restoration', $event.checked);
+        this.isGlobalSeminaturalRestorationChecked = $event.checked;
+        break;
+      case('globalAgriculturalRestoration'):
+        this.habitatService.setGlobalResponseChange('Agricultural', 'restoration', $event.checked);
+        this.isGlobalAgriculturalRestorationChecked = $event.checked;
+        break;
+      case('globalUrbanRestoration'):
+        this.habitatService.setGlobalResponseChange('Urban', 'restoration', $event.checked);
+        this.isGlobalUrbanRestorationChecked = $event.checked;
+        break;
+      case('globalAgriculturalIPM'):
+        this.habitatService.setGlobalResponseChange('Agricultural', 'IPM', $event.checked);
+        this.isGlobalAgriculturalIPMChecked = $event.checked;
+        break;
+      case('globalUrbanIPM'):
+        this.habitatService.setGlobalResponseChange('Urban', 'IPM', $event.checked);
+        this.isGlobalUrbanIPMChecked = $event.checked;
+        break;
+      case('globalAgriculturalFarmingSys'):
+        this.habitatService.setGlobalResponseChange('Agricultural', 'FarmingSys', $event.checked);
+        this.isGlobalAgriculturalFarmingSysChecked = $event.checked;
+        break;
+      default:
+        console.log('Warning: change triggered but no target found.')
+    }
   }
 
   submitGlobalResponses(globalResponsesForm: FormGroup){

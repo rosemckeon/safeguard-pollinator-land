@@ -9,7 +9,24 @@
               "K": 100,
               "type": {
                 "active": "Agricultural"
-              }
+              },
+              "response": [
+                {
+                  "id": 0,
+                  "type": "restoration",
+                  "enabled": false
+                },
+                {
+                  "id": 0,
+                  "type": "IPM",
+                  "enabled": false
+                },
+                {
+                  "id": 0,
+                  "type": "farmingSys",
+                  "enabled": false
+                }
+              ]
             },
             {
                 "id": 2,
@@ -18,7 +35,24 @@
                 "K": 100,
                 "type": {
                   "active": "Agricultural"
-                }
+                },
+                "response": [
+                  {
+                    "id": 0,
+                    "type": "restoration",
+                    "enabled": false
+                  },
+                  {
+                    "id": 0,
+                    "type": "IPM",
+                    "enabled": false
+                  },
+                  {
+                    "id": 0,
+                    "type": "farmingSys",
+                    "enabled": false
+                  }
+                ]
               },
               {
                 "id": 3,
@@ -27,7 +61,19 @@
                 "K": 100,
                 "type": {
                   "active": "Urban"
-                }
+                },
+                "response": [
+                  {
+                    "id": 0,
+                    "type": "restoration",
+                    "enabled": false
+                  },
+                  {
+                    "id": 0,
+                    "type": "IPM",
+                    "enabled": false
+                  }
+                ]
               },
             {
                 "id": 4,
@@ -36,7 +82,19 @@
                 "K": 100,
                 "type": {
                   "active": "Urban"
-                }
+                },
+                "response": [
+                  {
+                    "id": 0,
+                    "type": "restoration",
+                    "enabled": false
+                  },
+                  {
+                    "id": 0,
+                    "type": "IPM",
+                    "enabled": false
+                  }
+                ]
               },
             {
               "id": 5,
@@ -45,7 +103,24 @@
               "K": 100,
               "type": {
                 "active": "Agricultural"
-              }
+              },
+              "response": [
+                {
+                  "id": 0,
+                  "type": "restoration",
+                  "enabled": false
+                },
+                {
+                  "id": 0,
+                  "type": "IPM",
+                  "enabled": false
+                },
+                {
+                  "id": 0,
+                  "type": "farmingSys",
+                  "enabled": false
+                }
+              ]
             },
             {
                 "id": 6,
@@ -54,7 +129,24 @@
                 "K": 100,
                 "type": {
                   "active": "Agricultural"
-                }
+                },
+                "response": [
+                  {
+                    "id": 0,
+                    "type": "restoration",
+                    "enabled": false
+                  },
+                  {
+                    "id": 0,
+                    "type": "IPM",
+                    "enabled": false
+                  },
+                  {
+                    "id": 0,
+                    "type": "farmingSys",
+                    "enabled": false
+                  }
+                ]
               },
               {
                 "id": 7,
@@ -63,7 +155,19 @@
                 "K": 100,
                 "type": {
                   "active": "Urban"
-                }
+                },
+                "response": [
+                  {
+                    "id": 0,
+                    "type": "restoration",
+                    "enabled": false
+                  },
+                  {
+                    "id": 0,
+                    "type": "IPM",
+                    "enabled": false
+                  }
+                ]
               },
             {
                 "id": 8,
@@ -72,7 +176,19 @@
                 "K": 100,
                 "type": {
                   "active": "Urban"
-                }
+                },
+                "response": [
+                  {
+                    "id": 0,
+                    "type": "restoration",
+                    "enabled": false
+                  },
+                  {
+                    "id": 0,
+                    "type": "IPM",
+                    "enabled": false
+                  }
+                ]
               },
             {
               "id": 9,
@@ -81,7 +197,24 @@
               "K": 100,
               "type": {
                 "active": "Agricultural"
-              }
+              },
+              "response": [
+                {
+                  "id": 0,
+                  "type": "restoration",
+                  "enabled": false
+                },
+                {
+                  "id": 0,
+                  "type": "IPM",
+                  "enabled": false
+                },
+                {
+                  "id": 0,
+                  "type": "farmingSys",
+                  "enabled": false
+                }
+              ]
             },
             {
               "id": 10,
@@ -90,7 +223,19 @@
               "K": 100,
               "type": {
                 "active": "Urban"
-              }
+              },
+              "response": [
+                {
+                  "id": 0,
+                  "type": "restoration",
+                  "enabled": false
+                },
+                {
+                  "id": 0,
+                  "type": "IPM",
+                  "enabled": false
+                }
+              ]
             },
             {
                 "id": 11,
@@ -99,7 +244,24 @@
                 "K": 100,
                 "type": {
                   "active": "Agricultural"
-                }
+                },
+                "response": [
+                  {
+                    "id": 0,
+                    "type": "restoration",
+                    "enabled": false
+                  },
+                  {
+                    "id": 0,
+                    "type": "IPM",
+                    "enabled": false
+                  },
+                  {
+                    "id": 0,
+                    "type": "farmingSys",
+                    "enabled": false
+                  }
+                ]
               },
               {
                 "id": 12,
@@ -108,7 +270,24 @@
                 "K": 100,
                 "type": {
                   "active": "Agricultural"
-                }
+                },
+                "response": [
+                  {
+                    "id": 0,
+                    "type": "restoration",
+                    "enabled": false
+                  },
+                  {
+                    "id": 0,
+                    "type": "IPM",
+                    "enabled": false
+                  },
+                  {
+                    "id": 0,
+                    "type": "farmingSys",
+                    "enabled": false
+                  }
+                ]
               },
             {
               "id": 13,
@@ -117,7 +296,24 @@
               "K": 100,
               "type": {
                 "active": "Agricultural"
-              }
+              },
+              "response": [
+                {
+                  "id": 0,
+                  "type": "restoration",
+                  "enabled": false
+                },
+                {
+                  "id": 0,
+                  "type": "IPM",
+                  "enabled": false
+                },
+                {
+                  "id": 0,
+                  "type": "farmingSys",
+                  "enabled": false
+                }
+              ]
             },
             {
                 "id": 14,
@@ -126,7 +322,24 @@
                 "K": 100,
                 "type": {
                   "active": "Agricultural"
-                }
+                },
+                "response": [
+                  {
+                    "id": 0,
+                    "type": "restoration",
+                    "enabled": false
+                  },
+                  {
+                    "id": 0,
+                    "type": "IPM",
+                    "enabled": false
+                  },
+                  {
+                    "id": 0,
+                    "type": "farmingSys",
+                    "enabled": false
+                  }
+                ]
               },
             {
               "id": 15,
@@ -135,7 +348,14 @@
               "K": 100,
               "type": {
                 "active": "Semi-natural"
-              }
+              },
+              "response": [
+                {
+                  "id": 0,
+                  "type": "restoration",
+                  "enabled": false
+                }
+              ]
             },
             {
               "id": 16,
@@ -144,7 +364,14 @@
               "K": 100,
               "type": {
                 "active": "Semi-natural"
-              }
+              },
+              "response": [
+                {
+                  "id": 0,
+                  "type": "restoration",
+                  "enabled": false
+                }
+              ]
             }
           ]
         },
