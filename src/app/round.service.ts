@@ -34,7 +34,7 @@ export class RoundService {
     console.log(this.roundList);
     //this.habitatService.getLandscape(this.activeRound);
     this.habitatService.habitatList = this.roundList[this.activeRound].landscape;
-    this.habitatService.habitatGlobalUpdateList = this.roundList[this.activeRound].landscape;
+    //this.habitatService.habitatGlobalUpdateList = this.roundList[this.activeRound].landscape;
     console.log('Active Habitat Types: ', this.habitatService.getActiveHabitatTypes(this.roundList[this.activeRound].landscape));
     //return this.roundList[this.activeRound].landscape;
   }

@@ -8,8 +8,8 @@ export class HabitatService {
   //url = 'http://localhost:3000/habitats';
   //url = 'http://localhost:3000/rounds?id=0';
   habitatList: Habitat[] = [];
-  habitatGlobalUpdateList: Habitat[] = [];
-  habitatLocalUpdateList: Habitat[] = [];
+  //habitatGlobalUpdateList: Habitat[] = [];
+  //habitatLocalUpdateList: Habitat[] = [];
 
   //These functions use asynchronous code to make a GET request over HTTP using fetch. 
   //For more advanced use cases consider using HttpClient provided by Angular.
@@ -32,24 +32,24 @@ export class HabitatService {
     //this.habitatGlobalUpdateList = this.habitatList;
     //const data = await fetch(this.url);
   
-    for (var i = 0; i < this.habitatGlobalUpdateList.length; i++) {
-      if(this.habitatGlobalUpdateList[i].type.active == 'Semi-natural'){
+    for (var i = 0; i < this.habitatList.length; i++) {
+      if(this.habitatList[i].type.active == 'Semi-natural'){
         if(globalSeminatural != ""){
-          this.habitatGlobalUpdateList[i].type.globalChange = globalSeminatural;
+          this.habitatList[i].type.globalChange = globalSeminatural;
         } 
       }
-      else if(this.habitatGlobalUpdateList[i].type.active == 'Agricultural'){
+      else if(this.habitatList[i].type.active == 'Agricultural'){
         if(globalAgricultural != ""){
-          this.habitatGlobalUpdateList[i].type.globalChange = globalAgricultural;
+          this.habitatList[i].type.globalChange = globalAgricultural;
         } 
       }
-      else if(this.habitatGlobalUpdateList[i].type.active == 'Urban'){
+      else if(this.habitatList[i].type.active == 'Urban'){
         if(globalUrban != ""){
-          this.habitatGlobalUpdateList[i].type.globalChange = globalUrban;
+          this.habitatList[i].type.globalChange = globalUrban;
         } 
       }
     }
-    console.log(this.habitatGlobalUpdateList);
+    console.log(this.habitatList);
     //return;
     //return (await data.json()) ?? [];
   }
@@ -63,7 +63,6 @@ export class HabitatService {
       }
     }
     this.habitatList = habitats;
-    this.habitatGlobalUpdateList = habitats;
     return habitats;
   }
   getActiveHabitatTypes(habitats: Habitat[]){
@@ -72,13 +71,13 @@ export class HabitatService {
     let N_agricultural = 0;
     let N_urban = 0;
     for (var i = 0; i < habitats.length; i++){
-      if(this.habitatGlobalUpdateList[i].type.active == 'Semi-natural'){
+      if(this.habitatList[i].type.active == 'Semi-natural'){
         N_seminatural++;
       }
-      else if(this.habitatGlobalUpdateList[i].type.active == 'Agricultural'){
+      else if(this.habitatList[i].type.active == 'Agricultural'){
         N_agricultural++
       }
-      else if(this.habitatGlobalUpdateList[i].type.active == 'Urban'){
+      else if(this.habitatList[i].type.active == 'Urban'){
         N_urban++
       }
     }
