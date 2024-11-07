@@ -1,16 +1,16 @@
-<div class="global-actions">
-    <ul class="list-none content-stretch grid grid-cols-2 gap-2 text-center mb-2">
-        <li class="h-full p-1 py-5 rounded flex items-center justify-center align-text-middle semi-natural">Semi-natural</li>
-        <li class="h-full p-1 py-5 flex items-center justify-left align-text-middle">
-            <button class="button flex text-align-middle rounded-full text-2xl" title="Add a response" (click)="addGlobalResponse('Semi-natural')"><ng-icon class="" name="heroPlus"></ng-icon></button>
-        </li>
-        <li class="h-full p-1 py-5 rounded flex items-center justify-center align-text-middle agricultural">Agricultural</li>
-        <li class="h-full p-1 py-5 flex items-center justify-left align-text-middle">
-            <button class="button flex text-align-middle rounded-full text-2xl" title="Add a response" (click)="addGlobalResponse('Agricultural')"><ng-icon class="" name="heroPlus"></ng-icon></button>
-        </li>
-        <li class="h-full p-1 py-5 rounded flex items-center justify-center align-text-middle urban">Urban</li>
-        <li class="h-full p-1 py-5 flex items-center justify-left align-text-middle">
-            <button class="button flex text-align-middle rounded-full text-2xl" title="Add a response" (click)="addGlobalResponse('Urban')"><ng-icon class="" name="heroPlus"></ng-icon></button>
-        </li>
-    </ul>  
-</div>
+<form class="example-form" [formGroup]="globalResponsesForm">
+    <mat-tab-group mat-stretch-tabs="false" mat-align-tabs="start" animationDuration="500ms" class="h-52">
+        <mat-tab labelClass="semi-natural" label="Semi-natural" isActive="true">
+            <mat-slide-toggle formControlName="globalSeminaturalRestoration" aria-label="globalSeminaturalRestoration" [checked]="isGlobalSeminaturalRestorationChecked" (change)="toggleChanges($event)" class="my-2">Ecological Restoration</mat-slide-toggle>
+        </mat-tab>
+        <mat-tab labelClass="agricultural" label="Agricultural">
+            <mat-slide-toggle formControlName="globalAgriculturalRestoration" aria-label="globalAgriculturalRestoration" [checked]="isGlobalAgriculturalRestorationChecked" (change)="toggleChanges($event)" class="my-2">Ecological Restoration</mat-slide-toggle><br />
+            <mat-slide-toggle formControlName="globalAgriculturalFarmingSys" aria-label="globalAgriculturalFarmingSys" [checked]="isGlobalAgriculturalFarmingSysChecked" (change)="toggleChanges($event)" class="my-2">Farming System Regulations</mat-slide-toggle><br />
+            <mat-slide-toggle formControlName="globalAgriculturalIPM" aria-label="globalAgriculturalIPM" [checked]="isGlobalAgriculturalIPMChecked" (change)="toggleChanges($event)" class="my-2">Pesticide Management</mat-slide-toggle>
+        </mat-tab>
+        <mat-tab labelClass="urban" label="Urban">
+            <mat-slide-toggle formControlName="globalUrbanRestoration" aria-label="globalUrbanRestoration" [checked]="isGlobalUrbanRestorationChecked" (change)="toggleChanges($event)" class="my-2">Ecological Restoration</mat-slide-toggle><br />
+            <mat-slide-toggle formControlName="globalUrbanIPM" aria-label="globalUrbanIPM" [checked]="isGlobalUrbanIPMChecked" (change)="toggleChanges($event)" class="my-2">Pesticide Management</mat-slide-toggle>
+        </mat-tab>
+    </mat-tab-group>
+</form>

@@ -5,8 +5,7 @@ const plugin = require('tailwindcss/plugin')
 
 module.exports = {
   content: [
-    "./src/**/*.{html,scss,ts}",
-    "./node_modules/flowbite/**/*.js"
+    "./src/**/*.{html,scss,ts}"
   ],
   theme: {
     extend: {
@@ -20,8 +19,10 @@ module.exports = {
     },
   },
   plugins: [
-    require('@tailwindcss/forms'),
-    require('flowbite/plugin')
-  ]
+    require('@tailwindcss/forms')
+  ],
+  corePlugins: {
+    preflight: false,
+  }
 }
 

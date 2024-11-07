@@ -1,6 +1,5 @@
 import { inject, Injectable } from '@angular/core';
 import { Round } from './round';
-import { Habitat } from './habitat';
 import { HabitatService } from './habitat.service';
 import RoundListA from '../data/scenario-A.json';
 import RoundListB from '../data/scenario-B.json';
@@ -15,7 +14,7 @@ export class RoundService {
   //roundListB:Round[] = RoundListB;
   habitatService: HabitatService = inject(HabitatService);
   scenario?: string;
-  roundList:Round[] = [];
+  roundList: Round[] = [];
   activeRound!: number;
   endRound!: number;
 
@@ -36,7 +35,7 @@ export class RoundService {
     //this.habitatService.getLandscape(this.activeRound);
     this.habitatService.habitatList = this.roundList[this.activeRound].landscape;
     this.habitatService.habitatGlobalUpdateList = this.roundList[this.activeRound].landscape;
-    console.log('Active Habitat Types: ', this.roundList[this.activeRound].activeHabitatTypes);
+    console.log('Active Habitat Types: ', this.habitatService.getActiveHabitatTypes(this.roundList[this.activeRound].landscape));
     //return this.roundList[this.activeRound].landscape;
   }
   /*
@@ -66,11 +65,11 @@ export class RoundService {
     // or only calculate scores from habitats
     this.activeRound = to;
     this.roundList = this.updateDisabledRounds(this.roundList);
-    this.habitatService.applyGlobalHabitatChanges(this.habitatService.habitatGlobalUpdateList);
+    //this.habitatService.applyGlobalHabitatChanges(this.habitatService.habitatGlobalUpdateList);
     this.roundList[this.activeRound].landscape = this.habitatService.habitatList;
-    this.roundList[this.activeRound].activeHabitatTypes = this.habitatService.getActiveHabitatTypes(this.habitatService.habitatList);
+    //this.roundList[this.activeRound].activeHabitatTypes = this.habitatService.getActiveHabitatTypes(this.habitatService.habitatList);
     this.habitatService.habitatList = this.roundList[this.activeRound].landscape;
-    this.habitatService.habitatGlobalUpdateList = this.roundList[this.activeRound].landscape;
+    //this.habitatService.habitatGlobalUpdateList = this.roundList[this.activeRound].landscape;
     console.log('New Active Round: ', this.activeRound);   
     console.log(this.roundList[this.activeRound]);
   }

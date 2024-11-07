@@ -33,19 +33,19 @@ export class HabitatService {
     //const data = await fetch(this.url);
   
     for (var i = 0; i < this.habitatGlobalUpdateList.length; i++) {
-      if(this.habitatGlobalUpdateList[i].type == 'Semi-natural'){
+      if(this.habitatGlobalUpdateList[i].type.active == 'Semi-natural'){
         if(globalSeminatural != ""){
-          this.habitatGlobalUpdateList[i].globalChangeTypeTo = globalSeminatural;
+          this.habitatGlobalUpdateList[i].type.globalChange = globalSeminatural;
         } 
       }
-      else if(this.habitatGlobalUpdateList[i].type == 'Agricultural'){
+      else if(this.habitatGlobalUpdateList[i].type.active == 'Agricultural'){
         if(globalAgricultural != ""){
-          this.habitatGlobalUpdateList[i].globalChangeTypeTo = globalAgricultural;
+          this.habitatGlobalUpdateList[i].type.globalChange = globalAgricultural;
         } 
       }
-      else if(this.habitatGlobalUpdateList[i].type == 'Urban'){
+      else if(this.habitatGlobalUpdateList[i].type.active == 'Urban'){
         if(globalUrban != ""){
-          this.habitatGlobalUpdateList[i].globalChangeTypeTo = globalUrban;
+          this.habitatGlobalUpdateList[i].type.globalChange = globalUrban;
         } 
       }
     }
@@ -57,9 +57,9 @@ export class HabitatService {
     //console.log(habitats);
     // need to return updated habitat array and apply said array to this.habtaList and other default habitat lists ready for this rounds new changes.
     for (var i = 0; i < habitats.length; i++) {
-      if(habitats[i].globalChangeTypeTo != ''){
-        habitats[i].type = habitats[i].globalChangeTypeTo;
-        habitats[i].globalChangeTypeTo = '';
+      if(habitats[i].type.globalChange != ''){
+        habitats[i].type.active = habitats[i].type.globalChange!;
+        habitats[i].type.globalChange = '';
       }
     }
     this.habitatList = habitats;
@@ -72,13 +72,13 @@ export class HabitatService {
     let N_agricultural = 0;
     let N_urban = 0;
     for (var i = 0; i < habitats.length; i++){
-      if(this.habitatGlobalUpdateList[i].type == 'Semi-natural'){
+      if(this.habitatGlobalUpdateList[i].type.active == 'Semi-natural'){
         N_seminatural++;
       }
-      else if(this.habitatGlobalUpdateList[i].type == 'Agricultural'){
+      else if(this.habitatGlobalUpdateList[i].type.active == 'Agricultural'){
         N_agricultural++
       }
-      else if(this.habitatGlobalUpdateList[i].type == 'Urban'){
+      else if(this.habitatGlobalUpdateList[i].type.active == 'Urban'){
         N_urban++
       }
     }
@@ -90,6 +90,7 @@ export class HabitatService {
   }
   
   constructor() {
+    this.getActiveHabitatTypes(this.habitatList);
   }
   submitGlobalChanges(globalSeminatural: string, globalAgricultural: string, globalUrban: string) {
     console.log(`triggered submitGlobalChanges`);

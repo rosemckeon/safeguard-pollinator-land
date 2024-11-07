@@ -1,8 +1,7 @@
-import { Component, inject, ViewChild, OnInit} from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, ViewChild, OnInit} from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { HabitatService } from './habitat.service';
 import { RoundService } from './round.service';
-import { FlowbiteService } from './flowbite.service';
 import { LandscapeComponent } from './landscape/landscape.component';
 import { LandscapeStatusComponent } from './landscape-status/landscape-status.component';
 import { RoundDetailsComponent } from './round-details/round-details.component';
@@ -10,13 +9,17 @@ import { GlobalControlsComponent } from './global-controls/global-controls.compo
 import { GlobalResponsesComponent } from './global-responses/global-responses.component';
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
 import { heroArrowRight, heroArrowLongLeft, heroArrowPath} from '@ng-icons/heroicons/outline';
+import { heroInformationCircleSolid } from '@ng-icons/heroicons/solid';
 import { CommonModule } from '@angular/common';
+import { MatButtonModule } from '@angular/material/button';
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, LandscapeComponent, LandscapeStatusComponent, GlobalControlsComponent, GlobalResponsesComponent, NgIconComponent, CommonModule, RoundDetailsComponent],
-  providers: [provideIcons({ heroArrowRight, heroArrowLongLeft, heroArrowPath })],
+  imports: [RouterOutlet, LandscapeComponent, LandscapeStatusComponent, GlobalControlsComponent, GlobalResponsesComponent, NgIconComponent, CommonModule, RoundDetailsComponent, MatButtonModule, MatDialogModule],
+  providers: [provideIcons({ heroArrowRight, heroArrowLongLeft, heroArrowPath, heroInformationCircleSolid})],
+  changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
@@ -28,9 +31,11 @@ export class AppComponent implements OnInit {
   @ViewChild(LandscapeComponent) landscapeComponent?: LandscapeComponent;
   title = 'game';
 
+  readonly dialog = inject(MatDialog);
+
   resetGlobalControls(): void {
     console.log('triggered resetGlobalControls from AppComponent');
-    let activeHabitatTypes = this.roundService.roundList[this.roundService.activeRound].activeHabitatTypes;
+    let activeHabitatTypes = this.habitatService.getActiveHabitatTypes(this.roundService.roundList[this.roundService.activeRound].landscape)
     console.log(activeHabitatTypes);
     // put these into a loop to be more concise? Bit tricky 
     let globalSeminatural = <HTMLButtonElement>document.getElementById('globalSeminatural');
@@ -49,26 +54,39 @@ export class AppComponent implements OnInit {
     if(activeHabitatTypes?.Urban == 0){ globalUrban.disabled = true; } else { globalUrban.disabled = false; }
   }
 
-  constructor(private flowbiteService: FlowbiteService) {
+  constructor() {
     //makes sure scenario is never undefined.
     this.roundService.scenario = 'A';
   }
 
-  ngOnInit(): void {
-    this.flowbiteService.loadFlowbite(flowbite => {
-      // Your custom code here
-      console.log('Flowbite loaded', flowbite);
+  ngOnInit(): void {}
+
+  openGameInfo() {
+    const dialogRef = this.dialog.open(gameInfoContent);
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
     });
   }
+
   // this function is actionable from the AppComponent template
   advanceTime(from = this.roundService.activeRound) {
     console.log('triggered advanceTime from AppComponent');
     console.log("Scenario in AppComponent advanceTime", this.roundService.scenario);
     this.roundService.advanceTime(from + 1);
     if(this.roundService.endRound != this.roundService.activeRound){
-      this.resetGlobalControls();
+      // this.resetGlobalControls();
     } else {
       // save the complete round json file.
     }
   }
 }
+
+@Component({
+  selector: 'game-info-content',
+  templateUrl: 'app.component.game-info-content.html',
+  standalone: true,
+  imports: [MatDialogModule, MatButtonModule],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+})
+export class gameInfoContent {}

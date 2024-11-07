@@ -1,238 +1,152 @@
 [ 
   {
         "id": 0,
-        "score": 0,
         "landscape": [
           {
               "id": 1,
-              "type": "Urban",
-              "globalChangeTypeTo": "",
-              "localChangeTypeTo": "",
-              "nesting": 0.5,
-              "floralResources": 0.75,
-              "actionsActive": false,
-              "pollinators": 2,
-              "pollinatorHealth": 0.8,
-              "carryingCapacity": 100,
               "x": 1,
-              "y": 4
+              "y": 4,
+              "K": 100,
+              "type": {
+                "active": "Agricultural"
+              }
             },
             {
                 "id": 2,
-                "type": "Agricultural",
-                "globalChangeTypeTo": "",
-                "localChangeTypeTo": "",
-                "nesting": 0.5,
-                "floralResources": 0.75,
-                "actionsActive": false,
-                "pollinators": 2,
-                "pollinatorHealth": 0.8,
-                "carryingCapacity": 100,
-                "x": 1,
-                "y": 4
+                "x": 2,
+                "y": 4,
+                "K": 100,
+                "type": {
+                  "active": "Agricultural"
+                }
               },
               {
                 "id": 3,
-                "type": "Urban",
-                "globalChangeTypeTo": "",
-                "localChangeTypeTo": "",
-                "nesting": 0.2,
-                "floralResources": 0.05,
-                "actionsActive": false,
-                "pollinators": 1,
-                "pollinatorHealth": 0.1,
-                "carryingCapacity": 10,
-                "x": 2,
-                "y": 2
+                "x": 3,
+                "y": 4,
+                "K": 100,
+                "type": {
+                  "active": "Urban"
+                }
               },
             {
                 "id": 4,
-                "type": "Urban",
-                "globalChangeTypeTo": "",
-                "localChangeTypeTo": "",
-                "nesting": 0.2,
-                "floralResources": 0.05,
-                "actionsActive": false,
-                "pollinators": 1,
-                "pollinatorHealth": 0.1,
-                "carryingCapacity": 10,
-                "x": 2,
-                "y": 2
+                "x": 4,
+                "y": 4,
+                "K": 100,
+                "type": {
+                  "active": "Urban"
+                }
               },
             {
               "id": 5,
-              "type": "Agricultural",
-              "globalChangeTypeTo": "",
-              "localChangeTypeTo": "",
-              "nesting": 0.5,
-              "floralResources": 0.75,
-              "actionsActive": false,
-              "pollinators": 2,
-              "pollinatorHealth": 0.8,
-              "carryingCapacity": 100,
               "x": 1,
-              "y": 3
+              "y": 3,
+              "K": 100,
+              "type": {
+                "active": "Agricultural"
+              }
             },
             {
                 "id": 6,
-                "type": "Agricultural",
-                "globalChangeTypeTo": "",
-                "localChangeTypeTo": "",
-                "nesting": 0.5,
-                "floralResources": 0.75,
-                "actionsActive": false,
-                "pollinators": 2,
-                "pollinatorHealth": 0.8,
-                "carryingCapacity": 100,
-                "x": 1,
-                "y": 4
+                "x": 2,
+                "y": 3,
+                "K": 100,
+                "type": {
+                  "active": "Agricultural"
+                }
               },
               {
                 "id": 7,
-                "type": "Urban",
-                "globalChangeTypeTo": "",
-                "localChangeTypeTo": "",
-                "nesting": 0.2,
-                "floralResources": 0.05,
-                "actionsActive": false,
-                "pollinators": 1,
-                "pollinatorHealth": 0.1,
-                "carryingCapacity": 10,
-                "x": 2,
-                "y": 2
+                "x": 3,
+                "y": 3,
+                "K": 100,
+                "type": {
+                  "active": "Urban"
+                }
               },
             {
                 "id": 8,
-                "type": "Urban",
-                "globalChangeTypeTo": "",
-                "localChangeTypeTo": "",
-                "nesting": 0.2,
-                "floralResources": 0.05,
-                "actionsActive": false,
-                "pollinators": 1,
-                "pollinatorHealth": 0.1,
-                "carryingCapacity": 10,
-                "x": 2,
-                "y": 2
+                "x": 4,
+                "y": 3,
+                "K": 100,
+                "type": {
+                  "active": "Urban"
+                }
               },
             {
               "id": 9,
-              "type": "Agricultural",
-              "globalChangeTypeTo": "",
-              "localChangeTypeTo": "",
-              "nesting": 0.5,
-              "floralResources": 0.75,
-              "actionsActive": false,
-              "pollinators": 2,
-              "pollinatorHealth": 0.8,
-              "carryingCapacity": 100,
               "x": 1,
-              "y": 2
+              "y": 2,
+              "K": 100,
+              "type": {
+                "active": "Agricultural"
+              }
             },
             {
               "id": 10,
-              "type": "Urban",
-              "globalChangeTypeTo": "",
-              "localChangeTypeTo": "",
-              "nesting": 0.2,
-              "floralResources": 0.05,
-              "actionsActive": false,
-              "pollinators": 1,
-              "pollinatorHealth": 0.1,
-              "carryingCapacity": 10,
               "x": 2,
-              "y": 2
+              "y": 2,
+              "K": 100,
+              "type": {
+                "active": "Urban"
+              }
             },
             {
                 "id": 11,
-                "type": "Agricultural",
-                "globalChangeTypeTo": "",
-                "localChangeTypeTo": "",
-                "nesting": 0.5,
-                "floralResources": 0.75,
-                "actionsActive": false,
-                "pollinators": 2,
-                "pollinatorHealth": 0.8,
-                "carryingCapacity": 100,
-                "x": 1,
-                "y": 4
+                "x": 3,
+                "y": 2,
+                "K": 100,
+                "type": {
+                  "active": "Agricultural"
+                }
               },
               {
                 "id": 12,
-                "type": "Agricultural",
-                "globalChangeTypeTo": "",
-                "localChangeTypeTo": "",
-                "nesting": 0.5,
-                "floralResources": 0.75,
-                "actionsActive": false,
-                "pollinators": 2,
-                "pollinatorHealth": 0.8,
-                "carryingCapacity": 100,
-                "x": 1,
-                "y": 4
+                "x": 4,
+                "y": 2,
+                "K": 100,
+                "type": {
+                  "active": "Agricultural"
+                }
               },
             {
               "id": 13,
-              "type": "Agricultural",
-              "globalChangeTypeTo": "",
-              "localChangeTypeTo": "",
-              "nesting": 0.5,
-              "floralResources": 0.75,
-              "actionsActive": false,
-              "pollinators": 2,
-              "pollinatorHealth": 0.8,
-              "carryingCapacity": 100,
               "x": 1,
-              "y": 1
+              "y": 1,
+              "K": 100,
+              "type": {
+                "active": "Agricultural"
+              }
             },
             {
                 "id": 14,
-                "type": "Agricultural",
-                "globalChangeTypeTo": "",
-                "localChangeTypeTo": "",
-                "nesting": 0.5,
-                "floralResources": 0.75,
-                "actionsActive": false,
-                "pollinators": 2,
-                "pollinatorHealth": 0.8,
-                "carryingCapacity": 100,
-                "x": 1,
-                "y": 1
+                "x": 2,
+                "y": 1,
+                "K": 100,
+                "type": {
+                  "active": "Agricultural"
+                }
               },
             {
               "id": 15,
-              "type": "Semi-natural",
-              "globalChangeTypeTo": "",
-              "localChangeTypeTo": "",
-              "nesting": 0.8,
-              "floralResources": 0.65,
-              "actionsActive": false,
-              "pollinators": 5,
-              "pollinatorHealth": 0.9,
-              "carryingCapacity": 200,
               "x": 3,
-              "y": 1
+              "y": 1,
+              "K": 100,
+              "type": {
+                "active": "Semi-natural"
+              }
             },
             {
               "id": 16,
-              "type": "Semi-natural",
-              "globalChangeTypeTo": "",
-              "localChangeTypeTo": "",
-              "nesting": 0.8,
-              "floralResources": 0.65,
-              "actionsActive": false,
-              "pollinators": 5,
-              "pollinatorHealth": 0.9,
-              "carryingCapacity": 200,
               "x": 4,
-              "y": 1
+              "y": 1,
+              "K": 100,
+              "type": {
+                "active": "Semi-natural"
+              }
             }
-          ],
-          "activeHabitatTypes": {
-            "Semi-natural": 2,
-            "Agricultural": 9,
-            "Urban": 5
-          }
+          ]
         },
         {
           "id": 1,

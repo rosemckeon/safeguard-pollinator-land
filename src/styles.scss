@@ -1,12 +1,48 @@
-/* You can add global styles to this file, and also import other style files */
-@tailwind base;
-@tailwind components;
+
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use '@angular/material' as mat;
+@use './app/styles/m3-theme';
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat.core();
 @tailwind utilities;
+
+$game-theme: mat.define-theme((
+ color: (
+    theme-type: light,
+    primary: mat.$violet-palette,
+  ),
+));
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+:root {
+  //@include mat.core-theme(m3-theme.$light-theme);
+  //@include mat.button-theme(m3-theme.$light-theme);
+  //@include mat.all-component-themes(m3-theme.$light-theme);
+  @include mat.all-component-themes($game-theme);
+}
+
+// Comment out the line below if you want to use the pre-defined typography utility classes.
+// For more information: https://material.angular.io/guide/typography#using-typography-styles-in-your-application.
+// @include mat.typography-hierarchy($test-material-theme);
+
+// Comment out the line below if you want to use the deprecated `color` inputs.
+// @include mat.color-variants-backwards-compatibility($test-material-theme);
+/* You can add global styles to this file, and also import other style files */
+//@tailwind base;
+//@tailwind components;
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
-@layer base {
+@layer utilities {
+    @import './app/styles/tw-preflight.scss';
     h1 {
       @apply text-2xl;
     }
@@ -25,30 +61,34 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
       @apply hover:shadow-md;
       @apply rounded-lg
     }
-    .semi-natural {
+    .semi-natural,
+    .mat-mdc-tab.semi-natural {
       @apply bg-lime-700;
       @apply text-lime-200;
       @apply border-lime-700;
     }
-    .agricultural {
+    .agricultural,
+    .mat-mdc-tab.agricultural {
       @apply bg-amber-500;
       @apply text-amber-950;
       @apply border-amber-500;
     }
-    .urban {
+    .urban,
+    .mat-mdc-tab.urban {
       @apply border-stone-500;
       @apply bg-stone-500;
       @apply text-stone-200;
     }
-    .habitat {
+    .habitat,
+    .mat-mdc-tab {
       &.semi-natural {
-        @apply hover:bg-lime-300;
+        @apply hover:bg-lime-600;
       }
       &.agricultural {
-        @apply hover:bg-amber-300;
+        @apply hover:bg-amber-400;
       }
       &.urban {
-        @apply hover:bg-stone-300;
+        @apply hover:bg-stone-400;
       }
       &:hover {
         @apply border-indigo-700;
