@@ -1,17 +1,4 @@
-/*export type ResponseKey = 
- | 'restoration'
- | 'IPM'
- | 'farmingSystem';
-*/
-//type Responses = Record<ResponseKey, ResponseDetails>
-
-export interface Response {
-    id: number;
-    type: string;
-    enabled: boolean;
-    globalChange?: boolean;
-    localChange?: boolean;
-}
+import { HabitatResponse } from "./habitat-response";
 
 export interface Habitat {
     id: number;
@@ -23,7 +10,7 @@ export interface Habitat {
         globalChange?: string;
         localChange?: string;
     }
-    response?: Response[];
+    response?: HabitatResponse[];
     pressure?: {
         pollinatorManagement?: number;
         landscapeSimplification?: number;

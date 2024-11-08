@@ -80,27 +80,27 @@ export class GlobalResponsesComponent implements OnInit {
     console.log($event.source.ariaLabel, $event.checked);
     switch($event.source.ariaLabel){
       case('globalSeminaturalRestoration'):
-        this.habitatService.setGlobalResponseChange('Semi-natural', 'restoration', $event.checked);
+        this.habitatService.setGlobalResponseChange('Semi-natural', 'Ecological Restoration', $event.checked);
         this.isGlobalSeminaturalRestorationChecked = $event.checked;
         break;
       case('globalAgriculturalRestoration'):
-        this.habitatService.setGlobalResponseChange('Agricultural', 'restoration', $event.checked);
+        this.habitatService.setGlobalResponseChange('Agricultural', 'Ecological Restoration', $event.checked);
         this.isGlobalAgriculturalRestorationChecked = $event.checked;
         break;
       case('globalUrbanRestoration'):
-        this.habitatService.setGlobalResponseChange('Urban', 'restoration', $event.checked);
+        this.habitatService.setGlobalResponseChange('Urban', 'Ecological Restoration', $event.checked);
         this.isGlobalUrbanRestorationChecked = $event.checked;
         break;
       case('globalAgriculturalIPM'):
-        this.habitatService.setGlobalResponseChange('Agricultural', 'IPM', $event.checked);
+        this.habitatService.setGlobalResponseChange('Agricultural', 'Pesticide Management', $event.checked);
         this.isGlobalAgriculturalIPMChecked = $event.checked;
         break;
       case('globalUrbanIPM'):
-        this.habitatService.setGlobalResponseChange('Urban', 'IPM', $event.checked);
+        this.habitatService.setGlobalResponseChange('Urban', 'Pesticide Management', $event.checked);
         this.isGlobalUrbanIPMChecked = $event.checked;
         break;
       case('globalAgriculturalFarmingSys'):
-        this.habitatService.setGlobalResponseChange('Agricultural', 'FarmingSys', $event.checked);
+        this.habitatService.setGlobalResponseChange('Agricultural', 'Farming System Regulations', $event.checked);
         this.isGlobalAgriculturalFarmingSysChecked = $event.checked;
         break;
       default:

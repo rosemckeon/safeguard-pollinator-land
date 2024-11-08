@@ -28,6 +28,26 @@ export class HabitatService {
     }
   }
 
+  applyResponses(habitats: Habitat[]){
+    console.log('Triggered applyResponses from HabitatService', habitats);
+    // Take globalChange and localChange values and apply 'enabled' properties accordingly.
+    // loop through habitats for response settings
+    for (var i = 0; i < habitats.length; i++) {
+      // then loop through responses
+      for (var r = 0; r < this.habitatList[i].response!.length; r++){
+        // apple globalChange followed by localChange
+        if(this.habitatList[i].response![r].hasOwnProperty('globalChange')){
+          this.habitatList[i].response![r].enabled = this.habitatList[i].response![r].globalChange!
+          // could reset the values here but i think keeping state will be niceer ot use
+        }
+        if(this.habitatList[i].response![r].hasOwnProperty('localChange')){
+          this.habitatList[i].response![r].enabled = this.habitatList[i].response![r].localChange!
+        }
+      }
+    }
+    return(habitats);
+  }
+
   makeGlobalHabitatChanges(globalSeminatural: string, globalAgricultural: string, globalUrban: string) {
     console.log('triggered makeGlobalHabitatChanges');
     //this.updateHabitats = true;
@@ -93,6 +113,7 @@ export class HabitatService {
   constructor() {
     this.getActiveHabitatTypes(this.habitatList);
   }
+
   submitGlobalChanges(globalSeminatural: string, globalAgricultural: string, globalUrban: string) {
     console.log(`triggered submitGlobalChanges`);
     if(globalSeminatural != ""){

@@ -13,17 +13,17 @@
               "response": [
                 {
                   "id": 0,
-                  "type": "restoration",
+                  "type": "Ecological Restoration",
                   "enabled": false
                 },
                 {
-                  "id": 0,
-                  "type": "IPM",
+                  "id": 1,
+                  "type": "Pesticide Management",
                   "enabled": false
                 },
                 {
-                  "id": 0,
-                  "type": "farmingSys",
+                  "id": 2,
+                  "type": "Farming System Regulations",
                   "enabled": false
                 }
               ]
@@ -39,17 +39,17 @@
                 "response": [
                   {
                     "id": 0,
-                    "type": "restoration",
+                    "type": "Ecological Restoration",
                     "enabled": false
                   },
                   {
-                    "id": 0,
-                    "type": "IPM",
+                    "id": 1,
+                    "type": "Pesticide Management",
                     "enabled": false
                   },
                   {
-                    "id": 0,
-                    "type": "farmingSys",
+                    "id": 2,
+                    "type": "Farming System Regulations",
                     "enabled": false
                   }
                 ]
@@ -65,12 +65,12 @@
                 "response": [
                   {
                     "id": 0,
-                    "type": "restoration",
+                    "type": "Ecological Restoration",
                     "enabled": false
                   },
                   {
-                    "id": 0,
-                    "type": "IPM",
+                    "id": 1,
+                    "type": "Pesticide Management",
                     "enabled": false
                   }
                 ]
@@ -86,12 +86,12 @@
                 "response": [
                   {
                     "id": 0,
-                    "type": "restoration",
+                    "type": "Ecological Restoration",
                     "enabled": false
                   },
                   {
-                    "id": 0,
-                    "type": "IPM",
+                    "id": 1,
+                    "type": "Pesticide Management",
                     "enabled": false
                   }
                 ]
@@ -107,17 +107,17 @@
               "response": [
                 {
                   "id": 0,
-                  "type": "restoration",
+                  "type": "Ecological Restoration",
                   "enabled": false
                 },
                 {
-                  "id": 0,
-                  "type": "IPM",
+                  "id": 1,
+                  "type": "Pesticide Management",
                   "enabled": false
                 },
                 {
-                  "id": 0,
-                  "type": "farmingSys",
+                  "id": 2,
+                  "type": "Farming System Regulations",
                   "enabled": false
                 }
               ]
@@ -133,17 +133,17 @@
                 "response": [
                   {
                     "id": 0,
-                    "type": "restoration",
+                    "type": "Ecological Restoration",
                     "enabled": false
                   },
                   {
-                    "id": 0,
-                    "type": "IPM",
+                    "id": 1,
+                    "type": "Pesticide Management",
                     "enabled": false
                   },
                   {
-                    "id": 0,
-                    "type": "farmingSys",
+                    "id": 2,
+                    "type": "Farming System Regulations",
                     "enabled": false
                   }
                 ]
@@ -159,12 +159,12 @@
                 "response": [
                   {
                     "id": 0,
-                    "type": "restoration",
+                    "type": "Ecological Restoration",
                     "enabled": false
                   },
                   {
-                    "id": 0,
-                    "type": "IPM",
+                    "id": 1,
+                    "type": "Pesticide Management",
                     "enabled": false
                   }
                 ]
@@ -180,12 +180,12 @@
                 "response": [
                   {
                     "id": 0,
-                    "type": "restoration",
+                    "type": "Ecological Restoration",
                     "enabled": false
                   },
                   {
-                    "id": 0,
-                    "type": "IPM",
+                    "id": 1,
+                    "type": "Pesticide Management",
                     "enabled": false
                   }
                 ]
@@ -201,17 +201,17 @@
               "response": [
                 {
                   "id": 0,
-                  "type": "restoration",
+                  "type": "Ecological Restoration",
                   "enabled": false
                 },
                 {
-                  "id": 0,
-                  "type": "IPM",
+                  "id": 1,
+                  "type": "Pesticide Management",
                   "enabled": false
                 },
                 {
-                  "id": 0,
-                  "type": "farmingSys",
+                  "id": 2,
+                  "type": "Farming System Regulations",
                   "enabled": false
                 }
               ]
@@ -227,12 +227,12 @@
               "response": [
                 {
                   "id": 0,
-                  "type": "restoration",
+                  "type": "Ecological Restoration",
                   "enabled": false
                 },
                 {
-                  "id": 0,
-                  "type": "IPM",
+                  "id": 1,
+                  "type": "Pesticide Management",
                   "enabled": false
                 }
               ]
@@ -248,17 +248,17 @@
                 "response": [
                   {
                     "id": 0,
-                    "type": "restoration",
+                    "type": "Ecological Restoration",
                     "enabled": false
                   },
                   {
-                    "id": 0,
-                    "type": "IPM",
+                    "id": 1,
+                    "type": "Pesticide Management",
                     "enabled": false
                   },
                   {
-                    "id": 0,
-                    "type": "farmingSys",
+                    "id": 2,
+                    "type": "Farming System Regulations",
                     "enabled": false
                   }
                 ]
@@ -274,17 +274,17 @@
                 "response": [
                   {
                     "id": 0,
-                    "type": "restoration",
+                    "type": "Ecological Restoration",
                     "enabled": false
                   },
                   {
-                    "id": 0,
-                    "type": "IPM",
+                    "id": 1,
+                    "type": "Pesticide Management",
                     "enabled": false
                   },
                   {
-                    "id": 0,
-                    "type": "farmingSys",
+                    "id": 2,
+                    "type": "Farming System Regulations",
                     "enabled": false
                   }
                 ]
@@ -300,17 +300,17 @@
               "response": [
                 {
                   "id": 0,
-                  "type": "restoration",
+                  "type": "Ecological Restoration",
                   "enabled": false
                 },
                 {
-                  "id": 0,
-                  "type": "IPM",
+                  "id": 1,
+                  "type": "Pesticide Management",
                   "enabled": false
                 },
                 {
-                  "id": 0,
-                  "type": "farmingSys",
+                  "id": 2,
+                  "type": "Farming System Regulations",
                   "enabled": false
                 }
               ]
@@ -326,17 +326,17 @@
                 "response": [
                   {
                     "id": 0,
-                    "type": "restoration",
+                    "type": "Ecological Restoration",
                     "enabled": false
                   },
                   {
-                    "id": 0,
-                    "type": "IPM",
+                    "id": 1,
+                    "type": "Pesticide Management",
                     "enabled": false
                   },
                   {
-                    "id": 0,
-                    "type": "farmingSys",
+                    "id": 2,
+                    "type": "Farming System Regulations",
                     "enabled": false
                   }
                 ]
@@ -352,7 +352,7 @@
               "response": [
                 {
                   "id": 0,
-                  "type": "restoration",
+                  "type": "Ecological Restoration",
                   "enabled": false
                 }
               ]
@@ -368,7 +368,7 @@
               "response": [
                 {
                   "id": 0,
-                  "type": "restoration",
+                  "type": "Ecological Restoration",
                   "enabled": false
                 }
               ]
