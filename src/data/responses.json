@@ -12,10 +12,10 @@
                 {
                     "id": 0,
                     "name": "wildPollinators",
-                    "mean": 0,
-                    "min": 0,
-                    "max": 0,
-                    "sd": 0,
+                    "mean": 4.546,
+                    "min": 2,
+                    "max": 5,
+                    "sd": 0.754,
                     "effect_on_impact": [
                         {
                             "id": 0,
@@ -54,10 +54,10 @@
                 {
                     "id": 1,
                     "name": "floralResources",
-                    "mean": 0,
-                    "min": 0,
-                    "max": 0,
-                    "sd": 0,
+                    "mean": 4.545,
+                    "min": 2,
+                    "max": 5,
+                    "sd": 0.753,
                     "effect_on_impact": [
                         {
                             "id": 0,
@@ -96,10 +96,10 @@
                 {
                     "id": 2,
                     "name": "habitatResources",
-                    "mean": 0,
-                    "min": 0,
-                    "max": 0,
-                    "sd": 0,
+                    "mean": 4.242,
+                    "min": 2,
+                    "max": 5,
+                    "sd": 0.792,
                     "effect_on_impact": [
                         {
                             "id": 0,
@@ -144,10 +144,10 @@
                 {
                     "id": 0,
                     "name": "wildPollinators",
-                    "mean": 0,
-                    "min": 0,
-                    "max": 0,
-                    "sd": 0,
+                    "mean": 4.618,
+                    "min": 4,
+                    "max": 5,
+                    "sd": 0.493,
                     "effect_on_impact": [
                         {
                             "id": 0,
@@ -186,10 +186,10 @@
                 {
                     "id": 1,
                     "name": "floralResources",
-                    "mean": 0,
-                    "min": 0,
-                    "max": 0,
-                    "sd": 0,
+                    "mean": 4.471,
+                    "min": 3,
+                    "max": 5,
+                    "sd": 0.662,
                     "effect_on_impact": [
                         {
                             "id": 0,
@@ -228,10 +228,10 @@
                 {
                     "id": 2,
                     "name": "habitatResources",
-                    "mean": 0,
-                    "min": 0,
-                    "max": 0,
-                    "sd": 0,
+                    "mean": 4.235,
+                    "min": 2,
+                    "max": 5,
+                    "sd": 0.781,
                     "effect_on_impact": [
                         {
                             "id": 0,
@@ -276,10 +276,10 @@
                 {
                     "id": 0,
                     "name": "wildPollinators",
-                    "mean": 0,
-                    "min": 0,
-                    "max": 0,
-                    "sd": 0,
+                    "mean": 4.375,
+                    "min": 3,
+                    "max": 5,
+                    "sd": 0.707,
                     "effect_on_impact": [
                         {
                             "id": 0,
@@ -318,10 +318,10 @@
                 {
                     "id": 1,
                     "name": "floralResources",
-                    "mean": 0,
-                    "min": 0,
-                    "max": 0,
-                    "sd": 0,
+                    "mean": 4.3125,
+                    "min": 3,
+                    "max": 5,
+                    "sd": 0.821,
                     "effect_on_impact": [
                         {
                             "id": 0,
@@ -360,10 +360,10 @@
                 {
                     "id": 2,
                     "name": "habitatResources",
-                    "mean": 0,
-                    "min": 0,
-                    "max": 0,
-                    "sd": 0,
+                    "mean": 4.094,
+                    "min": 3,
+                    "max": 5,
+                    "sd": 0.818,
                     "effect_on_impact": [
                         {
                             "id": 0,
@@ -416,10 +416,10 @@
                 {
                     "id": 0,
                     "name": "wildPollinators",
-                    "mean": 0,
-                    "min": 0,
-                    "max": 0,
-                    "sd": 0,
+                    "mean": 4.061,
+                    "min": 2,
+                    "max": 5,
+                    "sd": 0.788,
                     "effect_on_impact": [
                         {
                             "id": 0,
@@ -458,10 +458,10 @@
                 {
                     "id": 1,
                     "name": "floralResources",
-                    "mean": 0,
-                    "min": 0,
-                    "max": 0,
-                    "sd": 0,
+                    "mean": 3.970,
+                    "min": 2,
+                    "max": 5,
+                    "sd": 0.810,
                     "effect_on_impact": [
                         {
                             "id": 0,
@@ -500,10 +500,10 @@
                 {
                     "id": 2,
                     "name": "habitatResources",
-                    "mean": 0,
-                    "min": 0,
-                    "max": 0,
-                    "sd": 0,
+                    "mean": 3.546,
+                    "min": 2,
+                    "max": 5,
+                    "sd": 0.711,
                     "effect_on_impact": [
                         {
                             "id": 0,
@@ -548,10 +548,10 @@
                 {
                     "id": 0,
                     "name": "wildPollinators",
-                    "mean": 0,
-                    "min": 0,
-                    "max": 0,
-                    "sd": 0,
+                    "mean": 3.677,
+                    "min": 3,
+                    "max": 5,
+                    "sd": 0.638,
                     "effect_on_impact": [
                         {
                             "id": 0,
@@ -590,10 +590,10 @@
                 {
                     "id": 1,
                     "name": "floralResources",
-                    "mean": 0,
-                    "min": 0,
-                    "max": 0,
-                    "sd": 0,
+                    "mean": 3.588,
+                    "min": 2,
+                    "max": 5,
+                    "sd": 0.783,
                     "effect_on_impact": [
                         {
                             "id": 0,
@@ -632,10 +632,10 @@
                 {
                     "id": 2,
                     "name": "habitatResources",
-                    "mean": 0,
-                    "min": 0,
-                    "max": 0,
-                    "sd": 0,
+                    "mean": 3.324,
+                    "min": 2,
+                    "max": 5,
+                    "sd": 0.727,
                     "effect_on_impact": [
                         {
                             "id": 0,
@@ -680,10 +680,10 @@
                 {
                     "id": 0,
                     "name": "wildPollinators",
-                    "mean": 0,
-                    "min": 0,
-                    "max": 0,
-                    "sd": 0,
+                    "mean": 3.344,
+                    "min": 1,
+                    "max": 5,
+                    "sd": 1.066,
                     "effect_on_impact": [
                         {
                             "id": 0,
@@ -722,10 +722,10 @@
                 {
                     "id": 1,
                     "name": "floralResources",
-                    "mean": 0,
-                    "min": 0,
-                    "max": 0,
-                    "sd": 0,
+                    "mean": 3.438,
+                    "min": 2,
+                    "max": 5,
+                    "sd": 0.840,
                     "effect_on_impact": [
                         {
                             "id": 0,
@@ -764,10 +764,10 @@
                 {
                     "id": 2,
                     "name": "habitatResources",
-                    "mean": 0,
-                    "min": 0,
-                    "max": 0,
-                    "sd": 0,
+                    "mean": 3.156,
+                    "min": 2,
+                    "max": 5,
+                    "sd": 0.884,
                     "effect_on_impact": [
                         {
                             "id": 0,
@@ -820,10 +820,10 @@
                 {
                     "id": 0,
                     "name": "wildPollinators",
-                    "mean": 0,
-                    "min": 0,
-                    "max": 0,
-                    "sd": 0,
+                    "mean": 3.515,
+                    "min": 2,
+                    "max": 5,
+                    "sd": 0.870,
                     "effect_on_impact": [
                         {
                             "id": 0,
@@ -862,10 +862,10 @@
                 {
                     "id": 1,
                     "name": "floralResources",
-                    "mean": 0,
-                    "min": 0,
-                    "max": 0,
-                    "sd": 0,
+                    "mean": 3.242,
+                    "min": 2,
+                    "max": 5,
+                    "sd": 0.867,
                     "effect_on_impact": [
                         {
                             "id": 0,
@@ -904,10 +904,10 @@
                 {
                     "id": 2,
                     "name": "habitatResources",
-                    "mean": 0,
-                    "min": 0,
-                    "max": 0,
-                    "sd": 0,
+                    "mean": 3,
+                    "min": 1,
+                    "max": 5,
+                    "sd": 0.968,
                     "effect_on_impact": [
                         {
                             "id": 0,
@@ -960,10 +960,10 @@
                 {
                     "id": 0,
                     "name": "wildPollinators",
-                    "mean": 0,
-                    "min": 0,
-                    "max": 0,
-                    "sd": 0,
+                    "mean": 3.875,
+                    "min": 3,
+                    "max": 5,
+                    "sd": 0.751,
                     "effect_on_impact": [
                         {
                             "id": 0,
@@ -1002,10 +1002,10 @@
                 {
                     "id": 1,
                     "name": "floralResources",
-                    "mean": 0,
-                    "min": 0,
-                    "max": 0,
-                    "sd": 0,
+                    "mean": 3.906,
+                    "min": 2,
+                    "max": 5,
+                    "sd": 0.818,
                     "effect_on_impact": [
                         {
                             "id": 0,
@@ -1044,10 +1044,10 @@
                 {
                     "id": 2,
                     "name": "habitatResources",
-                    "mean": 0,
-                    "min": 0,
-                    "max": 0,
-                    "sd": 0,
+                    "mean": 3.344,
+                    "min": 2,
+                    "max": 5,
+                    "sd": 0.902,
                     "effect_on_impact": [
                         {
                             "id": 0,
