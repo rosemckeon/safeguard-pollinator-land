@@ -1,0 +1,619 @@
+"","Row","Landuse","Column","Type","Value.mean","Value.median","Value.min","Value.max","Value.sd","Value.samplesize"
+"1","1. LS simplification","Agr","Wild.poll.score","PS",4.65714285714286,5,4,5,0.481593991977935,35
+"2","2. Intensive LM","Agr","Wild.poll.score","PS",4.57142857142857,5,4,5,0.502096445253434,35
+"3","3. Pesticides","Agr","Wild.poll.score","PS",4.08571428571429,4,3,5,0.562108874289156,35
+"4","4. Bee management","Agr","Wild.poll.score","PS",2.65714285714286,3,1,4,0.838165263181051,35
+"5","5. Parasites pathogens","Agr","Wild.poll.score","PS",2.42857142857143,2,1,4,0.698136775985332,35
+"6","6. Invasives","Agr","Wild.poll.score","PS",2.2,2,1,3,0.632455532033676,35
+"7","7. Climate change","Agr","Wild.poll.score","PS",3,3,2,4,0.685994340570035,35
+"8","1. LS simplification","Snh","Wild.poll.score","PS",4.5,5,1,5,0.861640436855329,34
+"9","2. Intensive LM","Snh","Wild.poll.score","PS",4.17647058823529,4,1,5,0.833778847042428,34
+"10","3. Pesticides","Snh","Wild.poll.score","PS",3,3,2,4,1.4142135623731,2
+"11","4. Bee management","Snh","Wild.poll.score","PS",2.82352941176471,3,1,5,0.90354816528369,34
+"12","5. Parasites pathogens","Snh","Wild.poll.score","PS",2.35294117647059,2,1,4,0.691171729797524,34
+"13","6. Invasives","Snh","Wild.poll.score","PS",2.61764705882353,3,1,4,0.739152089256124,34
+"14","7. Climate change","Snh","Wild.poll.score","PS",3.17647058823529,3,2,5,0.86936369051247,34
+"15","1. LS simplification","Urb","Wild.poll.score","PS",4.21212121212121,4,2,5,0.857233039988826,33
+"16","2. Intensive LM","Urb","Wild.poll.score","PS",4.12121212121212,4,2,5,0.857233039988826,33
+"17","3. Pesticides","Urb","Wild.poll.score","PS",3.03030303030303,3,1,5,0.847232571554606,33
+"18","4. Bee management","Urb","Wild.poll.score","PS",2.81818181818182,3,1,5,0.917010954628728,33
+"19","5. Parasites pathogens","Urb","Wild.poll.score","PS",2.39393939393939,2,1,4,0.74747048183331,33
+"20","6. Invasives","Urb","Wild.poll.score","PS",2.48484848484848,3,1,4,0.755033613540323,33
+"21","7. Climate change","Urb","Wild.poll.score","PS",3.09090909090909,3,2,4,0.678400525299968,33
+"22","1. LS simplification","Agr","Man.bee.score","PS",2.94285714285714,3,0,5,1.02735689264926,35
+"23","2. Intensive LM","Agr","Man.bee.score","PS",3.02857142857143,3,0,5,1.01418510567422,35
+"24","3. Pesticides","Agr","Man.bee.score","PS",2.82352941176471,3,0,5,1.31357915485837,34
+"25","4. Bee management","Agr","Man.bee.score","PS",4.32352941176471,5,2,5,0.94454055643212,34
+"26","5. Parasites pathogens","Agr","Man.bee.score","PS",3.48571428571429,4,0,5,1.09467772779531,35
+"27","6. Invasives","Agr","Man.bee.score","PS",2.29411764705882,2,0,4,1.03072236407306,34
+"28","7. Climate change","Agr","Man.bee.score","PS",2.20588235294118,2,0,4,0.769864677786549,34
+"29","1. LS simplification","Snh","Man.bee.score","PS",2.79411764705882,3,0,5,1.09487543956561,34
+"30","2. Intensive LM","Snh","Man.bee.score","PS",2.70588235294118,3,0,5,1.16851140124119,34
+"31","3. Pesticides","Snh","Man.bee.score","PS",2,3,0,3,1.73205080756888,3
+"32","4. Bee management","Snh","Man.bee.score","PS",4.18181818181818,4,2,5,0.917010954628728,33
+"33","5. Parasites pathogens","Snh","Man.bee.score","PS",3.23529411764706,3,0,5,1.04617118737694,34
+"34","6. Invasives","Snh","Man.bee.score","PS",2.48484848484848,2,0,5,1.12141685272505,33
+"35","7. Climate change","Snh","Man.bee.score","PS",2.23529411764706,2,0,4,0.854890513259633,34
+"36","1. LS simplification","Urb","Man.bee.score","PS",2.6969696969697,3,0,5,1.07485023622039,33
+"37","2. Intensive LM","Urb","Man.bee.score","PS",2.81818181818182,3,0,5,1.15797629116882,33
+"38","3. Pesticides","Urb","Man.bee.score","PS",2.5,3,0,5,1.16397539049476,32
+"39","4. Bee management","Urb","Man.bee.score","PS",4.125,4,2,5,1.07012209131602,32
+"40","5. Parasites pathogens","Urb","Man.bee.score","PS",3.06060606060606,3,0,5,1.05887304300946,33
+"41","6. Invasives","Urb","Man.bee.score","PS",2.125,2,0,5,1.1845783243212,32
+"42","7. Climate change","Urb","Man.bee.score","PS",2.28125,2,0,4,0.851350918891132,32
+"43","1. LS simplification","Agr","Flor.score","PS",4.45714285714286,5,3,5,0.610826688756704,35
+"44","2. Intensive LM","Agr","Flor.score","PS",4.62857142857143,5,4,5,0.490240894309911,35
+"45","3. Pesticides","Agr","Flor.score","PS",3.88571428571429,4,2,5,0.758149006440282,35
+"46","4. Bee management","Agr","Flor.score","PS",2.06060606060606,2,0,5,1.08798534972311,33
+"47","5. Parasites pathogens","Agr","Flor.score","PS",1.32142857142857,1,0,4,1.18801332542007,28
+"48","6. Invasives","Agr","Flor.score","PS",2.70588235294118,3,1,4,0.675520529473199,34
+"49","7. Climate change","Agr","Flor.score","PS",3.08571428571429,3,2,4,0.562108874289156,35
+"50","1. LS simplification","Snh","Flor.score","PS",4.32352941176471,4.5,1,5,0.878034590168848,34
+"51","2. Intensive LM","Snh","Flor.score","PS",4.38235294117647,5,1,5,0.888127273241812,34
+"52","3. Pesticides","Snh","Flor.score","PS",3.25,3,2,5,1.5,4
+"53","4. Bee management","Snh","Flor.score","PS",2.19354838709677,2,0,4,1.07763181216065,31
+"54","5. Parasites pathogens","Snh","Flor.score","PS",1.11111111111111,1,0,4,1.15470053837925,27
+"55","6. Invasives","Snh","Flor.score","PS",3,3,2,4,0.707106781186548,33
+"56","7. Climate change","Snh","Flor.score","PS",3.17647058823529,3,2,5,0.757611407360845,34
+"57","1. LS simplification","Urb","Flor.score","PS",4.24242424242424,4,3,5,0.751261565231404,33
+"58","2. Intensive LM","Urb","Flor.score","PS",4.39393939393939,4,3,5,0.658568235805616,33
+"59","3. Pesticides","Urb","Flor.score","PS",3.3030303030303,3,1,5,1.04537219702029,33
+"60","4. Bee management","Urb","Flor.score","PS",1.86666666666667,2,0,5,1.30604254388469,30
+"61","5. Parasites pathogens","Urb","Flor.score","PS",1.07692307692308,1,0,4,1.12864793175115,26
+"62","6. Invasives","Urb","Flor.score","PS",3.0625,3,2,4,0.715609372628355,32
+"63","7. Climate change","Urb","Flor.score","PS",3.06060606060606,3,2,4,0.658568235805616,33
+"64","1. LS simplification","Agr","Habitat.score","PS",4.57142857142857,5,4,5,0.502096445253434,35
+"65","2. Intensive LM","Agr","Habitat.score","PS",4.4,4,3,5,0.603908836127558,35
+"66","3. Pesticides","Agr","Habitat.score","PS",2.35483870967742,2,0,5,1.01811548450308,31
+"67","4. Bee management","Agr","Habitat.score","PS",1.03333333333333,1,0,4,0.889917986664224,30
+"68","5. Parasites pathogens","Agr","Habitat.score","PS",0.961538461538462,1,0,4,1.11286186854503,26
+"69","6. Invasives","Agr","Habitat.score","PS",1.76470588235294,2,0,4,1.04617118737694,34
+"70","7. Climate change","Agr","Habitat.score","PS",2.71428571428571,3,1,5,0.750350058362118,35
+"71","1. LS simplification","Snh","Habitat.score","PS",4.14705882352941,4,1,5,0.988796419932486,34
+"72","2. Intensive LM","Snh","Habitat.score","PS",4.05882352941176,4,1,5,0.885614885540095,34
+"73","3. Pesticides","Snh","Habitat.score","PS",2.5,2.5,2,3,0.707106781186548,2
+"74","4. Bee management","Snh","Habitat.score","PS",1.23333333333333,1,0,4,1.10432795395438,30
+"75","5. Parasites pathogens","Snh","Habitat.score","PS",0.8,1,0,4,1,25
+"76","6. Invasives","Snh","Habitat.score","PS",2.06060606060606,2,0,3,0.933387444318875,33
+"77","7. Climate change","Snh","Habitat.score","PS",2.88235294117647,3,1,5,0.913358964991575,34
+"78","1. LS simplification","Urb","Habitat.score","PS",4.18181818181818,4,3,5,0.846114112226649,33
+"79","2. Intensive LM","Urb","Habitat.score","PS",4.09090909090909,4,3,5,0.80481505498299,33
+"80","3. Pesticides","Urb","Habitat.score","PS",1.96551724137931,2,0,5,1.11748309736944,29
+"81","4. Bee management","Urb","Habitat.score","PS",1,1,0,4,0.925820099772551,29
+"82","5. Parasites pathogens","Urb","Habitat.score","PS",0.833333333333333,1,0,4,1.00722031037067,24
+"83","6. Invasives","Urb","Habitat.score","PS",1.875,2,0,4,1.00803225754837,32
+"84","7. Climate change","Urb","Habitat.score","PS",2.57575757575758,3,1,4,0.708444732773093,33
+"85","1. LS simplification","Agr","Biodiv.score","PS",4.62857142857143,5,4,5,0.490240894309911,35
+"86","2. Intensive LM","Agr","Biodiv.score","PS",4.48571428571429,4,4,5,0.50709255283711,35
+"87","3. Pesticides","Agr","Biodiv.score","PS",3.68571428571429,4,2,5,0.795998395336417,35
+"88","4. Bee management","Agr","Biodiv.score","PS",1.20689655172414,1,0,4,0.818505185637975,29
+"89","5. Parasites pathogens","Agr","Biodiv.score","PS",1.17241379310345,1,0,4,0.928476690885259,29
+"90","6. Invasives","Agr","Biodiv.score","PS",2.82352941176471,3,1,5,0.90354816528369,34
+"91","7. Climate change","Agr","Biodiv.score","PS",3.25714285714286,3,2,5,0.741336517333912,35
+"92","1. LS simplification","Snh","Biodiv.score","PS",4.66666666666667,5,4,5,0.478713553878169,33
+"93","2. Intensive LM","Snh","Biodiv.score","PS",4.45454545454545,4,3,5,0.564076074817766,33
+"94","3. Pesticides","Snh","Biodiv.score","PS",3.25,3,3,4,0.5,4
+"95","4. Bee management","Snh","Biodiv.score","PS",1.35714285714286,1,0,4,0.951189731211342,28
+"96","5. Parasites pathogens","Snh","Biodiv.score","PS",1.07142857142857,1,0,4,0.939998874253519,28
+"97","6. Invasives","Snh","Biodiv.score","PS",2.96875,3,2,5,0.782237279404608,32
+"98","7. Climate change","Snh","Biodiv.score","PS",3.36363636363636,3,2,5,0.859439563690411,33
+"99","1. LS simplification","Urb","Biodiv.score","PS",4.375,4.5,3,5,0.707106781186548,32
+"100","2. Intensive LM","Urb","Biodiv.score","PS",4.125,4,2,5,0.793115538912532,32
+"101","3. Pesticides","Urb","Biodiv.score","PS",3.03125,3,1,5,1.0920349456774,32
+"102","4. Bee management","Urb","Biodiv.score","PS",1.22222222222222,1,0,4,0.933699561847853,27
+"103","5. Parasites pathogens","Urb","Biodiv.score","PS",1.07407407407407,1,0,4,0.957798996334261,27
+"104","6. Invasives","Urb","Biodiv.score","PS",3.06451612903226,3,1,5,0.92863641507204,31
+"105","7. Climate change","Urb","Biodiv.score","PS",3.28125,3,2,5,0.812577539724374,32
+"106","1. LS simplification","Agr","Pest.score","PS",3.35294117647059,3,2,5,0.848612162589922,34
+"107","2. Intensive LM","Agr","Pest.score","PS",3.82352941176471,4,2,5,0.833778847042428,34
+"108","3. Pesticides","Agr","Pest.score","PS",4.4,4,2,5,0.694516336148021,35
+"109","4. Bee management","Agr","Pest.score","PS",0.9,1,0,4,0.884736469627909,30
+"110","5. Parasites pathogens","Agr","Pest.score","PS",0.857142857142857,1,0,4,0.931517508007696,28
+"111","6. Invasives","Agr","Pest.score","PS",3.23529411764706,3,0,5,0.955330294442451,34
+"112","7. Climate change","Agr","Pest.score","PS",3.28571428571429,3,2,4,0.667366579370367,35
+"113","1. LS simplification","Snh","Pest.score","PS",2.84848484848485,3,0,5,1.06422542610847,33
+"114","2. Intensive LM","Snh","Pest.score","PS",3,3,0,5,1.12815214963553,34
+"115","3. Pesticides","Snh","Pest.score","PS",4.6,5,4,5,0.547722557505166,5
+"116","4. Bee management","Snh","Pest.score","PS",1.03448275862069,1,0,4,0.865314089164393,29
+"117","5. Parasites pathogens","Snh","Pest.score","PS",0.777777777777778,1,0,4,0.933699561847853,27
+"118","6. Invasives","Snh","Pest.score","PS",3.21212121212121,3,1,5,1.11123736656418,33
+"119","7. Climate change","Snh","Pest.score","PS",3.05882352941176,3,1,5,0.885614885540095,34
+"120","1. LS simplification","Urb","Pest.score","PS",3.125,3,1,5,1.00803225754837,32
+"121","2. Intensive LM","Urb","Pest.score","PS",3.66666666666667,4,1,5,0.98952850725316,33
+"122","3. Pesticides","Urb","Pest.score","PS",3.96969696969697,4,1,5,1.0150384378451,33
+"123","4. Bee management","Urb","Pest.score","PS",0.892857142857143,1,0,4,0.916486273736323,28
+"124","5. Parasites pathogens","Urb","Pest.score","PS",0.884615384615385,1,0,4,0.951921134419152,26
+"125","6. Invasives","Urb","Pest.score","PS",3.3125,3,1,5,0.820601667542903,32
+"126","7. Climate change","Urb","Pest.score","PS",3.27272727272727,3,2,4,0.674199862463242,33
+"127","1. LS simplification","Agr","weeddiv.score","PS",3.4,3,1,5,0.945577943407535,35
+"128","2. Intensive LM","Agr","weeddiv.score","PS",4.11428571428571,4,2,5,0.795998395336417,35
+"129","3. Pesticides","Agr","weeddiv.score","PS",4.08571428571429,4,1,5,0.88687914726232,35
+"130","4. Bee management","Agr","weeddiv.score","PS",1.57575757575758,2,0,4,1.09059338866231,33
+"131","5. Parasites pathogens","Agr","weeddiv.score","PS",1.42857142857143,1,0,4,1.23013312825381,28
+"132","6. Invasives","Agr","weeddiv.score","PS",2.85294117647059,3,1,5,0.892132377090485,34
+"133","7. Climate change","Agr","weeddiv.score","PS",2.94117647058824,3,1,5,0.885614885540095,34
+"134","1. LS simplification","Snh","weeddiv.score","PS",3.0625,3,0,5,1.21648621433924,32
+"135","2. Intensive LM","Snh","weeddiv.score","PS",3.27272727272727,4,0,5,1.30558241966773,33
+"136","3. Pesticides","Snh","weeddiv.score","PS",3,3,2,4,0.816496580927726,4
+"137","4. Bee management","Snh","weeddiv.score","PS",1.67741935483871,2,0,4,1.10716143882132,31
+"138","5. Parasites pathogens","Snh","weeddiv.score","PS",1.30769230769231,1,0,4,1.2575923272422,26
+"139","6. Invasives","Snh","weeddiv.score","PS",2.71875,3,1,5,0.991394423640665,32
+"140","7. Climate change","Snh","weeddiv.score","PS",2.90625,3,1,5,0.995453373772393,32
+"141","1. LS simplification","Urb","weeddiv.score","PS",3.21875,3,1,5,0.941322850927045,32
+"142","2. Intensive LM","Urb","weeddiv.score","PS",3.78787878787879,4,1,5,1.08275042592856,33
+"143","3. Pesticides","Urb","weeddiv.score","PS",3.57575757575758,4,1,5,0.96922336919512,33
+"144","4. Bee management","Urb","weeddiv.score","PS",1.56666666666667,2,0,3,1.00630198159445,30
+"145","5. Parasites pathogens","Urb","weeddiv.score","PS",1.32,1,0,4,1.14455231422596,25
+"146","6. Invasives","Urb","weeddiv.score","PS",2.87096774193548,3,0,4,0.957146296162747,31
+"147","7. Climate change","Urb","weeddiv.score","PS",3.03225806451613,3,1,5,0.948116412252628,31
+"148","1. Recreate restore ec zone","Agr","LS.simp.score","RP",4.45714285714286,5,3,5,0.741336517333912,35
+"149","10. Ecol intensification","Agr","LS.simp.score","RP",3.51428571428571,4,1,5,0.950895199626262,35
+"150","11. Diversified farming systems","Agr","LS.simp.score","RP",3.91428571428571,4,3,5,0.742469194109547,35
+"151","12. Conservation or regenerative agr","Agr","LS.simp.score","RP",2.82857142857143,3,0,5,1.1753776435861,35
+"152","13. Econ incentives for AES","Agr","LS.simp.score","RP",3.32352941176471,3,2,5,0.767545803007739,34
+"153","2. Biodiv strat init","Agr","LS.simp.score","RP",3.02857142857143,3,1,5,0.857002789676093,35
+"154","3. Nature prot reg","Agr","LS.simp.score","RP",3.47058823529412,3,2,5,0.706476280141699,34
+"155","4. IPM","Agr","LS.simp.score","RP",1.48571428571429,1,0,4,0.950895199626262,35
+"156","5. Reg plant protection products","Agr","LS.simp.score","RP",1.41176470588235,2,0,4,1.15778385638707,34
+"157","6. Certification schemes","Agr","LS.simp.score","RP",2.15625,2,0,4,1.01946776120142,32
+"158","8. Sustainable intensification","Agr","LS.simp.score","RP",2.05882352941176,2,0,5,1.07142432729827,34
+"159","9. Organic farming","Agr","LS.simp.score","RP",2.54285714285714,2,1,5,0.950011056990055,35
+"160","1. Recreate restore ec zone","Snh","LS.simp.score","RP",4.52941176470588,5,2,5,0.748140892485441,34
+"161","2. Biodiv strat init","Snh","LS.simp.score","RP",3.32352941176471,3.5,1,5,1.17345871149929,34
+"162","3. Nature prot reg","Snh","LS.simp.score","RP",3.94117647058824,4,1,5,0.850710094499963,34
+"163","1. Recreate restore ec zone","Urb","LS.simp.score","RP",4.21212121212121,4,2,5,0.892943718746308,33
+"164","2. Biodiv strat init","Urb","LS.simp.score","RP",2.93939393939394,3,1,5,0.933387444318875,33
+"165","3. Nature prot reg","Urb","LS.simp.score","RP",3.42424242424242,3,2,5,0.791766341412629,33
+"166","4. IPM","Urb","LS.simp.score","RP",1.39393939393939,1,0,4,1.11633871258329,33
+"167","5. Reg plant protection products","Urb","LS.simp.score","RP",1.29032258064516,1,0,4,1.21637572011,31
+"168","6. Certification schemes","Urb","LS.simp.score","RP",1.79310344827586,2,0,4,1.1457782864819,29
+"169","7. Urban greening","Urb","LS.simp.score","RP",3.93939393939394,4,3,5,0.704423254309596,33
+"170","1. Recreate restore ec zone","Agr","Int.land.score","RP",3.65714285714286,4,0,5,1.23533413300534,35
+"171","10. Ecol intensification","Agr","Int.land.score","RP",3.85714285714286,4,2,5,0.692092187962453,35
+"172","11. Diversified farming systems","Agr","Int.land.score","RP",3.4,3,2,5,0.650791373455968,35
+"173","12. Conservation or regenerative agr","Agr","Int.land.score","RP",3.4,3,2,5,0.881175685227012,35
+"174","13. Econ incentives for AES","Agr","Int.land.score","RP",3.28571428571429,3,1,5,0.893487172672945,35
+"175","2. Biodiv strat init","Agr","Int.land.score","RP",2.82857142857143,3,1,5,0.890661165047837,35
+"176","3. Nature prot reg","Agr","Int.land.score","RP",3.11428571428571,3,1,5,0.900046684130021,35
+"177","4. IPM","Agr","Int.land.score","RP",3.14285714285714,3,2,5,0.733358797622569,35
+"178","5. Reg plant protection products","Agr","Int.land.score","RP",3.2,3,1,5,1.0516094108276,35
+"179","6. Certification schemes","Agr","Int.land.score","RP",2.9375,3,1,4,0.800705334226059,32
+"180","8. Sustainable intensification","Agr","Int.land.score","RP",2.71428571428571,3,1,5,1.07296808163229,35
+"181","9. Organic farming","Agr","Int.land.score","RP",3.48571428571429,3,1,5,0.817867692860655,35
+"182","1. Recreate restore ec zone","Snh","Int.land.score","RP",3.82352941176471,4,0,5,1.14072247800944,34
+"183","2. Biodiv strat init","Snh","Int.land.score","RP",2.94117647058824,3,1,5,1.0132807942098,34
+"184","3. Nature prot reg","Snh","Int.land.score","RP",3.55882352941176,4,1,5,0.927400291809191,34
+"185","1. Recreate restore ec zone","Urb","Int.land.score","RP",3.45454545454545,4,0,5,1.1481209945741,33
+"186","2. Biodiv strat init","Urb","Int.land.score","RP",2.81818181818182,3,1,5,0.917010954628728,33
+"187","3. Nature prot reg","Urb","Int.land.score","RP",3.27272727272727,3,1,5,0.910793859523358,33
+"188","4. IPM","Urb","Int.land.score","RP",2.66666666666667,3,0,4,1.02062072615966,33
+"189","5. Reg plant protection products","Urb","Int.land.score","RP",2.6969696969697,3,0,4,1.04537219702029,33
+"190","6. Certification schemes","Urb","Int.land.score","RP",2.20689655172414,2,0,4,0.940338477997136,29
+"191","7. Urban greening","Urb","Int.land.score","RP",3.60606060606061,3,2,5,0.863835702672749,33
+"192","1. Recreate restore ec zone","Agr","Pesticide.score","RP",2.77142857142857,3,0,5,1.19029690526737,35
+"193","10. Ecol intensification","Agr","Pesticide.score","RP",3.6,4,2,5,0.694516336148021,35
+"194","11. Diversified farming systems","Agr","Pesticide.score","RP",2.94285714285714,3,1,4,0.802307596244481,35
+"195","12. Conservation or regenerative agr","Agr","Pesticide.score","RP",2.77142857142857,3,0,5,1.05957023157045,35
+"196","13. Econ incentives for AES","Agr","Pesticide.score","RP",2.85714285714286,3,1,4,0.733358797622569,35
+"197","2. Biodiv strat init","Agr","Pesticide.score","RP",2.45714285714286,2,1,4,0.816839574675653,35
+"198","3. Nature prot reg","Agr","Pesticide.score","RP",2.88571428571429,3,1,5,1.10537266996059,35
+"199","4. IPM","Agr","Pesticide.score","RP",3.8,4,1,5,0.964060042064747,35
+"200","5. Reg plant protection products","Agr","Pesticide.score","RP",4.17142857142857,4,2,5,0.923093083245744,35
+"201","6. Certification schemes","Agr","Pesticide.score","RP",3.28125,3,2,4,0.683179237804942,32
+"202","8. Sustainable intensification","Agr","Pesticide.score","RP",2.88571428571429,3,2,4,0.676123403782813,35
+"203","9. Organic farming","Agr","Pesticide.score","RP",3.97142857142857,4,1,5,0.984757787052057,35
+"204","1. Recreate restore ec zone","Snh","Pesticide.score","RP",2.33333333333333,3,1,3,1.15470053837925,3
+"205","2. Biodiv strat init","Snh","Pesticide.score","RP",3,3,2,4,1.4142135623731,2
+"206","3. Nature prot reg","Snh","Pesticide.score","RP",3.5,3.5,2,5,2.12132034355964,2
+"207","1. Recreate restore ec zone","Urb","Pesticide.score","RP",2.45454545454545,2,0,5,1.03352881826382,33
+"208","2. Biodiv strat init","Urb","Pesticide.score","RP",2.36363636363636,2,1,4,0.859439563690411,33
+"209","3. Nature prot reg","Urb","Pesticide.score","RP",2.72727272727273,3,0,5,1.17984975931067,33
+"210","4. IPM","Urb","Pesticide.score","RP",3.33333333333333,3,0,5,1.16368667031408,33
+"211","5. Reg plant protection products","Urb","Pesticide.score","RP",3.96969696969697,4,1,5,1.04537219702029,33
+"212","6. Certification schemes","Urb","Pesticide.score","RP",2.53333333333333,3,0,4,1.04166091952438,30
+"213","7. Urban greening","Urb","Pesticide.score","RP",2.27272727272727,2,0,5,1.15305917217871,33
+"214","1. Recreate restore ec zone","Agr","Bee.man.score","RP",2.25714285714286,2,0,4,1.17179744141105,35
+"215","10. Ecol intensification","Agr","Bee.man.score","RP",2,2,0,4,1.23091490979333,34
+"216","11. Diversified farming systems","Agr","Bee.man.score","RP",1.88235294117647,2,0,5,1.22510867501506,34
+"217","12. Conservation or regenerative agr","Agr","Bee.man.score","RP",1.5,1.5,0,5,1.21231059126652,34
+"218","13. Econ incentives for AES","Agr","Bee.man.score","RP",1.78787878787879,2,0,4,1.26879804730638,33
+"219","2. Biodiv strat init","Agr","Bee.man.score","RP",2.2,2,0,4,0.994100243495417,35
+"220","3. Nature prot reg","Agr","Bee.man.score","RP",2.05714285714286,2,0,5,1.23533413300534,35
+"221","4. IPM","Agr","Bee.man.score","RP",1.48484848484848,1,0,4,1.32573593055923,33
+"222","5. Reg plant protection products","Agr","Bee.man.score","RP",1.81818181818182,2,0,5,1.50943999248367,33
+"223","6. Certification schemes","Agr","Bee.man.score","RP",1.46666666666667,1,0,5,1.38298361456704,30
+"224","7. Urban greening","Agr","Bee.man.score","RP",0,0,0,0,NA,1
+"225","8. Sustainable intensification","Agr","Bee.man.score","RP",1.35294117647059,1,0,4,1.12498762124305,34
+"226","9. Organic farming","Agr","Bee.man.score","RP",1.82352941176471,2,0,4,1.26660099276225,34
+"227","1. Recreate restore ec zone","Snh","Bee.man.score","RP",2.29411764705882,2,0,4,1.08793414920779,34
+"228","2. Biodiv strat init","Snh","Bee.man.score","RP",2.17647058823529,2,0,4,1.05803099671882,34
+"229","3. Nature prot reg","Snh","Bee.man.score","RP",2.20588235294118,2,0,5,1.22547237063685,34
+"230","1. Recreate restore ec zone","Urb","Bee.man.score","RP",2.15151515151515,2,0,4,1.17582981658731,33
+"231","2. Biodiv strat init","Urb","Bee.man.score","RP",2.03030303030303,2,0,4,1.0150384378451,33
+"232","3. Nature prot reg","Urb","Bee.man.score","RP",1.96969696969697,2,0,4,1.13150476371204,33
+"233","4. IPM","Urb","Bee.man.score","RP",1.51612903225806,1,0,4,1.23480005782139,31
+"234","5. Reg plant protection products","Urb","Bee.man.score","RP",1.83870967741935,2,0,4,1.31900907738975,31
+"235","6. Certification schemes","Urb","Bee.man.score","RP",1.64285714285714,1.5,0,5,1.28277147048983,28
+"236","7. Urban greening","Urb","Bee.man.score","RP",2.09677419354839,2,0,4,1.16489881419453,31
+"237","1. Recreate restore ec zone","Agr","Para.path.score","RP",2.15625,2,0,4,0.987318786966385,32
+"238","10. Ecol intensification","Agr","Para.path.score","RP",1.7741935483871,2,0,4,1.02338254233546,31
+"239","11. Diversified farming systems","Agr","Para.path.score","RP",1.7,2,0,4,0.915385729888094,30
+"240","12. Conservation or regenerative agr","Agr","Para.path.score","RP",1.5,1,0,4,1.07478947417301,30
+"241","13. Econ incentives for AES","Agr","Para.path.score","RP",1.53333333333333,2,0,3,0.937102406111643,30
+"242","2. Biodiv strat init","Agr","Para.path.score","RP",1.7,2,0,4,1.02216808119159,30
+"243","3. Nature prot reg","Agr","Para.path.score","RP",1.9,2,0,4,1.21343058849835,30
+"244","4. IPM","Agr","Para.path.score","RP",1.36666666666667,1,0,4,1.12903172837532,30
+"245","5. Reg plant protection products","Agr","Para.path.score","RP",1.26666666666667,1,0,4,1.20153158964696,30
+"246","6. Certification schemes","Agr","Para.path.score","RP",0.896551724137931,1,0,4,1.04692841842243,29
+"247","7. Urban greening","Agr","Para.path.score","RP",0,0,0,0,NA,1
+"248","8. Sustainable intensification","Agr","Para.path.score","RP",1.2,1,0,4,1.06350104972145,30
+"249","9. Organic farming","Agr","Para.path.score","RP",1.56666666666667,1.5,0,4,1.10432795395438,30
+"250","1. Recreate restore ec zone","Snh","Para.path.score","RP",2.26666666666667,2.5,0,3,0.868344970910609,30
+"251","2. Biodiv strat init","Snh","Para.path.score","RP",1.89655172413793,2,0,4,1.04692841842243,29
+"252","3. Nature prot reg","Snh","Para.path.score","RP",1.96551724137931,2,0,4,1.05162318824247,29
+"253","1. Recreate restore ec zone","Urb","Para.path.score","RP",2.2,2,0,4,0.99654575824488,30
+"254","2. Biodiv strat init","Urb","Para.path.score","RP",1.78571428571429,2,0,4,1.06656745570364,28
+"255","3. Nature prot reg","Urb","Para.path.score","RP",1.85714285714286,1.5,0,4,1.23870558826201,28
+"256","4. IPM","Urb","Para.path.score","RP",1.5,1,0,4,1.07151675122144,28
+"257","5. Reg plant protection products","Urb","Para.path.score","RP",1.28571428571429,1,0,4,1.21280644412019,28
+"258","6. Certification schemes","Urb","Para.path.score","RP",1,1,0,4,1.07417231105915,27
+"259","7. Urban greening","Urb","Para.path.score","RP",1.57692307692308,2,0,4,1.02657009202789,26
+"260","1. Recreate restore ec zone","Agr","Invas.score","RP",2.70588235294118,3,1,5,1.14228404270768,34
+"261","10. Ecol intensification","Agr","Invas.score","RP",1.94117647058824,2,0,4,1.09934350852344,34
+"262","11. Diversified farming systems","Agr","Invas.score","RP",1.87878787878788,2,0,4,1.11123736656418,33
+"263","12. Conservation or regenerative agr","Agr","Invas.score","RP",1.78125,2,0,4,1.15659051219661,32
+"264","13. Econ incentives for AES","Agr","Invas.score","RP",1.57575757575758,1,0,4,1.1734112405265,33
+"265","2. Biodiv strat init","Agr","Invas.score","RP",2.44117647058824,3,0,4,0.927400291809191,34
+"266","3. Nature prot reg","Agr","Invas.score","RP",2.58823529411765,3,0,5,1.30541174414316,34
+"267","4. IPM","Agr","Invas.score","RP",1.57575757575758,1,0,4,1.1734112405265,33
+"268","5. Reg plant protection products","Agr","Invas.score","RP",1.42424242424242,1,0,4,1.14647020868139,33
+"269","6. Certification schemes","Agr","Invas.score","RP",1.21428571428571,1,0,3,1.06656745570364,28
+"270","8. Sustainable intensification","Agr","Invas.score","RP",1.54545454545455,2,0,4,1.1481209945741,33
+"271","9. Organic farming","Agr","Invas.score","RP",1.65625,1.5,0,4,1.06587462193141,32
+"272","1. Recreate restore ec zone","Snh","Invas.score","RP",2.64705882352941,3,0,5,1.20308575328954,34
+"273","2. Biodiv strat init","Snh","Invas.score","RP",2.55882352941176,2,0,5,1.07847188386071,34
+"274","3. Nature prot reg","Snh","Invas.score","RP",2.67647058823529,3,1,5,1.06516717240504,34
+"275","1. Recreate restore ec zone","Urb","Invas.score","RP",2.625,3,1,5,0.975506485486286,32
+"276","2. Biodiv strat init","Urb","Invas.score","RP",2.3125,2,0,4,0.859012936926128,32
+"277","3. Nature prot reg","Urb","Invas.score","RP",2.4375,3,0,5,1.10533894962061,32
+"278","4. IPM","Urb","Invas.score","RP",1.83870967741935,1,0,4,1.26745872236662,31
+"279","5. Reg plant protection products","Urb","Invas.score","RP",1.45161290322581,1,0,4,1.17866335814259,31
+"280","6. Certification schemes","Urb","Invas.score","RP",1.2962962962963,1,0,3,0.953326758688703,27
+"281","7. Urban greening","Urb","Invas.score","RP",1.89655172413793,2,0,4,0.939027901084296,29
+"282","1. Recreate restore ec zone","Agr","Clim.chang.score","RP",2.97142857142857,3,0,5,0.923093083245744,35
+"283","10. Ecol intensification","Agr","Clim.chang.score","RP",2.57142857142857,3,0,5,1.11897311868344,35
+"284","11. Diversified farming systems","Agr","Clim.chang.score","RP",2.45714285714286,2,0,5,1.09390980225162,35
+"285","12. Conservation or regenerative agr","Agr","Clim.chang.score","RP",2.68571428571429,3,0,5,1.13166791458783,35
+"286","13. Econ incentives for AES","Agr","Clim.chang.score","RP",2.14285714285714,2,0,4,0.943798867620113,35
+"287","2. Biodiv strat init","Agr","Clim.chang.score","RP",2.37142857142857,3,0,4,0.942016431907211,35
+"288","3. Nature prot reg","Agr","Clim.chang.score","RP",2.68571428571429,3,0,4,0.963187983955871,35
+"289","4. IPM","Agr","Clim.chang.score","RP",1.21212121212121,1,0,3,0.96038975673863,33
+"290","5. Reg plant protection products","Agr","Clim.chang.score","RP",1.15625,1,0,3,0.987318786966385,32
+"291","6. Certification schemes","Agr","Clim.chang.score","RP",1.63333333333333,2,0,4,1.12903172837532,30
+"292","8. Sustainable intensification","Agr","Clim.chang.score","RP",1.77142857142857,2,0,4,1.05957023157045,35
+"293","9. Organic farming","Agr","Clim.chang.score","RP",2.08571428571429,2,0,4,1.01086534192038,35
+"294","1. Recreate restore ec zone","Snh","Clim.chang.score","RP",3.17647058823529,3,0,5,0.999108336871284,34
+"295","2. Biodiv strat init","Snh","Clim.chang.score","RP",2.52941176470588,3,0,5,0.928840728025648,34
+"296","3. Nature prot reg","Snh","Clim.chang.score","RP",2.91176470588235,3,0,5,0.933148695768015,34
+"297","1. Recreate restore ec zone","Urb","Clim.chang.score","RP",2.96969696969697,3,1,5,0.883347627099904,33
+"298","2. Biodiv strat init","Urb","Clim.chang.score","RP",2.45454545454545,3,1,4,0.832575412909736,33
+"299","3. Nature prot reg","Urb","Clim.chang.score","RP",2.81818181818182,3,1,4,0.768706114785807,33
+"300","4. IPM","Urb","Clim.chang.score","RP",1.29032258064516,1,0,3,0.901611460556293,31
+"301","5. Reg plant protection products","Urb","Clim.chang.score","RP",1.2,1,0,3,0.924755326447544,30
+"302","6. Certification schemes","Urb","Clim.chang.score","RP",1.66666666666667,2,0,4,1.10940039245046,27
+"303","7. Urban greening","Urb","Clim.chang.score","RP",3.1875,3,2,5,0.859012936926128,32
+"304","1. Recreate restore ec zone","Agr","Man.bee.score","RS",2.58823529411765,2,1,5,0.988345635126778,34
+"305","10. Ecol intensification","Agr","Man.bee.score","RS",2.71875,3,1,5,1.17045276599244,32
+"306","11. Diversified farming systems","Agr","Man.bee.score","RS",2.53125,2.5,1,4,0.841825014381676,32
+"307","12. Conservation or regenerative agr","Agr","Man.bee.score","RS",2.21875,2,1,5,0.870089910074185,32
+"308","13. Econ incentives for AES","Agr","Man.bee.score","RS",2.3030303030303,2,0,4,1.0150384378451,33
+"309","2. Biodiv strat init","Agr","Man.bee.score","RS",2.26470588235294,2,1,5,0.963227640088788,34
+"310","3. Nature prot reg","Agr","Man.bee.score","RS",2.29411764705882,2,0,5,1.05971442021255,34
+"311","4. IPM","Agr","Man.bee.score","RS",2.15151515151515,2,0,4,1.09319520561323,33
+"312","5. Reg plant protection products","Agr","Man.bee.score","RS",2.72727272727273,3,1,5,1.12563113609453,33
+"313","6. Certification schemes","Agr","Man.bee.score","RS",1.79310344827586,2,0,3,0.675029647223396,29
+"314","8. Sustainable intensification","Agr","Man.bee.score","RS",1.71875,2,0,5,1.05446439545881,32
+"315","9. Organic farming","Agr","Man.bee.score","RS",2.51515151515152,3,0,5,1.09319520561323,33
+"316","1. Recreate restore ec zone","Snh","Man.bee.score","RS",2.78787878787879,3,1,5,1.1926225240404,33
+"317","2. Biodiv strat init","Snh","Man.bee.score","RS",2.3030303030303,2,1,4,0.918043043818224,33
+"318","3. Nature prot reg","Snh","Man.bee.score","RS",2.42424242424242,3,0,4,1.06155260792574,33
+"319","4. IPM","Snh","Man.bee.score","RS",2,2,2,2,NA,1
+"320","1. Recreate restore ec zone","Urb","Man.bee.score","RS",2.5,2,0,5,1.16397539049476,32
+"321","2. Biodiv strat init","Urb","Man.bee.score","RS",2.34375,2,1,5,0.970845158910856,32
+"322","3. Nature prot reg","Urb","Man.bee.score","RS",2.0625,2,0,5,1.16224199356799,32
+"323","4. IPM","Urb","Man.bee.score","RS",1.93548387096774,2,0,4,0.997847144973208,31
+"324","5. Reg plant protection products","Urb","Man.bee.score","RS",2.51612903225806,2,1,5,1.02862263057403,31
+"325","6. Certification schemes","Urb","Man.bee.score","RS",1.78571428571429,2,0,3,0.738223235189428,28
+"326","7. Urban greening","Urb","Man.bee.score","RS",2.84375,3,1,5,1.22103538824837,32
+"327","8. Sustainable intensification","Urb","Man.bee.score","RS",0,0,0,0,NA,1
+"328","1. Recreate restore ec zone","Agr","Habitat.score","RS",4.23529411764706,4,2,5,0.7807852895958,34
+"329","10. Ecol intensification","Agr","Habitat.score","RS",3,3,1,5,0.968245836551854,33
+"330","11. Diversified farming systems","Agr","Habitat.score","RS",2.72727272727273,3,0,5,1.12563113609453,33
+"331","12. Conservation or regenerative agr","Agr","Habitat.score","RS",2.84848484848485,3,1,4,0.833712035163076,33
+"332","13. Econ incentives for AES","Agr","Habitat.score","RS",2.64705882352941,3,1,4,0.812118551622534,34
+"333","2. Biodiv strat init","Agr","Habitat.score","RS",2.96969696969697,3,2,4,0.769937030089494,33
+"334","3. Nature prot reg","Agr","Habitat.score","RS",3.32352941176471,3,2,5,0.726994153421287,34
+"335","4. IPM","Agr","Habitat.score","RS",1.57575757575758,1,0,5,1.1734112405265,33
+"336","5. Reg plant protection products","Agr","Habitat.score","RS",1.61764705882353,2,0,3,0.953929858369082,34
+"337","6. Certification schemes","Agr","Habitat.score","RS",1.83333333333333,2,1,3,0.647719252365604,30
+"338","8. Sustainable intensification","Agr","Habitat.score","RS",1.72727272727273,2,0,4,0.977008420918394,33
+"339","9. Organic farming","Agr","Habitat.score","RS",2.38235294117647,2,0,4,0.779071159559737,34
+"340","1. Recreate restore ec zone","Snh","Habitat.score","RS",4.24242424242424,4,2,5,0.791766341412629,33
+"341","2. Biodiv strat init","Snh","Habitat.score","RS",2.87878787878788,3,1,5,0.892943718746308,33
+"342","3. Nature prot reg","Snh","Habitat.score","RS",3.54545454545455,4,2,5,0.71111308396191,33
+"343","1. Recreate restore ec zone","Urb","Habitat.score","RS",4.09375,4,3,5,0.817524785063761,32
+"344","2. Biodiv strat init","Urb","Habitat.score","RS",2.90625,3,1,4,0.928383089726608,32
+"345","3. Nature prot reg","Urb","Habitat.score","RS",3.15625,3,2,5,0.883883476483184,32
+"346","4. IPM","Urb","Habitat.score","RS",1.32258064516129,1,0,5,1.07663354255115,31
+"347","5. Reg plant protection products","Urb","Habitat.score","RS",1.46875,2,0,3,0.841825014381676,32
+"348","6. Certification schemes","Urb","Habitat.score","RS",1.64285714285714,2,0,3,0.731020885058378,28
+"349","7. Urban greening","Urb","Habitat.score","RS",3.34375,3,2,5,0.901946819117474,32
+"350","8. Sustainable intensification","Urb","Habitat.score","RS",1,1,1,1,NA,1
+"351","1. Recreate restore ec zone","Agr","Biodiv.score","RS",4.5,5,3,5,0.615457454896664,34
+"352","10. Ecol intensification","Agr","Biodiv.score","RS",3.375,3,1,5,0.906962317387713,32
+"353","11. Diversified farming systems","Agr","Biodiv.score","RS",3.21875,3,2,4,0.552669474810304,32
+"354","12. Conservation or regenerative agr","Agr","Biodiv.score","RS",3.0625,3,2,4,0.669014682321166,32
+"355","13. Econ incentives for AES","Agr","Biodiv.score","RS",2.96969696969697,3,2,4,0.728219081254419,33
+"356","2. Biodiv strat init","Agr","Biodiv.score","RS",3.36363636363636,3,2,5,0.78334945180064,33
+"357","3. Nature prot reg","Agr","Biodiv.score","RS",3.84848484848485,4,3,5,0.618527087180309,33
+"358","4. IPM","Agr","Biodiv.score","RS",2.66666666666667,3,1,4,0.692218655243173,33
+"359","5. Reg plant protection products","Agr","Biodiv.score","RS",3.21212121212121,3,2,5,0.739830037811716,33
+"360","6. Certification schemes","Agr","Biodiv.score","RS",2.4,2,1,4,0.723973708800591,30
+"361","8. Sustainable intensification","Agr","Biodiv.score","RS",2.09375,2,0,4,0.928383089726608,32
+"362","9. Organic farming","Agr","Biodiv.score","RS",3.18181818181818,3,2,5,0.768706114785807,33
+"363","1. Recreate restore ec zone","Snh","Biodiv.score","RS",4.51515151515152,5,3,5,0.712443511849015,33
+"364","2. Biodiv strat init","Snh","Biodiv.score","RS",3.5,4,2,5,0.842423539174232,32
+"365","3. Nature prot reg","Snh","Biodiv.score","RS",4.25,4,3,5,0.622171016838255,32
+"366","1. Recreate restore ec zone","Urb","Biodiv.score","RS",4.21875,4,3,5,0.832190075992645,32
+"367","2. Biodiv strat init","Urb","Biodiv.score","RS",3.29032258064516,3,2,5,0.782881361258813,31
+"368","3. Nature prot reg","Urb","Biodiv.score","RS",3.48387096774194,4,2,5,0.926317718781754,31
+"369","4. IPM","Urb","Biodiv.score","RS",2.38709677419355,3,1,4,0.803219328902499,31
+"370","5. Reg plant protection products","Urb","Biodiv.score","RS",2.96774193548387,3,1,5,0.874980798560438,31
+"371","6. Certification schemes","Urb","Biodiv.score","RS",2.25,2,0,4,0.844371341865037,28
+"372","7. Urban greening","Urb","Biodiv.score","RS",3.71875,4,2,5,0.771858878961859,32
+"373","8. Sustainable intensification","Urb","Biodiv.score","RS",2,2,2,2,NA,1
+"374","1. Recreate restore ec zone","Agr","Pest.score","RS",2.78125,3,1,5,1.00753211747415,32
+"375","10. Ecol intensification","Agr","Pest.score","RS",2.66666666666667,3,1,4,0.802295557085754,30
+"376","11. Diversified farming systems","Agr","Pest.score","RS",2.6,3,1,4,0.932183199398798,30
+"377","12. Conservation or regenerative agr","Agr","Pest.score","RS",2.56666666666667,3,1,4,0.935260735665815,30
+"378","13. Econ incentives for AES","Agr","Pest.score","RS",2.26666666666667,2,0,4,0.868344970910609,30
+"379","2. Biodiv strat init","Agr","Pest.score","RS",2,2,0,4,0.856348838577675,31
+"380","3. Nature prot reg","Agr","Pest.score","RS",2.15625,2,0,5,0.954087133371222,32
+"381","4. IPM","Agr","Pest.score","RS",3.45161290322581,4,1,5,0.850047437006483,31
+"382","5. Reg plant protection products","Agr","Pest.score","RS",3.15625,3,2,5,0.954087133371222,32
+"383","6. Certification schemes","Agr","Pest.score","RS",1.79310344827586,2,0,4,0.977581211271239,29
+"384","8. Sustainable intensification","Agr","Pest.score","RS",2.64516129032258,3,1,5,1.11200680743642,31
+"385","9. Organic farming","Agr","Pest.score","RS",2.96774193548387,3,2,4,0.65746335602536,31
+"386","1. Recreate restore ec zone","Snh","Pest.score","RS",2.37931034482759,2,1,5,0.941647230861517,29
+"387","2. Biodiv strat init","Snh","Pest.score","RS",1.82142857142857,2,0,3,0.818923024853326,28
+"388","3. Nature prot reg","Snh","Pest.score","RS",2.03448275862069,2,0,3,0.778403064003002,29
+"389","1. Recreate restore ec zone","Urb","Pest.score","RS",2.61290322580645,2,1,5,1.05443252841955,31
+"390","2. Biodiv strat init","Urb","Pest.score","RS",2,2,0,4,0.870988340711385,30
+"391","3. Nature prot reg","Urb","Pest.score","RS",2.06451612903226,2,1,5,0.892019576428221,31
+"392","4. IPM","Urb","Pest.score","RS",3.10344827586207,3,1,5,1.08050344040594,29
+"393","5. Reg plant protection products","Urb","Pest.score","RS",3,3,1,5,1.08278058400742,30
+"394","6. Certification schemes","Urb","Pest.score","RS",1.55172413793103,2,0,4,0.869573249052649,29
+"395","7. Urban greening","Urb","Pest.score","RS",1.93333333333333,2,1,3,0.691491807283521,30
+"396","8. Sustainable intensification","Urb","Pest.score","RS",2,2,2,2,NA,1
+"397","1. Recreate restore ec zone","Agr","weeddiv.score","RS",2.96969696969697,3,1,5,1.13150476371204,33
+"398","10. Ecol intensification","Agr","weeddiv.score","RS",2.87096774193548,3,1,5,1.0875641125583,31
+"399","11. Diversified farming systems","Agr","weeddiv.score","RS",2.53125,3,1,5,0.949851431506782,32
+"400","12. Conservation or regenerative agr","Agr","weeddiv.score","RS",2.51612903225806,2,1,4,0.889605445949138,31
+"401","13. Econ incentives for AES","Agr","weeddiv.score","RS",2.36363636363636,2,0,4,0.859439563690411,33
+"402","2. Biodiv strat init","Agr","weeddiv.score","RS",2.3030303030303,2,1,5,0.9837698055455,33
+"403","3. Nature prot reg","Agr","weeddiv.score","RS",2.45454545454545,3,1,5,1.12057209414737,33
+"404","4. IPM","Agr","weeddiv.score","RS",2.66666666666667,3,1,5,1.08012344973464,33
+"405","5. Reg plant protection products","Agr","weeddiv.score","RS",2.96875,3,1,5,1.0920349456774,32
+"406","6. Certification schemes","Agr","weeddiv.score","RS",1.83870967741935,2,0,3,0.898026510133874,31
+"407","8. Sustainable intensification","Agr","weeddiv.score","RS",2.12903225806452,2,0,3,0.805892279148645,31
+"408","9. Organic farming","Agr","weeddiv.score","RS",2.90909090909091,3,2,5,0.76500148544122,33
+"409","1. Recreate restore ec zone","Snh","weeddiv.score","RS",2.61290322580645,3,1,5,1.22956413293055,31
+"410","2. Biodiv strat init","Snh","weeddiv.score","RS",2.19354838709677,2,0,5,1.10813220747676,31
+"411","3. Nature prot reg","Snh","weeddiv.score","RS",2.41935483870968,2,0,5,1.25894647883027,31
+"412","1. Recreate restore ec zone","Urb","weeddiv.score","RS",2.70967741935484,3,1,5,1.21637572011,31
+"413","2. Biodiv strat init","Urb","weeddiv.score","RS",2.19354838709677,2,0,5,1.10813220747676,31
+"414","3. Nature prot reg","Urb","weeddiv.score","RS",2.29032258064516,2,1,4,1.03902352835396,31
+"415","4. IPM","Urb","weeddiv.score","RS",2.35483870967742,2,1,5,1.17042405696324,31
+"416","5. Reg plant protection products","Urb","weeddiv.score","RS",2.5,2,1,5,1.16707710350141,30
+"417","6. Certification schemes","Urb","weeddiv.score","RS",1.55172413793103,2,0,3,0.827483573274666,29
+"418","7. Urban greening","Urb","weeddiv.score","RS",2.51612903225806,2,1,5,1.17957528350774,31
+"419","1. Recreate restore ec zone","Agr","Wild.pol.score","RS",4.61764705882353,5,4,5,0.493270218056382,34
+"420","10. Ecol intensification","Agr","Wild.pol.score","RS",3.51515151515152,3,2,5,0.870388279778489,33
+"421","11. Diversified farming systems","Agr","Wild.pol.score","RS",3.54545454545455,4,3,4,0.505649896847432,33
+"422","12. Conservation or regenerative agr","Agr","Wild.pol.score","RS",2.93939393939394,3,1,5,0.933387444318875,33
+"423","13. Econ incentives for AES","Agr","Wild.pol.score","RS",3.11764705882353,3,2,4,0.769285614389245,34
+"424","2. Biodiv strat init","Agr","Wild.pol.score","RS",3.17647058823529,3,2,5,0.757611407360845,34
+"425","3. Nature prot reg","Agr","Wild.pol.score","RS",3.67647058823529,4,3,5,0.638207159076591,34
+"426","4. IPM","Agr","Wild.pol.score","RS",2.79411764705882,3,1,4,0.729441952109506,34
+"427","5. Reg plant protection products","Agr","Wild.pol.score","RS",3.41176470588235,3.5,2,5,0.820851260243809,34
+"428","6. Certification schemes","Agr","Wild.pol.score","RS",2.28125,2,1,4,0.683179237804942,32
+"429","8. Sustainable intensification","Agr","Wild.pol.score","RS",2.36363636363636,3,1,5,0.994301947919425,33
+"430","9. Organic farming","Agr","Wild.pol.score","RS",3.23529411764706,3,2,5,0.740958573634948,34
+"431","1. Recreate restore ec zone","Snh","Wild.pol.score","RS",4.54545454545455,5,2,5,0.753778361444409,33
+"432","2. Biodiv strat init","Snh","Wild.pol.score","RS",3.21212121212121,3,2,5,0.780927963930403,33
+"433","3. Nature prot reg","Snh","Wild.pol.score","RS",4.06060606060606,4,2,5,0.788170109311512,33
+"434","1. Recreate restore ec zone","Urb","Wild.pol.score","RS",4.375,4.5,3,5,0.707106781186548,32
+"435","2. Biodiv strat init","Urb","Wild.pol.score","RS",3.1875,3,2,5,0.737804065256947,32
+"436","3. Nature prot reg","Urb","Wild.pol.score","RS",3.34375,3,1,5,1.06587462193141,32
+"437","4. IPM","Urb","Wild.pol.score","RS",2.3125,2.5,0,4,0.895778630487862,32
+"438","5. Reg plant protection products","Urb","Wild.pol.score","RS",3.1875,3,2,5,0.820601667542903,32
+"439","6. Certification schemes","Urb","Wild.pol.score","RS",1.86666666666667,2,0,3,0.730296743340221,30
+"440","7. Urban greening","Urb","Wild.pol.score","RS",3.875,4,3,5,0.751342883796911,32
+"441","8. Sustainable intensification","Urb","Wild.pol.score","RS",1,1,1,1,NA,1
+"442","1. Recreate restore ec zone","Agr","Flor.res.score","RS",4.47058823529412,5,3,5,0.662195344137054,34
+"443","10. Ecol intensification","Agr","Flor.res.score","RS",3.24242424242424,3,2,5,0.867118180753892,33
+"444","11. Diversified farming systems","Agr","Flor.res.score","RS",3.24242424242424,3,2,5,0.613916883131535,33
+"445","12. Conservation or regenerative agr","Agr","Flor.res.score","RS",2.75757575757576,3,1,4,0.830297500534561,33
+"446","13. Econ incentives for AES","Agr","Flor.res.score","RS",3.08823529411765,3,2,5,0.712130693606998,34
+"447","2. Biodiv strat init","Agr","Flor.res.score","RS",3.05882352941176,3,2,4,0.73613143056519,34
+"448","3. Nature prot reg","Agr","Flor.res.score","RS",3.58823529411765,4,2,5,0.783064959526213,34
+"449","4. IPM","Agr","Flor.res.score","RS",2.26470588235294,2,0,5,1.05338771041303,34
+"450","5. Reg plant protection products","Agr","Flor.res.score","RS",3.02941176470588,3,0,5,1.14111306952166,34
+"451","6. Certification schemes","Agr","Flor.res.score","RS",2.15625,2,1,4,0.677251323246186,32
+"452","8. Sustainable intensification","Agr","Flor.res.score","RS",2.21212121212121,2,1,4,0.892943718746308,33
+"453","9. Organic farming","Agr","Flor.res.score","RS",3.05882352941176,3,2,5,0.814310508515072,34
+"454","1. Recreate restore ec zone","Snh","Flor.res.score","RS",4.54545454545455,5,2,5,0.753778361444409,33
+"455","2. Biodiv strat init","Snh","Flor.res.score","RS",3.12121212121212,3,2,5,0.780927963930403,33
+"456","3. Nature prot reg","Snh","Flor.res.score","RS",3.96969696969697,4,2,5,0.809507893910263,33
+"457","1. Recreate restore ec zone","Urb","Flor.res.score","RS",4.3125,5,3,5,0.820601667542903,32
+"458","2. Biodiv strat init","Urb","Flor.res.score","RS",3.0625,3,2,4,0.669014682321166,32
+"459","3. Nature prot reg","Urb","Flor.res.score","RS",3.4375,3,2,5,0.840026881290309,32
+"460","4. IPM","Urb","Flor.res.score","RS",2.15625,2,0,5,0.987318786966385,32
+"461","5. Reg plant protection products","Urb","Flor.res.score","RS",2.875,3,0,5,1.00803225754837,32
+"462","6. Certification schemes","Urb","Flor.res.score","RS",1.93333333333333,2,0,3,0.739679955644067,30
+"463","7. Urban greening","Urb","Flor.res.score","RS",3.90625,4,2,5,0.817524785063761,32
+"464","8. Sustainable intensification","Urb","Flor.res.score","RS",1,1,1,1,NA,1
+"465","1. WP abund and div D","Agr","Crop.poll.score","SI",4.42857142857143,5,3,5,0.654653670707977,35
+"466","2. Man. bees on WP I","Agr","Crop.poll.score","SI",3.25714285714286,4,1,5,1.09390980225162,35
+"467","3. Flor res. on WP I","Agr","Crop.poll.score","SI",3.62857142857143,4,1,5,0.770244968126615,35
+"468","4. Habitat res. on WP I","Agr","Crop.poll.score","SI",3.34285714285714,3,1,5,0.90563130866092,35
+"469","5. Wider biodiv D cobenefit","Agr","Crop.poll.score","SI",2.18181818181818,2,0,5,1.13066754216661,33
+"470","6. Pest weed D","Agr","Crop.poll.score","SI",3.54545454545455,4,1,5,1.06333523320814,33
+"471","7. Weed diversity on WP I","Agr","Crop.poll.score","SI",3.05882352941176,3,1,5,0.850710094499963,34
+"472","1. WP abund and div D","Urb","Crop.poll.score","SI",3.5,4,0,5,1.16397539049476,32
+"473","2. Man. bees on WP I","Urb","Crop.poll.score","SI",2.9375,3,0,5,1.26841277498373,32
+"474","3. Flor res. on WP I","Urb","Crop.poll.score","SI",3.09375,3,0,5,1.08833625615047,32
+"475","4. Habitat res. on WP I","Urb","Crop.poll.score","SI",3.03125,3,0,5,1.12118528870696,32
+"476","5. Wider biodiv D cobenefit","Urb","Crop.poll.score","SI",1.96666666666667,2,0,5,1.24522074855974,30
+"477","6. Pest weed D","Urb","Crop.poll.score","SI",3,3.5,0,5,1.28653504180535,30
+"478","7. Weed diversity on WP I","Urb","Crop.poll.score","SI",2.65625,3,0,5,1.18074265858673,32
+"479","1. WP abund and div D","Agr","Econ.val.score","SI",3.87878787878788,4,2,5,0.927280154456292,33
+"480","2. Man. bees on WP I","Agr","Econ.val.score","SI",3.0625,3,1,5,1.13414739896569,32
+"481","3. Flor res. on WP I","Agr","Econ.val.score","SI",2.96969696969697,3,1,5,1.07485023622039,33
+"482","4. Habitat res. on WP I","Agr","Econ.val.score","SI",2.6969696969697,3,1,5,1.07485023622039,33
+"483","5. Wider biodiv D cobenefit","Agr","Econ.val.score","SI",2.4,2,1,5,1.00344235097196,30
+"484","6. Pest weed D","Agr","Econ.val.score","SI",3.32258064516129,3,2,5,0.979356822075711,31
+"485","7. Weed diversity on WP I","Agr","Econ.val.score","SI",2.64516129032258,3,0,5,0.984831190163207,31
+"486","1. WP abund and div D","Urb","Econ.val.score","SI",2.83870967741935,3,0,5,1.24088071394335,31
+"487","2. Man. bees on WP I","Urb","Econ.val.score","SI",2.55172413793103,3,0,5,1.3252009792737,29
+"488","3. Flor res. on WP I","Urb","Econ.val.score","SI",2.33333333333333,2.5,0,5,1.29543850473121,30
+"489","4. Habitat res. on WP I","Urb","Econ.val.score","SI",2.20689655172414,2,0,4,1.17653578492198,29
+"490","5. Wider biodiv D cobenefit","Urb","Econ.val.score","SI",2,2,0,5,1.12216721537356,28
+"491","6. Pest weed D","Urb","Econ.val.score","SI",2.68965517241379,3,0,5,1.39138800883614,29
+"492","7. Weed diversity on WP I","Urb","Econ.val.score","SI",2.22222222222222,3,0,4,1.21949968724042,27
+"493","1. WP abund and div D","Agr","Nutr.div.score","SI",3.81818181818182,4,2,5,0.808337238353579,33
+"494","2. Man. bees on WP I","Agr","Nutr.div.score","SI",2.81818181818182,3,1,5,1.07396885006461,33
+"495","3. Flor res. on WP I","Agr","Nutr.div.score","SI",2.88235294117647,3,0,5,1.3654770701969,34
+"496","4. Habitat res. on WP I","Agr","Nutr.div.score","SI",2.55882352941176,2,0,5,1.1332756617391,34
+"497","5. Wider biodiv D cobenefit","Agr","Nutr.div.score","SI",2.13333333333333,2,0,5,1.30604254388469,30
+"498","6. Pest weed D","Agr","Nutr.div.score","SI",2.26666666666667,2,1,4,0.907187139319736,30
+"499","7. Weed diversity on WP I","Agr","Nutr.div.score","SI",2.26666666666667,2,1,5,1.04826073794292,30
+"500","1. WP abund and div D","Snh","Nutr.div.score","SI",3.375,3.5,0,5,1.09985336266015,32
+"501","2. Man. bees on WP I","Snh","Nutr.div.score","SI",2.41935483870968,2,0,5,1.11875506846933,31
+"502","3. Flor res. on WP I","Snh","Nutr.div.score","SI",2.5625,2,0,5,1.24272074043595,32
+"503","4. Habitat res. on WP I","Snh","Nutr.div.score","SI",2.3125,2,0,5,0.997981834471692,32
+"504","5. Wider biodiv D cobenefit","Snh","Nutr.div.score","SI",1.75862068965517,2,0,5,1.32705830461301,29
+"505","6. Pest weed D","Snh","Nutr.div.score","SI",1.66666666666667,2,0,3,0.758098043578903,30
+"506","7. Weed diversity on WP I","Snh","Nutr.div.score","SI",2.26923076923077,2,0,5,1.42990048066828,26
+"507","1. WP abund and div D","Urb","Nutr.div.score","SI",3.25,3,0,5,1.13592366849413,32
+"508","2. Man. bees on WP I","Urb","Nutr.div.score","SI",2.48387096774194,3,0,5,1.17957528350774,31
+"509","3. Flor res. on WP I","Urb","Nutr.div.score","SI",2.53125,3,0,5,1.43649158177698,32
+"510","4. Habitat res. on WP I","Urb","Nutr.div.score","SI",2.25,2,0,5,1.21814242506446,32
+"511","5. Wider biodiv D cobenefit","Urb","Nutr.div.score","SI",1.96551724137931,2,0,5,1.32241010012265,29
+"512","6. Pest weed D","Urb","Nutr.div.score","SI",1.89655172413793,2,0,4,1.08050344040594,29
+"513","7. Weed diversity on WP I","Urb","Nutr.div.score","SI",1.92857142857143,2,0,5,1.15240718847217,28
+"514","1. WP abund and div D","Agr","W.pl.poll.score","SI",4.82857142857143,5,3,5,0.45281565433046,35
+"515","2. Man. bees on WP I","Agr","W.pl.poll.score","SI",2.82352941176471,3,1,5,0.86936369051247,34
+"516","3. Flor res. on WP I","Agr","W.pl.poll.score","SI",3.91428571428571,4,2,5,0.817867692860655,35
+"517","4. Habitat res. on WP I","Agr","W.pl.poll.score","SI",3.65714285714286,4,2,5,0.872550593269597,35
+"518","5. Wider biodiv D cobenefit","Agr","W.pl.poll.score","SI",1.87096774193548,2,0,5,1.20393619664474,31
+"519","6. Pest weed D","Agr","W.pl.poll.score","SI",2.13793103448276,2,0,4,0.953345160513175,29
+"520","7. Weed diversity on WP I","Agr","W.pl.poll.score","SI",2.84375,3,0,5,1.11034359692205,32
+"521","1. WP abund and div D","Snh","W.pl.poll.score","SI",4.88235294117647,5,3,5,0.409338407999805,34
+"522","2. Man. bees on WP I","Snh","W.pl.poll.score","SI",2.6969696969697,3,1,5,1.0150384378451,33
+"523","3. Flor res. on WP I","Snh","W.pl.poll.score","SI",3.97058823529412,4,2,5,0.834313149466403,34
+"524","4. Habitat res. on WP I","Snh","W.pl.poll.score","SI",3.70588235294118,4,2,5,0.871411664352764,34
+"525","5. Wider biodiv D cobenefit","Snh","W.pl.poll.score","SI",2.1,2,0,5,1.241522980192,30
+"526","6. Pest weed D","Snh","W.pl.poll.score","SI",2.17241379310345,2,0,4,0.928476690885259,29
+"527","7. Weed diversity on WP I","Snh","W.pl.poll.score","SI",2.875,3,0,5,1.33802936464233,32
+"528","1. WP abund and div D","Urb","W.pl.poll.score","SI",4.54545454545455,5,3,5,0.71111308396191,33
+"529","2. Man. bees on WP I","Urb","W.pl.poll.score","SI",2.90625,3,1,5,1.02734782249591,32
+"530","3. Flor res. on WP I","Urb","W.pl.poll.score","SI",3.81818181818182,4,2,5,0.882274951990076,33
+"531","4. Habitat res. on WP I","Urb","W.pl.poll.score","SI",3.45454545454545,3,2,5,0.971175482691886,33
+"532","5. Wider biodiv D cobenefit","Urb","W.pl.poll.score","SI",1.93103448275862,2,0,5,1.22273214222315,29
+"533","6. Pest weed D","Urb","W.pl.poll.score","SI",2.22222222222222,2,0,4,0.847318545736323,27
+"534","7. Weed diversity on WP I","Urb","W.pl.poll.score","SI",2.76666666666667,2.5,0,5,1.19433528860584,30
+"535","1. WP abund and div D","Agr","Aest.score","SI",3.47058823529412,3.5,1,5,0.991946177598027,34
+"536","2. Man. bees on WP I","Agr","Aest.score","SI",2.13333333333333,2,0,4,1.10588810724554,30
+"537","3. Flor res. on WP I","Agr","Aest.score","SI",4.33333333333333,5,1,5,1.05079335107654,33
+"538","4. Habitat res. on WP I","Agr","Aest.score","SI",3.06060606060606,3,1,5,1.08798534972311,33
+"539","5. Wider biodiv D cobenefit","Agr","Aest.score","SI",4.23529411764706,4,3,5,0.605971472946504,34
+"540","6. Pest weed D","Agr","Aest.score","SI",2.4375,2,1,4,0.913606818798349,32
+"541","7. Weed diversity on WP I","Agr","Aest.score","SI",2.53333333333333,3,1,4,1.00801386598746,30
+"542","1. WP abund and div D","Snh","Aest.score","SI",3.84848484848485,4,2,5,0.939455032226534,33
+"543","2. Man. bees on WP I","Snh","Aest.score","SI",2.2,2,0,5,1.06350104972145,30
+"544","3. Flor res. on WP I","Snh","Aest.score","SI",4.4375,5,1,5,0.981687158630159,32
+"545","4. Habitat res. on WP I","Snh","Aest.score","SI",3.15625,3,1,5,1.13902547480645,32
+"546","5. Wider biodiv D cobenefit","Snh","Aest.score","SI",4.21212121212121,4,3,5,0.649883439432399,33
+"547","6. Pest weed D","Snh","Aest.score","SI",2.2258064516129,2,0,4,1.14628901007715,31
+"548","7. Weed diversity on WP I","Snh","Aest.score","SI",2.20689655172414,2,0,4,1.17653578492198,29
+"549","1. WP abund and div D","Urb","Aest.score","SI",3.5,3.5,1,5,1.13592366849413,32
+"550","2. Man. bees on WP I","Urb","Aest.score","SI",2.13793103448276,2,0,5,1.32891303410598,29
+"551","3. Flor res. on WP I","Urb","Aest.score","SI",4.2258064516129,5,2,5,1.08657496809485,31
+"552","4. Habitat res. on WP I","Urb","Aest.score","SI",3,3,1,5,1.09544511501033,31
+"553","5. Wider biodiv D cobenefit","Urb","Aest.score","SI",4.09375,4,1,5,0.928383089726608,32
+"554","6. Pest weed D","Urb","Aest.score","SI",2.33333333333333,2,0,4,1.21295686972625,30
+"555","7. Weed diversity on WP I","Urb","Aest.score","SI",2.39285714285714,2,0,4,1.10014429068075,28
+"556","1. WP abund and div D","Agr","Cult.score","SI",3.12121212121212,3,1,5,0.96038975673863,33
+"557","2. Man. bees on WP I","Agr","Cult.score","SI",3.12903225806452,3,0,5,1.35994939817311,31
+"558","3. Flor res. on WP I","Agr","Cult.score","SI",3.61290322580645,4,1,5,1.02233130164472,31
+"559","4. Habitat res. on WP I","Agr","Cult.score","SI",2.74193548387097,3,1,5,1.06357077606473,31
+"560","5. Wider biodiv D cobenefit","Agr","Cult.score","SI",4.12121212121212,4,3,5,0.649883439432399,33
+"561","6. Pest weed D","Agr","Cult.score","SI",2.2,2,0,5,1.06350104972145,30
+"562","7. Weed diversity on WP I","Agr","Cult.score","SI",2.3448275862069,2,1,4,0.897451235004901,29
+"563","1. WP abund and div D","Snh","Cult.score","SI",3.28125,3,1,5,1.11396921831568,32
+"564","2. Man. bees on WP I","Snh","Cult.score","SI",3.13333333333333,3,0,5,1.35782110784873,30
+"565","3. Flor res. on WP I","Snh","Cult.score","SI",3.9,4,1,5,1.06187862154606,30
+"566","4. Habitat res. on WP I","Snh","Cult.score","SI",2.73333333333333,3,1,5,1.20153158964696,30
+"567","5. Wider biodiv D cobenefit","Snh","Cult.score","SI",4.28125,4,3,5,0.683179237804942,32
+"568","6. Pest weed D","Snh","Cult.score","SI",1.93103448275862,2,0,5,1.22273214222315,29
+"569","7. Weed diversity on WP I","Snh","Cult.score","SI",2.10344827586207,2,0,4,1.1754885788534,29
+"570","1. WP abund and div D","Urb","Cult.score","SI",3.03333333333333,3,1,5,0.99942512211403,30
+"571","2. Man. bees on WP I","Urb","Cult.score","SI",2.96551724137931,3,0,5,1.42635295723769,29
+"572","3. Flor res. on WP I","Urb","Cult.score","SI",3.6551724137931,4,1,5,1.17339136294776,29
+"573","4. Habitat res. on WP I","Urb","Cult.score","SI",2.51724137931034,2,0,5,1.24271274853421,29
+"574","5. Wider biodiv D cobenefit","Urb","Cult.score","SI",4,4,2,5,0.774596669241483,31
+"575","6. Pest weed D","Urb","Cult.score","SI",2.10344827586207,2,0,5,1.29131238851374,29
+"576","7. Weed diversity on WP I","Urb","Cult.score","SI",2.17857142857143,2,0,4,1.12393394522432,28
+"577","1. WP abund and div D","Agr","Honey.score","SI",1.13793103448276,1,0,3,0.789400221281706,29
+"578","2. Man. bees on WP I","Agr","Honey.score","SI",4.42857142857143,5,1,5,1.1362241376618,28
+"579","3. Flor res. on WP I","Agr","Honey.score","SI",3.73333333333333,4,0,5,1.38796137612298,30
+"580","4. Habitat res. on WP I","Agr","Honey.score","SI",2.03448275862069,2,0,4,1.11748309736944,29
+"581","5. Wider biodiv D cobenefit","Agr","Honey.score","SI",1.06666666666667,1,0,5,1.08065539926196,30
+"582","6. Pest weed D","Agr","Honey.score","SI",2.13793103448276,2,0,4,1.12517103242874,29
+"583","7. Weed diversity on WP I","Agr","Honey.score","SI",2,2,0,4,1.16496474502144,29
+"584","1. WP abund and div D","Snh","Honey.score","SI",1.17857142857143,1,0,4,1.0559731838827,28
+"585","2. Man. bees on WP I","Snh","Honey.score","SI",4.28571428571429,5,1,5,1.24296964764774,28
+"586","3. Flor res. on WP I","Snh","Honey.score","SI",3.62068965517241,4,0,5,1.373571806419,29
+"587","4. Habitat res. on WP I","Snh","Honey.score","SI",2.03571428571429,2,0,5,1.17006308336244,28
+"588","5. Wider biodiv D cobenefit","Snh","Honey.score","SI",1.22222222222222,1,0,5,1.21949968724042,27
+"589","6. Pest weed D","Snh","Honey.score","SI",1.82142857142857,2,0,4,0.944911182523068,28
+"590","7. Weed diversity on WP I","Snh","Honey.score","SI",1.86206896551724,2,0,4,1.27403010535843,29
+"591","1. WP abund and div D","Urb","Honey.score","SI",1.15384615384615,1,0,4,0.967152839723182,26
+"592","2. Man. bees on WP I","Urb","Honey.score","SI",4.11538461538461,5,1,5,1.3061982415215,26
+"593","3. Flor res. on WP I","Urb","Honey.score","SI",3.48148148148148,4,0,5,1.60217089193118,27
+"594","4. Habitat res. on WP I","Urb","Honey.score","SI",1.92307692307692,2,0,4,1.12864793175115,26
+"595","5. Wider biodiv D cobenefit","Urb","Honey.score","SI",0.961538461538462,1,0,5,1.14824280466352,26
+"596","6. Pest weed D","Urb","Honey.score","SI",2.07407407407407,2,0,4,1.07151675122144,27
+"597","7. Weed diversity on WP I","Urb","Honey.score","SI",2.03703703703704,2,0,4,1.25518866131693,27
+"598","1. WP abund and div D","Agr","Eco.func.score","SI",4.6,5,3,5,0.650791373455968,35
+"599","2. Man. bees on WP I","Agr","Eco.func.score","SI",2.8,3,1,5,1.0232589230148,35
+"600","3. Flor res. on WP I","Agr","Eco.func.score","SI",4.22857142857143,4,2,5,0.843163311433734,35
+"601","4. Habitat res. on WP I","Agr","Eco.func.score","SI",3.71428571428571,4,1,5,0.957061328523215,35
+"602","5. Wider biodiv D cobenefit","Agr","Eco.func.score","SI",4.34285714285714,4,2,5,0.764770520862194,35
+"603","6. Pest weed D","Agr","Eco.func.score","SI",3.09090909090909,3,1,5,1.01129979369486,33
+"604","7. Weed diversity on WP I","Agr","Eco.func.score","SI",3.08823529411765,3,1,5,1.13798458366358,34
+"605","1. WP abund and div D","Snh","Eco.func.score","SI",4.61764705882353,5,3,5,0.551290820372923,34
+"606","2. Man. bees on WP I","Snh","Eco.func.score","SI",2.67647058823529,3,1,5,0.976095755216238,34
+"607","3. Flor res. on WP I","Snh","Eco.func.score","SI",4.29411764705882,4,2,5,0.798840514469523,34
+"608","4. Habitat res. on WP I","Snh","Eco.func.score","SI",3.79411764705882,4,2,5,0.946425868799923,34
+"609","5. Wider biodiv D cobenefit","Snh","Eco.func.score","SI",4.44117647058824,5,2,5,0.704581391757835,34
+"610","6. Pest weed D","Snh","Eco.func.score","SI",2.8125,3,0,5,1.20315445607008,32
+"611","7. Weed diversity on WP I","Snh","Eco.func.score","SI",2.6969696969697,3,0,5,1.35749881410741,33
+"612","1. WP abund and div D","Urb","Eco.func.score","SI",4.18181818181818,4,2,5,0.950478348469386,33
+"613","2. Man. bees on WP I","Urb","Eco.func.score","SI",2.57575757575758,3,1,5,0.96922336919512,33
+"614","3. Flor res. on WP I","Urb","Eco.func.score","SI",4.15151515151515,4,1,5,0.972150069472691,33
+"615","4. Habitat res. on WP I","Urb","Eco.func.score","SI",3.48484848484848,4,1,5,1.00378073182133,33
+"616","5. Wider biodiv D cobenefit","Urb","Eco.func.score","SI",4.24242424242424,4,1,5,0.902437775912522,33
+"617","6. Pest weed D","Urb","Eco.func.score","SI",3.06451612903226,3,1,5,0.92863641507204,31
+"618","7. Weed diversity on WP I","Urb","Eco.func.score","SI",2.8125,3,0,5,1.22967344209491,32
