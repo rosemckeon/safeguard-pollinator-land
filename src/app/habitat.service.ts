@@ -7,8 +7,8 @@ import { Habitat } from './habitat';
 export class HabitatService {
   habitatList: Habitat[] = [];
 
-  setGlobalResponseChange(habitatType: string, responseType: string, value: boolean){
-    console.log('Triggered setGlobalResponseChange: ', habitatType, responseType, value);
+  setGlobalResponseChange(habitatType: string, responseName: string, value: boolean){
+    console.log('Triggered setGlobalResponseChange: ', habitatType, responseName, value);
     // loop through habitats
     for (var i = 0; i < this.habitatList.length; i++) {
       // to match habitatType
@@ -16,7 +16,7 @@ export class HabitatService {
         // loop through responses
         for (var r = 0; r < this.habitatList[i].response!.length; r++){
           // to match responseType
-          if(this.habitatList[i].response![r].type == responseType){
+          if(this.habitatList[i].response![r].name == responseName){
             // update response
             console.log('Updating response on habitat: ', this.habitatList[i].id);
             this.habitatList[i].response![r].globalChange = value;

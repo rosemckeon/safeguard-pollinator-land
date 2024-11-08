@@ -5,11 +5,10 @@ export interface Round {
     disabled?: string;
     player?: string;
     impact?: {
-        pollinatorBiodiversity?: number;
-        widerBiodiversity?: number;
-        cropProduction?: number;
-        culturalValue?: number;
-        ecoSystemServices?: number;
+        cropPollinationProduction?: number;
+        economicValueChain?: number;
+        wildPlantPollination?: number;
+        aestheticValue?: number;
     };
     landscape: Habitat[];
 }

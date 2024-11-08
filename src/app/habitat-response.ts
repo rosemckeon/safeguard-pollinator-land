@@ -1,6 +1,7 @@
 export interface HabitatResponse {
     id: number;
-    type: string;
+    name: string;
+    label: string;
     enabled: boolean;
     globalChange?: boolean;
     localChange?: boolean;

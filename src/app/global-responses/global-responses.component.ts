@@ -31,77 +31,78 @@ export class GlobalResponsesComponent implements OnInit {
   globalResponsesForm = new FormGroup({
     globalSeminaturalRestoration: new FormControl(''),
     globalAgriculturalRestoration: new FormControl(''),
-    globalAgriculturalFarmingSys: new FormControl(''),
-    globalAgriculturalIPM: new FormControl(''),
     globalUrbanRestoration: new FormControl(''),
-    globalUrbanIPM: new FormControl(''),
+
+    globalSeminaturalNatProtReg: new FormControl(''),
+    globalAgriculturalNatProtReg: new FormControl(''),
+    globalUrbanNatProtReg: new FormControl(''),
+    
+    globalAgriculturalEcoIntensification: new FormControl(''),
+    globalUrbanGreening: new FormControl(''),
   });
   
   isGlobalSeminaturalRestorationChecked: boolean = false;
   isGlobalAgriculturalRestorationChecked: boolean = false;
-  isGlobalAgriculturalFarmingSysChecked: boolean = false;
-  isGlobalAgriculturalIPMChecked: boolean = false;
   isGlobalUrbanRestorationChecked: boolean = false;
-  isGlobalUrbanIPMChecked: boolean = false;
 
-  //toggleEvents: string[] = [];
+  isGlobalSeminaturalNatProtRegChecked: boolean = false;
+  isGlobalAgriculturalNatProtRegChecked: boolean = false;
+  isGlobalUrbanNatProtRegChecked: boolean = false;
 
-  /*
-  alertFormValues(globalResponsesForm: FormGroup) {
-    alert(JSON.stringify(globalResponsesForm.value, null, 2));
-  }
-  */
+  isGlobalUrbanGreeningChecked: boolean = false;
+  isGlobalAgriculturalEcoIntensificationChecked: boolean = false;
 
-  onGlobalResponseChange(value:string, id:string): void {
-    console.log('triggered onGlobalResponseChange from GlobalResponsesComponent', id, value);
-    /*
-		if(value == 'Semi-natural'){
-      this.updateGlobalControlClasses(id, this.seminaturalClasses);
-    } else if(value == 'Agricultural'){
-      this.updateGlobalControlClasses(id, this.agriculturalClasses);
-    } else if(value == 'Urban'){
-      this.updateGlobalControlClasses(id, this.urbanClasses);
-    }
-    let button = <HTMLButtonElement>document.getElementById('buttonSubmitGlobalChanges');
-    let checkCircle = document.getElementById("heroCheckCircleSolid");
-    checkCircle?.setAttribute('class', 'invisible');
-    button.disabled = false;
-    */
-	}
+  restorationLabel = "Recreate/Restore Ecological Zones";
+  natureProtectionLabel = "Nature Protection Regulations";
+  urbanGreeningLabel = "Urban Greening";
+  ecoIntensificationLabel = "Ecological intensification";
 
+  restorationName = "restoration";
+  natureProtectionName = "natureProtection";
+  urbanGreeningName = "urbanGreening";
+  ecoIntensificationName = "ecoIntensification";
+  
   constructor() {
     //this.globalResponsesForm.controls.globalSeminaturalRestoration.disabled == true;
   }
 
   ngOnInit(): void {}
 
-  toggleChanges($event: MatSlideToggleChange) {
+  toggleChanges($event: MatSlideToggleChange):void {
     console.log('Triggered toggleChanges from GlobalResponsesComponent')
     console.log($event.source.ariaLabel, $event.checked);
     switch($event.source.ariaLabel){
       case('globalSeminaturalRestoration'):
-        this.habitatService.setGlobalResponseChange('Semi-natural', 'Ecological Restoration', $event.checked);
+        this.habitatService.setGlobalResponseChange('Semi-natural', this.restorationName, $event.checked);
         this.isGlobalSeminaturalRestorationChecked = $event.checked;
         break;
       case('globalAgriculturalRestoration'):
-        this.habitatService.setGlobalResponseChange('Agricultural', 'Ecological Restoration', $event.checked);
+        this.habitatService.setGlobalResponseChange('Agricultural', this.restorationName, $event.checked);
         this.isGlobalAgriculturalRestorationChecked = $event.checked;
         break;
       case('globalUrbanRestoration'):
-        this.habitatService.setGlobalResponseChange('Urban', 'Ecological Restoration', $event.checked);
+        this.habitatService.setGlobalResponseChange('Urban', this.restorationName, $event.checked);
         this.isGlobalUrbanRestorationChecked = $event.checked;
         break;
-      case('globalAgriculturalIPM'):
-        this.habitatService.setGlobalResponseChange('Agricultural', 'Pesticide Management', $event.checked);
-        this.isGlobalAgriculturalIPMChecked = $event.checked;
+      case('globalSeminaturalNatProtReg'):
+        this.habitatService.setGlobalResponseChange('Semi-natural', this.natureProtectionName, $event.checked);
+        this.isGlobalSeminaturalNatProtRegChecked = $event.checked;
         break;
-      case('globalUrbanIPM'):
-        this.habitatService.setGlobalResponseChange('Urban', 'Pesticide Management', $event.checked);
-        this.isGlobalUrbanIPMChecked = $event.checked;
+      case('globalAgriculturalNatProtReg'):
+        this.habitatService.setGlobalResponseChange('Agricultural', this.natureProtectionName, $event.checked);
+        this.isGlobalAgriculturalNatProtRegChecked = $event.checked;
         break;
-      case('globalAgriculturalFarmingSys'):
-        this.habitatService.setGlobalResponseChange('Agricultural', 'Farming System Regulations', $event.checked);
-        this.isGlobalAgriculturalFarmingSysChecked = $event.checked;
+      case('globalUrbanNatProtReg'):
+        this.habitatService.setGlobalResponseChange('Urban', this.natureProtectionName, $event.checked);
+        this.isGlobalUrbanNatProtRegChecked = $event.checked;
+        break;
+      case('globalUrbanGreening'):
+        this.habitatService.setGlobalResponseChange('Urban', this.urbanGreeningName, $event.checked);
+        this.isGlobalUrbanGreeningChecked = $event.checked;
+        break;
+      case('globalAgriculturalEcoIntensification'):
+        this.habitatService.setGlobalResponseChange('Agricultural', this.ecoIntensificationName, $event.checked);
+        this.isGlobalAgriculturalEcoIntensificationChecked = $event.checked;
         break;
       default:
         console.log('Warning: change triggered but no target found.')

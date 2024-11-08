@@ -13,17 +13,23 @@
               "response": [
                 {
                   "id": 0,
-                  "type": "Ecological Restoration",
+                  "name": "restoration",
+                  "label": "Recreate/Restore Ecological Zones",
+                  "description": "",
                   "enabled": false
                 },
                 {
                   "id": 1,
-                  "type": "Pesticide Management",
+                  "name": "natureProtection",
+                  "label": "Nature Protection Regulations",
+                  "description": "",
                   "enabled": false
                 },
                 {
                   "id": 2,
-                  "type": "Farming System Regulations",
+                  "name": "ecoIntensification",
+                  "label": "Ecological Intensification",
+                  "description": "",
                   "enabled": false
                 }
               ]
@@ -39,17 +45,23 @@
                 "response": [
                   {
                     "id": 0,
-                    "type": "Ecological Restoration",
+                    "name": "restoration",
+                    "label": "Recreate/Restore Ecological Zones",
+                    "description": "",
                     "enabled": false
                   },
                   {
                     "id": 1,
-                    "type": "Pesticide Management",
+                    "name": "natureProtection",
+                    "label": "Nature Protection Regulations",
+                    "description": "",
                     "enabled": false
                   },
                   {
                     "id": 2,
-                    "type": "Farming System Regulations",
+                    "name": "ecoIntensification",
+                    "label": "Ecological Intensification",
+                    "description": "",
                     "enabled": false
                   }
                 ]
@@ -65,12 +77,23 @@
                 "response": [
                   {
                     "id": 0,
-                    "type": "Ecological Restoration",
+                    "name": "restoration",
+                    "label": "Recreate/Restore Ecological Zones",
+                    "description": "",
                     "enabled": false
                   },
                   {
                     "id": 1,
-                    "type": "Pesticide Management",
+                    "name": "natureProtection",
+                    "label": "Nature Protection Regulations",
+                    "description": "",
+                    "enabled": false
+                  },
+                  {
+                    "id": 3,
+                    "name": "urbanGreening",
+                    "label": "Urban Greening",
+                    "description": "",
                     "enabled": false
                   }
                 ]
@@ -86,12 +109,23 @@
                 "response": [
                   {
                     "id": 0,
-                    "type": "Ecological Restoration",
+                    "name": "restoration",
+                    "label": "Recreate/Restore Ecological Zones",
+                    "description": "",
                     "enabled": false
                   },
                   {
                     "id": 1,
-                    "type": "Pesticide Management",
+                    "name": "natureProtection",
+                    "label": "Nature Protection Regulations",
+                    "description": "",
+                    "enabled": false
+                  },
+                  {
+                    "id": 3,
+                    "name": "urbanGreening",
+                    "label": "Urban Greening",
+                    "description": "",
                     "enabled": false
                   }
                 ]
@@ -107,17 +141,23 @@
               "response": [
                 {
                   "id": 0,
-                  "type": "Ecological Restoration",
+                  "name": "restoration",
+                  "label": "Recreate/Restore Ecological Zones",
+                  "description": "",
                   "enabled": false
                 },
                 {
                   "id": 1,
-                  "type": "Pesticide Management",
+                  "name": "natureProtection",
+                  "label": "Nature Protection Regulations",
+                  "description": "",
                   "enabled": false
                 },
                 {
                   "id": 2,
-                  "type": "Farming System Regulations",
+                  "name": "ecoIntensification",
+                  "label": "Ecological Intensification",
+                  "description": "",
                   "enabled": false
                 }
               ]
@@ -133,17 +173,23 @@
                 "response": [
                   {
                     "id": 0,
-                    "type": "Ecological Restoration",
+                    "name": "restoration",
+                    "label": "Recreate/Restore Ecological Zones",
+                    "description": "",
                     "enabled": false
                   },
                   {
                     "id": 1,
-                    "type": "Pesticide Management",
+                    "name": "natureProtection",
+                    "label": "Nature Protection Regulations",
+                    "description": "",
                     "enabled": false
                   },
                   {
                     "id": 2,
-                    "type": "Farming System Regulations",
+                    "name": "ecoIntensification",
+                    "label": "Ecological Intensification",
+                    "description": "",
                     "enabled": false
                   }
                 ]
@@ -159,12 +205,23 @@
                 "response": [
                   {
                     "id": 0,
-                    "type": "Ecological Restoration",
+                    "name": "restoration",
+                    "label": "Recreate/Restore Ecological Zones",
+                    "description": "",
                     "enabled": false
                   },
                   {
                     "id": 1,
-                    "type": "Pesticide Management",
+                    "name": "natureProtection",
+                    "label": "Nature Protection Regulations",
+                    "description": "",
+                    "enabled": false
+                  },
+                  {
+                    "id": 3,
+                    "name": "urbanGreening",
+                    "label": "Urban Greening",
+                    "description": "",
                     "enabled": false
                   }
                 ]
@@ -180,12 +237,23 @@
                 "response": [
                   {
                     "id": 0,
-                    "type": "Ecological Restoration",
+                    "name": "restoration",
+                    "label": "Recreate/Restore Ecological Zones",
+                    "description": "",
                     "enabled": false
                   },
                   {
                     "id": 1,
-                    "type": "Pesticide Management",
+                    "name": "natureProtection",
+                    "label": "Nature Protection Regulations",
+                    "description": "",
+                    "enabled": false
+                  },
+                  {
+                    "id": 3,
+                    "name": "urbanGreening",
+                    "label": "Urban Greening",
+                    "description": "",
                     "enabled": false
                   }
                 ]
@@ -201,17 +269,23 @@
               "response": [
                 {
                   "id": 0,
-                  "type": "Ecological Restoration",
+                  "name": "restoration",
+                  "label": "Recreate/Restore Ecological Zones",
+                  "description": "",
                   "enabled": false
                 },
                 {
                   "id": 1,
-                  "type": "Pesticide Management",
+                  "name": "natureProtection",
+                  "label": "Nature Protection Regulations",
+                  "description": "",
                   "enabled": false
                 },
                 {
                   "id": 2,
-                  "type": "Farming System Regulations",
+                  "name": "ecoIntensification",
+                  "label": "Ecological Intensification",
+                  "description": "",
                   "enabled": false
                 }
               ]
@@ -227,12 +301,23 @@
               "response": [
                 {
                   "id": 0,
-                  "type": "Ecological Restoration",
+                  "name": "restoration",
+                  "label": "Recreate/Restore Ecological Zones",
+                  "description": "",
                   "enabled": false
                 },
                 {
                   "id": 1,
-                  "type": "Pesticide Management",
+                  "name": "natureProtection",
+                  "label": "Nature Protection Regulations",
+                  "description": "",
+                  "enabled": false
+                },
+                {
+                  "id": 3,
+                  "name": "urbanGreening",
+                  "label": "Urban Greening",
+                  "description": "",
                   "enabled": false
                 }
               ]
@@ -248,17 +333,23 @@
                 "response": [
                   {
                     "id": 0,
-                    "type": "Ecological Restoration",
+                    "name": "restoration",
+                    "label": "Recreate/Restore Ecological Zones",
+                    "description": "",
                     "enabled": false
                   },
                   {
                     "id": 1,
-                    "type": "Pesticide Management",
+                    "name": "natureProtection",
+                    "label": "Nature Protection Regulations",
+                    "description": "",
                     "enabled": false
                   },
                   {
                     "id": 2,
-                    "type": "Farming System Regulations",
+                    "name": "ecoIntensification",
+                    "label": "Ecological Intensification",
+                    "description": "",
                     "enabled": false
                   }
                 ]
@@ -274,17 +365,23 @@
                 "response": [
                   {
                     "id": 0,
-                    "type": "Ecological Restoration",
+                    "name": "restoration",
+                    "label": "Recreate/Restore Ecological Zones",
+                    "description": "",
                     "enabled": false
                   },
                   {
                     "id": 1,
-                    "type": "Pesticide Management",
+                    "name": "natureProtection",
+                    "label": "Nature Protection Regulations",
+                    "description": "",
                     "enabled": false
                   },
                   {
                     "id": 2,
-                    "type": "Farming System Regulations",
+                    "name": "ecoIntensification",
+                    "label": "Ecological Intensification",
+                    "description": "",
                     "enabled": false
                   }
                 ]
@@ -300,17 +397,23 @@
               "response": [
                 {
                   "id": 0,
-                  "type": "Ecological Restoration",
+                  "name": "restoration",
+                  "label": "Recreate/Restore Ecological Zones",
+                  "description": "",
                   "enabled": false
                 },
                 {
                   "id": 1,
-                  "type": "Pesticide Management",
+                  "name": "natureProtection",
+                  "label": "Nature Protection Regulations",
+                  "description": "",
                   "enabled": false
                 },
                 {
                   "id": 2,
-                  "type": "Farming System Regulations",
+                  "name": "ecoIntensification",
+                  "label": "Ecological Intensification",
+                  "description": "",
                   "enabled": false
                 }
               ]
@@ -326,17 +429,23 @@
                 "response": [
                   {
                     "id": 0,
-                    "type": "Ecological Restoration",
+                    "name": "restoration",
+                    "label": "Recreate/Restore Ecological Zones",
+                    "description": "",
                     "enabled": false
                   },
                   {
                     "id": 1,
-                    "type": "Pesticide Management",
+                    "name": "natureProtection",
+                    "label": "Nature Protection Regulations",
+                    "description": "",
                     "enabled": false
                   },
                   {
                     "id": 2,
-                    "type": "Farming System Regulations",
+                    "name": "ecoIntensification",
+                    "label": "Ecological Intensification",
+                    "description": "",
                     "enabled": false
                   }
                 ]
@@ -352,7 +461,16 @@
               "response": [
                 {
                   "id": 0,
-                  "type": "Ecological Restoration",
+                  "name": "restoration",
+                  "label": "Recreate/Restore Ecological Zones",
+                  "description": "",
+                  "enabled": false
+                },
+                {
+                  "id": 1,
+                  "name": "natureProtection",
+                  "label": "Nature Protection Regulations",
+                  "description": "",
                   "enabled": false
                 }
               ]
@@ -368,7 +486,16 @@
               "response": [
                 {
                   "id": 0,
-                  "type": "Ecological Restoration",
+                  "name": "restoration",
+                  "label": "Recreate/Restore Ecological Zones",
+                  "description": "",
+                  "enabled": false
+                },
+                {
+                  "id": 1,
+                  "name": "natureProtection",
+                  "label": "Nature Protection Regulations",
+                  "description": "",
                   "enabled": false
                 }
               ]
