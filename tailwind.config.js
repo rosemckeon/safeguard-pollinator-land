@@ -5,7 +5,7 @@ const plugin = require('tailwindcss/plugin')
 
 module.exports = {
   content: [
-    "./src/**/*.{html,scss,ts}"
+    "./src/**/*.{html,ts}"
   ],
   theme: {
     extend: {
@@ -23,6 +23,10 @@ module.exports = {
   ],
   corePlugins: {
     preflight: false,
-  }
+  },
+  purge: {
+    enabled: true,
+    content: ['./src/**/*.{html,ts}'],
+  },
 }
 
