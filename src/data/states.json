@@ -1,0 +1,20 @@
+[
+    {
+        "id": 0,
+        "name": "wildPollinators",
+        "label": "Wild pollinator abundance and biodiversity",
+        "description": "Description works..."
+    },
+    {
+        "id": 1,
+        "name": "floralResources",
+        "label": "Floral resources",
+        "description": "Description works..."
+    },
+    {
+        "id": 2,
+        "name": "habitatResources",
+        "label": "Habitat resources",
+        "description": "Description works..."
+    }
+]

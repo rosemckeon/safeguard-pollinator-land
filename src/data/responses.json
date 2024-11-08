@@ -1,0 +1,1090 @@
+[
+    {
+      "id": 0,
+      "name": "restoration",
+      "label": "Recreate/Restore Ecological Zones",
+      "description": "Recreate/Restore Ecological Zones description works...",
+      "applies_to": [
+        {
+            "id": 0,
+            "habitatType": "Seminatural",
+            "effect_on_state": [
+                {
+                    "id": 0,
+                    "name": "wildPollinators",
+                    "mean": 0,
+                    "min": 0,
+                    "max": 0,
+                    "sd": 0,
+                    "effect_on_impact": [
+                        {
+                            "id": 0,
+                            "name": "cropPollinationProduction",
+                            "mean": 0,
+                            "min": 0,
+                            "max": 0,
+                            "sd": 0
+                        },
+                        {
+                            "id": 1,
+                            "name": "economicValueChain",
+                            "mean": 0,
+                            "min": 0,
+                            "max": 0,
+                            "sd": 0
+                        },
+                        {
+                            "id": 2,
+                            "name": "wildPlantPollination",
+                            "mean": 0,
+                            "min": 0,
+                            "max": 0,
+                            "sd": 0
+                        },
+                        {
+                            "id": 3,
+                            "name": "aestheticValues",
+                            "mean": 0,
+                            "min": 0,
+                            "max": 0,
+                            "sd": 0
+                        }
+                    ]
+                },
+                {
+                    "id": 1,
+                    "name": "floralResources",
+                    "mean": 0,
+                    "min": 0,
+                    "max": 0,
+                    "sd": 0,
+                    "effect_on_impact": [
+                        {
+                            "id": 0,
+                            "name": "cropPollinationProduction",
+                            "mean": 0,
+                            "min": 0,
+                            "max": 0,
+                            "sd": 0
+                        },
+                        {
+                            "id": 1,
+                            "name": "economicValueChain",
+                            "mean": 0,
+                            "min": 0,
+                            "max": 0,
+                            "sd": 0
+                        },
+                        {
+                            "id": 2,
+                            "name": "wildPlantPollination",
+                            "mean": 0,
+                            "min": 0,
+                            "max": 0,
+                            "sd": 0
+                        },
+                        {
+                            "id": 3,
+                            "name": "aestheticValues",
+                            "mean": 0,
+                            "min": 0,
+                            "max": 0,
+                            "sd": 0
+                        }
+                    ]
+                },
+                {
+                    "id": 2,
+                    "name": "habitatResources",
+                    "mean": 0,
+                    "min": 0,
+                    "max": 0,
+                    "sd": 0,
+                    "effect_on_impact": [
+                        {
+                            "id": 0,
+                            "name": "cropPollinationProduction",
+                            "mean": 0,
+                            "min": 0,
+                            "max": 0,
+                            "sd": 0
+                        },
+                        {
+                            "id": 1,
+                            "name": "economicValueChain",
+                            "mean": 0,
+                            "min": 0,
+                            "max": 0,
+                            "sd": 0
+                        },
+                        {
+                            "id": 2,
+                            "name": "wildPlantPollination",
+                            "mean": 0,
+                            "min": 0,
+                            "max": 0,
+                            "sd": 0
+                        },
+                        {
+                            "id": 3,
+                            "name": "aestheticValues",
+                            "mean": 0,
+                            "min": 0,
+                            "max": 0,
+                            "sd": 0
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": 1,
+            "habitatType": "Agricultural",
+            "effect_on_state": [
+                {
+                    "id": 0,
+                    "name": "wildPollinators",
+                    "mean": 0,
+                    "min": 0,
+                    "max": 0,
+                    "sd": 0,
+                    "effect_on_impact": [
+                        {
+                            "id": 0,
+                            "name": "cropPollinationProduction",
+                            "mean": 0,
+                            "min": 0,
+                            "max": 0,
+                            "sd": 0
+                        },
+                        {
+                            "id": 1,
+                            "name": "economicValueChain",
+                            "mean": 0,
+                            "min": 0,
+                            "max": 0,
+                            "sd": 0
+                        },
+                        {
+                            "id": 2,
+                            "name": "wildPlantPollination",
+                            "mean": 0,
+                            "min": 0,
+                            "max": 0,
+                            "sd": 0
+                        },
+                        {
+                            "id": 3,
+                            "name": "aestheticValues",
+                            "mean": 0,
+                            "min": 0,
+                            "max": 0,
+                            "sd": 0
+                        }
+                    ]
+                },
+                {
+                    "id": 1,
+                    "name": "floralResources",
+                    "mean": 0,
+                    "min": 0,
+                    "max": 0,
+                    "sd": 0,
+                    "effect_on_impact": [
+                        {
+                            "id": 0,
+                            "name": "cropPollinationProduction",
+                            "mean": 0,
+                            "min": 0,
+                            "max": 0,
+                            "sd": 0
+                        },
+                        {
+                            "id": 1,
+                            "name": "economicValueChain",
+                            "mean": 0,
+                            "min": 0,
+                            "max": 0,
+                            "sd": 0
+                        },
+                        {
+                            "id": 2,
+                            "name": "wildPlantPollination",
+                            "mean": 0,
+                            "min": 0,
+                            "max": 0,
+                            "sd": 0
+                        },
+                        {
+                            "id": 3,
+                            "name": "aestheticValues",
+                            "mean": 0,
+                            "min": 0,
+                            "max": 0,
+                            "sd": 0
+                        }
+                    ]
+                },
+                {
+                    "id": 2,
+                    "name": "habitatResources",
+                    "mean": 0,
+                    "min": 0,
+                    "max": 0,
+                    "sd": 0,
+                    "effect_on_impact": [
+                        {
+                            "id": 0,
+                            "name": "cropPollinationProduction",
+                            "mean": 0,
+                            "min": 0,
+                            "max": 0,
+                            "sd": 0
+                        },
+                        {
+                            "id": 1,
+                            "name": "economicValueChain",
+                            "mean": 0,
+                            "min": 0,
+                            "max": 0,
+                            "sd": 0
+                        },
+                        {
+                            "id": 2,
+                            "name": "wildPlantPollination",
+                            "mean": 0,
+                            "min": 0,
+                            "max": 0,
+                            "sd": 0
+                        },
+                        {
+                            "id": 3,
+                            "name": "aestheticValues",
+                            "mean": 0,
+                            "min": 0,
+                            "max": 0,
+                            "sd": 0
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "habitatType": "Urban",
+            "effect_on_state": [
+                {
+                    "id": 0,
+                    "name": "wildPollinators",
+                    "mean": 0,
+                    "min": 0,
+                    "max": 0,
+                    "sd": 0,
+                    "effect_on_impact": [
+                        {
+                            "id": 0,
+                            "name": "cropPollinationProduction",
+                            "mean": 0,
+                            "min": 0,
+                            "max": 0,
+                            "sd": 0
+                        },
+                        {
+                            "id": 1,
+                            "name": "economicValueChain",
+                            "mean": 0,
+                            "min": 0,
+                            "max": 0,
+                            "sd": 0
+                        },
+                        {
+                            "id": 2,
+                            "name": "wildPlantPollination",
+                            "mean": 0,
+                            "min": 0,
+                            "max": 0,
+                            "sd": 0
+                        },
+                        {
+                            "id": 3,
+                            "name": "aestheticValues",
+                            "mean": 0,
+                            "min": 0,
+                            "max": 0,
+                            "sd": 0
+                        }
+                    ]
+                },
+                {
+                    "id": 1,
+                    "name": "floralResources",
+                    "mean": 0,
+                    "min": 0,
+                    "max": 0,
+                    "sd": 0,
+                    "effect_on_impact": [
+                        {
+                            "id": 0,
+                            "name": "cropPollinationProduction",
+                            "mean": 0,
+                            "min": 0,
+                            "max": 0,
+                            "sd": 0
+                        },
+                        {
+                            "id": 1,
+                            "name": "economicValueChain",
+                            "mean": 0,
+                            "min": 0,
+                            "max": 0,
+                            "sd": 0
+                        },
+                        {
+                            "id": 2,
+                            "name": "wildPlantPollination",
+                            "mean": 0,
+                            "min": 0,
+                            "max": 0,
+                            "sd": 0
+                        },
+                        {
+                            "id": 3,
+                            "name": "aestheticValues",
+                            "mean": 0,
+                            "min": 0,
+                            "max": 0,
+                            "sd": 0
+                        }
+                    ]
+                },
+                {
+                    "id": 2,
+                    "name": "habitatResources",
+                    "mean": 0,
+                    "min": 0,
+                    "max": 0,
+                    "sd": 0,
+                    "effect_on_impact": [
+                        {
+                            "id": 0,
+                            "name": "cropPollinationProduction",
+                            "mean": 0,
+                            "min": 0,
+                            "max": 0,
+                            "sd": 0
+                        },
+                        {
+                            "id": 1,
+                            "name": "economicValueChain",
+                            "mean": 0,
+                            "min": 0,
+                            "max": 0,
+                            "sd": 0
+                        },
+                        {
+                            "id": 2,
+                            "name": "wildPlantPollination",
+                            "mean": 0,
+                            "min": 0,
+                            "max": 0,
+                            "sd": 0
+                        },
+                        {
+                            "id": 3,
+                            "name": "aestheticValues",
+                            "mean": 0,
+                            "min": 0,
+                            "max": 0,
+                            "sd": 0
+                        }
+                    ]
+                }
+            ]
+        }
+      ]
+    },
+    {
+      "id": 1,
+      "name": "natProtReg",
+      "label": "Nature Protection Regulations",
+      "description": "Nature Protection Regulations description works...",
+      "applies_to": [
+        {
+            "id": 0,
+            "habitatType": "Seminatural",
+            "effect_on_state": [
+                {
+                    "id": 0,
+                    "name": "wildPollinators",
+                    "mean": 0,
+                    "min": 0,
+                    "max": 0,
+                    "sd": 0,
+                    "effect_on_impact": [
+                        {
+                            "id": 0,
+                            "name": "cropPollinationProduction",
+                            "mean": 0,
+                            "min": 0,
+                            "max": 0,
+                            "sd": 0
+                        },
+                        {
+                            "id": 1,
+                            "name": "economicValueChain",
+                            "mean": 0,
+                            "min": 0,
+                            "max": 0,
+                            "sd": 0
+                        },
+                        {
+                            "id": 2,
+                            "name": "wildPlantPollination",
+                            "mean": 0,
+                            "min": 0,
+                            "max": 0,
+                            "sd": 0
+                        },
+                        {
+                            "id": 3,
+                            "name": "aestheticValues",
+                            "mean": 0,
+                            "min": 0,
+                            "max": 0,
+                            "sd": 0
+                        }
+                    ]
+                },
+                {
+                    "id": 1,
+                    "name": "floralResources",
+                    "mean": 0,
+                    "min": 0,
+                    "max": 0,
+                    "sd": 0,
+                    "effect_on_impact": [
+                        {
+                            "id": 0,
+                            "name": "cropPollinationProduction",
+                            "mean": 0,
+                            "min": 0,
+                            "max": 0,
+                            "sd": 0
+                        },
+                        {
+                            "id": 1,
+                            "name": "economicValueChain",
+                            "mean": 0,
+                            "min": 0,
+                            "max": 0,
+                            "sd": 0
+                        },
+                        {
+                            "id": 2,
+                            "name": "wildPlantPollination",
+                            "mean": 0,
+                            "min": 0,
+                            "max": 0,
+                            "sd": 0
+                        },
+                        {
+                            "id": 3,
+                            "name": "aestheticValues",
+                            "mean": 0,
+                            "min": 0,
+                            "max": 0,
+                            "sd": 0
+                        }
+                    ]
+                },
+                {
+                    "id": 2,
+                    "name": "habitatResources",
+                    "mean": 0,
+                    "min": 0,
+                    "max": 0,
+                    "sd": 0,
+                    "effect_on_impact": [
+                        {
+                            "id": 0,
+                            "name": "cropPollinationProduction",
+                            "mean": 0,
+                            "min": 0,
+                            "max": 0,
+                            "sd": 0
+                        },
+                        {
+                            "id": 1,
+                            "name": "economicValueChain",
+                            "mean": 0,
+                            "min": 0,
+                            "max": 0,
+                            "sd": 0
+                        },
+                        {
+                            "id": 2,
+                            "name": "wildPlantPollination",
+                            "mean": 0,
+                            "min": 0,
+                            "max": 0,
+                            "sd": 0
+                        },
+                        {
+                            "id": 3,
+                            "name": "aestheticValues",
+                            "mean": 0,
+                            "min": 0,
+                            "max": 0,
+                            "sd": 0
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": 1,
+            "habitatType": "Agricultural",
+            "effect_on_state": [
+                {
+                    "id": 0,
+                    "name": "wildPollinators",
+                    "mean": 0,
+                    "min": 0,
+                    "max": 0,
+                    "sd": 0,
+                    "effect_on_impact": [
+                        {
+                            "id": 0,
+                            "name": "cropPollinationProduction",
+                            "mean": 0,
+                            "min": 0,
+                            "max": 0,
+                            "sd": 0
+                        },
+                        {
+                            "id": 1,
+                            "name": "economicValueChain",
+                            "mean": 0,
+                            "min": 0,
+                            "max": 0,
+                            "sd": 0
+                        },
+                        {
+                            "id": 2,
+                            "name": "wildPlantPollination",
+                            "mean": 0,
+                            "min": 0,
+                            "max": 0,
+                            "sd": 0
+                        },
+                        {
+                            "id": 3,
+                            "name": "aestheticValues",
+                            "mean": 0,
+                            "min": 0,
+                            "max": 0,
+                            "sd": 0
+                        }
+                    ]
+                },
+                {
+                    "id": 1,
+                    "name": "floralResources",
+                    "mean": 0,
+                    "min": 0,
+                    "max": 0,
+                    "sd": 0,
+                    "effect_on_impact": [
+                        {
+                            "id": 0,
+                            "name": "cropPollinationProduction",
+                            "mean": 0,
+                            "min": 0,
+                            "max": 0,
+                            "sd": 0
+                        },
+                        {
+                            "id": 1,
+                            "name": "economicValueChain",
+                            "mean": 0,
+                            "min": 0,
+                            "max": 0,
+                            "sd": 0
+                        },
+                        {
+                            "id": 2,
+                            "name": "wildPlantPollination",
+                            "mean": 0,
+                            "min": 0,
+                            "max": 0,
+                            "sd": 0
+                        },
+                        {
+                            "id": 3,
+                            "name": "aestheticValues",
+                            "mean": 0,
+                            "min": 0,
+                            "max": 0,
+                            "sd": 0
+                        }
+                    ]
+                },
+                {
+                    "id": 2,
+                    "name": "habitatResources",
+                    "mean": 0,
+                    "min": 0,
+                    "max": 0,
+                    "sd": 0,
+                    "effect_on_impact": [
+                        {
+                            "id": 0,
+                            "name": "cropPollinationProduction",
+                            "mean": 0,
+                            "min": 0,
+                            "max": 0,
+                            "sd": 0
+                        },
+                        {
+                            "id": 1,
+                            "name": "economicValueChain",
+                            "mean": 0,
+                            "min": 0,
+                            "max": 0,
+                            "sd": 0
+                        },
+                        {
+                            "id": 2,
+                            "name": "wildPlantPollination",
+                            "mean": 0,
+                            "min": 0,
+                            "max": 0,
+                            "sd": 0
+                        },
+                        {
+                            "id": 3,
+                            "name": "aestheticValues",
+                            "mean": 0,
+                            "min": 0,
+                            "max": 0,
+                            "sd": 0
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "habitatType": "Urban",
+            "effect_on_state": [
+                {
+                    "id": 0,
+                    "name": "wildPollinators",
+                    "mean": 0,
+                    "min": 0,
+                    "max": 0,
+                    "sd": 0,
+                    "effect_on_impact": [
+                        {
+                            "id": 0,
+                            "name": "cropPollinationProduction",
+                            "mean": 0,
+                            "min": 0,
+                            "max": 0,
+                            "sd": 0
+                        },
+                        {
+                            "id": 1,
+                            "name": "economicValueChain",
+                            "mean": 0,
+                            "min": 0,
+                            "max": 0,
+                            "sd": 0
+                        },
+                        {
+                            "id": 2,
+                            "name": "wildPlantPollination",
+                            "mean": 0,
+                            "min": 0,
+                            "max": 0,
+                            "sd": 0
+                        },
+                        {
+                            "id": 3,
+                            "name": "aestheticValues",
+                            "mean": 0,
+                            "min": 0,
+                            "max": 0,
+                            "sd": 0
+                        }
+                    ]
+                },
+                {
+                    "id": 1,
+                    "name": "floralResources",
+                    "mean": 0,
+                    "min": 0,
+                    "max": 0,
+                    "sd": 0,
+                    "effect_on_impact": [
+                        {
+                            "id": 0,
+                            "name": "cropPollinationProduction",
+                            "mean": 0,
+                            "min": 0,
+                            "max": 0,
+                            "sd": 0
+                        },
+                        {
+                            "id": 1,
+                            "name": "economicValueChain",
+                            "mean": 0,
+                            "min": 0,
+                            "max": 0,
+                            "sd": 0
+                        },
+                        {
+                            "id": 2,
+                            "name": "wildPlantPollination",
+                            "mean": 0,
+                            "min": 0,
+                            "max": 0,
+                            "sd": 0
+                        },
+                        {
+                            "id": 3,
+                            "name": "aestheticValues",
+                            "mean": 0,
+                            "min": 0,
+                            "max": 0,
+                            "sd": 0
+                        }
+                    ]
+                },
+                {
+                    "id": 2,
+                    "name": "habitatResources",
+                    "mean": 0,
+                    "min": 0,
+                    "max": 0,
+                    "sd": 0,
+                    "effect_on_impact": [
+                        {
+                            "id": 0,
+                            "name": "cropPollinationProduction",
+                            "mean": 0,
+                            "min": 0,
+                            "max": 0,
+                            "sd": 0
+                        },
+                        {
+                            "id": 1,
+                            "name": "economicValueChain",
+                            "mean": 0,
+                            "min": 0,
+                            "max": 0,
+                            "sd": 0
+                        },
+                        {
+                            "id": 2,
+                            "name": "wildPlantPollination",
+                            "mean": 0,
+                            "min": 0,
+                            "max": 0,
+                            "sd": 0
+                        },
+                        {
+                            "id": 3,
+                            "name": "aestheticValues",
+                            "mean": 0,
+                            "min": 0,
+                            "max": 0,
+                            "sd": 0
+                        }
+                    ]
+                }
+            ]
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "ecoIntensification",
+      "label": "Ecological intensification",
+      "description": "Ecological intensification description works...",
+      "applies_to": [
+        {
+            "id": 1,
+            "habitatType": "Agricultural",
+            "effect_on_state": [
+                {
+                    "id": 0,
+                    "name": "wildPollinators",
+                    "mean": 0,
+                    "min": 0,
+                    "max": 0,
+                    "sd": 0,
+                    "effect_on_impact": [
+                        {
+                            "id": 0,
+                            "name": "cropPollinationProduction",
+                            "mean": 0,
+                            "min": 0,
+                            "max": 0,
+                            "sd": 0
+                        },
+                        {
+                            "id": 1,
+                            "name": "economicValueChain",
+                            "mean": 0,
+                            "min": 0,
+                            "max": 0,
+                            "sd": 0
+                        },
+                        {
+                            "id": 2,
+                            "name": "wildPlantPollination",
+                            "mean": 0,
+                            "min": 0,
+                            "max": 0,
+                            "sd": 0
+                        },
+                        {
+                            "id": 3,
+                            "name": "aestheticValues",
+                            "mean": 0,
+                            "min": 0,
+                            "max": 0,
+                            "sd": 0
+                        }
+                    ]
+                },
+                {
+                    "id": 1,
+                    "name": "floralResources",
+                    "mean": 0,
+                    "min": 0,
+                    "max": 0,
+                    "sd": 0,
+                    "effect_on_impact": [
+                        {
+                            "id": 0,
+                            "name": "cropPollinationProduction",
+                            "mean": 0,
+                            "min": 0,
+                            "max": 0,
+                            "sd": 0
+                        },
+                        {
+                            "id": 1,
+                            "name": "economicValueChain",
+                            "mean": 0,
+                            "min": 0,
+                            "max": 0,
+                            "sd": 0
+                        },
+                        {
+                            "id": 2,
+                            "name": "wildPlantPollination",
+                            "mean": 0,
+                            "min": 0,
+                            "max": 0,
+                            "sd": 0
+                        },
+                        {
+                            "id": 3,
+                            "name": "aestheticValues",
+                            "mean": 0,
+                            "min": 0,
+                            "max": 0,
+                            "sd": 0
+                        }
+                    ]
+                },
+                {
+                    "id": 2,
+                    "name": "habitatResources",
+                    "mean": 0,
+                    "min": 0,
+                    "max": 0,
+                    "sd": 0,
+                    "effect_on_impact": [
+                        {
+                            "id": 0,
+                            "name": "cropPollinationProduction",
+                            "mean": 0,
+                            "min": 0,
+                            "max": 0,
+                            "sd": 0
+                        },
+                        {
+                            "id": 1,
+                            "name": "economicValueChain",
+                            "mean": 0,
+                            "min": 0,
+                            "max": 0,
+                            "sd": 0
+                        },
+                        {
+                            "id": 2,
+                            "name": "wildPlantPollination",
+                            "mean": 0,
+                            "min": 0,
+                            "max": 0,
+                            "sd": 0
+                        },
+                        {
+                            "id": 3,
+                            "name": "aestheticValues",
+                            "mean": 0,
+                            "min": 0,
+                            "max": 0,
+                            "sd": 0
+                        }
+                    ]
+                }
+            ]
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "urbanGreening",
+      "label": "Urban Greening",
+      "description": "Urban Greening description works...",
+      "applies_to": [
+        {
+            "id": 2,
+            "habitatType": "Urban",
+            "effect_on_state": [
+                {
+                    "id": 0,
+                    "name": "wildPollinators",
+                    "mean": 0,
+                    "min": 0,
+                    "max": 0,
+                    "sd": 0,
+                    "effect_on_impact": [
+                        {
+                            "id": 0,
+                            "name": "cropPollinationProduction",
+                            "mean": 0,
+                            "min": 0,
+                            "max": 0,
+                            "sd": 0
+                        },
+                        {
+                            "id": 1,
+                            "name": "economicValueChain",
+                            "mean": 0,
+                            "min": 0,
+                            "max": 0,
+                            "sd": 0
+                        },
+                        {
+                            "id": 2,
+                            "name": "wildPlantPollination",
+                            "mean": 0,
+                            "min": 0,
+                            "max": 0,
+                            "sd": 0
+                        },
+                        {
+                            "id": 3,
+                            "name": "aestheticValues",
+                            "mean": 0,
+                            "min": 0,
+                            "max": 0,
+                            "sd": 0
+                        }
+                    ]
+                },
+                {
+                    "id": 1,
+                    "name": "floralResources",
+                    "mean": 0,
+                    "min": 0,
+                    "max": 0,
+                    "sd": 0,
+                    "effect_on_impact": [
+                        {
+                            "id": 0,
+                            "name": "cropPollinationProduction",
+                            "mean": 0,
+                            "min": 0,
+                            "max": 0,
+                            "sd": 0
+                        },
+                        {
+                            "id": 1,
+                            "name": "economicValueChain",
+                            "mean": 0,
+                            "min": 0,
+                            "max": 0,
+                            "sd": 0
+                        },
+                        {
+                            "id": 2,
+                            "name": "wildPlantPollination",
+                            "mean": 0,
+                            "min": 0,
+                            "max": 0,
+                            "sd": 0
+                        },
+                        {
+                            "id": 3,
+                            "name": "aestheticValues",
+                            "mean": 0,
+                            "min": 0,
+                            "max": 0,
+                            "sd": 0
+                        }
+                    ]
+                },
+                {
+                    "id": 2,
+                    "name": "habitatResources",
+                    "mean": 0,
+                    "min": 0,
+                    "max": 0,
+                    "sd": 0,
+                    "effect_on_impact": [
+                        {
+                            "id": 0,
+                            "name": "cropPollinationProduction",
+                            "mean": 0,
+                            "min": 0,
+                            "max": 0,
+                            "sd": 0
+                        },
+                        {
+                            "id": 1,
+                            "name": "economicValueChain",
+                            "mean": 0,
+                            "min": 0,
+                            "max": 0,
+                            "sd": 0
+                        },
+                        {
+                            "id": 2,
+                            "name": "wildPlantPollination",
+                            "mean": 0,
+                            "min": 0,
+                            "max": 0,
+                            "sd": 0
+                        },
+                        {
+                            "id": 3,
+                            "name": "aestheticValues",
+                            "mean": 0,
+                            "min": 0,
+                            "max": 0,
+                            "sd": 0
+                        }
+                    ]
+                }
+            ]
+        }
+      ]
+    }
+]
