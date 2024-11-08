@@ -18,36 +18,22 @@
                     "sd": 0.754,
                     "effect_on_impact": [
                         {
-                            "id": 0,
-                            "name": "cropPollinationProduction",
-                            "mean": 0,
-                            "min": 0,
-                            "max": 0,
-                            "sd": 0
-                        },
-                        {
-                            "id": 1,
-                            "name": "economicValueChain",
-                            "mean": 0,
-                            "min": 0,
-                            "max": 0,
-                            "sd": 0
-                        },
-                        {
                             "id": 2,
                             "name": "wildPlantPollination",
-                            "mean": 0,
-                            "min": 0,
-                            "max": 0,
-                            "sd": 0
+                            "mean": 4.882,
+                            "min": 3,
+                            "max": 5,
+                            "sd": 0.409,
+                            "values": []
+
                         },
                         {
                             "id": 3,
                             "name": "aestheticValues",
-                            "mean": 0,
-                            "min": 0,
-                            "max": 0,
-                            "sd": 0
+                            "mean": 3.849,
+                            "min": 2,
+                            "max": 5,
+                            "sd": 0.940
                         }
                     ]
                 },
@@ -60,36 +46,20 @@
                     "sd": 0.753,
                     "effect_on_impact": [
                         {
-                            "id": 0,
-                            "name": "cropPollinationProduction",
-                            "mean": 0,
-                            "min": 0,
-                            "max": 0,
-                            "sd": 0
-                        },
-                        {
-                            "id": 1,
-                            "name": "economicValueChain",
-                            "mean": 0,
-                            "min": 0,
-                            "max": 0,
-                            "sd": 0
-                        },
-                        {
                             "id": 2,
                             "name": "wildPlantPollination",
-                            "mean": 0,
-                            "min": 0,
-                            "max": 0,
-                            "sd": 0
+                            "mean": 3.971,
+                            "min": 2,
+                            "max": 5,
+                            "sd": 0.834
                         },
                         {
                             "id": 3,
                             "name": "aestheticValues",
-                            "mean": 0,
-                            "min": 0,
-                            "max": 0,
-                            "sd": 0
+                            "mean": 4.438,
+                            "min": 1,
+                            "max": 5,
+                            "sd": 0.982
                         }
                     ]
                 },
@@ -102,36 +72,20 @@
                     "sd": 0.792,
                     "effect_on_impact": [
                         {
-                            "id": 0,
-                            "name": "cropPollinationProduction",
-                            "mean": 0,
-                            "min": 0,
-                            "max": 0,
-                            "sd": 0
-                        },
-                        {
-                            "id": 1,
-                            "name": "economicValueChain",
-                            "mean": 0,
-                            "min": 0,
-                            "max": 0,
-                            "sd": 0
-                        },
-                        {
                             "id": 2,
                             "name": "wildPlantPollination",
-                            "mean": 0,
-                            "min": 0,
-                            "max": 0,
-                            "sd": 0
+                            "mean": 3.706,
+                            "min": 2,
+                            "max": 5,
+                            "sd": 0.871
                         },
                         {
                             "id": 3,
                             "name": "aestheticValues",
-                            "mean": 0,
-                            "min": 0,
-                            "max": 0,
-                            "sd": 0
+                            "mean": 3.156,
+                            "min": 1,
+                            "max": 5,
+                            "sd": 1.139
                         }
                     ]
                 }
@@ -152,34 +106,34 @@
                         {
                             "id": 0,
                             "name": "cropPollinationProduction",
-                            "mean": 0,
-                            "min": 0,
-                            "max": 0,
-                            "sd": 0
+                            "mean": 4.429,
+                            "min": 3,
+                            "max": 5,
+                            "sd": 0.655
                         },
                         {
                             "id": 1,
                             "name": "economicValueChain",
-                            "mean": 0,
-                            "min": 0,
-                            "max": 0,
-                            "sd": 0
+                            "mean": 3.879,
+                            "min": 2,
+                            "max": 5,
+                            "sd": 0.927
                         },
                         {
                             "id": 2,
                             "name": "wildPlantPollination",
-                            "mean": 0,
-                            "min": 0,
-                            "max": 0,
-                            "sd": 0
+                            "mean": 4.829,
+                            "min": 3,
+                            "max": 5,
+                            "sd": 0.453
                         },
                         {
                             "id": 3,
                             "name": "aestheticValues",
-                            "mean": 0,
-                            "min": 0,
-                            "max": 0,
-                            "sd": 0
+                            "mean": 3.471,
+                            "min": 1,
+                            "max": 5,
+                            "sd": 0.992
                         }
                     ]
                 },
@@ -194,34 +148,34 @@
                         {
                             "id": 0,
                             "name": "cropPollinationProduction",
-                            "mean": 0,
-                            "min": 0,
-                            "max": 0,
-                            "sd": 0
+                            "mean": 3.629,
+                            "min": 1,
+                            "max": 5,
+                            "sd": 0.770
                         },
                         {
                             "id": 1,
                             "name": "economicValueChain",
-                            "mean": 0,
-                            "min": 0,
-                            "max": 0,
-                            "sd": 0
+                            "mean": 2.970,
+                            "min": 1,
+                            "max": 5,
+                            "sd": 1.075
                         },
                         {
                             "id": 2,
                             "name": "wildPlantPollination",
-                            "mean": 0,
-                            "min": 0,
-                            "max": 0,
-                            "sd": 0
+                            "mean": 3.914,
+                            "min": 2,
+                            "max": 5,
+                            "sd": 0.818
                         },
                         {
                             "id": 3,
                             "name": "aestheticValues",
-                            "mean": 0,
-                            "min": 0,
-                            "max": 0,
-                            "sd": 0
+                            "mean": 4.333,
+                            "min": 1,
+                            "max": 5,
+                            "sd": 1.051
                         }
                     ]
                 },
@@ -236,34 +190,34 @@
                         {
                             "id": 0,
                             "name": "cropPollinationProduction",
-                            "mean": 0,
-                            "min": 0,
-                            "max": 0,
-                            "sd": 0
+                            "mean": 3.343,
+                            "min": 1,
+                            "max": 5,
+                            "sd": 0.906
                         },
                         {
                             "id": 1,
                             "name": "economicValueChain",
-                            "mean": 0,
-                            "min": 0,
-                            "max": 0,
-                            "sd": 0
+                            "mean": 2.697,
+                            "min": 1,
+                            "max": 5,
+                            "sd": 1.075
                         },
                         {
                             "id": 2,
                             "name": "wildPlantPollination",
-                            "mean": 0,
-                            "min": 0,
-                            "max": 0,
-                            "sd": 0
+                            "mean": 3.657,
+                            "min": 2,
+                            "max": 5,
+                            "sd": 0.873
                         },
                         {
                             "id": 3,
                             "name": "aestheticValues",
-                            "mean": 0,
-                            "min": 0,
-                            "max": 0,
-                            "sd": 0
+                            "mean": 3.061,
+                            "min": 1,
+                            "max": 5,
+                            "sd": 1.088
                         }
                     ]
                 }
@@ -284,34 +238,34 @@
                         {
                             "id": 0,
                             "name": "cropPollinationProduction",
-                            "mean": 0,
+                            "mean": 3.5,
                             "min": 0,
-                            "max": 0,
-                            "sd": 0
+                            "max": 5,
+                            "sd": 1.164
                         },
                         {
                             "id": 1,
                             "name": "economicValueChain",
-                            "mean": 0,
+                            "mean": 2.839,
                             "min": 0,
-                            "max": 0,
-                            "sd": 0
+                            "max": 5,
+                            "sd": 1.241
                         },
                         {
                             "id": 2,
                             "name": "wildPlantPollination",
-                            "mean": 0,
-                            "min": 0,
-                            "max": 0,
-                            "sd": 0
+                            "mean": 4.546,
+                            "min": 3,
+                            "max": 5,
+                            "sd": 0.711
                         },
                         {
                             "id": 3,
                             "name": "aestheticValues",
-                            "mean": 0,
-                            "min": 0,
-                            "max": 0,
-                            "sd": 0
+                            "mean": 3.5,
+                            "min": 1,
+                            "max": 5,
+                            "sd": 1.136
                         }
                     ]
                 },
@@ -326,34 +280,34 @@
                         {
                             "id": 0,
                             "name": "cropPollinationProduction",
-                            "mean": 0,
+                            "mean": 3.094,
                             "min": 0,
-                            "max": 0,
-                            "sd": 0
+                            "max": 5,
+                            "sd": 1.088
                         },
                         {
                             "id": 1,
                             "name": "economicValueChain",
-                            "mean": 0,
+                            "mean": 2.333,
                             "min": 0,
-                            "max": 0,
-                            "sd": 0
+                            "max": 5,
+                            "sd": 1.295
                         },
                         {
                             "id": 2,
                             "name": "wildPlantPollination",
-                            "mean": 0,
-                            "min": 0,
-                            "max": 0,
-                            "sd": 0
+                            "mean": 3.818,
+                            "min": 2,
+                            "max": 5,
+                            "sd": 0.882
                         },
                         {
                             "id": 3,
                             "name": "aestheticValues",
-                            "mean": 0,
-                            "min": 0,
-                            "max": 0,
-                            "sd": 0
+                            "mean": 4.226,
+                            "min": 2,
+                            "max": 5,
+                            "sd": 1.087
                         }
                     ]
                 },
@@ -368,34 +322,34 @@
                         {
                             "id": 0,
                             "name": "cropPollinationProduction",
-                            "mean": 0,
+                            "mean": 3.031,
                             "min": 0,
-                            "max": 0,
-                            "sd": 0
+                            "max": 5,
+                            "sd": 1.121
                         },
                         {
                             "id": 1,
                             "name": "economicValueChain",
-                            "mean": 0,
+                            "mean": 2.207,
                             "min": 0,
-                            "max": 0,
-                            "sd": 0
+                            "max": 4,
+                            "sd": 1.177
                         },
                         {
                             "id": 2,
                             "name": "wildPlantPollination",
-                            "mean": 0,
-                            "min": 0,
-                            "max": 0,
-                            "sd": 0
+                            "mean": 3.454,
+                            "min": 2,
+                            "max": 5,
+                            "sd": 0.971
                         },
                         {
                             "id": 3,
                             "name": "aestheticValues",
-                            "mean": 0,
-                            "min": 0,
-                            "max": 0,
-                            "sd": 0
+                            "mean": 3,
+                            "min": 1,
+                            "max": 5,
+                            "sd": 1.096
                         }
                     ]
                 }
