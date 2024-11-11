@@ -16,4 +16,5 @@ export class HabitatResponseComponent {
   @Input() habitatResponse!: HabitatResponse;
 
   constructor(){}
+  
 }
