@@ -16,8 +16,9 @@ export interface Habitat {
         landscapeSimplification?: number;
     };
     state?: {
+        wildPollinators?: number;
         floralResources?: number;
-        habitatBiodiversity?: number;
+        habitatResources?: number;
     };
     pollinators?: {
         N?: number;

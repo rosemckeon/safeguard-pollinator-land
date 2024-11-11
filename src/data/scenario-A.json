@@ -32,7 +32,12 @@
                   "description": "",
                   "enabled": false
                 }
-              ]
+              ],
+            "state": {
+              "wildPollinators": 5,
+              "floralResources": 15,
+              "habitatResources": 5
+              } 
             },
             {
                 "id": 2,
@@ -64,7 +69,12 @@
                     "description": "",
                     "enabled": false
                   }
-                ]
+                ],
+                "state": {
+                  "wildPollinators": 6,
+                  "floralResources": 12,
+                  "habitatResources": 6
+                  } 
               },
               {
                 "id": 3,
@@ -96,7 +106,12 @@
                     "description": "",
                     "enabled": false
                   }
-                ]
+                ],
+                "state": {
+                  "wildPollinators": 10,
+                  "floralResources": 5,
+                  "habitatResources": 15
+                  } 
               },
             {
                 "id": 4,
@@ -128,7 +143,12 @@
                     "description": "",
                     "enabled": false
                   }
-                ]
+                ],
+                "state": {
+                  "wildPollinators": 9,
+                  "floralResources": 8,
+                  "habitatResources": 7
+                  } 
               },
             {
               "id": 5,
@@ -160,7 +180,12 @@
                   "description": "",
                   "enabled": false
                 }
-              ]
+              ],
+              "state": {
+                "wildPollinators": 4,
+                "floralResources": 11,
+                "habitatResources": 4
+                } 
             },
             {
                 "id": 6,
@@ -192,7 +217,12 @@
                     "description": "",
                     "enabled": false
                   }
-                ]
+                ],
+                "state": {
+                  "wildPollinators": 10,
+                  "floralResources": 18,
+                  "habitatResources": 9
+                  } 
               },
               {
                 "id": 7,
@@ -224,7 +254,12 @@
                     "description": "",
                     "enabled": false
                   }
-                ]
+                ],
+                "state": {
+                  "wildPollinators": 4,
+                  "floralResources": 8,
+                  "habitatResources": 4
+                  } 
               },
             {
                 "id": 8,
@@ -256,7 +291,12 @@
                     "description": "",
                     "enabled": false
                   }
-                ]
+                ],
+                "state": {
+                  "wildPollinators": 3,
+                  "floralResources": 2,
+                  "habitatResources": 10
+                  } 
               },
             {
               "id": 9,
@@ -288,7 +328,12 @@
                   "description": "",
                   "enabled": false
                 }
-              ]
+              ],
+              "state": {
+                "wildPollinators": 15,
+                "floralResources": 10,
+                "habitatResources": 20
+                } 
             },
             {
               "id": 10,
@@ -320,7 +365,12 @@
                   "description": "",
                   "enabled": false
                 }
-              ]
+              ],
+              "state": {
+                "wildPollinators": 22,
+                "floralResources": 25,
+                "habitatResources": 20
+                } 
             },
             {
                 "id": 11,
@@ -352,7 +402,12 @@
                     "description": "",
                     "enabled": false
                   }
-                ]
+                ],
+                "state": {
+                  "wildPollinators": 0,
+                  "floralResources": 0,
+                  "habitatResources": 0
+                  } 
               },
               {
                 "id": 12,
@@ -384,7 +439,12 @@
                     "description": "",
                     "enabled": false
                   }
-                ]
+                ],
+                "state": {
+                  "wildPollinators": 0,
+                  "floralResources": 0,
+                  "habitatResources": 2
+                  } 
               },
             {
               "id": 13,
@@ -416,7 +476,12 @@
                   "description": "",
                   "enabled": false
                 }
-              ]
+              ],
+              "state": {
+                "wildPollinators": 5,
+                "floralResources": 6,
+                "habitatResources": 5
+                } 
             },
             {
                 "id": 14,
@@ -448,7 +513,12 @@
                     "description": "",
                     "enabled": false
                   }
-                ]
+                ],
+                "state": {
+                  "wildPollinators": 5,
+                  "floralResources": 5,
+                  "habitatResources": 8
+                  } 
               },
             {
               "id": 15,
@@ -473,7 +543,12 @@
                   "description": "",
                   "enabled": false
                 }
-              ]
+              ],
+              "state": {
+                "wildPollinators": 50,
+                "floralResources": 50,
+                "habitatResources": 50
+                } 
             },
             {
               "id": 16,
@@ -498,7 +573,12 @@
                   "description": "",
                   "enabled": false
                 }
-              ]
+              ],
+              "state": {
+                "wildPollinators": 50,
+                "floralResources": 50,
+                "habitatResources": 50
+                } 
             }
           ]
         },
