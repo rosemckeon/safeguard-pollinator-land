@@ -1,6 +1,7 @@
 import { Component, inject, Input, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Habitat } from '../habitat';
+import { HabitatService } from '../habitat.service';
 import { HabitatResponseComponent } from '../habitat-response/habitat-response.component';
 import { HabitatResponseService } from '../habitat-response.service';
 import { ProgressBarMode, MatProgressBarModule} from '@angular/material/progress-bar';
@@ -20,23 +21,18 @@ import { ProgressBarMode, MatProgressBarModule} from '@angular/material/progress
 })
 export class HabitatComponent implements OnInit {
   habitatResponseService: HabitatResponseService = inject(HabitatResponseService);
+  habitatService: HabitatService = inject(HabitatService);
   @Input() habitat!: Habitat;
 
   mode: ProgressBarMode = 'determinate';
-  value: number = 0;
-  bufferValue: number = 75;
+  //value: number = 0;
+  bufferValue: number = 0;
   
-  calculateValue(wildPollinators: number, floralResources: number, habitatResources: number): void {
-    console.log('Triggered calculateValue from HabitatComponent', wildPollinators, floralResources, habitatResources);
-    this.value = Math.round((wildPollinators + floralResources + habitatResources)/3);
-    console.log('Value: ', this.value);
-  }
-
   constructor(){}
   
   ngOnInit(): void {
     //console.log(this.habitat);
-    this.calculateValue(this.habitat.state!.wildPollinators!, this.habitat.state!.floralResources!, this.habitat.state!.habitatResources!);
+    this.habitat.stateValue = this.habitatService.calculateHabitatStateValue(this.habitat.state!.wildPollinators!, this.habitat.state!.floralResources!, this.habitat.state!.habitatResources!);
     //console.log('Responses: ', this.habitat.response)
   }
 }

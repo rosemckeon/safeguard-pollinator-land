@@ -61,7 +61,7 @@ export class RoundService {
     //this.habitatService.applyGlobalHabitatChanges(this.habitatService.habitatList);
     // store all the changes to habitatList in the roundList for the next active round
     this.roundList[this.activeRound].landscape = this.habitatService.habitatList;
-    // apply responses so they are active on the next round
+    // apply responses so they are active on the next round - this is where state values are adjusted
     this.habitatService.habitatList = this.habitatService.applyResponses(this.habitatService.habitatList);
     //this.roundList[this.activeRound].activeHabitatTypes = this.habitatService.getActiveHabitatTypes(this.habitatService.habitatList);
     // why have i copied it back the other way??? don't think we need this

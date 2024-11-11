@@ -1,8 +1,8 @@
 <div id="habitat_{{ habitat.id }}" class="habitat {{ habitat.type.active.toLowerCase() }} h-full flex items-center justify-center p-5 border-2">
     <div class="inline-block align-text-middle">
       <!--<button type="button" class="button px-2" (click)="openHabitatState('habitat-state')">State</button>-->
-      <h3>Overall Habitat State: {{ this.value }}%</h3>
-      <mat-progress-bar class="h-4" [mode]="mode" [value]="value" [bufferValue]="bufferValue"></mat-progress-bar>
+      <h3>Overall Habitat State: {{ habitat.stateValue }}%</h3>
+      <mat-progress-bar class="h-4" [mode]="mode" [value]="habitat.stateValue" [bufferValue]="bufferValue"></mat-progress-bar>
       <!--
       <ul class="habitat-states">
         <li>Wild Pollinator Abundance and Biodiversity: {{ habitat.state?.wildPollinators }} </li>

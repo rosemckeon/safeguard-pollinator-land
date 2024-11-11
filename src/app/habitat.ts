@@ -15,6 +15,7 @@ export interface Habitat {
         pollinatorManagement?: number;
         landscapeSimplification?: number;
     };
+    stateValue?: number;
     state?: {
         wildPollinators?: number;
         floralResources?: number;

@@ -7,6 +7,13 @@ import { Habitat } from './habitat';
 export class HabitatService {
   habitatList: Habitat[] = [];
 
+  calculateHabitatStateValue(wildPollinators: number, floralResources: number, habitatResources: number): number {
+    console.log('Triggered calculateValue from HabitatComponent', wildPollinators, floralResources, habitatResources);
+    let value = Math.round((wildPollinators + floralResources + habitatResources)/3);
+    console.log('Value: ', value);
+    return(value);
+  }
+
   setGlobalResponseChange(habitatType: string, responseName: string, value: boolean){
     console.log('Triggered setGlobalResponseChange: ', habitatType, responseName, value);
     // loop through habitats
@@ -42,6 +49,29 @@ export class HabitatService {
         }
         if(this.habitatList[i].response![r].hasOwnProperty('localChange')){
           this.habitatList[i].response![r].enabled = this.habitatList[i].response![r].localChange!
+        }
+        // Once the final response value is set, adjust some values?
+        if(this.habitatList[i].response![r].enabled == true){
+          let name = this.habitatList[i].response![r].name;
+          let wildPollinators = this.habitatList[i].state!.wildPollinators!;
+          let floralResources = this.habitatList[i].state!.floralResources!;
+          let habitatResources = this.habitatList[i].state!.habitatResources!;
+          console.log('Enabled: ', name, wildPollinators, floralResources, habitatResources);
+          // this kind of thing works.
+          // now we need ot pull in the numbers from data/response-to-state.json instead
+          // and use those to adjust all 3 values. wildPollinators isn't a direct product of the other 2 if we use the expert grading.
+          if(name == 'restoration'){
+            habitatResources = Math.round(habitatResources * 1.2);
+            floralResources = Math.round(floralResources * 1.2);
+            wildPollinators = Math.min(habitatResources, floralResources);
+          }
+          console.log('Wild pollinators increased: ', wildPollinators, floralResources, habitatResources);
+          this.habitatList[i].state!.wildPollinators! = wildPollinators;
+          this.habitatList[i].state!.floralResources! = floralResources;
+          this.habitatList[i].state!.habitatResources! = habitatResources;
+          // applying these values to the habitatList doesn't update the progress bars.
+          // so we need to set an overall value in Habitat[]
+          this.habitatList[i].stateValue = this.calculateHabitatStateValue(wildPollinators, floralResources, habitatResources);
         }
       }
     }
