@@ -9,4 +9,8 @@
             @apply text-slate-300 #{!important};
         }
     }
+    .cdk-overlay-dark-backdrop {
+        @apply bg-slate-950;
+        @apply opacity-60 #{!important};
+    }
 }
