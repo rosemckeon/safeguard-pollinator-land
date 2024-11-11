@@ -1,15 +1,26 @@
+import { HabitatResponse } from "./habitat-response";
+
 export interface Habitat {
     id: number;
-    type: string;
-    globalChangeTypeTo: string;
-    localChangeTypeTo: string;
-    score?: number;
-    nesting: number;
-    floralResources: number;
-    actionsActive: boolean;
-    pollinators: number;
-    pollinatorHealth: number;
-    carryingCapacity: number;
     x: number;
     y: number;
+    K: number;
+    type: {
+        active: string;
+        globalChange?: string;
+        localChange?: string;
+    }
+    response?: HabitatResponse[];
+    pressure?: {
+        pollinatorManagement?: number;
+        landscapeSimplification?: number;
+    };
+    state?: {
+        floralResources?: number;
+        habitatBiodiversity?: number;
+    };
+    pollinators?: {
+        N?: number;
+        health?: number;
+    }
 }

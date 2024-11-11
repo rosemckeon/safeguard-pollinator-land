@@ -1,254 +1,519 @@
 [ 
   {
         "id": 0,
-        "score": 0,
         "landscape": [
           {
               "id": 1,
-              "type": "Agricultural",
-              "globalChangeTypeTo": "",
-              "localChangeTypeTo": "",
-              "nesting": 0.5,
-              "floralResources": 0.75,
-              "actionsActive": false,
-              "pollinators": 2,
-              "pollinatorHealth": 0.8,
-              "carryingCapacity": 100,
               "x": 1,
-              "y": 4
+              "y": 4,
+              "K": 100,
+              "type": {
+                "active": "Agricultural"
+              },
+              "response": [
+                {
+                  "id": 0,
+                  "name": "restoration",
+                  "label": "Recreate/Restore Ecological Zones",
+                  "description": "",
+                  "enabled": false
+                },
+                {
+                  "id": 1,
+                  "name": "natureProtection",
+                  "label": "Nature Protection Regulations",
+                  "description": "",
+                  "enabled": false
+                },
+                {
+                  "id": 2,
+                  "name": "ecoIntensification",
+                  "label": "Ecological Intensification",
+                  "description": "",
+                  "enabled": false
+                }
+              ]
             },
             {
                 "id": 2,
-                "type": "Agricultural",
-                "globalChangeTypeTo": "",
-                "localChangeTypeTo": "",
-                "nesting": 0.5,
-                "floralResources": 0.75,
-                "actionsActive": false,
-                "pollinators": 2,
-                "pollinatorHealth": 0.8,
-                "carryingCapacity": 100,
-                "x": 1,
-                "y": 4
+                "x": 2,
+                "y": 4,
+                "K": 100,
+                "type": {
+                  "active": "Agricultural"
+                },
+                "response": [
+                  {
+                    "id": 0,
+                    "name": "restoration",
+                    "label": "Recreate/Restore Ecological Zones",
+                    "description": "",
+                    "enabled": false
+                  },
+                  {
+                    "id": 1,
+                    "name": "natureProtection",
+                    "label": "Nature Protection Regulations",
+                    "description": "",
+                    "enabled": false
+                  },
+                  {
+                    "id": 2,
+                    "name": "ecoIntensification",
+                    "label": "Ecological Intensification",
+                    "description": "",
+                    "enabled": false
+                  }
+                ]
               },
               {
                 "id": 3,
-                "type": "Urban",
-                "globalChangeTypeTo": "",
-                "localChangeTypeTo": "",
-                "nesting": 0.2,
-                "floralResources": 0.05,
-                "actionsActive": false,
-                "pollinators": 1,
-                "pollinatorHealth": 0.1,
-                "carryingCapacity": 10,
-                "x": 2,
-                "y": 2
+                "x": 3,
+                "y": 4,
+                "K": 100,
+                "type": {
+                  "active": "Urban"
+                },
+                "response": [
+                  {
+                    "id": 0,
+                    "name": "restoration",
+                    "label": "Recreate/Restore Ecological Zones",
+                    "description": "",
+                    "enabled": false
+                  },
+                  {
+                    "id": 1,
+                    "name": "natureProtection",
+                    "label": "Nature Protection Regulations",
+                    "description": "",
+                    "enabled": false
+                  },
+                  {
+                    "id": 3,
+                    "name": "urbanGreening",
+                    "label": "Urban Greening",
+                    "description": "",
+                    "enabled": false
+                  }
+                ]
               },
             {
                 "id": 4,
-                "type": "Urban",
-                "globalChangeTypeTo": "",
-                "localChangeTypeTo": "",
-                "nesting": 0.2,
-                "floralResources": 0.05,
-                "actionsActive": false,
-                "pollinators": 1,
-                "pollinatorHealth": 0.1,
-                "carryingCapacity": 10,
-                "x": 2,
-                "y": 2
+                "x": 4,
+                "y": 4,
+                "K": 100,
+                "type": {
+                  "active": "Urban"
+                },
+                "response": [
+                  {
+                    "id": 0,
+                    "name": "restoration",
+                    "label": "Recreate/Restore Ecological Zones",
+                    "description": "",
+                    "enabled": false
+                  },
+                  {
+                    "id": 1,
+                    "name": "natureProtection",
+                    "label": "Nature Protection Regulations",
+                    "description": "",
+                    "enabled": false
+                  },
+                  {
+                    "id": 3,
+                    "name": "urbanGreening",
+                    "label": "Urban Greening",
+                    "description": "",
+                    "enabled": false
+                  }
+                ]
               },
             {
               "id": 5,
-              "type": "Agricultural",
-              "globalChangeTypeTo": "",
-              "localChangeTypeTo": "",
-              "nesting": 0.5,
-              "floralResources": 0.75,
-              "actionsActive": false,
-              "pollinators": 2,
-              "pollinatorHealth": 0.8,
-              "carryingCapacity": 100,
               "x": 1,
-              "y": 3
+              "y": 3,
+              "K": 100,
+              "type": {
+                "active": "Agricultural"
+              },
+              "response": [
+                {
+                  "id": 0,
+                  "name": "restoration",
+                  "label": "Recreate/Restore Ecological Zones",
+                  "description": "",
+                  "enabled": false
+                },
+                {
+                  "id": 1,
+                  "name": "natureProtection",
+                  "label": "Nature Protection Regulations",
+                  "description": "",
+                  "enabled": false
+                },
+                {
+                  "id": 2,
+                  "name": "ecoIntensification",
+                  "label": "Ecological Intensification",
+                  "description": "",
+                  "enabled": false
+                }
+              ]
             },
             {
                 "id": 6,
-                "type": "Agricultural",
-                "globalChangeTypeTo": "",
-                "localChangeTypeTo": "",
-                "nesting": 0.5,
-                "floralResources": 0.75,
-                "actionsActive": false,
-                "pollinators": 2,
-                "pollinatorHealth": 0.8,
-                "carryingCapacity": 100,
-                "x": 1,
-                "y": 4
+                "x": 2,
+                "y": 3,
+                "K": 100,
+                "type": {
+                  "active": "Agricultural"
+                },
+                "response": [
+                  {
+                    "id": 0,
+                    "name": "restoration",
+                    "label": "Recreate/Restore Ecological Zones",
+                    "description": "",
+                    "enabled": false
+                  },
+                  {
+                    "id": 1,
+                    "name": "natureProtection",
+                    "label": "Nature Protection Regulations",
+                    "description": "",
+                    "enabled": false
+                  },
+                  {
+                    "id": 2,
+                    "name": "ecoIntensification",
+                    "label": "Ecological Intensification",
+                    "description": "",
+                    "enabled": false
+                  }
+                ]
               },
               {
                 "id": 7,
-                "type": "Urban",
-                "globalChangeTypeTo": "",
-                "localChangeTypeTo": "",
-                "nesting": 0.2,
-                "floralResources": 0.05,
-                "actionsActive": false,
-                "pollinators": 1,
-                "pollinatorHealth": 0.1,
-                "carryingCapacity": 10,
-                "x": 2,
-                "y": 2
+                "x": 3,
+                "y": 3,
+                "K": 100,
+                "type": {
+                  "active": "Urban"
+                },
+                "response": [
+                  {
+                    "id": 0,
+                    "name": "restoration",
+                    "label": "Recreate/Restore Ecological Zones",
+                    "description": "",
+                    "enabled": false
+                  },
+                  {
+                    "id": 1,
+                    "name": "natureProtection",
+                    "label": "Nature Protection Regulations",
+                    "description": "",
+                    "enabled": false
+                  },
+                  {
+                    "id": 3,
+                    "name": "urbanGreening",
+                    "label": "Urban Greening",
+                    "description": "",
+                    "enabled": false
+                  }
+                ]
               },
             {
                 "id": 8,
-                "type": "Urban",
-                "globalChangeTypeTo": "",
-                "localChangeTypeTo": "",
-                "nesting": 0.2,
-                "floralResources": 0.05,
-                "actionsActive": false,
-                "pollinators": 1,
-                "pollinatorHealth": 0.1,
-                "carryingCapacity": 10,
-                "x": 2,
-                "y": 2
+                "x": 4,
+                "y": 3,
+                "K": 100,
+                "type": {
+                  "active": "Urban"
+                },
+                "response": [
+                  {
+                    "id": 0,
+                    "name": "restoration",
+                    "label": "Recreate/Restore Ecological Zones",
+                    "description": "",
+                    "enabled": false
+                  },
+                  {
+                    "id": 1,
+                    "name": "natureProtection",
+                    "label": "Nature Protection Regulations",
+                    "description": "",
+                    "enabled": false
+                  },
+                  {
+                    "id": 3,
+                    "name": "urbanGreening",
+                    "label": "Urban Greening",
+                    "description": "",
+                    "enabled": false
+                  }
+                ]
               },
             {
               "id": 9,
-              "type": "Agricultural",
-              "globalChangeTypeTo": "",
-              "localChangeTypeTo": "",
-              "nesting": 0.5,
-              "floralResources": 0.75,
-              "actionsActive": false,
-              "pollinators": 2,
-              "pollinatorHealth": 0.8,
-              "carryingCapacity": 100,
               "x": 1,
-              "y": 2
+              "y": 2,
+              "K": 100,
+              "type": {
+                "active": "Agricultural"
+              },
+              "response": [
+                {
+                  "id": 0,
+                  "name": "restoration",
+                  "label": "Recreate/Restore Ecological Zones",
+                  "description": "",
+                  "enabled": false
+                },
+                {
+                  "id": 1,
+                  "name": "natureProtection",
+                  "label": "Nature Protection Regulations",
+                  "description": "",
+                  "enabled": false
+                },
+                {
+                  "id": 2,
+                  "name": "ecoIntensification",
+                  "label": "Ecological Intensification",
+                  "description": "",
+                  "enabled": false
+                }
+              ]
             },
             {
               "id": 10,
-              "type": "Urban",
-              "globalChangeTypeTo": "",
-              "localChangeTypeTo": "",
-              "nesting": 0.2,
-              "floralResources": 0.05,
-              "actionsActive": false,
-              "pollinators": 1,
-              "pollinatorHealth": 0.1,
-              "carryingCapacity": 10,
               "x": 2,
-              "y": 2
+              "y": 2,
+              "K": 100,
+              "type": {
+                "active": "Urban"
+              },
+              "response": [
+                {
+                  "id": 0,
+                  "name": "restoration",
+                  "label": "Recreate/Restore Ecological Zones",
+                  "description": "",
+                  "enabled": false
+                },
+                {
+                  "id": 1,
+                  "name": "natureProtection",
+                  "label": "Nature Protection Regulations",
+                  "description": "",
+                  "enabled": false
+                },
+                {
+                  "id": 3,
+                  "name": "urbanGreening",
+                  "label": "Urban Greening",
+                  "description": "",
+                  "enabled": false
+                }
+              ]
             },
             {
                 "id": 11,
-                "type": "Agricultural",
-                "globalChangeTypeTo": "",
-                "localChangeTypeTo": "",
-                "nesting": 0.5,
-                "floralResources": 0.75,
-                "actionsActive": false,
-                "pollinators": 2,
-                "pollinatorHealth": 0.8,
-                "carryingCapacity": 100,
-                "x": 1,
-                "y": 4
+                "x": 3,
+                "y": 2,
+                "K": 100,
+                "type": {
+                  "active": "Agricultural"
+                },
+                "response": [
+                  {
+                    "id": 0,
+                    "name": "restoration",
+                    "label": "Recreate/Restore Ecological Zones",
+                    "description": "",
+                    "enabled": false
+                  },
+                  {
+                    "id": 1,
+                    "name": "natureProtection",
+                    "label": "Nature Protection Regulations",
+                    "description": "",
+                    "enabled": false
+                  },
+                  {
+                    "id": 2,
+                    "name": "ecoIntensification",
+                    "label": "Ecological Intensification",
+                    "description": "",
+                    "enabled": false
+                  }
+                ]
               },
               {
                 "id": 12,
-                "type": "Agricultural",
-                "globalChangeTypeTo": "",
-                "localChangeTypeTo": "",
-                "nesting": 0.5,
-                "floralResources": 0.75,
-                "actionsActive": false,
-                "pollinators": 2,
-                "pollinatorHealth": 0.8,
-                "carryingCapacity": 100,
-                "x": 1,
-                "y": 4
+                "x": 4,
+                "y": 2,
+                "K": 100,
+                "type": {
+                  "active": "Agricultural"
+                },
+                "response": [
+                  {
+                    "id": 0,
+                    "name": "restoration",
+                    "label": "Recreate/Restore Ecological Zones",
+                    "description": "",
+                    "enabled": false
+                  },
+                  {
+                    "id": 1,
+                    "name": "natureProtection",
+                    "label": "Nature Protection Regulations",
+                    "description": "",
+                    "enabled": false
+                  },
+                  {
+                    "id": 2,
+                    "name": "ecoIntensification",
+                    "label": "Ecological Intensification",
+                    "description": "",
+                    "enabled": false
+                  }
+                ]
               },
             {
               "id": 13,
-              "type": "Agricultural",
-              "globalChangeTypeTo": "",
-              "localChangeTypeTo": "",
-              "nesting": 0.5,
-              "floralResources": 0.75,
-              "actionsActive": false,
-              "pollinators": 2,
-              "pollinatorHealth": 0.8,
-              "carryingCapacity": 100,
               "x": 1,
-              "y": 1
+              "y": 1,
+              "K": 100,
+              "type": {
+                "active": "Agricultural"
+              },
+              "response": [
+                {
+                  "id": 0,
+                  "name": "restoration",
+                  "label": "Recreate/Restore Ecological Zones",
+                  "description": "",
+                  "enabled": false
+                },
+                {
+                  "id": 1,
+                  "name": "natureProtection",
+                  "label": "Nature Protection Regulations",
+                  "description": "",
+                  "enabled": false
+                },
+                {
+                  "id": 2,
+                  "name": "ecoIntensification",
+                  "label": "Ecological Intensification",
+                  "description": "",
+                  "enabled": false
+                }
+              ]
             },
             {
                 "id": 14,
-                "type": "Agricultural",
-                "globalChangeTypeTo": "",
-                "localChangeTypeTo": "",
-                "nesting": 0.5,
-                "floralResources": 0.75,
-                "actionsActive": false,
-                "pollinators": 2,
-                "pollinatorHealth": 0.8,
-                "carryingCapacity": 100,
-                "x": 1,
-                "y": 1
+                "x": 2,
+                "y": 1,
+                "K": 100,
+                "type": {
+                  "active": "Agricultural"
+                },
+                "response": [
+                  {
+                    "id": 0,
+                    "name": "restoration",
+                    "label": "Recreate/Restore Ecological Zones",
+                    "description": "",
+                    "enabled": false
+                  },
+                  {
+                    "id": 1,
+                    "name": "natureProtection",
+                    "label": "Nature Protection Regulations",
+                    "description": "",
+                    "enabled": false
+                  },
+                  {
+                    "id": 2,
+                    "name": "ecoIntensification",
+                    "label": "Ecological Intensification",
+                    "description": "",
+                    "enabled": false
+                  }
+                ]
               },
             {
               "id": 15,
-              "type": "Semi-natural",
-              "globalChangeTypeTo": "",
-              "localChangeTypeTo": "",
-              "nesting": 0.8,
-              "floralResources": 0.65,
-              "actionsActive": false,
-              "pollinators": 5,
-              "pollinatorHealth": 0.9,
-              "carryingCapacity": 200,
               "x": 3,
-              "y": 1
+              "y": 1,
+              "K": 100,
+              "type": {
+                "active": "Semi-natural"
+              },
+              "response": [
+                {
+                  "id": 0,
+                  "name": "restoration",
+                  "label": "Recreate/Restore Ecological Zones",
+                  "description": "",
+                  "enabled": false
+                },
+                {
+                  "id": 1,
+                  "name": "natureProtection",
+                  "label": "Nature Protection Regulations",
+                  "description": "",
+                  "enabled": false
+                }
+              ]
             },
             {
               "id": 16,
-              "type": "Semi-natural",
-              "globalChangeTypeTo": "",
-              "localChangeTypeTo": "",
-              "nesting": 0.8,
-              "floralResources": 0.65,
-              "actionsActive": false,
-              "pollinators": 5,
-              "pollinatorHealth": 0.9,
-              "carryingCapacity": 200,
               "x": 4,
-              "y": 1
+              "y": 1,
+              "K": 100,
+              "type": {
+                "active": "Semi-natural"
+              },
+              "response": [
+                {
+                  "id": 0,
+                  "name": "restoration",
+                  "label": "Recreate/Restore Ecological Zones",
+                  "description": "",
+                  "enabled": false
+                },
+                {
+                  "id": 1,
+                  "name": "natureProtection",
+                  "label": "Nature Protection Regulations",
+                  "description": "",
+                  "enabled": false
+                }
+              ]
             }
-          ],
-          "activeHabitatTypes": {
-            "Semi-natural": 2,
-            "Agricultural": 9,
-            "Urban": 5
-          }
+          ]
         },
         {
           "id": 1,
-          "score": 0,
           "disabled": "disabled",
           "landscape": []
         },
         {
           "id": 2,
-          "score": 0,
           "disabled": "disabled",
           "landscape": []
         },
         {
           "id": 3,
-          "score": 0,
           "disabled": "disabled",
           "landscape": []
         }

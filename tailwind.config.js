@@ -4,8 +4,9 @@ const colors = require('tailwindcss/colors')
 const plugin = require('tailwindcss/plugin')
 
 module.exports = {
+  //important: true,
   content: [
-    "./src/**/*.{html,scss,ts}"
+    "./src/**/*.{html,ts}"
   ],
   theme: {
     extend: {
@@ -20,6 +21,13 @@ module.exports = {
   },
   plugins: [
     require('@tailwindcss/forms')
-  ]
+  ],
+  corePlugins: {
+    preflight: false,
+  },
+  purge: {
+    enabled: true,
+    content: ['./src/**/*.{html,ts}'],
+  },
 }
 

@@ -5,26 +5,48 @@ import { Habitat } from './habitat';
   providedIn: 'root'
 })
 export class HabitatService {
-  //url = 'http://localhost:3000/habitats';
-  //url = 'http://localhost:3000/rounds?id=0';
   habitatList: Habitat[] = [];
-  habitatGlobalUpdateList: Habitat[] = [];
-  habitatLocalUpdateList: Habitat[] = [];
 
-  //These functions use asynchronous code to make a GET request over HTTP using fetch. 
-  //For more advanced use cases consider using HttpClient provided by Angular.
-  //async getAllHabitats(): Promise<Habitat[]> {
-  //  const data = await fetch(this.url);
-  //  return (await data.json()) ?? [];
-  //}
-  //async getHabitatById(id: number): Promise<Habitat | undefined> {
-  //  const data = await fetch(`${this.url}/${id}`);
-  //  return (await data.json()) ?? {};
-  //}
-  //async getHabitatByType(type: string): Promise<Habitat | undefined> {
-  //  const data = await fetch(`${this.url}/${type}`);
-  //  return (await data.json()) ?? {};
-  //}
+  setGlobalResponseChange(habitatType: string, responseName: string, value: boolean){
+    console.log('Triggered setGlobalResponseChange: ', habitatType, responseName, value);
+    // loop through habitats
+    for (var i = 0; i < this.habitatList.length; i++) {
+      // to match habitatType
+      if(this.habitatList[i].type.active == habitatType){
+        // loop through responses
+        for (var r = 0; r < this.habitatList[i].response!.length; r++){
+          // to match responseType
+          if(this.habitatList[i].response![r].name == responseName){
+            // update response
+            console.log('Updating response on habitat: ', this.habitatList[i].id);
+            this.habitatList[i].response![r].globalChange = value;
+            console.log(this.habitatList[i].response![r]);
+          }
+        }
+        //console.log(this.habitatList[i])
+      }
+    }
+  }
+
+  applyResponses(habitats: Habitat[]){
+    console.log('Triggered applyResponses from HabitatService', habitats);
+    // Take globalChange and localChange values and apply 'enabled' properties accordingly.
+    // loop through habitats for response settings
+    for (var i = 0; i < habitats.length; i++) {
+      // then loop through responses
+      for (var r = 0; r < this.habitatList[i].response!.length; r++){
+        // apple globalChange followed by localChange
+        if(this.habitatList[i].response![r].hasOwnProperty('globalChange')){
+          this.habitatList[i].response![r].enabled = this.habitatList[i].response![r].globalChange!
+          // could reset the values here but i think keeping state will be niceer ot use
+        }
+        if(this.habitatList[i].response![r].hasOwnProperty('localChange')){
+          this.habitatList[i].response![r].enabled = this.habitatList[i].response![r].localChange!
+        }
+      }
+    }
+    return(habitats);
+  }
 
   makeGlobalHabitatChanges(globalSeminatural: string, globalAgricultural: string, globalUrban: string) {
     console.log('triggered makeGlobalHabitatChanges');
@@ -32,24 +54,24 @@ export class HabitatService {
     //this.habitatGlobalUpdateList = this.habitatList;
     //const data = await fetch(this.url);
   
-    for (var i = 0; i < this.habitatGlobalUpdateList.length; i++) {
-      if(this.habitatGlobalUpdateList[i].type == 'Semi-natural'){
+    for (var i = 0; i < this.habitatList.length; i++) {
+      if(this.habitatList[i].type.active == 'Semi-natural'){
         if(globalSeminatural != ""){
-          this.habitatGlobalUpdateList[i].globalChangeTypeTo = globalSeminatural;
+          this.habitatList[i].type.globalChange = globalSeminatural;
         } 
       }
-      else if(this.habitatGlobalUpdateList[i].type == 'Agricultural'){
+      else if(this.habitatList[i].type.active == 'Agricultural'){
         if(globalAgricultural != ""){
-          this.habitatGlobalUpdateList[i].globalChangeTypeTo = globalAgricultural;
+          this.habitatList[i].type.globalChange = globalAgricultural;
         } 
       }
-      else if(this.habitatGlobalUpdateList[i].type == 'Urban'){
+      else if(this.habitatList[i].type.active == 'Urban'){
         if(globalUrban != ""){
-          this.habitatGlobalUpdateList[i].globalChangeTypeTo = globalUrban;
+          this.habitatList[i].type.globalChange = globalUrban;
         } 
       }
     }
-    console.log(this.habitatGlobalUpdateList);
+    console.log(this.habitatList);
     //return;
     //return (await data.json()) ?? [];
   }
@@ -57,13 +79,12 @@ export class HabitatService {
     //console.log(habitats);
     // need to return updated habitat array and apply said array to this.habtaList and other default habitat lists ready for this rounds new changes.
     for (var i = 0; i < habitats.length; i++) {
-      if(habitats[i].globalChangeTypeTo != ''){
-        habitats[i].type = habitats[i].globalChangeTypeTo;
-        habitats[i].globalChangeTypeTo = '';
+      if(habitats[i].type.globalChange != ''){
+        habitats[i].type.active = habitats[i].type.globalChange!;
+        habitats[i].type.globalChange = '';
       }
     }
     this.habitatList = habitats;
-    this.habitatGlobalUpdateList = habitats;
     return habitats;
   }
   getActiveHabitatTypes(habitats: Habitat[]){
@@ -72,13 +93,13 @@ export class HabitatService {
     let N_agricultural = 0;
     let N_urban = 0;
     for (var i = 0; i < habitats.length; i++){
-      if(this.habitatGlobalUpdateList[i].type == 'Semi-natural'){
+      if(this.habitatList[i].type.active == 'Semi-natural'){
         N_seminatural++;
       }
-      else if(this.habitatGlobalUpdateList[i].type == 'Agricultural'){
+      else if(this.habitatList[i].type.active == 'Agricultural'){
         N_agricultural++
       }
-      else if(this.habitatGlobalUpdateList[i].type == 'Urban'){
+      else if(this.habitatList[i].type.active == 'Urban'){
         N_urban++
       }
     }
@@ -90,7 +111,9 @@ export class HabitatService {
   }
   
   constructor() {
+    this.getActiveHabitatTypes(this.habitatList);
   }
+
   submitGlobalChanges(globalSeminatural: string, globalAgricultural: string, globalUrban: string) {
     console.log(`triggered submitGlobalChanges`);
     if(globalSeminatural != ""){

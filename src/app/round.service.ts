@@ -1,6 +1,5 @@
 import { inject, Injectable } from '@angular/core';
 import { Round } from './round';
-import { Habitat } from './habitat';
 import { HabitatService } from './habitat.service';
 import RoundListA from '../data/scenario-A.json';
 import RoundListB from '../data/scenario-B.json';
@@ -10,12 +9,9 @@ import RoundListB from '../data/scenario-B.json';
   providedIn: 'root'
 })
 export class RoundService {
-  //url = 'http://localhost:3000/rounds';
-  //roundListA:Round[] = RoundListA;
-  //roundListB:Round[] = RoundListB;
   habitatService: HabitatService = inject(HabitatService);
   scenario?: string;
-  roundList:Round[] = [];
+  roundList: Round[] = [];
   activeRound!: number;
   endRound!: number;
 
@@ -35,16 +31,11 @@ export class RoundService {
     console.log(this.roundList);
     //this.habitatService.getLandscape(this.activeRound);
     this.habitatService.habitatList = this.roundList[this.activeRound].landscape;
-    this.habitatService.habitatGlobalUpdateList = this.roundList[this.activeRound].landscape;
-    console.log('Active Habitat Types: ', this.roundList[this.activeRound].activeHabitatTypes);
+    //this.habitatService.habitatGlobalUpdateList = this.roundList[this.activeRound].landscape;
+    console.log('Active Habitat Types: ', this.habitatService.getActiveHabitatTypes(this.roundList[this.activeRound].landscape));
     //return this.roundList[this.activeRound].landscape;
   }
-  /*
-  async getRoundById(value: keyof typeof this.roundList): Promise<Round[]> {
-    return this.roundList[value];
-  }
-  */
-  
+ 
 
   //add any functions need to advance time here.
   updateDisabledRounds(roundList: Round[]) {
@@ -58,19 +49,23 @@ export class RoundService {
     }
     return roundList;
   }
-  
+
   constructor() {}
   advanceTime(to: number){
     console.log('triggered advanceTime from RoundService: ', to);
-    // do some clever stuff here with maths etc to update scores?...
-    // or only calculate scores from habitats
+    // store all the changes to habitatList in the roundList the finished active round
+    this.roundList[this.activeRound].landscape = this.habitatService.habitatList;
+    // then update the active round
     this.activeRound = to;
     this.roundList = this.updateDisabledRounds(this.roundList);
-    this.habitatService.applyGlobalHabitatChanges(this.habitatService.habitatGlobalUpdateList);
+    //this.habitatService.applyGlobalHabitatChanges(this.habitatService.habitatList);
+    // store all the changes to habitatList in the roundList for the next active round
     this.roundList[this.activeRound].landscape = this.habitatService.habitatList;
-    this.roundList[this.activeRound].activeHabitatTypes = this.habitatService.getActiveHabitatTypes(this.habitatService.habitatList);
-    this.habitatService.habitatList = this.roundList[this.activeRound].landscape;
-    this.habitatService.habitatGlobalUpdateList = this.roundList[this.activeRound].landscape;
+    // apply responses so they are active on the next round
+    this.habitatService.habitatList = this.habitatService.applyResponses(this.habitatService.habitatList);
+    //this.roundList[this.activeRound].activeHabitatTypes = this.habitatService.getActiveHabitatTypes(this.habitatService.habitatList);
+    // why have i copied it back the other way??? don't think we need this
+    //this.habitatService.habitatList = this.roundList[this.activeRound].landscape;
     console.log('New Active Round: ', this.activeRound);   
     console.log(this.roundList[this.activeRound]);
   }
