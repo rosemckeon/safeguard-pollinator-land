@@ -1,24 +1,48 @@
+// @angular imports
 import { ChangeDetectionStrategy, Component, inject, ViewChild, OnInit} from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-import { HabitatService } from './habitat.service';
-import { RoundService } from './round.service';
-import { LandscapeComponent } from './landscape/landscape.component';
-import { LandscapeStatusComponent } from './landscape-status/landscape-status.component';
-import { RoundDetailsComponent } from './round-details/round-details.component';
-import { GlobalControlsComponent } from './global-controls/global-controls.component';
-import { GlobalResponsesComponent } from './global-responses/global-responses.component';
-import { NgIconComponent, provideIcons } from '@ng-icons/core';
-import { heroArrowRight, heroArrowLongLeft, heroArrowPath} from '@ng-icons/heroicons/outline';
-import { heroInformationCircleSolid } from '@ng-icons/heroicons/solid';
 import { CommonModule } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+import { RouterOutlet } from '@angular/router';
+// @ng-icons imports
+import { NgIconComponent, provideIcons } from '@ng-icons/core';
+import { heroArrowRight, heroArrowLongLeft, heroArrowPath} from '@ng-icons/heroicons/outline';
+import { heroInformationCircleSolid } from '@ng-icons/heroicons/solid';
+// services
+import { HabitatService } from './habitat.service';
+import { RoundService } from './round.service';
+// components
+import { LandscapeComponent } from './landscape/landscape.component';
+//import { LandscapeStatusComponent } from './landscape-status/landscape-status.component';
+import { RoundDetailsComponent } from './round-details/round-details.component';
+import { RoundImpactsComponent } from './round-impacts/round-impacts.component';
+import { GlobalControlsComponent } from './global-controls/global-controls.component';
+import { GlobalResponsesComponent } from './global-responses/global-responses.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, LandscapeComponent, LandscapeStatusComponent, GlobalControlsComponent, GlobalResponsesComponent, NgIconComponent, CommonModule, RoundDetailsComponent, MatButtonModule, MatDialogModule],
-  providers: [provideIcons({ heroArrowRight, heroArrowLongLeft, heroArrowPath, heroInformationCircleSolid})],
+  imports: [
+    RouterOutlet, 
+    //LandscapeComponent, 
+    //LandscapeStatusComponent, 
+    //GlobalControlsComponent, 
+    GlobalResponsesComponent, 
+    NgIconComponent, 
+    CommonModule, 
+    RoundDetailsComponent, 
+    RoundImpactsComponent, 
+    MatButtonModule, 
+    MatDialogModule
+  ],
+  providers: [
+    provideIcons({ 
+      heroArrowRight, 
+      heroArrowLongLeft, 
+      heroArrowPath, 
+      heroInformationCircleSolid
+    })
+  ],
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'

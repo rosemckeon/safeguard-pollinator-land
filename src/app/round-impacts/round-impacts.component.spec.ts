@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { LandscapeStatusComponent } from './landscape-status.component';
+import { RoundImpactsComponent } from './round-impacts.component';
 
-describe('LandscapeStatusComponent', () => {
-  let component: LandscapeStatusComponent;
-  let fixture: ComponentFixture<LandscapeStatusComponent>;
+describe('RoundImpactsComponent', () => {
+  let component: RoundImpactsComponent;
+  let fixture: ComponentFixture<RoundImpactsComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [LandscapeStatusComponent]
+      imports: [RoundImpactsComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(LandscapeStatusComponent);
+    fixture = TestBed.createComponent(RoundImpactsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

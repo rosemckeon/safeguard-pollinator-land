@@ -1,14 +1,10 @@
 import { Habitat } from "./habitat";
+import { RoundImpact } from "./round-impact";
 
 export interface Round {
     id: number;
     disabled?: string;
     player?: string;
-    impact?: {
-        cropPollinationProduction?: number;
-        economicValueChain?: number;
-        wildPlantPollination?: number;
-        aestheticValue?: number;
-    };
+    impact?: RoundImpact[];
     landscape: Habitat[];
 }

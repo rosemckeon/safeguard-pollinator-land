@@ -1,7 +1,7 @@
 [ 
   {
-        "id": 0,
-        "landscape": [
+    "id": 0,
+    "landscape": [
           {
               "id": 1,
               "x": 1,
@@ -580,21 +580,47 @@
                 "habitatResources": 50
                 } 
             }
-          ]
-        },
-        {
-          "id": 1,
-          "disabled": "disabled",
-          "landscape": []
-        },
-        {
-          "id": 2,
-          "disabled": "disabled",
-          "landscape": []
-        },
-        {
-          "id": 3,
-          "disabled": "disabled",
-          "landscape": []
-        }
+     ],
+     "impact": [
+      {
+        "id": 0,
+        "name": "cropPollinationProduction",
+        "label": "Crop Pollination and Production",
+        "value": 70
+      },
+      {
+        "id": 1,
+        "name": "economicValueChain",
+        "label": "Economic Value Chain",
+        "value": 80
+      },
+      {
+        "id": 2,
+        "name": "wildPlantPollination",
+        "label": "Wild Plant Pollination Services",
+        "value": 10
+      },
+      {
+        "id": 3,
+        "name": "aestheticValue",
+        "label": "Aesthetic Values",
+        "value": 20
+      }
+     ]
+  },
+  {
+    "id": 1,
+    "disabled": "disabled",
+    "landscape": []
+  },
+  {
+    "id": 2,
+    "disabled": "disabled",
+    "landscape": []
+  },
+  {
+    "id": 3,
+    "disabled": "disabled",
+    "landscape": []
+  }
 ]
