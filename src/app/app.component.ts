@@ -6,7 +6,7 @@ import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { RouterOutlet } from '@angular/router';
 // @ng-icons imports
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
-import { heroArrowRight, heroArrowLongLeft, heroArrowPath} from '@ng-icons/heroicons/outline';
+import { heroArrowUp, heroArrowRight, heroArrowLongLeft, heroArrowPath} from '@ng-icons/heroicons/outline';
 import { heroInformationCircleSolid } from '@ng-icons/heroicons/solid';
 // services
 import { HabitatService } from './habitat.service';
@@ -37,6 +37,7 @@ import { GlobalResponsesComponent } from './global-responses/global-responses.co
   ],
   providers: [
     provideIcons({ 
+      heroArrowUp,
       heroArrowRight, 
       heroArrowLongLeft, 
       heroArrowPath, 
