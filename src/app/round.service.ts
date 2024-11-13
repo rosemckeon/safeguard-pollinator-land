@@ -1,5 +1,6 @@
 import { inject, Injectable } from '@angular/core';
 import { Round } from './round';
+import { Habitat } from './habitat';
 import { HabitatService } from './habitat.service';
 import RoundListA from '../data/scenario-A.json';
 import RoundListB from '../data/scenario-B.json';
@@ -61,8 +62,19 @@ export class RoundService {
     //this.habitatService.applyGlobalHabitatChanges(this.habitatService.habitatList);
     // store all the changes to habitatList in the roundList for the next active round
     this.roundList[this.activeRound].landscape = this.habitatService.habitatList;
-    // apply responses so they are active on the next round - this is where state values are adjusted
-    this.habitatService.habitatList = this.habitatService.applyResponses(this.habitatService.habitatList);
+    // apply responses so they are active on the next round
+    this.habitatService.applyResponses(this.habitatService.habitatList).then((habitats : Habitat[]) => {
+      console.log('applyResponses completed: ', habitats); // should show all habitats with response enabled values copied from global/localChange.
+      // once all the responses are enabled/disabled we pass the habitatList to updateStates
+      this.habitatService.updateStates(habitats).then((habitats: Habitat[]) => {
+        console.log('updateStates completed: ', habitats); // should show all habitats with state values adjusted
+        // and when all those maths are done we save the service habitatList
+        // But not before caluclating our new progress bar values
+        // habitats[i].stateValue = this.habitatService.calculateHabitatStateValue(newStateValues[0], newStateValues[1], newStateValues[2]);
+        // so it shows as active in LandscapeComponent
+        this.habitatService.habitatList = habitats;
+      });
+    });
     //this.roundList[this.activeRound].activeHabitatTypes = this.habitatService.getActiveHabitatTypes(this.habitatService.habitatList);
     // why have i copied it back the other way??? don't think we need this
     //this.habitatService.habitatList = this.roundList[this.activeRound].landscape;

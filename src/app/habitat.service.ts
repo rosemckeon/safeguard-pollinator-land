@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Habitat } from './habitat';
+import responseToStateValues from '../data/response-on-state.json';
 
 @Injectable({
   providedIn: 'root'
@@ -7,11 +8,107 @@ import { Habitat } from './habitat';
 export class HabitatService {
   habitatList: Habitat[] = [];
 
-  calculateHabitatStateValue(wildPollinators: number, floralResources: number, habitatResources: number): number {
-    console.log('Triggered calculateValue from HabitatComponent', wildPollinators, floralResources, habitatResources);
-    let value = Math.round((wildPollinators + floralResources + habitatResources)/3);
+  sample(values: number[] | string[]): any {
+    let result : any = values[Math.floor(Math.random()*values.length)];
+    console.log('Triggered sample from HabitatService ', result);
+    return(result);
+  }
+
+  calculateHabitatStateValue(stateValues: number[]): number {
+    console.log('Triggered calculateHabitatStateValue from HabitatService', stateValues);
+    //let wildPollinators: number = stateValues[0]; 
+    //let floralResources: number = stateValues[1];
+    //let habitatResources: number = stateValues[2];
+    //let value = Math.round((wildPollinators + floralResources + habitatResources)/3);
+    let value = Math.round(stateValues.reduce((partialSum, a) => partialSum + a, 0)/stateValues.length);
     console.log('Value: ', value);
     return(value);
+  }
+
+  getStateValues(h: number, r: number, stateName: string): number[] | void {
+    console.log('Triggered getStateValues from HabitatService', h, r, stateName);
+    let s: number | undefined;
+    switch(stateName){
+      case 'wildPollinators':
+        s = 0;
+        break;
+      case 'floralResources':
+        s = 1;
+        break;
+      case 'habitatResources':
+        s = 2;
+        break;
+      default:
+        console.log('WARNING: stateName not recognised: ', stateName);
+        break;
+    }
+    if(typeof s != 'undefined'){
+      return(responseToStateValues.habitatResponses[h].responseEffects[r].values[s]);
+    }
+  }
+
+  getResponseEffectOnStateValues(habitatType: string, responseName: string, stateName: string): number[] | void {
+    console.log('Triggered getResponseEffectOnStateValues from HabitatService: ', habitatType, responseName, stateName);
+    let h : number | undefined;
+    let r : number | undefined;
+    let result : number[] | void;
+    switch(habitatType){
+      case 'Semi-natural':
+        h = 1;
+        switch(responseName){
+          case 'restoration':
+            r = 0;
+            break;
+          case 'natureProtection':
+            r = 1;
+            break;
+          default:
+            console.log('WARNING: responseName not recognised.', responseName);
+            break;
+        }
+        break;
+      case 'Agricultural':
+        h = 0;
+        switch(responseName){
+          case 'restoration':
+            r = 0;
+            break;
+          case 'natureProtection':
+            r = 2;
+            break;
+          case 'ecoIntensification':
+            r = 1;
+            break;
+          default:
+            console.log('WARNING: responseName not recognised.', responseName);
+            break;
+        }
+        break;
+      case 'Urban':
+        h = 2;
+        switch(responseName){
+          case 'restoration':
+            r = 0;
+            break;
+          case 'natureProtection':
+            r = 1;
+            break;
+          case 'urbanGreening':
+            r = 2;
+            break;
+          default:
+            console.log('WARNING: responseName not recognised.', responseName);
+            break;
+        }
+        break;
+      default:
+        console.log('WARNING: HabitatType not recognised.', habitatType);
+        break;
+    }
+    if(typeof h != 'undefined' && typeof r != 'undefined'){
+      result = this.getStateValues(h!, r!, stateName);
+      return(result);
+    } 
   }
 
   setGlobalResponseChange(habitatType: string, responseName: string, value: boolean){
@@ -35,43 +132,115 @@ export class HabitatService {
     }
   }
 
-  applyResponses(habitats: Habitat[]){
+  async applyResponses(habitats: Habitat[]): Promise<Habitat[]>{
     console.log('Triggered applyResponses from HabitatService', habitats);
     // Take globalChange and localChange values and apply 'enabled' properties accordingly.
     // loop through habitats for response settings
     for (var i = 0; i < habitats.length; i++) {
       // then loop through responses
-      for (var r = 0; r < this.habitatList[i].response!.length; r++){
+      for (var r = 0; r < habitats[i].response!.length; r++){
         // apple globalChange followed by localChange
-        if(this.habitatList[i].response![r].hasOwnProperty('globalChange')){
-          this.habitatList[i].response![r].enabled = this.habitatList[i].response![r].globalChange!
+        if(habitats[i].response![r].hasOwnProperty('globalChange')){
+          habitats[i].response![r].enabled = habitats[i].response![r].globalChange!
           // could reset the values here but i think keeping state will be niceer ot use
         }
-        if(this.habitatList[i].response![r].hasOwnProperty('localChange')){
-          this.habitatList[i].response![r].enabled = this.habitatList[i].response![r].localChange!
+        if(habitats[i].response![r].hasOwnProperty('localChange')){
+          habitats[i].response![r].enabled = habitats[i].response![r].localChange!
         }
-        // Once the final response value is set, adjust some values?
-        if(this.habitatList[i].response![r].enabled == true){
-          let name = this.habitatList[i].response![r].name;
-          let wildPollinators = this.habitatList[i].state!.wildPollinators!;
-          let floralResources = this.habitatList[i].state!.floralResources!;
-          let habitatResources = this.habitatList[i].state!.habitatResources!;
-          console.log('Enabled: ', name, wildPollinators, floralResources, habitatResources);
-          // this kind of thing works.
-          // now we need ot pull in the numbers from data/response-to-state.json instead
-          // and use those to adjust all 3 values. wildPollinators isn't a direct product of the other 2 if we use the expert grading.
-          if(name == 'restoration'){
-            habitatResources = Math.round(habitatResources * 1.2);
-            floralResources = Math.round(floralResources * 1.2);
-            wildPollinators = Math.min(habitatResources, floralResources);
-          }
-          console.log('Wild pollinators increased: ', wildPollinators, floralResources, habitatResources);
-          this.habitatList[i].state!.wildPollinators! = wildPollinators;
-          this.habitatList[i].state!.floralResources! = floralResources;
-          this.habitatList[i].state!.habitatResources! = habitatResources;
-          // applying these values to the habitatList doesn't update the progress bars.
-          // so we need to set an overall value in Habitat[]
-          this.habitatList[i].stateValue = this.calculateHabitatStateValue(wildPollinators, floralResources, habitatResources);
+      }
+    }
+    return(habitats);
+  }
+
+  async updateHabitatStates(habitat: Habitat, responseName: string): Promise<Habitat> {
+    console.log('Triggered updateHabitatStates:, ', habitat, responseName);
+    let stateNames: string[] = ['wildPollinators', 'floralResources', 'habitatResources'];
+    let currentStateValues: number[] = [
+      habitat.state!.wildPollinators!,
+      habitat.state!.floralResources!,
+      habitat.state!.habitatResources!
+    ];
+    let possibleValues: number[] | void;
+    let s: number = 0;
+    console.log('While: ', stateNames.length);
+    while(s <= stateNames.length){
+      console.log('s = ', s);
+      // check for the final loop being completed
+      if(s == stateNames.length){
+        // trigger something we can only do with all state iterations complete
+        console.log('Looping through states on this habitat is complete.', habitat);
+        // assign the calculated overall state score here
+        // uses the values updated by the loop.
+        habitat.stateValue = this.calculateHabitatStateValue([
+          habitat.state!.wildPollinators!,
+          habitat.state!.floralResources!,
+          habitat.state!.habitatResources!
+        ]);
+        break;
+      } else {
+        // do things to each state
+        possibleValues = this.getResponseEffectOnStateValues(habitat.type.active, responseName, stateNames[s]);
+        console.log('Possible values: ', possibleValues);
+        // adding a switch in here incase we want to do different things to each value...
+        switch(s){
+          case 0:
+            habitat.state!.wildPollinators = currentStateValues[0] * (this.sample(possibleValues!)/10+1);
+            break;
+          case 1:
+            habitat.state!.floralResources = currentStateValues[1] * (this.sample(possibleValues!)/10+1);
+            break;
+          case 2:
+            habitat.state!.habitatResources = currentStateValues[2] * (this.sample(possibleValues!)/10+1);
+            break;
+          default:
+            // do nothing
+            break;
+        }
+        s++;
+      }
+    }
+    return(habitat); 
+  }
+
+  async updateStates(habitats: Habitat[]): Promise<Habitat[]> {
+    console.log('Triggered updateStates from HabitatService', habitats);
+    let habitatType: string;
+    let responseName: string;
+    let currentStateValues: number[];
+    //let newStateValues: number[];
+    //let possibleValues: number[] | void;
+    // loop again and work out new state values for every habitat
+    for (var i = 0; i < habitats.length; i++) {
+      habitatType = habitats[i].type.active;
+      currentStateValues = [
+        habitats[i].state!.wildPollinators!,
+        habitats[i].state!.floralResources!,
+        habitats[i].state!.habitatResources!
+      ];
+      //newStateValues = currentStateValues;
+      for (var r = 0; r < habitats[i].response!.length; r++){
+        responseName = habitats[i].response![r].name;
+        // Only make adjustments for enabled responses
+        if(habitats[i].response![r].enabled == true){
+          console.log('Enabled: ', responseName, currentStateValues);
+          // think about the order this all happen in. 
+          // we probably need to do somehting with current and new value processing to make sure responses amplify each other or something
+          // leaving it like this for now
+          // for each enabled response on each habitat square...
+          // I want to run this function and THEN calculate the new stateValue for said habitat
+          this.updateHabitatStates(habitats[i], responseName).then((habitat: Habitat) => {
+              console.log('Completed updateHabitatStates: ', habitats[i], habitat);
+              /*
+              let newStateValues : number[] = [
+                habitat.state!.wildPollinators!,
+                habitat.state!.floralResources!,
+                habitat.state!.habitatResources!
+              ];
+              habitat.stateValue = this.calculateHabitatStateValue(newStateValues);
+              habitats[i] = habitat;
+              console.log('States updated: ', habitats[i]);
+              */
+          });
         }
       }
     }
