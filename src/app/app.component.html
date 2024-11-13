@@ -15,7 +15,7 @@
     @if (roundService.activeRound == 0) {
       <p class="mb-5">Your landscape (<ng-icon name="heroArrowLongLeft"></ng-icon>) is made of three habitat types. The state of wild pollinator populations and their resources is shown on every square.</p>
     }
-      <div class="round-impacts mb-5 bg-indigo-900 p-5">
+      <div class="round-impacts bg-indigo-900 p-5 mb-5">
         @if(roundService.endRound != roundService.activeRound) {
           <h2 class="mb-2"><strong>Current Landscape Impacts:</strong></h2>
         } @else {
@@ -24,11 +24,17 @@
         <app-round-impacts  *ngFor="let impact of roundService.roundImpacts" [roundImpact]="impact"></app-round-impacts>
       </div>
     @if(roundService.endRound != roundService.activeRound) {
-      <p class="mb-5">To change your impact result (<ng-icon name="heroArrowUp"></ng-icon>), you can make <strong>responses</strong> which affect all habitats of a particular type:</p>
-      
-      <app-global-responses />
+      @if (roundService.activeRound == 0) {
+        <p class="mb-5">To change your impact result <ng-icon name="heroArrowUp"></ng-icon></p>
+        <p class="mb-5"><strong>Make responses</strong> which affect all habitats of a particular type <ng-icon name="heroArrowDown"></ng-icon></p>
+      } @else {
+        <p class="mb-5 mt-10"><strong>Make responses:</strong></p>
+      }
+        <app-global-responses />
       <p class="mt-10 hidden">You can also select habitat cells on the map (<ng-icon name="heroArrowLongLeft"></ng-icon>) and <strong>locally overide your global descisions</strong>.</p>
-      <p class="text-slate-100 my-10"><strong>When you're done making descisions...</strong></p>
+      @if (roundService.activeRound == 0) {
+        <p class="text-slate-100 my-10"><strong>When you're done making descisions...</strong></p>
+      }
       <button (click)="advanceTime()" class="button px-4 pt-2 pb-4">Advance time <ng-icon name="heroArrowRight"></ng-icon></button>
       
     } @else {
