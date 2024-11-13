@@ -602,7 +602,7 @@
       },
       {
         "id": 3,
-        "name": "aestheticValue",
+        "name": "aestheticValues",
         "label": "Aesthetic Values",
         "value": 20
       }

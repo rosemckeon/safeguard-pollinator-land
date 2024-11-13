@@ -111,6 +111,27 @@ export class RoundService {
     } 
   }
 
+  async updateImpacts(habitats: Habitat[]): Promise<RoundImpact[]> {
+    // use the current scores as starting values
+    let roundImpacts: RoundImpact[] = this.roundImpacts;
+    let stateNames: string[] = ['wildPollinators', 'floralResources', 'habitatResources'];
+    let possibleValues: number[] | void = [];
+    // take the habitats, get the state values and use those to getStateEffectOnImpactValues
+    habitats.forEach((habitat) => {
+      stateNames.forEach((stateName) => {
+        roundImpacts.forEach((impact) => {
+          possibleValues = this.getStateEffectOnImpactValues(habitat.type.active, stateName, impact.name)
+          console.log('Possible values: ', possibleValues);
+          // do something with our chosen value here
+          // We have 16*4 chosen values all trying to affect 4 impact scores.
+          // should this be additive? How will it work?
+          //chosenValue = this.habitatService.sample(possibleValues!);
+        })
+      });
+    })
+    return(roundImpacts);
+  }
+
   constructor() {}
 
   advanceTime(to: number){
@@ -131,11 +152,13 @@ export class RoundService {
       // once all the responses are enabled/disabled we pass the habitatList to updateStates
       this.habitatService.updateStates(habitats).then((habitats: Habitat[]) => {
         console.log('updateStates completed: ', habitats); // should show all habitats with state values adjusted (confirmed)
-        // and when all those maths are done we save the service habitatList
-        // But not before caluclating our new progress bar values
-        // habitats[i].stateValue = this.habitatService.calculateHabitatStateValue(newStateValues[0], newStateValues[1], newStateValues[2]);
-        // so it shows as active in LandscapeComponent
+        // when all those maths are done we save the service habitatList so it shows as active in LandscapeComponent
         this.habitatService.habitatList = habitats;
+        // and then we can update the round impacts.
+        this.updateImpacts(habitats).then((roundImpacts : RoundImpact[]) => {
+          // and update the service variable on completion
+          this.roundImpacts = roundImpacts;
+        });
       });
     });
     //this.roundList[this.activeRound].activeHabitatTypes = this.habitatService.getActiveHabitatTypes(this.habitatService.habitatList);
