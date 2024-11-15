@@ -59,22 +59,73 @@ export class RoundService {
     let s : number | undefined;
     let i : number | undefined;
     let result : number[] | void;
-    switch(habitatType){
+    switch (habitatType) {
       case 'Semi-natural':
-        h = 1;
+        h = 2;
+        switch (impactName) {
+          case 'cropPollinationProduction':
+            // there are no values to get
+            break;
+          case 'economicValueChain':
+            // there are no values to get
+            break;
+          case 'wildPlantPollination':
+            i = 0;
+            break;
+          case 'aestheticValues':
+            i = 1;
+            break;
+          default:
+            console.log('WARNING: impactName not recognised: ', impactName);
+            break;
+        }
         break;
       case 'Agricultural':
         h = 0;
+        switch (impactName) {
+          case 'cropPollinationProduction':
+            i = 0;
+            break;
+          case 'economicValueChain':
+            i = 1;
+            break;
+          case 'wildPlantPollination':
+            i = 2;
+            break;
+          case 'aestheticValues':
+            i = 3;
+            break;
+          default:
+            console.log('WARNING: impactName not recognised: ', impactName);
+            break;
+        }
         break;
       case 'Urban':
-        h = 2;
+        h = 1;
+        switch (impactName) {
+          case 'cropPollinationProduction':
+            i = 0;
+            break;
+          case 'economicValueChain':
+            i = 1;
+            break;
+          case 'wildPlantPollination':
+            i = 2;
+            break;
+          case 'aestheticValues':
+            i = 3;
+            break;
+          default:
+            console.log('WARNING: impactName not recognised: ', impactName);
+            break;
+        }
         break;
       default:
         console.log('WARNING: HabitatType not recognised.', habitatType);
         break;
     } 
     // states do not differ across habitats
-    switch(stateName){
+    switch (stateName) {
       case 'wildPollinators':
         s = 0;
         break;
@@ -88,47 +139,46 @@ export class RoundService {
         console.log('WARNING: stateName not recognised.', stateName);
         break;
     }
-    switch(impactName){
-      case 'cropPollinationProduction':
-        i = 0;
-        break;
-      case 'economicValueChain':
-        i = 1;
-        break;
-      case 'wildPlantPollination':
-        i = 2;
-        break;
-      case 'aestheticValues':
-        i = 3;
-        break;
-      default:
-        console.log('WARNING: impactName not recognised: ', impactName);
-        break;
-    }
-    if(typeof h != 'undefined' && typeof s != 'undefined' && typeof i != 'undefined'){
+    if (typeof h != 'undefined' && typeof s != 'undefined' && typeof i != 'undefined') {
+      console.log('Fetching values: ', h, s, i);
       result = stateToImpactValues.state[h].impact[s].values[i];
+      console.log(result);
       return(result);
-    } 
+    } else {
+      if (typeof h != 'undefined' && typeof s != 'undefined' && typeof i == 'undefined') {
+        // we do not have values for 2 impacts in semi-natural habitats
+        result = [0];
+        console.log(result);
+        return(result);
+      } else {
+        console.log('WARNING: Problem fetching values: ', h, s, i);
+      }
+    }
   }
 
   async updateImpacts(habitats: Habitat[]): Promise<RoundImpact[]> {
+    console.log('Triggered updateImpacts from RoundService', habitats);
     // use the current scores as starting values
     let roundImpacts: RoundImpact[] = this.roundImpacts;
     let stateNames: string[] = ['wildPollinators', 'floralResources', 'habitatResources'];
     let possibleValues: number[] | void = [];
+    let chosenValues: number[] = [];
     // take the habitats, get the state values and use those to getStateEffectOnImpactValues
-    habitats.forEach((habitat) => {
-      stateNames.forEach((stateName) => {
-        roundImpacts.forEach((impact) => {
-          possibleValues = this.getStateEffectOnImpactValues(habitat.type.active, stateName, impact.name)
+    habitats.forEach((habitat: Habitat) => {
+      console.log('habitat: ', habitat.id, habitat.type.active);
+      stateNames.forEach((stateName: string) => {
+        roundImpacts.forEach((impact: RoundImpact) => {
+          possibleValues = this.getStateEffectOnImpactValues(habitat.type.active, stateName, impact.name);
           console.log('Possible values: ', possibleValues);
-          // do something with our chosen value here
+          chosenValues.push(this.habitatService.sample(possibleValues!));
+          // do something with our chosen value here or later? (later)
           // We have 16*4 chosen values all trying to affect 4 impact scores.
           // should this be additive? How will it work?
-          //chosenValue = this.habitatService.sample(possibleValues!);
-        })
+        });
       });
-    })
+    });
+    // will be filled after synchronour forEach
+    console.log(chosenValues);
     return(roundImpacts);
   }
 
