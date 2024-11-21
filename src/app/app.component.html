@@ -14,10 +14,11 @@
     }
     @if (roundService.activeRound == 0) {
       <p class="mb-5">Your landscape (<ng-icon name="heroArrowLongLeft"></ng-icon>) is made of three habitat types. The state of wild pollinator populations and their resources is shown on every square.</p>
+      <p class="mb-5">The combined state of your habitats has various impacts on people <ng-icon name="heroArrowDown"></ng-icon></p>
     }
       <div class="round-impacts bg-indigo-900 p-5 mb-5">
         @if(roundService.endRound != roundService.activeRound) {
-          <h2 class="mb-2"><strong>Current Landscape Impacts:</strong></h2>
+          <h2 class="mb-2"><strong>Landscape Impacts:</strong></h2>
         } @else {
           <h2 class="mb-2"><strong>Final Landscape Impacts:</strong></h2>
         }
