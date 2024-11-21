@@ -189,13 +189,13 @@ export class HabitatService {
         // adding a switch in here incase we want to do different things to each value...
         switch(s){
           case 0:
-            habitat.state!.wildPollinators = currentStateValues[0] * (this.sample(possibleValues!)/10+1);
+            habitat.state!.wildPollinators = Math.round(currentStateValues[0] * (this.sample(possibleValues!)/10+1));
             break;
           case 1:
-            habitat.state!.floralResources = currentStateValues[1] * (this.sample(possibleValues!)/10+1);
+            habitat.state!.floralResources = Math.round(currentStateValues[1] * (this.sample(possibleValues!)/10+1));
             break;
           case 2:
-            habitat.state!.habitatResources = currentStateValues[2] * (this.sample(possibleValues!)/10+1);
+            habitat.state!.habitatResources = Math.round(currentStateValues[2] * (this.sample(possibleValues!)/10+1));
             break;
           default:
             // do nothing
