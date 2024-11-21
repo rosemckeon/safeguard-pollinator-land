@@ -93,7 +93,9 @@ export class AppComponent implements OnInit {
     this.roundService.scenario = 'A';
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    // too early to calculate impacts
+  }
 
   openGameInfo() {
     const dialogRef = this.dialog.open(gameInfoContent);

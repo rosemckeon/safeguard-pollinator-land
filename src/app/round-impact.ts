@@ -3,4 +3,5 @@ export interface RoundImpact {
     name: string;
     label: string;
     value: number;
+    stateChangeValues?: number[];
 }

@@ -586,25 +586,25 @@
         "id": 0,
         "name": "cropPollinationProduction",
         "label": "Crop Pollination and Production",
-        "value": 70
+        "value": 0
       },
       {
         "id": 1,
         "name": "economicValueChain",
         "label": "Economic Value Chain",
-        "value": 80
+        "value": 0
       },
       {
         "id": 2,
         "name": "wildPlantPollination",
         "label": "Wild Plant Pollination Services",
-        "value": 10
+        "value": 0
       },
       {
         "id": 3,
         "name": "aestheticValues",
         "label": "Aesthetic Values",
-        "value": 20
+        "value": 0
       }
      ]
   },

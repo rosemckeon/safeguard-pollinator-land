@@ -1,5 +1,10 @@
+// angular
 import { Injectable } from '@angular/core';
+// Maths - we need this to do proper maths (default only has limited functions)
+import * as Math from 'mathjs';
+// interfaces
 import { Habitat } from './habitat';
+// raw data
 import responseToStateValues from '../data/response-on-state.json';
 
 @Injectable({
@@ -274,6 +279,7 @@ export class HabitatService {
     //return;
     //return (await data.json()) ?? [];
   }
+
   applyGlobalHabitatChanges(habitats: Habitat[]){
     //console.log(habitats);
     // need to return updated habitat array and apply said array to this.habtaList and other default habitat lists ready for this rounds new changes.
@@ -286,6 +292,7 @@ export class HabitatService {
     this.habitatList = habitats;
     return habitats;
   }
+  
   getActiveHabitatTypes(habitats: Habitat[]){
     // is there a better way to count things that doesn't use loops?
     let N_seminatural = 0;

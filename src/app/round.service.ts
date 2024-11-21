@@ -1,24 +1,31 @@
-import { inject, Injectable } from '@angular/core';
-import { Round } from './round';
-import { Habitat } from './habitat';
+// @angular
+import { inject, Injectable} from '@angular/core';
+// Maths - we need this to do proper maths (default only has limited functions)
+import * as Math from 'mathjs';
+// components
 import { HabitatService } from './habitat.service';
+// interfaces 
+import { Round } from './round';
+import { RoundImpact } from './round-impact';
+import { Habitat } from './habitat';
+// raw data
 import RoundListA from '../data/scenario-A.json';
 import RoundListB from '../data/scenario-B.json';
 import stateToImpactValues from '../data/state-on-impact.json';
-import { RoundImpact } from './round-impact';
 
 @Injectable({
   providedIn: 'root'
 })
 export class RoundService {
   habitatService: HabitatService = inject(HabitatService);
+  Math = Math;
   scenario?: string;
   roundList: Round[] = [];
   roundImpacts: RoundImpact[] = [];
   activeRound!: number;
   endRound!: number;
 
-  async getStartingScenario(value: string) {
+  async getStartingScenario(value: string): Promise<Round> {
     console.log("triggered getStartingScenario from RoundService");
     console.log('Scenario: ', value);
     this.scenario = value;
@@ -32,13 +39,13 @@ export class RoundService {
     this.endRound = this.roundList.length - 1;
     console.log('End Round: ', this.endRound);
     console.log(this.roundList);
-    this.roundImpacts = this.roundList[this.activeRound].impact!
-    console.log(this.roundImpacts);
+    
     //this.habitatService.getLandscape(this.activeRound);
     this.habitatService.habitatList = this.roundList[this.activeRound].landscape;
     //this.habitatService.habitatGlobalUpdateList = this.roundList[this.activeRound].landscape;
     console.log('Active Habitat Types: ', this.habitatService.getActiveHabitatTypes(this.roundList[this.activeRound].landscape));
     //return this.roundList[this.activeRound].landscape;
+    return(this.roundList[this.activeRound]);
   }
  
   updateDisabledRounds(roundList: Round[]) {
@@ -53,8 +60,8 @@ export class RoundService {
     return roundList;
   }
 
-  getStateEffectOnImpactValues(habitatType: string, stateName: string, impactName: string): number[] | void {
-    console.log('Triggered getStateEffectOnImpactValues from RoundService: ', habitatType, stateName, impactName);
+  getStateEffectOnImpactValues(habitatType: string, stateName: string, stateValue: number, impactName: string): number[] | void {
+    console.log('Triggered getStateEffectOnImpactValues from RoundService: ', habitatType, stateName, stateValue, impactName);
     let h : number | undefined;
     let s : number | undefined;
     let i : number | undefined;
@@ -141,7 +148,16 @@ export class RoundService {
     }
     if (typeof h != 'undefined' && typeof s != 'undefined' && typeof i != 'undefined') {
       console.log('Fetching values: ', h, s, i);
-      result = stateToImpactValues.state[h].impact[s].values[i];
+
+      result = stateToImpactValues.state[h].impact[s].values[i].map( value => {
+        //console.log(value, stateValue);
+        if(value == 0){
+          return(0);
+        } else {
+          return(stateValue * ( ( value * 2 * 10 ) / 10 ));
+        }
+      });
+
       console.log(result);
       return(result);
     } else {
@@ -156,33 +172,53 @@ export class RoundService {
     }
   }
 
-  async updateImpacts(habitats: Habitat[]): Promise<RoundImpact[]> {
-    console.log('Triggered updateImpacts from RoundService', habitats);
+  async updateImpacts(impacts: RoundImpact[], habitats: Habitat[]): Promise<RoundImpact[]> {
+    console.log('Triggered updateImpacts from RoundService', impacts, habitats);
     // use the current scores as starting values
-    let roundImpacts: RoundImpact[] = this.roundImpacts;
+    //let roundImpacts: RoundImpact[] = this.roundImpacts;
     let stateNames: string[] = ['wildPollinators', 'floralResources', 'habitatResources'];
+    //let stateValues: number[] | [];
     let possibleValues: number[] | void = [];
-    let chosenValues: number[] = [];
     // take the habitats, get the state values and use those to getStateEffectOnImpactValues
     habitats.forEach((habitat: Habitat) => {
       console.log('habitat: ', habitat.id, habitat.type.active);
       stateNames.forEach((stateName: string) => {
-        roundImpacts.forEach((impact: RoundImpact) => {
-          possibleValues = this.getStateEffectOnImpactValues(habitat.type.active, stateName, impact.name);
+        let stateValue: number = 0;
+        switch (stateName){
+          case 'wildPollinators':
+            stateValue = habitat.state!.wildPollinators!;
+            break;
+          case 'floralResources':
+            stateValue = habitat.state!.floralResources!;
+            break;
+          case 'habitatResources':
+            stateValue = habitat.state!.habitatResources!;
+            break;
+          default:
+            console.log('WARNING: stateName not recognised.');
+            break;
+        }
+        impacts.forEach((impact: RoundImpact) => {
+          possibleValues = this.getStateEffectOnImpactValues(habitat.type.active, stateName, stateValue, impact.name);
           console.log('Possible values: ', possibleValues);
-          chosenValues.push(this.habitatService.sample(possibleValues!));
-          // do something with our chosen value here or later? (later)
-          // We have 16*4 chosen values all trying to affect 4 impact scores.
-          // should this be additive? How will it work?
+          if(impact.hasOwnProperty('stateChangeValues')){
+            //impact.stateChangeValues!.push(this.habitatService.sample(possibleValues!));
+            this.habitatService.sample(possibleValues!)
+          } else {
+            // create it first then push
+            impact.stateChangeValues = [];
+            impact.stateChangeValues.push(this.habitatService.sample(possibleValues!));
+          } 
         });
       });
-    });
-    // will be filled after synchronour forEach
-    console.log(chosenValues);
-    return(roundImpacts);
+    });    
+    console.log('Impacts updated: ', impacts);
+    return(impacts);
   }
 
-  constructor() {}
+  constructor() {
+    // too early to updateImpacts
+  }
 
   advanceTime(to: number){
     console.log('triggered advanceTime from RoundService: ', to);
@@ -205,10 +241,13 @@ export class RoundService {
         // when all those maths are done we save the service habitatList so it shows as active in LandscapeComponent
         this.habitatService.habitatList = habitats;
         // and then we can update the round impacts.
-        this.updateImpacts(habitats).then((roundImpacts : RoundImpact[]) => {
+        // this doesn't currently work.
+        this.updateImpacts(this.roundImpacts, habitats).then((roundImpacts : RoundImpact[]) => {
+          console.log('updateImpacts completed ', roundImpacts);
           // and update the service variable on completion
           this.roundImpacts = roundImpacts;
         });
+        
       });
     });
     //this.roundList[this.activeRound].activeHabitatTypes = this.habitatService.getActiveHabitatTypes(this.habitatService.habitatList);

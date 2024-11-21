@@ -31,7 +31,7 @@ export class HabitatComponent implements OnInit {
   constructor(){}
   
   ngOnInit(): void {
-    //console.log(this.habitat);
+    // calculate the overall state value for every habitat loaded
     this.habitat.stateValue = this.habitatService.calculateHabitatStateValue([this.habitat.state!.wildPollinators!, this.habitat.state!.floralResources!, this.habitat.state!.habitatResources!]);
     //console.log('Responses: ', this.habitat.response)
   }

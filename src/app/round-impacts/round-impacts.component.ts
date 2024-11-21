@@ -1,7 +1,6 @@
 import { Component, Input} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RoundImpact } from '../round-impact';
-//import { RoundService } from '../round.service';
 
 @Component({
   selector: 'app-round-impacts',
@@ -10,6 +9,9 @@ import { RoundImpact } from '../round-impact';
   templateUrl: './round-impacts.component.html',
   styleUrl: './round-impacts.component.scss'
 })
-export class RoundImpactsComponent{
+export class RoundImpactsComponent {
   @Input() roundImpact!: RoundImpact;
+
+  constructor(){}
+
 }
