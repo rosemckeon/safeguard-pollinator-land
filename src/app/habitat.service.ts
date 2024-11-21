@@ -188,20 +188,39 @@ export class HabitatService {
         break;
       } else {
         // do things to each state
+        // use the multiplyer 'm' on the sampled value and add it to the current score
+        // if we wanted we could set m to be different on each state in the switch below.
+        // an m of 2 allows a maximum improvement of 10 in a round as the possibleValues range from 0-5
+        let m : number = 2;
         possibleValues = this.getResponseEffectOnStateValues(habitat.type.active, responseName, stateNames[s]);
         console.log('Possible values: ', possibleValues);
+        let chosenValue : number = this.sample(possibleValues!);
+        let newValue : number = ( chosenValue * m ) + currentStateValues[s];
         // adding a switch in here incase we want to do different things to each value...
         switch(s){
           case 0:
-            habitat.state!.wildPollinators = Math.round(currentStateValues[0] * (this.sample(possibleValues!)/10+1));
+            if( newValue > 100 ) {
+              habitat.state!.wildPollinators = 100;
+            } else {
+              habitat.state!.wildPollinators = newValue;
+            }
             break;
           case 1:
-            habitat.state!.floralResources = Math.round(currentStateValues[1] * (this.sample(possibleValues!)/10+1));
+            if( newValue > 100 ) {
+              habitat.state!.floralResources = 100;
+            } else {
+              habitat.state!.floralResources = newValue;
+            }
             break;
           case 2:
-            habitat.state!.habitatResources = Math.round(currentStateValues[2] * (this.sample(possibleValues!)/10+1));
+            if( newValue > 100 ) {
+              habitat.state!.habitatResources = 100;
+            } else {
+              habitat.state!.habitatResources = newValue;
+            }
             break;
           default:
+            console.log('Warning: state not recognised.');
             // do nothing
             break;
         }
