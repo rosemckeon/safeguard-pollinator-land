@@ -1,15 +1,10 @@
 <div id="habitat_{{ habitat.id }}" class="habitat {{ habitat.type.active.toLowerCase() }} h-full flex items-center justify-center p-5 border-2">
     <div class="align-text-middle grid grid-cols-3 grid-rows-2">
-      <!--<button type="button" class="button px-2" (click)="openHabitatState('habitat-state')">State</button>-->
-      <!--
-      <h3>Overall Habitat State: {{ habitat.stateValue }}%</h3>
-      <mat-progress-bar class="h-4" [mode]="mode" [value]="habitat.stateValue" [bufferValue]="bufferValue"></mat-progress-bar>
-      -->
-      <!--<div class="habitat-states grid grid-cols-3 gap-2 h-20">-->
+
       <div class="wildPollinators p-5 text-center"><strong>WP</strong><br />{{ habitat.state?.wildPollinators }}%</div>
       <div class="floralResources p-5 text-center"><strong>FR</strong><br />{{ habitat.state?.floralResources }}%</div>
       <div class="habitatResources p-5 text-center"><strong>HR</strong><br />{{ habitat.state?.habitatResources }}%</div>
-      <!--</div>-->
+      
       <app-habitat-response *ngFor="let habitatResponse of habitat.response!" [habitatResponse]="habitatResponse"></app-habitat-response>
       
       @if(habitat.type.hasOwnProperty('globalChange')){

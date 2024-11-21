@@ -19,6 +19,7 @@ export class HabitatService {
     return(result);
   }
 
+  /*
   calculateHabitatStateValue(stateValues: number[]): number {
     console.log('Triggered calculateHabitatStateValue from HabitatService', stateValues);
     //let wildPollinators: number = stateValues[0]; 
@@ -29,6 +30,7 @@ export class HabitatService {
     console.log('Value: ', value);
     return(value);
   }
+  */
 
   getStateValues(h: number, r: number, stateName: string): number[] | void {
     console.log('Triggered getStateValues from HabitatService', h, r, stateName);
@@ -176,11 +178,13 @@ export class HabitatService {
         console.log('Looping through states on this habitat is complete.', habitat);
         // assign the calculated overall state score here
         // uses the values updated by the loop.
+        /*
         habitat.stateValue = this.calculateHabitatStateValue([
           habitat.state!.wildPollinators!,
           habitat.state!.floralResources!,
           habitat.state!.habitatResources!
         ]);
+        */
         break;
       } else {
         // do things to each state
