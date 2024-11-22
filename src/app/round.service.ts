@@ -22,6 +22,7 @@ export class RoundService {
   scenario?: string;
   roundList: Round[] = [];
   roundImpacts: RoundImpact[] = [];
+  roundImpactsCalculated: boolean = false;
   activeRound!: number;
   endRound!: number;
 
@@ -37,7 +38,8 @@ export class RoundService {
     // console.log('Active Round: ', this.activeRound);
     this.endRound = this.roundList.length - 1;
     // console.log('End Round: ', this.endRound);
-    console.log(this.roundList);
+    // this.roundList already shows updated impacts. Because async?
+    //console.log(this.roundList);
     
     //this.habitatService.getLandscape(this.activeRound);
     this.habitatService.habitatList = this.roundList[this.activeRound].landscape;
@@ -59,8 +61,8 @@ export class RoundService {
     return roundList;
   }
 
-  getStateEffectOnImpactValues(habitatType: string, stateName: string, stateValue: number, impactName: string): number[] | void {
-    console.log('Triggered getStateEffectOnImpactValues from RoundService: ', habitatType, stateName, stateValue, impactName);
+  async getStateEffectOnImpactValues(habitatType: string, stateName: string, stateValue: number, impactName: string): Promise<void | number[]> {
+    //console.log('Triggered getStateEffectOnImpactValues from RoundService: ', habitatType, stateName, stateValue, impactName);
     let h : number | undefined;
     let s : number | undefined;
     let i : number | undefined;
@@ -146,7 +148,7 @@ export class RoundService {
         break;
     }
     if (typeof h != 'undefined' && typeof s != 'undefined' && typeof i != 'undefined') {
-      console.log('Fetching values: ', h, s, i);
+      //console.log('Fetching values: ', h, s, i);
 
       result = stateToImpactValues.state[h].impact[s].values[i].map( value => {
         //console.log(value, stateValue);
@@ -157,13 +159,13 @@ export class RoundService {
         }
       });
 
-      console.log(result);
+      //console.log(result);
       return(result);
     } else {
       if (typeof h != 'undefined' && typeof s != 'undefined' && typeof i == 'undefined') {
         // we do not have values for 2 impacts in semi-natural habitats
         result = [0];
-        console.log(result);
+        //console.log(result);
         return(result);
       } else {
         console.log('WARNING: Problem fetching values: ', h, s, i);
@@ -180,7 +182,7 @@ export class RoundService {
     let possibleValues: number[] | void = [];
     // take the habitats, get the state values and use those to getStateEffectOnImpactValues
     habitats.forEach((habitat: Habitat) => {
-      console.log('habitat: ', habitat.id, habitat.type.active);
+      console.log('--habitat: ', habitat.id, habitat.type.active);
       stateNames.forEach((stateName: string) => {
         let stateValue: number = 0;
         switch (stateName){
@@ -198,20 +200,22 @@ export class RoundService {
             break;
         }
         impacts.forEach((impact: RoundImpact) => {
-          possibleValues = this.getStateEffectOnImpactValues(habitat.type.active, stateName, stateValue, impact.name);
-          console.log('Possible values: ', possibleValues);
-          if(impact.hasOwnProperty('stateChangeValues')){
-            //impact.stateChangeValues!.push(this.habitatService.sample(possibleValues!));
-            this.habitatService.sample(possibleValues!)
-          } else {
-            // create it first then push
-            impact.stateChangeValues = [];
-            impact.stateChangeValues.push(this.habitatService.sample(possibleValues!));
-          } 
+          this.getStateEffectOnImpactValues(habitat.type.active, stateName, stateValue, impact.name).then((possibleValues :  number[] | void) => {
+            //console.log('Possible values: ', possibleValues);
+            if(impact.hasOwnProperty('stateChangeValues')){
+              //impact.stateChangeValues!.push(this.habitatService.sample(possibleValues!));
+              this.habitatService.sample(possibleValues!)
+            } else {
+              // create it first then push
+              impact.stateChangeValues = [];
+              impact.stateChangeValues.push(this.habitatService.sample(possibleValues!));
+            } 
+          });
         });
       });
     });    
-    console.log('Impacts updated: ', impacts);
+    //console.log('Impacts updated: ', impacts);
+    this.roundImpactsCalculated = true;
     return(impacts);
   }
 
@@ -221,6 +225,8 @@ export class RoundService {
 
   advanceTime(to: number){
     console.log('triggered advanceTime from RoundService: ', to);
+    // do something here to pause all other interactions.
+
     // store all the changes to habitatList in the roundList the finished active round
     this.roundList[this.activeRound].landscape = this.habitatService.habitatList;
     // then update the active round
