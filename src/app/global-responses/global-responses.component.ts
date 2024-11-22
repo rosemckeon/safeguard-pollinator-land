@@ -108,7 +108,7 @@ export class GlobalResponsesComponent implements OnInit {
         console.log('Warning: change triggered but no target found.')
     }
   }
-
+  
   submitGlobalResponses(globalResponsesForm: FormGroup){
     console.log('triggered submitGlobalResponses from GlobalResponsesComponent');
     console.log(JSON.stringify(globalResponsesForm.value, null, 2))
