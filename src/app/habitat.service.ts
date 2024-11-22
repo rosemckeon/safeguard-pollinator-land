@@ -4,6 +4,7 @@ import { Injectable } from '@angular/core';
 import * as Math from 'mathjs';
 // interfaces
 import { Habitat } from './habitat';
+import { HabitatCount } from './habitat-count';
 // raw data
 import responseToStateValues from '../data/response-on-state.json';
 
@@ -316,7 +317,7 @@ export class HabitatService {
     return habitats;
   }
   
-  getActiveHabitatTypes(habitats: Habitat[]){
+  async getActiveHabitatTypes(habitats: Habitat[]): Promise<HabitatCount> {
     // is there a better way to count things that doesn't use loops?
     let N_seminatural = 0;
     let N_agricultural = 0;

@@ -26,6 +26,7 @@ import { RoundDetailsComponent } from './round-details/round-details.component';
 import { RoundImpactsComponent } from './round-impacts/round-impacts.component';
 import { GlobalControlsComponent } from './global-controls/global-controls.component';
 import { GlobalResponsesComponent } from './global-responses/global-responses.component';
+import { HabitatCount } from './habitat-count';
 
 @Component({
   selector: 'app-root',
@@ -69,23 +70,27 @@ export class AppComponent implements OnInit {
 
   resetGlobalControls(): void {
     console.log('triggered resetGlobalControls from AppComponent');
-    let activeHabitatTypes = this.habitatService.getActiveHabitatTypes(this.roundService.roundList[this.roundService.activeRound].landscape)
-    console.log(activeHabitatTypes);
-    // put these into a loop to be more concise? Bit tricky 
-    let globalSeminatural = <HTMLButtonElement>document.getElementById('globalSeminatural');
-    globalSeminatural.value = "";
-    this.globalControlsComponent?.updateGlobalControlClasses('globalSeminatural', this.globalControlsComponent?.seminaturalClasses);
-    if(activeHabitatTypes?.['Semi-natural'] == 0){ globalSeminatural.disabled = true; } else { globalSeminatural.disabled = false; }
+    this.habitatService.getActiveHabitatTypes(this.roundService.roundList[this.roundService.activeRound].landscape).then(
+      (habitatCount: HabitatCount) => {
+        let activeHabitatTypes = habitatCount;
+        console.log(activeHabitatTypes);
+        // put these into a loop to be more concise? Bit tricky 
+        let globalSeminatural = <HTMLButtonElement>document.getElementById('globalSeminatural');
+        globalSeminatural.value = "";
+        this.globalControlsComponent?.updateGlobalControlClasses('globalSeminatural', this.globalControlsComponent?.seminaturalClasses);
+        if(activeHabitatTypes?.['Semi-natural'] == 0){ globalSeminatural.disabled = true; } else { globalSeminatural.disabled = false; }
 
-    let globalAgricultural = <HTMLButtonElement>document.getElementById('globalAgricultural');
-    globalAgricultural.value = "";
-    this.globalControlsComponent?.updateGlobalControlClasses('globalAgricultural', this.globalControlsComponent?.agriculturalClasses);
-    if(activeHabitatTypes?.Agricultural == 0){ globalAgricultural.disabled = true; } else { globalAgricultural.disabled = false; }
+        let globalAgricultural = <HTMLButtonElement>document.getElementById('globalAgricultural');
+        globalAgricultural.value = "";
+        this.globalControlsComponent?.updateGlobalControlClasses('globalAgricultural', this.globalControlsComponent?.agriculturalClasses);
+        if(activeHabitatTypes?.Agricultural == 0){ globalAgricultural.disabled = true; } else { globalAgricultural.disabled = false; }
 
-    let globalUrban = <HTMLButtonElement>document.getElementById('globalUrban');
-    globalUrban.value = "";
-    this.globalControlsComponent?.updateGlobalControlClasses('globalUrban', this.globalControlsComponent?.urbanClasses);
-    if(activeHabitatTypes?.Urban == 0){ globalUrban.disabled = true; } else { globalUrban.disabled = false; }
+        let globalUrban = <HTMLButtonElement>document.getElementById('globalUrban');
+        globalUrban.value = "";
+        this.globalControlsComponent?.updateGlobalControlClasses('globalUrban', this.globalControlsComponent?.urbanClasses);
+        if(activeHabitatTypes?.Urban == 0){ globalUrban.disabled = true; } else { globalUrban.disabled = false; }
+      }
+    );
   }
 
   constructor() {
