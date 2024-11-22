@@ -49,7 +49,7 @@ export class RoundService {
     return(this.roundList[this.activeRound]);
   }
  
-  updateDisabledRounds(roundList: Round[]) {
+  async updateDisabledRounds(roundList: Round[]): Promise<Round[]> {
     console.log('triggered updateDisabledRounds from RoundService');
     for (var i = 0; i <  roundList.length; i++) {
       if(this.activeRound == roundList[i].id){
@@ -231,7 +231,9 @@ export class RoundService {
     this.roundList[this.activeRound].landscape = this.habitatService.habitatList;
     // then update the active round
     this.activeRound = to;
-    this.roundList = this.updateDisabledRounds(this.roundList);
+    this.updateDisabledRounds(this.roundList).then((roundList: Round[]) => {
+      this.roundList = roundList;
+    });
     //this.habitatService.applyGlobalHabitatChanges(this.habitatService.habitatList);
     // store all the changes to habitatList in the roundList for the next active round (so we have a starting state for that round)
     this.roundList[this.activeRound].landscape = this.habitatService.habitatList;
