@@ -26,8 +26,7 @@ export class RoundService {
   endRound!: number;
 
   async getStartingScenario(value: string): Promise<Round> {
-    console.log("triggered getStartingScenario from RoundService");
-    console.log('Scenario: ', value);
+    console.log("triggered getStartingScenario from RoundService", value);
     this.scenario = value;
     if(value == "A"){
       this.roundList = RoundListA;
@@ -35,15 +34,15 @@ export class RoundService {
       this.roundList = RoundListB;
     }
     this.activeRound = 0;
-    console.log('Active Round: ', this.activeRound);
+    // console.log('Active Round: ', this.activeRound);
     this.endRound = this.roundList.length - 1;
-    console.log('End Round: ', this.endRound);
+    // console.log('End Round: ', this.endRound);
     console.log(this.roundList);
     
     //this.habitatService.getLandscape(this.activeRound);
     this.habitatService.habitatList = this.roundList[this.activeRound].landscape;
     //this.habitatService.habitatGlobalUpdateList = this.roundList[this.activeRound].landscape;
-    console.log('Active Habitat Types: ', this.habitatService.getActiveHabitatTypes(this.roundList[this.activeRound].landscape));
+    // console.log('Active Habitat Types: ', this.habitatService.getActiveHabitatTypes(this.roundList[this.activeRound].landscape));
     //return this.roundList[this.activeRound].landscape;
     return(this.roundList[this.activeRound]);
   }
@@ -233,6 +232,10 @@ export class RoundService {
     // do the same with round impacts...
     this.roundList[this.activeRound].impact = this.roundImpacts;
     // apply responses so they are active on the next round
+    // might make this a round service function that triggers a habitat service function internally.
+    // to do that I need to regig when things are happening. 
+    // so that the active round is only updated after everything else is processed.
+
     this.habitatService.applyResponses(this.habitatService.habitatList).then((habitats : Habitat[]) => {
       console.log('applyResponses completed: ', habitats); // should show all habitats with response enabled values copied from global/localChange. (confirmed)
       // once all the responses are enabled/disabled we pass the habitatList to updateStates

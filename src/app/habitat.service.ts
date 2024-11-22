@@ -15,7 +15,7 @@ export class HabitatService {
 
   sample(values: number[] | string[]): any {
     let result : any = values[Math.floor(Math.random()*values.length)];
-    console.log('Triggered sample from HabitatService ', result);
+    //console.log('Triggered sample from HabitatService ', result);
     return(result);
   }
 
@@ -129,9 +129,9 @@ export class HabitatService {
           // to match responseType
           if(this.habitatList[i].response![r].name == responseName){
             // update response
-            console.log('Updating response on habitat: ', this.habitatList[i].id);
+            //console.log('Updating response on habitat: ', this.habitatList[i].id);
             this.habitatList[i].response![r].globalChange = value;
-            console.log(this.habitatList[i].response![r]);
+            //console.log(this.habitatList[i].response![r]);
           }
         }
         //console.log(this.habitatList[i])
@@ -175,7 +175,7 @@ export class HabitatService {
       // check for the final loop being completed
       if(s == stateNames.length){
         // trigger something we can only do with all state iterations complete
-        console.log('Looping through states on this habitat is complete.', habitat);
+        // console.log('Looping through states on this habitat is complete.', habitat);
         // assign the calculated overall state score here
         // uses the values updated by the loop.
         /*
@@ -193,7 +193,7 @@ export class HabitatService {
         // an m of 2 allows a maximum improvement of 10 in a round as the possibleValues range from 0-5
         let m : number = 2;
         possibleValues = this.getResponseEffectOnStateValues(habitat.type.active, responseName, stateNames[s]);
-        console.log('Possible values: ', possibleValues);
+        // console.log('Possible values: ', possibleValues);
         let chosenValue : number = this.sample(possibleValues!);
         let newValue : number = ( chosenValue * m ) + currentStateValues[s];
         // adding a switch in here incase we want to do different things to each value...
@@ -250,14 +250,14 @@ export class HabitatService {
         responseName = habitats[i].response![r].name;
         // Only make adjustments for enabled responses
         if(habitats[i].response![r].enabled == true){
-          console.log('Enabled: ', responseName, currentStateValues);
+          // console.log('Enabled: ', responseName, currentStateValues);
           // think about the order this all happen in. 
           // we probably need to do somehting with current and new value processing to make sure responses amplify each other or something
           // leaving it like this for now
           // for each enabled response on each habitat square...
           // I want to run this function and THEN calculate the new stateValue for said habitat
           this.updateHabitatStates(habitats[i], responseName).then((habitat: Habitat) => {
-              console.log('Completed updateHabitatStates: ', habitats[i], habitat);
+              //console.log('Completed updateHabitatStates: ', habitats[i], habitat);
               /*
               let newStateValues : number[] = [
                 habitat.state!.wildPollinators!,
@@ -298,7 +298,7 @@ export class HabitatService {
         } 
       }
     }
-    console.log(this.habitatList);
+    // console.log(this.habitatList);
     //return;
     //return (await data.json()) ?? [];
   }
@@ -345,6 +345,7 @@ export class HabitatService {
 
   submitGlobalChanges(globalSeminatural: string, globalAgricultural: string, globalUrban: string) {
     console.log(`triggered submitGlobalChanges`);
+    /*
     if(globalSeminatural != ""){
       console.log(`Semi-natural: ${globalSeminatural}`);
     }
@@ -354,6 +355,7 @@ export class HabitatService {
     if(globalUrban != ""){
       console.log(`Urban: ${globalUrban}`);
     }
+    */
     // Make interface changes
     let button = <HTMLButtonElement>document.getElementById('buttonSubmitGlobalChanges');
     let checkCircle = document.getElementById("heroCheckCircleSolid");

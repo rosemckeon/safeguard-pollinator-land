@@ -26,7 +26,7 @@ export class LandscapeComponent {
   roundService: RoundService = inject(RoundService);
   @Input() 
   set scenario(scenario: string){
-    console.log('Input scenario set: ', scenario);
+    //console.log('Input scenario set: ', scenario);
     //this.scenario$ = scenario;
     this.roundService.getStartingScenario(scenario).then((roundZero: Round) => {
       this.roundService.updateImpacts(
@@ -40,13 +40,13 @@ export class LandscapeComponent {
             this.roundService.roundImpacts.push(impact);
             //return(impact);
           });
-          // once this is finished make impacts visible?
+          // once this is finished make impacts visible? 
         }
       );
     });
   }
 
   constructor() {
-    console.log("Scenario in LandscapeComponent Contructor", this.roundService.scenario);
+    //console.log("Scenario in LandscapeComponent Contructor", this.roundService.scenario);
   }
 }
