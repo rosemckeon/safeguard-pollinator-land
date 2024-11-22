@@ -10,7 +10,7 @@ import {
   heroArrowUp, 
   heroArrowDown, 
   heroArrowRight,
-  heroArrowLongLeft, 
+  heroArrowLeft, 
   heroArrowPath
 } from '@ng-icons/heroicons/outline';
 import { 
@@ -48,7 +48,7 @@ import { GlobalResponsesComponent } from './global-responses/global-responses.co
       heroArrowUp,
       heroArrowDown,
       heroArrowRight, 
-      heroArrowLongLeft, 
+      heroArrowLeft, 
       heroArrowPath, 
       heroInformationCircleSolid
     })

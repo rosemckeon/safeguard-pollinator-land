@@ -13,8 +13,8 @@
       <p class="mb-5"><strong>Your aim is to improve pollinator numbers without making people unhappy </strong> <button (click)="openGameInfo()"><ng-icon name="heroInformationCircleSolid"></ng-icon></button></p>
     }
     @if (roundService.activeRound == 0) {
-      <p class="mb-5">Your landscape (<ng-icon name="heroArrowLongLeft"></ng-icon>) is made of three habitat types. The state of wild pollinator populations and their resources is shown on every square.</p>
-      <p class="mb-5">The combined state of your habitats has various impacts on people <ng-icon name="heroArrowDown"></ng-icon></p>
+      <p class="mb-5"><ng-icon name="heroArrowLeft"></ng-icon> Your landscape is made of three habitat types. The state of wild pollinator populations and their resources is shown on every square.</p>
+      <p class="mb-5">The overall state of your landscape has impacts on people <ng-icon name="heroArrowDown"></ng-icon></p>
     }
       <div class="round-impacts bg-indigo-900 p-5 mb-5">
         @if(roundService.endRound != roundService.activeRound) {
@@ -32,7 +32,7 @@
         <p class="mb-5 mt-10"><strong>Make responses:</strong></p>
       }
         <app-global-responses />
-      <p class="mt-10 hidden">You can also select habitat cells on the map (<ng-icon name="heroArrowLongLeft"></ng-icon>) and <strong>locally overide your global descisions</strong>.</p>
+      <p class="mt-10 hidden">You can also select habitat cells on your landscape and <strong>locally overide your global descisions</strong>.</p>
       @if (roundService.activeRound == 0) {
         <p class="text-slate-100 my-10"><strong>When you're done making descisions...</strong></p>
         <button (click)="advanceTime()" class="button px-4 pt-2 pb-4">Advance time <ng-icon name="heroArrowRight"></ng-icon></button>
