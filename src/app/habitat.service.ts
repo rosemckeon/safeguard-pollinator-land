@@ -119,7 +119,8 @@ export class HabitatService {
     } 
   }
 
-  setGlobalResponseChange(habitatType: string, responseName: string, value: boolean){
+  
+  async setGlobalResponseChange(habitatType: string, responseName: string, value: boolean): Promise<void>{
     console.log('Triggered setGlobalResponseChange: ', habitatType, responseName, value);
     // loop through habitats
     for (var i = 0; i < this.habitatList.length; i++) {

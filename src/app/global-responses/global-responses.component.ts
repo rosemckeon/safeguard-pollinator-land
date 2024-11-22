@@ -68,7 +68,7 @@ export class GlobalResponsesComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  toggleChanges($event: MatSlideToggleChange):void {
+  async toggleChanges($event: MatSlideToggleChange): Promise<void> {
     console.log('Triggered toggleChanges from GlobalResponsesComponent')
     console.log($event.source.ariaLabel, $event.checked);
     switch($event.source.ariaLabel){
