@@ -13,6 +13,7 @@ import RoundListA from '../data/scenario-A.json';
 import RoundListB from '../data/scenario-B.json';
 import stateToImpactValues from '../data/state-on-impact.json';
 import { Impacts } from './impacts';
+import { ImpactValues } from './impact-values';
 
 @Injectable({
   providedIn: 'root'
@@ -60,7 +61,7 @@ export class RoundService {
     return roundList;
   }
 
-  async getStateEffectOnImpactValues(habitatType: string, stateName: string, stateValue: number, impactName: string): Promise<number[]> {
+  getStateEffectOnImpactValues(habitatType: string, stateName: string, stateValue: number, impactName: string): ImpactValues {
     //console.log('Triggered getStateEffectOnImpactValues from RoundService: ', habitatType, stateName, stateValue, impactName);
     let h : number | undefined;
     let s : number | undefined;
@@ -151,18 +152,24 @@ export class RoundService {
       // here we're getting the ditribution of possible values for a given state and impact
       result = stateToImpactValues.state[h].impact[s].values[i];
       //console.log(result);
-      return(result);
+      //return(result);
     } else {
       if (typeof h != 'undefined' && typeof s != 'undefined' && typeof i == 'undefined') {
         // we do not have values for 2 impacts in semi-natural habitats
         result = [];
         //console.log(result);
-        return(result);
+        //return(result);
       } else {
         console.log('WARNING: Problem fetching values: ', h, s, i);
-        return([]);
+        result = [];
+        //return([]);
       }
     }
+    let output : ImpactValues = {
+      "name": impactName,
+      "values": result
+    }
+    return output;
   }
 
   // We need the type object to be fulfilled at the very beginning
@@ -184,23 +191,182 @@ export class RoundService {
   // on advanceTime once updates to the active habitats have been made.
   getImpacts(activeRound: number, habitats: Habitat[]): Impacts {
     // do something with the habitats
-    habitats.forEach((habitat: Habitat) => {
-      activeRound++;
-    });
+    let effects : Impacts = this.getHabitatEffects(habitats);
     // get the current impacts scores to change
     let impacts: Impacts = this.roundImpacts;
-    //let newImpacts : Impacts = this.roundImpacts;
     // then make the changes
-    // but also ensure a ceiling of 100
     let newImpacts : Impacts = {
-      "cropPollinationProduction": impacts.cropPollinationProduction + activeRound,
-      "economicValueChain": impacts.economicValueChain + activeRound,
-      "wildPlantPollination": impacts.wildPlantPollination + activeRound,
-      "aestheticValues": impacts.aestheticValues + activeRound
+      "cropPollinationProduction": impacts.cropPollinationProduction + activeRound + effects.cropPollinationProduction,
+      "economicValueChain": impacts.economicValueChain + activeRound + effects.economicValueChain,
+      "wildPlantPollination": impacts.wildPlantPollination + activeRound + effects.wildPlantPollination,
+      "aestheticValues": impacts.aestheticValues + activeRound + effects.aestheticValues
     }
+    // but also ensure a ceiling of 100
     let output: Impacts = this.checkImpactsCeiling(newImpacts, 100);
     return output;
   }
+
+  getHabitatEffects(habitats: Habitat[]): Impacts {
+    // setup some variable to hold values for the whole landscape
+    let landscapeCropPollinationProduction : number[] = [];
+    let landscapeEconomicValueChain : number[] = [];
+    let landscapeWildPlantPollination : number[] = [];
+    let landscapeAestheticValues : number[] = [];
+    // do something with all our habitats
+    habitats.forEach((habitat : Habitat) => {
+      // setup some variables to hold possible values specific to each habitat
+      let cropPollinationProduction : number[] = [];
+      let economicValueChain : number[] = [];
+      let wildPlantPollination : number[] = [];
+      let aestheticValues : number[] = [];
+      //cropPollinationProduction.push(1);
+      // what is the logic here.
+      // foreach habitat type we have 3 states that differentially effect impacts
+      // we need to get the distribution values for each state habitat combination
+      if(habitat.type.active == "Semi-natural"){
+        // there are some impacts which are not affected by habitat state
+        // we only have values for wildPlantPollination and aestheticValues
+        //var impactNames : string[] = ["wildPlantPollination", "aestheticValues"];
+        //console.log(this.getAllStateEffectValues(habitat, impactNames));
+        wildPlantPollination.push(this.habitatService.sample(
+          this.getStateEffectOnImpactValues(habitat.type.active, "wildPollinators", habitat.state!.wildPollinators!, "wildPlantPollination").values
+        ));
+        wildPlantPollination.push(this.habitatService.sample(
+          this.getStateEffectOnImpactValues(habitat.type.active, "floralResources", habitat.state!.floralResources!, "wildPlantPollination").values
+        ));
+        wildPlantPollination.push(this.habitatService.sample(
+          this.getStateEffectOnImpactValues(habitat.type.active, "habitatResources", habitat.state!.habitatResources!, "wildPlantPollination").values
+        ));
+
+        aestheticValues.push(this.habitatService.sample(
+          this.getStateEffectOnImpactValues(habitat.type.active, "wildPollinators", habitat.state!.wildPollinators!, "aestheticValues").values
+        ));
+        aestheticValues.push(this.habitatService.sample(
+          this.getStateEffectOnImpactValues(habitat.type.active, "floralResources", habitat.state!.floralResources!, "aestheticValues").values
+        ));
+        aestheticValues.push(this.habitatService.sample(
+          this.getStateEffectOnImpactValues(habitat.type.active, "habitatResources", habitat.state!.habitatResources!, "aestheticValues").values
+        ));
+
+        //console.log("Habitat wildPlantPollination", habitat.id, wildPlantPollination);
+        let maxEffect : number = 2.083;
+        landscapeWildPlantPollination.push(Math.round((Math.round(Math.mean(wildPlantPollination)) * 2 / 10) * maxEffect, 2));
+        landscapeAestheticValues.push(Math.round((Math.round(Math.mean(aestheticValues)) * 2 / 10) * maxEffect, 2));
+      } else {
+        // habitat state effects all impacts
+        //var impactNames : string[] = ["cropPollinationProduction", "economicValueChain", "wildPlantPollination", "aestheticValues"];
+        
+        wildPlantPollination.push(this.habitatService.sample(
+          this.getStateEffectOnImpactValues(habitat.type.active, "wildPollinators", habitat.state!.wildPollinators!, "wildPlantPollination").values
+        ));
+        wildPlantPollination.push(this.habitatService.sample(
+          this.getStateEffectOnImpactValues(habitat.type.active, "floralResources", habitat.state!.floralResources!, "wildPlantPollination").values
+        ));
+        wildPlantPollination.push(this.habitatService.sample(
+          this.getStateEffectOnImpactValues(habitat.type.active, "habitatResources", habitat.state!.habitatResources!, "wildPlantPollination").values
+        ));
+
+        aestheticValues.push(this.habitatService.sample(
+          this.getStateEffectOnImpactValues(habitat.type.active, "wildPollinators", habitat.state!.wildPollinators!, "aestheticValues").values
+        ));
+        aestheticValues.push(this.habitatService.sample(
+          this.getStateEffectOnImpactValues(habitat.type.active, "floralResources", habitat.state!.floralResources!, "aestheticValues").values
+        ));
+        aestheticValues.push(this.habitatService.sample(
+          this.getStateEffectOnImpactValues(habitat.type.active, "habitatResources", habitat.state!.habitatResources!, "aestheticValues").values
+        ));
+
+        cropPollinationProduction.push(this.habitatService.sample(
+          this.getStateEffectOnImpactValues(habitat.type.active, "wildPollinators", habitat.state!.wildPollinators!, "cropPollinationProduction").values
+        ));
+        cropPollinationProduction.push(this.habitatService.sample(
+          this.getStateEffectOnImpactValues(habitat.type.active, "floralResources", habitat.state!.floralResources!, "cropPollinationProduction").values
+        ));
+        cropPollinationProduction.push(this.habitatService.sample(
+          this.getStateEffectOnImpactValues(habitat.type.active, "habitatResources", habitat.state!.habitatResources!, "cropPollinationProduction").values
+        ));
+
+        economicValueChain.push(this.habitatService.sample(
+          this.getStateEffectOnImpactValues(habitat.type.active, "wildPollinators", habitat.state!.wildPollinators!, "economicValueChain").values
+        ));
+        economicValueChain.push(this.habitatService.sample(
+          this.getStateEffectOnImpactValues(habitat.type.active, "floralResources", habitat.state!.floralResources!, "economicValueChain").values
+        ));
+        economicValueChain.push(this.habitatService.sample(
+          this.getStateEffectOnImpactValues(habitat.type.active, "habitatResources", habitat.state!.habitatResources!, "economicValueChain").values
+        ));
+
+        //console.log("Habitat wildPlantPollination", habitat.id, wildPlantPollination);
+        let maxEffect : number = 2.083;
+        let maxEffect2 : number = 2.38;
+        landscapeWildPlantPollination.push(Math.round((Math.round(Math.mean(wildPlantPollination)) * 2 / 10) * maxEffect, 2));
+        landscapeAestheticValues.push(Math.round((Math.round(Math.mean(aestheticValues)) * 2 / 10) * maxEffect, 2));
+        landscapeCropPollinationProduction.push(Math.round((Math.round(Math.mean(cropPollinationProduction)) * 2 / 10) * maxEffect2, 2));
+        landscapeEconomicValueChain.push(Math.round((Math.round(Math.mean(economicValueChain)) * 2 / 10) * maxEffect2, 2));
+      }
+      
+      // then do something with those values within each habitat instead??
+      //let meanCropPollinationProduction : number = Math.mean(cropPollinationProduction);
+      // we want max impact to be 100 and we have 16 habitats in total.
+      // 100/16 = 6.25, so each habitat should be able to contribute 6.25 max
+      // 100/14 = 7.14
+      // each habitat has 3 states that can have a maximum effect on impact drawn of 5.
+      // 6.25/3 = 2.083, so 5 need to equal 100% of 2.083
+      //let maxEffect : number = 2.083;
+      // 5 * 2 / 10 = 1, 4 * 2 / 10 = 0.8
+      //(meanCropPollinationProduction * 2 / 10 + 1) * 2.083
+
+    });
+    console.log("Landscape wildPlantPollination", landscapeWildPlantPollination);
+    // then setup the output variable
+    let effects : Impacts = this.getStartingImpacts();
+    // and do something with our possible values to return a single effect number for each impact
+    effects.cropPollinationProduction = Math.round(Math.sum(landscapeCropPollinationProduction));
+    effects.economicValueChain = Math.round(Math.sum(landscapeEconomicValueChain));
+    effects.wildPlantPollination = Math.round(Math.sum(landscapeWildPlantPollination));
+    effects.aestheticValues = Math.round(Math.sum(landscapeAestheticValues));
+    //effects.cropPollinationProduction = this.habitatService.sample(cropPollinationProduction);
+    return effects;
+  }
+
+  /*
+  getAllStateEffectValues(habitat: Habitat, impactNames: string[]){
+    var cropPollinationProduction : number[] = [];
+    var economicValueChain : number[] = [];
+    var wildPlantPollination : number[] = [];
+    var aestheticValues : number[] = [];
+    // do something for every impact
+    impactNames.forEach((impactName : string) => {
+      this.getStateEffectOnImpactValues(
+        habitat.type.active, "wildPollinators", habitat.state!.wildPollinators!, impactName
+      ).then(
+          (impactValues: ImpactValues) => {
+            console.log(impactValues);
+            switch(impactValues.name){
+              case "cropPollinationProduction":
+                cropPollinationProduction.push(this.habitatService.sample(impactValues.values));
+                break;
+              case "economicValueChain":
+                economicValueChain.push(this.habitatService.sample(impactValues.values));
+                break;
+              case "wildPlantPollination":
+                wildPlantPollination.push(this.habitatService.sample(impactValues.values));
+                break;
+              case "aestheticValues":
+                aestheticValues.push(this.habitatService.sample(impactValues.values));
+                break;
+              default:
+                console.log("Impact name not recognised.");
+                break;
+            }   
+          }
+      );
+  });
+  return {
+    "cropPollinationProduction": cropPollinationProduction
+  }
+}
+  */
 
   // Ensures all values expected by type Impacts cannot go above the specified ceiling (value)
   checkImpactsCeiling(impacts: Impacts, value: number): Impacts {
