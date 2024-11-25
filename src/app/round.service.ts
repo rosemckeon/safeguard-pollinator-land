@@ -165,6 +165,9 @@ export class RoundService {
     }
   }
 
+  // We need the type object to be fulfilled at the very beginning
+  // this ocntent gets overwritten very quickly by getImpacts which is triggered from
+  // the landscape component when the starting scenario has been set.
   getStartingImpacts(){
     // then build the impacts to return
     let impacts : Impacts = {
@@ -176,6 +179,9 @@ export class RoundService {
     return impacts;
   }
 
+  // Once there are habitats set to use, we can do something more complicated to get impacts
+  // This needs to be done in the app component after the scenario is set, and
+  // on advanceTime once updates to the active habitats have been made.
   getImpacts(activeRound: number, habitats: Habitat[]) {
     // do something with the habitats
     habitats.forEach((habitat: Habitat) => {
@@ -196,6 +202,7 @@ export class RoundService {
     return output;
   }
 
+  // Ensures all values expected by type Impacts cannot go above the specified ceiling (value)
   checkImpactsCeiling(impacts: Impacts, value: number): Impacts {
     if(impacts.cropPollinationProduction > value){
       impacts.cropPollinationProduction = value;
