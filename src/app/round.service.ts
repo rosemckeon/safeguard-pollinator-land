@@ -22,7 +22,7 @@ export class RoundService {
   Math = Math;
   scenario?: string;
   roundList: Round[] = [];
-  roundImpacts: Impacts = this.getImpacts(0);
+  roundImpacts: Impacts = this.getStartingImpacts();
   //roundImpacts: RoundImpact[] = [];
   roundImpactsCalculated: boolean = false;
   activeRound!: number;
@@ -165,15 +165,53 @@ export class RoundService {
     }
   }
 
-  getImpacts(m: number) {
+  getStartingImpacts(){
+    // then build the impacts to return
     let impacts : Impacts = {
-      "cropPollinationProduction": 0 + m,
-      "economicValueChain": 0 + m,
-      "wildPlantPollination": 0 + m,
-      "aestheticValues": 0 + m
+      "cropPollinationProduction": 0,
+      "economicValueChain": 0,
+      "wildPlantPollination": 0,
+      "aestheticValues": 0
     }
     return impacts;
   }
+
+  getImpacts(activeRound: number, habitats: Habitat[]) {
+    // do something with the habitats
+    habitats.forEach((habitat: Habitat) => {
+      activeRound++;
+    });
+    // get the current impacts scores to change
+    let impacts: Impacts = this.roundImpacts;
+    //let newImpacts : Impacts = this.roundImpacts;
+    // then make the changes
+    // but also ensure a ceiling of 100
+    let newImpacts : Impacts = {
+      "cropPollinationProduction": impacts.cropPollinationProduction + activeRound,
+      "economicValueChain": impacts.economicValueChain + activeRound,
+      "wildPlantPollination": impacts.wildPlantPollination + activeRound,
+      "aestheticValues": impacts.aestheticValues + activeRound
+    }
+    let output: Impacts = this.checkImpactsCeiling(newImpacts, 100);
+    return output;
+  }
+
+  checkImpactsCeiling(impacts: Impacts, value: number): Impacts {
+    if(impacts.cropPollinationProduction > value){
+      impacts.cropPollinationProduction = value;
+    }
+    if(impacts.economicValueChain > value){
+      impacts.economicValueChain = value;
+    }
+    if(impacts.wildPlantPollination > value){
+      impacts.wildPlantPollination = value;
+    }
+    if(impacts.aestheticValues > value){
+      impacts.aestheticValues = value;
+    }
+    return impacts;
+  }
+
 
   /*
   async getImpacts(habitats: Habitat[]): Promise<Impacts> {
@@ -354,8 +392,6 @@ export class RoundService {
   }
 */
   constructor() {
-    // too early to updateImpacts
-    //this.roundImpacts = this.getImpacts(this.activeRound);
   }
 
   async advanceTime(to: number): Promise<Round[]> {
@@ -388,8 +424,8 @@ export class RoundService {
         this.habitatService.habitatList = habitats;
         // and then we can update the round impacts.
         // this simple addition works fine.
-        console.log(this.getImpacts(this.activeRound));
-        this.roundImpacts = this.getImpacts(this.activeRound);
+        console.log(this.getImpacts(this.activeRound, habitats));
+        this.roundImpacts = this.getImpacts(this.activeRound, habitats);
         // however the attempt below didn't work.
         /*
         this.updateImpacts(this.roundImpacts, habitats).then((roundImpacts : RoundImpact[]) => {

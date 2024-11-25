@@ -6,13 +6,13 @@ import { ActivatedRoute } from '@angular/router';
 import * as Math from 'mathjs';
 // interfaces
 import { Round } from '../round';
-import { RoundImpact } from '../round-impact';
+import { Habitat } from '../habitat';
 // services
 import { HabitatService } from '../habitat.service';
 import { RoundService } from '../round.service';
 // components
 import { HabitatComponent } from '../habitat/habitat.component'
-import { Impacts } from '../impacts';
+
 
 @Component({
   selector: 'app-landscape',
@@ -34,8 +34,10 @@ export class LandscapeComponent {
       (roundList: Round[]) => {
       console.log("--Scenerio got: ", roundList, this.roundService.activeRound);
       //console.log('roundImpactsCalculated: ', this.roundService.roundImpactsCalculated);
-      console.log(roundList[0].landscape);
-      console.log(this.roundService.getImpacts(0));
+      console.log(roundList[this.roundService.activeRound].landscape);
+      let habitats : Habitat[] = roundList[this.roundService.activeRound].landscape;
+      console.log(this.roundService.getImpacts(this.roundService.activeRound, habitats));
+      this.roundService.roundImpacts = this.roundService.getImpacts(this.roundService.activeRound, habitats);
       /*
       this.roundService.getImpacts(roundList[0].landscape).then(
         (impacts: Impacts) =>{
