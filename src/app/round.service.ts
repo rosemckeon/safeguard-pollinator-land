@@ -168,7 +168,7 @@ export class RoundService {
   // We need the type object to be fulfilled at the very beginning
   // this ocntent gets overwritten very quickly by getImpacts which is triggered from
   // the landscape component when the starting scenario has been set.
-  getStartingImpacts(){
+  getStartingImpacts(): Impacts {
     // then build the impacts to return
     let impacts : Impacts = {
       "cropPollinationProduction": 0,
@@ -182,7 +182,7 @@ export class RoundService {
   // Once there are habitats set to use, we can do something more complicated to get impacts
   // This needs to be done in the app component after the scenario is set, and
   // on advanceTime once updates to the active habitats have been made.
-  getImpacts(activeRound: number, habitats: Habitat[]) {
+  getImpacts(activeRound: number, habitats: Habitat[]): Impacts {
     // do something with the habitats
     habitats.forEach((habitat: Habitat) => {
       activeRound++;
