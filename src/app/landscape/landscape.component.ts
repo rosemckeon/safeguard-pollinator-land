@@ -34,10 +34,11 @@ export class LandscapeComponent {
       (roundList: Round[]) => {
       console.log("--Scenerio got: ", roundList, this.roundService.activeRound);
       //console.log('roundImpactsCalculated: ', this.roundService.roundImpactsCalculated);
-      console.log(roundList[this.roundService.activeRound].landscape);
+      //console.log(roundList[this.roundService.activeRound].landscape);
       let habitats : Habitat[] = roundList[this.roundService.activeRound].landscape;
-      console.log(this.roundService.getImpacts(this.roundService.activeRound, habitats));
+      //console.log(this.roundService.getImpacts(this.roundService.activeRound, habitats));
       this.roundService.roundImpacts = this.roundService.getImpacts(this.roundService.activeRound, habitats);
+      console.log("--roundImpacts set from Landscape Component", this.roundService.roundImpacts);
       /*
       this.roundService.getImpacts(roundList[0].landscape).then(
         (impacts: Impacts) =>{
