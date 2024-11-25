@@ -12,6 +12,7 @@ import { HabitatService } from '../habitat.service';
 import { RoundService } from '../round.service';
 // components
 import { HabitatComponent } from '../habitat/habitat.component'
+import { Impacts } from '../impacts';
 
 @Component({
   selector: 'app-landscape',
@@ -28,21 +29,45 @@ export class LandscapeComponent {
   set scenario(scenario: string){
     //console.log('Input scenario set: ', scenario);
     //this.scenario$ = scenario;
-    this.roundService.getStartingScenario(scenario).then((roundZero: Round) => {
+    //this.roundService.getStartingScenario(scenario).then((roundZero: Round) => {
+    this.roundService.getStartingScenario(scenario).then(
+      (roundList: Round[]) => {
+      console.log("--Scenerio got: ", roundList, this.roundService.activeRound);
+      //console.log('roundImpactsCalculated: ', this.roundService.roundImpactsCalculated);
+      console.log(roundList[0].landscape);
+      console.log(this.roundService.getImpacts(0));
+      /*
+      this.roundService.getImpacts(roundList[0].landscape).then(
+        (impacts: Impacts) =>{
+          console.log("--Impacts got: ", impacts);
+        }
+      );
+      */
+      // even though the boolean is fale above, these two variables are almost identical below - both with filled values.
+      // roundService.roundImpacts looks empty and yet full at the same time?
+      //console.log(this.roundService.roundImpacts, roundZero.impact!);
+      /*
       this.roundService.updateImpacts(
-        roundZero.impact!,
-        roundZero.landscape
-      ).then(
-        (impacts: RoundImpact[]) => {
+        roundList
+        //roundZero.impact!,
+        //roundZero.landscape
+      //).then((impacts: RoundImpact[]) => {
+      ).then((roundList: Round[]) => {
+          console.log('roundImpactsCalculated: ', this.roundService.roundImpactsCalculated);
+          
           impacts.forEach((impact: RoundImpact) => {
             //console.log('Mean state change ', impact.name, Math.mean(impact.stateChangeValues!));
+            // we take the mean to fill the missing value in each iteration
             impact.value = Math.round(Math.mean(impact.stateChangeValues!));
+            // and also fill the round service variable with the complete data
             this.roundService.roundImpacts.push(impact);
             //return(impact);
           });
-          // once this is finished make impacts visible? 
+          
+          // once this loop is finished make impacts visible? 
         }
       );
+      */
     });
   }
 

@@ -342,7 +342,7 @@ export class HabitatService {
   }
   
   constructor() {
-    this.getActiveHabitatTypes(this.habitatList);
+    //this.getActiveHabitatTypes(this.habitatList);
   }
 
   submitGlobalChanges(globalSeminatural: string, globalAgricultural: string, globalUrban: string) {

@@ -6,6 +6,8 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
+If your served files are in a state of error and you can't quit to reload, you may need to manually kill the process while you sort it out. In that case, you can do `sudo kill -9 $(sudo lsof -t -i:4200)`, or get the PID with `ps aux | grep "ng serve"` and then `kill -9 <PID>` (on mac the -9 is needed).
+
 ## Code scaffolding
 
 Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.

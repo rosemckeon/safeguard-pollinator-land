@@ -16,14 +16,14 @@ import {
 import { 
   heroInformationCircleSolid 
 } from '@ng-icons/heroicons/solid';
+// interfaces
+import { Round } from './round';
 // services
 import { HabitatService } from './habitat.service';
 import { RoundService } from './round.service';
 // components
 import { LandscapeComponent } from './landscape/landscape.component';
-//import { LandscapeStatusComponent } from './landscape-status/landscape-status.component';
 import { RoundDetailsComponent } from './round-details/round-details.component';
-import { RoundImpactsComponent } from './round-impacts/round-impacts.component';
 import { GlobalControlsComponent } from './global-controls/global-controls.component';
 import { GlobalResponsesComponent } from './global-responses/global-responses.component';
 import { HabitatCount } from './habitat-count';
@@ -33,14 +33,10 @@ import { HabitatCount } from './habitat-count';
   standalone: true,
   imports: [
     RouterOutlet, 
-    //LandscapeComponent, 
-    //LandscapeStatusComponent, 
-    //GlobalControlsComponent, 
     GlobalResponsesComponent, 
     NgIconComponent, 
     CommonModule, 
     RoundDetailsComponent, 
-    RoundImpactsComponent, 
     MatButtonModule, 
     MatDialogModule
   ],
@@ -114,12 +110,16 @@ export class AppComponent implements OnInit {
   advanceTime(from = this.roundService.activeRound) {
     console.log('triggered advanceTime from AppComponent');
     console.log("Scenario in AppComponent advanceTime", this.roundService.scenario);
-    this.roundService.advanceTime(from + 1);
-    if(this.roundService.endRound != this.roundService.activeRound){
-      // this.resetGlobalControls();
-    } else {
-      // save the complete round json file.
-    }
+    this.roundService.advanceTime(from + 1).then((roundList: Round[]) => {
+      console.log('advanceTime from RoundService returned: ', roundList);
+      // do something with the data after advancing time is complete
+      // could remove loading animation here too
+      if(this.roundService.endRound != this.roundService.activeRound){
+        // this.resetGlobalControls();
+      } else {
+        // save the complete round json file.
+      }
+    });
   }
 }
 
