@@ -16,6 +16,12 @@ Run `ng generate component component-name` to generate a new component. You can 
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
+### Manual deployment with Nginx
+
+We need to serve the index file in /dist/whatever/browser.
+
+Set server root to the browser folder and add index.csr.html to the server location for /.
+
 ## Running unit tests
 
 Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
