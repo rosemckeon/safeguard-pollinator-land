@@ -1,7 +1,7 @@
 [ 
   {
-        "id": 0,
-        "landscape": [
+    "id": 0,
+    "landscape": [
           {
               "id": 1,
               "x": 1,
@@ -9,7 +9,38 @@
               "K": 100,
               "type": {
                 "active": "Agricultural"
-              }
+              },
+              "response": [
+                {
+                  "id": 0,
+                  "name": "restoration",
+                  "label": "Recreate/Restore Ecological Zones",
+                  "labelShort": "REZ",
+                  "description": "",
+                  "enabled": true
+                },
+                {
+                  "id": 1,
+                  "name": "natureProtection",
+                  "label": "Nature Protection Regulations",
+                  "labelShort": "NPR",
+                  "description": "",
+                  "enabled": false
+                },
+                {
+                  "id": 2,
+                  "name": "ecoIntensification",
+                  "label": "Ecological Intensification",
+                  "labelShort": "AEI",
+                  "description": "",
+                  "enabled": true
+                }
+              ],
+            "state": {
+              "wildPollinators": 60,
+              "floralResources": 25,
+              "habitatResources": 30
+              } 
             },
             {
                 "id": 2,
@@ -18,7 +49,38 @@
                 "K": 100,
                 "type": {
                   "active": "Agricultural"
-                }
+                },
+                "response": [
+                  {
+                    "id": 0,
+                    "name": "restoration",
+                    "label": "Recreate/Restore Ecological Zones",
+                    "labelShort": "REZ",
+                    "description": "",
+                    "enabled": true
+                  },
+                  {
+                    "id": 1,
+                    "name": "natureProtection",
+                    "label": "Nature Protection Regulations",
+                    "labelShort": "NPR",
+                    "description": "",
+                    "enabled": false
+                  },
+                  {
+                    "id": 2,
+                    "name": "ecoIntensification",
+                    "label": "Ecological Intensification",
+                    "labelShort": "AEI",
+                    "description": "",
+                    "enabled": true
+                  }
+                ],
+                "state": {
+                  "wildPollinators": 55,
+                  "floralResources": 55,
+                  "habitatResources": 30
+                  } 
               },
               {
                 "id": 3,
@@ -26,8 +88,39 @@
                 "y": 4,
                 "K": 100,
                 "type": {
-                  "active": "Urban"
-                }
+                  "active": "Agricultural"
+                },
+                "response": [
+                  {
+                    "id": 0,
+                    "name": "restoration",
+                    "label": "Recreate/Restore Ecological Zones",
+                    "labelShort": "REZ",
+                    "description": "",
+                    "enabled": true
+                  },
+                  {
+                    "id": 1,
+                    "name": "natureProtection",
+                    "label": "Nature Protection Regulations",
+                    "labelShort": "NPR",
+                    "description": "",
+                    "enabled": false
+                  },
+                  {
+                    "id": 2,
+                    "name": "ecoIntensification",
+                    "label": "Ecological Intensification",
+                    "labelShort": "AEI",
+                    "description": "",
+                    "enabled": true
+                  }
+                ],
+                "state": {
+                  "wildPollinators": 56,
+                  "floralResources": 33,
+                  "habitatResources": 45
+                  } 
               },
             {
                 "id": 4,
@@ -35,8 +128,31 @@
                 "y": 4,
                 "K": 100,
                 "type": {
-                  "active": "Urban"
-                }
+                  "active": "Semi-natural"
+                },
+                "response": [
+                  {
+                    "id": 0,
+                    "name": "restoration",
+                    "label": "Recreate/Restore Ecological Zones",
+                    "labelShort": "REZ",
+                    "description": "",
+                    "enabled": false
+                  },
+                  {
+                    "id": 1,
+                    "name": "natureProtection",
+                    "label": "Nature Protection Regulations",
+                    "labelShort": "NPR",
+                    "description": "",
+                    "enabled": true
+                  }
+                ],
+                "state": {
+                  "wildPollinators": 48,
+                  "floralResources": 55,
+                  "habitatResources": 20
+                  } 
               },
             {
               "id": 5,
@@ -45,7 +161,38 @@
               "K": 100,
               "type": {
                 "active": "Agricultural"
-              }
+              },
+              "response": [
+                {
+                  "id": 0,
+                  "name": "restoration",
+                  "label": "Recreate/Restore Ecological Zones",
+                  "labelShort": "REZ",
+                  "description": "",
+                  "enabled": true
+                },
+                {
+                  "id": 1,
+                  "name": "natureProtection",
+                  "label": "Nature Protection Regulations",
+                  "labelShort": "NPR",
+                  "description": "",
+                  "enabled": false
+                },
+                {
+                  "id": 2,
+                  "name": "ecoIntensification",
+                  "label": "Ecological Intensification",
+                  "labelShort": "AEI",
+                  "description": "",
+                  "enabled": true
+                }
+              ],
+              "state": {
+                "wildPollinators": 44,
+                "floralResources": 35,
+                "habitatResources": 37
+                } 
             },
             {
                 "id": 6,
@@ -53,8 +200,39 @@
                 "y": 3,
                 "K": 100,
                 "type": {
-                  "active": "Agricultural"
-                }
+                  "active": "Urban"
+                },
+                "response": [
+                  {
+                    "id": 0,
+                    "name": "restoration",
+                    "label": "Recreate/Restore Ecological Zones",
+                    "labelShort": "REZ",
+                    "description": "",
+                    "enabled": false
+                  },
+                  {
+                    "id": 1,
+                    "name": "natureProtection",
+                    "label": "Nature Protection Regulations",
+                    "labelShort": "NPR",
+                    "description": "",
+                    "enabled": false
+                  },
+                  {
+                    "id": 3,
+                    "name": "urbanGreening",
+                    "label": "Urban Greening",
+                    "labelShort": "UG",
+                    "description": "",
+                    "enabled": true
+                  }
+                ],
+                "state": {
+                  "wildPollinators": 20,
+                  "floralResources": 25,
+                  "habitatResources": 65
+                  } 
               },
               {
                 "id": 7,
@@ -63,7 +241,38 @@
                 "K": 100,
                 "type": {
                   "active": "Urban"
-                }
+                },
+                "response": [
+                  {
+                    "id": 0,
+                    "name": "restoration",
+                    "label": "Recreate/Restore Ecological Zones",
+                    "labelShort": "REZ",
+                    "description": "",
+                    "enabled": false
+                  },
+                  {
+                    "id": 1,
+                    "name": "natureProtection",
+                    "label": "Nature Protection Regulations",
+                    "labelShort": "NPR",
+                    "description": "",
+                    "enabled": false
+                  },
+                  {
+                    "id": 3,
+                    "name": "urbanGreening",
+                    "label": "Urban Greening",
+                    "labelShort": "UG",
+                    "description": "",
+                    "enabled": true
+                  }
+                ],
+                "state": {
+                  "wildPollinators": 60,
+                  "floralResources": 57,
+                  "habitatResources": 55
+                  } 
               },
             {
                 "id": 8,
@@ -71,8 +280,31 @@
                 "y": 3,
                 "K": 100,
                 "type": {
-                  "active": "Urban"
-                }
+                  "active": "Semi-natural"
+                },
+                "response": [
+                  {
+                    "id": 0,
+                    "name": "restoration",
+                    "label": "Recreate/Restore Ecological Zones",
+                    "labelShort": "REZ",
+                    "description": "",
+                    "enabled": false
+                  },
+                  {
+                    "id": 1,
+                    "name": "natureProtection",
+                    "label": "Nature Protection Regulations",
+                    "labelShort": "NPR",
+                    "description": "",
+                    "enabled": true
+                  }
+                ],
+                "state": {
+                  "wildPollinators": 60,
+                  "floralResources": 30,
+                  "habitatResources": 66
+                  } 
               },
             {
               "id": 9,
@@ -81,7 +313,38 @@
               "K": 100,
               "type": {
                 "active": "Agricultural"
-              }
+              },
+              "response": [
+                {
+                  "id": 0,
+                  "name": "restoration",
+                  "label": "Recreate/Restore Ecological Zones",
+                  "labelShort": "REZ",
+                  "description": "",
+                  "enabled": true
+                },
+                {
+                  "id": 1,
+                  "name": "natureProtection",
+                  "label": "Nature Protection Regulations",
+                  "labelShort": "NPR",
+                  "description": "",
+                  "enabled": false
+                },
+                {
+                  "id": 2,
+                  "name": "ecoIntensification",
+                  "label": "Ecological Intensification",
+                  "labelShort": "AEI",
+                  "description": "",
+                  "enabled": true
+                }
+              ],
+              "state": {
+                "wildPollinators": 60,
+                "floralResources": 42,
+                "habitatResources": 30
+                } 
             },
             {
               "id": 10,
@@ -90,7 +353,38 @@
               "K": 100,
               "type": {
                 "active": "Urban"
-              }
+              },
+              "response": [
+                {
+                  "id": 0,
+                  "name": "restoration",
+                  "label": "Recreate/Restore Ecological Zones",
+                  "labelShort": "REZ",
+                  "description": "",
+                  "enabled": false
+                },
+                {
+                  "id": 1,
+                  "name": "natureProtection",
+                  "label": "Nature Protection Regulations",
+                  "labelShort": "NPR",
+                  "description": "",
+                  "enabled": false
+                },
+                {
+                  "id": 3,
+                  "name": "urbanGreening",
+                  "label": "Urban Greening",
+                  "labelShort": "UG",
+                  "description": "",
+                  "enabled": true
+                }
+              ],
+              "state": {
+                "wildPollinators": 66,
+                "floralResources": 60,
+                "habitatResources": 45
+                } 
             },
             {
                 "id": 11,
@@ -98,8 +392,39 @@
                 "y": 2,
                 "K": 100,
                 "type": {
-                  "active": "Agricultural"
-                }
+                  "active": "Urban"
+                },
+                "response": [
+                  {
+                    "id": 0,
+                    "name": "restoration",
+                    "label": "Recreate/Restore Ecological Zones",
+                    "labelShort": "REZ",
+                    "description": "",
+                    "enabled": false
+                  },
+                  {
+                    "id": 1,
+                    "name": "natureProtection",
+                    "label": "Nature Protection Regulations",
+                    "labelShort": "NPR",
+                    "description": "",
+                    "enabled": false
+                  },
+                  {
+                    "id": 3,
+                    "name": "urbanGreening",
+                    "label": "Urban Greening",
+                    "labelShort": "UG",
+                    "description": "",
+                    "enabled": true
+                  }
+                ],
+                "state": {
+                  "wildPollinators": 54,
+                  "floralResources": 66,
+                  "habitatResources": 30
+                  } 
               },
               {
                 "id": 12,
@@ -107,8 +432,31 @@
                 "y": 2,
                 "K": 100,
                 "type": {
-                  "active": "Agricultural"
-                }
+                  "active": "Semi-natural"
+                },
+                "response": [
+                  {
+                    "id": 0,
+                    "name": "restoration",
+                    "label": "Recreate/Restore Ecological Zones",
+                    "labelShort": "REZ",
+                    "description": "",
+                    "enabled": false
+                  },
+                  {
+                    "id": 1,
+                    "name": "natureProtection",
+                    "label": "Nature Protection Regulations",
+                    "labelShort": "NPR",
+                    "description": "",
+                    "enabled": true
+                  }
+                ],
+                "state": {
+                  "wildPollinators": 75,
+                  "floralResources": 88,
+                  "habitatResources": 55
+                  } 
               },
             {
               "id": 13,
@@ -117,7 +465,38 @@
               "K": 100,
               "type": {
                 "active": "Agricultural"
-              }
+              },
+              "response": [
+                {
+                  "id": 0,
+                  "name": "restoration",
+                  "label": "Recreate/Restore Ecological Zones",
+                  "labelShort": "REZ",
+                  "description": "",
+                  "enabled": true
+                },
+                {
+                  "id": 1,
+                  "name": "natureProtection",
+                  "label": "Nature Protection Regulations",
+                  "labelShort": "NPR",
+                  "description": "",
+                  "enabled": false
+                },
+                {
+                  "id": 2,
+                  "name": "ecoIntensification",
+                  "label": "Ecological Intensification",
+                  "labelShort": "AEI",
+                  "description": "",
+                  "enabled": true
+                }
+              ],
+              "state": {
+                "wildPollinators": 55,
+                "floralResources": 60,
+                "habitatResources": 55
+                } 
             },
             {
                 "id": 14,
@@ -126,7 +505,38 @@
                 "K": 100,
                 "type": {
                   "active": "Agricultural"
-                }
+                },
+                "response": [
+                  {
+                    "id": 0,
+                    "name": "restoration",
+                    "label": "Recreate/Restore Ecological Zones",
+                    "labelShort": "REZ",
+                    "description": "",
+                    "enabled": true
+                  },
+                  {
+                    "id": 1,
+                    "name": "natureProtection",
+                    "label": "Nature Protection Regulations",
+                    "labelShort": "NPR",
+                    "description": "",
+                    "enabled": false
+                  },
+                  {
+                    "id": 2,
+                    "name": "ecoIntensification",
+                    "label": "Ecological Intensification",
+                    "labelShort": "AEI",
+                    "description": "",
+                    "enabled": true
+                  }
+                ],
+                "state": {
+                  "wildPollinators": 55,
+                  "floralResources": 60,
+                  "habitatResources": 36
+                  } 
               },
             {
               "id": 15,
@@ -135,7 +545,30 @@
               "K": 100,
               "type": {
                 "active": "Semi-natural"
-              }
+              },
+              "response": [
+                {
+                  "id": 0,
+                  "name": "restoration",
+                  "label": "Recreate/Restore Ecological Zones",
+                  "labelShort": "REZ",
+                  "description": "",
+                  "enabled": false
+                },
+                {
+                  "id": 1,
+                  "name": "natureProtection",
+                  "label": "Nature Protection Regulations",
+                  "labelShort": "NPR",
+                  "description": "",
+                  "enabled": true
+                }
+              ],
+              "state": {
+                "wildPollinators": 60,
+                "floralResources": 50,
+                "habitatResources": 56
+                } 
             },
             {
               "id": 16,
@@ -144,26 +577,72 @@
               "K": 100,
               "type": {
                 "active": "Semi-natural"
-              }
+              },
+              "response": [
+                {
+                  "id": 0,
+                  "name": "restoration",
+                  "label": "Recreate/Restore Ecological Zones",
+                  "labelShort": "REZ",
+                  "description": "",
+                  "enabled": false
+                },
+                {
+                  "id": 1,
+                  "name": "natureProtection",
+                  "label": "Nature Protection Regulations",
+                  "labelShort": "NPR",
+                  "description": "",
+                  "enabled": true
+                }
+              ],
+              "state": {
+                "wildPollinators": 65,
+                "floralResources": 71,
+                "habitatResources": 50
+                } 
             }
-          ]
-        },
-        {
-          "id": 1,
-          "score": 0,
-          "disabled": "disabled",
-          "landscape": []
-        },
-        {
-          "id": 2,
-          "score": 0,
-          "disabled": "disabled",
-          "landscape": []
-        },
-        {
-          "id": 3,
-          "score": 0,
-          "disabled": "disabled",
-          "landscape": []
-        }
+     ],
+     "impact": [
+      {
+        "id": 0,
+        "name": "cropPollinationProduction",
+        "label": "Crop Pollination and Production",
+        "value": 0
+      },
+      {
+        "id": 1,
+        "name": "economicValueChain",
+        "label": "Economic Value Chain",
+        "value": 0
+      },
+      {
+        "id": 2,
+        "name": "wildPlantPollination",
+        "label": "Wild Plant Pollination Services",
+        "value": 0
+      },
+      {
+        "id": 3,
+        "name": "aestheticValues",
+        "label": "Aesthetic Values",
+        "value": 0
+      }
+     ]
+  },
+  {
+    "id": 1,
+    "disabled": "disabled",
+    "landscape": []
+  },
+  {
+    "id": 2,
+    "disabled": "disabled",
+    "landscape": []
+  },
+  {
+    "id": 3,
+    "disabled": "disabled",
+    "landscape": []
+  }
 ]

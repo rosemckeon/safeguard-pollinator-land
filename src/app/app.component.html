@@ -3,21 +3,51 @@
     <router-outlet />
   </section>
   <section class="controls h-full w-1/4 p-10">
-    <h1 class="mb-2">This game has three rounds <button (click)="openGameInfo()"><ng-icon name="heroInformationCircleSolid"></ng-icon></button></h1>
+    @if (roundService.activeRound == 0) {
+      <h1 class="mb-2">This game has three rounds</h1>
+    }
     <div class="grid grid-cols-4 gap-2 mb-5">
       <app-round-details  *ngFor="let round of roundService.roundList" [round]="round"></app-round-details>
     </div>
-    <!-- include landscape status for active round here -->
-    @if(roundService.endRound != roundService.activeRound){
-      <p class="mb-5">You can make <strong>global descisions</strong> which affect all habitats of a particular type:</p>
-      
-      <app-global-responses />
-      <p class="my-10">You can also select habitat cells on the map (<ng-icon name="heroArrowLongLeft"></ng-icon>) and <strong>locally overide your global descisions</strong>.</p>
-      <p class="text-slate-100 mb-10"><strong>When you're totally done making descisions...</strong></p>
-      <button (click)="advanceTime()" class="button px-4 pt-2 pb-4">Advance time <ng-icon name="heroArrowRight"></ng-icon></button>
+    @if(roundService.endRound != roundService.activeRound) {
+      <p class="mb-5"><strong>Your aim is to improve pollinator numbers without making people unhappy </strong> <button (click)="openGameInfo()"><ng-icon name="heroInformationCircleSolid"></ng-icon></button></p>
+    }
+    @if (roundService.activeRound == 0) {
+      <p class="mb-5"><ng-icon name="heroArrowLeft"></ng-icon> Your landscape is made of three habitat types. The state of wild pollinator populations and their resources is shown on every square.</p>
+      <p class="mb-5">The overall state of your landscape has impacts on people <ng-icon name="heroArrowDown"></ng-icon></p>
+    }
+      <div class="round-impacts bg-indigo-900 p-5 mb-5">
+        @if(roundService.endRound != roundService.activeRound) {
+          <h2 class="mb-2"><strong>Landscape Impacts:</strong></h2>
+        } @else {
+          <h2 class="mb-2"><strong>Final Landscape Impacts:</strong></h2>
+        }
+        <ul id="impact-scores" class="list-none">
+          <li><span class="impact-score">{{ roundService.roundImpacts.cropPollinationProduction }}%</span> Crop Pollination & Production</li>
+          <li><span class="impact-score">{{ roundService.roundImpacts.economicValueChain }}%</span> Economic Value Chain (Farm2Fork)</li>
+          <li><span class="impact-score">{{ roundService.roundImpacts.wildPlantPollination }}%</span> Wild Plant Pollinations Services</li>
+          <li><span class="impact-score">{{ roundService.roundImpacts.aestheticValues }}%</span> Aesthetic Values</li>
+        </ul>
+        <!--<app-round-impacts  *ngFor="let impact of roundService.roundImpacts" [roundImpact]="impact"></app-round-impacts>-->
+      </div>
+    @if(roundService.endRound != roundService.activeRound) {
+      @if (roundService.activeRound == 0) {
+        <p class="mb-5">To change your impact result <ng-icon name="heroArrowUp"></ng-icon></p>
+        <p class="mb-5"><strong>Make responses</strong> which affect all habitats of a particular type <ng-icon name="heroArrowDown"></ng-icon></p>
+      } @else {
+        <p class="mb-5 mt-10"><strong>Make responses:</strong></p>
+      }
+        <app-global-responses />
+      <p class="mt-10 hidden">You can also select habitat cells on your landscape and <strong>locally overide your global descisions</strong>.</p>
+      @if (roundService.activeRound == 0) {
+        <p class="text-slate-100 my-10"><strong>When you're done making descisions...</strong></p>
+        <button (click)="advanceTime()" class="button px-4 pt-2 pb-4">Advance time <ng-icon name="heroArrowRight"></ng-icon></button>
+      } @else {
+        <button (click)="advanceTime()" class="button px-4 pt-2 pb-4 mt-10">Advance time <ng-icon name="heroArrowRight"></ng-icon></button>
+      }
       
     } @else {
-      @if(roundService.scenario == 'B'){
+      @if(roundService.scenario == 'B') {
         <a href="/B" class="button px-4 py-2">Play Again <ng-icon name="heroArrowPath"></ng-icon></a>
       } @else {
         <a href="/" class="button px-4 py-2">Play Again <ng-icon name="heroArrowPath"></ng-icon></a>

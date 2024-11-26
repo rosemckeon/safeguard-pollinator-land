@@ -2,9 +2,9 @@ import { Component, inject , OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HabitatService } from '../habitat.service';
 import { RoundService } from '../round.service';
-import { LandscapeComponent } from '../landscape/landscape.component';
+//import { LandscapeComponent } from '../landscape/landscape.component';
 import { FormControl, FormsModule, FormGroup, ReactiveFormsModule } from '@angular/forms';
-import { NgIconComponent, provideIcons } from '@ng-icons/core';
+import { provideIcons } from '@ng-icons/core';
 import { heroArrowUpOnSquare } from '@ng-icons/heroicons/outline';
 import { heroCheckCircleSolid } from '@ng-icons/heroicons/solid';
 import { ActivatedRoute } from '@angular/router';
@@ -18,7 +18,7 @@ import { MatButtonModule } from '@angular/material/button';
 @Component({
   selector: 'app-global-responses',
   standalone: true,
-  imports: [CommonModule, FormsModule, ReactiveFormsModule, NgIconComponent, LandscapeComponent, MatTabsModule, MatSlideToggleModule, MatButtonModule],
+  imports: [CommonModule, FormsModule, ReactiveFormsModule, MatTabsModule, MatSlideToggleModule, MatButtonModule],
   providers: [provideIcons({ heroCheckCircleSolid, heroArrowUpOnSquare})],
   templateUrl: './global-responses.component.html',
   styleUrl: './global-responses.component.scss'
@@ -68,7 +68,7 @@ export class GlobalResponsesComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  toggleChanges($event: MatSlideToggleChange):void {
+  async toggleChanges($event: MatSlideToggleChange): Promise<void> {
     console.log('Triggered toggleChanges from GlobalResponsesComponent')
     console.log($event.source.ariaLabel, $event.checked);
     switch($event.source.ariaLabel){
@@ -108,7 +108,7 @@ export class GlobalResponsesComponent implements OnInit {
         console.log('Warning: change triggered but no target found.')
     }
   }
-
+  
   submitGlobalResponses(globalResponsesForm: FormGroup){
     console.log('triggered submitGlobalResponses from GlobalResponsesComponent');
     console.log(JSON.stringify(globalResponsesForm.value, null, 2))

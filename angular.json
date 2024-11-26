@@ -40,15 +40,23 @@
             "prerender": true,
             "ssr": {
               "entry": "server.ts"
-            }
+            },
+            "allowedCommonJsDependencies": [
+              "javascript-natural-sort",
+              "tiny-emitter",
+              "escape-latex",
+              "seedrandom",
+              "@babel/runtime/helpers/extends",
+              "@babel/runtime/helpers/defineProperty"
+            ]
           },
           "configurations": {
             "production": {
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "500kB",
-                  "maximumError": "1MB"
+                  "maximumWarning": "1MB",
+                  "maximumError": "1.5MB"
                 },
                 {
                   "type": "anyComponentStyle",

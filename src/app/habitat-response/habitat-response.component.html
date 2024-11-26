@@ -1,5 +1,8 @@
-@if(habitatResponse.enabled){
-  <ul class="habitat-responses">
-    <li class="habitat-response-{{ habitatResponse.name }}"><ng-icon name="heroCheckCircleSolid" class="mr-1"></ng-icon> {{ habitatResponse.label }}</li>
-  </ul>
+<div class="p-5 text-center">
+  <strong>{{ habitatResponse.labelShort }}</strong><br />
+@if(habitatResponse.enabled){ 
+  <ng-icon name="heroCheckCircleSolid" class="mr-1"></ng-icon>
+} @else {
+  <ng-icon name="heroXCircleSolid" class="mr-1"></ng-icon>
 }
+</div>
