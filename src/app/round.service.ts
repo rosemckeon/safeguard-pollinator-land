@@ -299,8 +299,8 @@ export class RoundService {
         ));
 
         //console.log("Habitat wildPlantPollination", habitat.id, wildPlantPollination);
-        let maxEffect : number = 6.25;
-        let maxEffect2 : number = 7.14;
+        let maxEffect : number = Math.round(100/16, 3);
+        let maxEffect2 : number = Math.round(100/11, 3);
         landscapeWildPlantPollination.push(Math.round((Math.round(Math.mean(wildPlantPollination)) * 2 / 10) * maxEffect, 2));
         landscapeAestheticValues.push(Math.round((Math.round(Math.mean(aestheticValues)) * 2 / 10) * maxEffect, 2));
         landscapeCropPollinationProduction.push(Math.round((Math.round(Math.mean(cropPollinationProduction)) * 2 / 10) * maxEffect2, 2));

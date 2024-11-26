@@ -88,7 +88,7 @@
                 "y": 4,
                 "K": 100,
                 "type": {
-                  "active": "Urban"
+                  "active": "Agricultural"
                 },
                 "response": [
                   {
@@ -108,10 +108,10 @@
                     "enabled": false
                   },
                   {
-                    "id": 3,
-                    "name": "urbanGreening",
-                    "label": "Urban Greening",
-                    "labelShort": "UG",
+                    "id": 2,
+                    "name": "ecoIntensification",
+                    "label": "Ecological Intensification",
+                    "labelShort": "AEI",
                     "description": "",
                     "enabled": false
                   }
@@ -128,7 +128,7 @@
                 "y": 4,
                 "K": 100,
                 "type": {
-                  "active": "Urban"
+                  "active": "Semi-natural"
                 },
                 "response": [
                   {
@@ -146,20 +146,12 @@
                     "labelShort": "NPR",
                     "description": "",
                     "enabled": false
-                  },
-                  {
-                    "id": 3,
-                    "name": "urbanGreening",
-                    "label": "Urban Greening",
-                    "labelShort": "UG",
-                    "description": "",
-                    "enabled": false
                   }
                 ],
                 "state": {
-                  "wildPollinators": 9,
-                  "floralResources": 8,
-                  "habitatResources": 7
+                  "wildPollinators": 48,
+                  "floralResources": 55,
+                  "habitatResources": 20
                   } 
               },
             {
@@ -208,7 +200,7 @@
                 "y": 3,
                 "K": 100,
                 "type": {
-                  "active": "Agricultural"
+                  "active": "Urban"
                 },
                 "response": [
                   {
@@ -228,18 +220,18 @@
                     "enabled": false
                   },
                   {
-                    "id": 2,
-                    "name": "ecoIntensification",
-                    "label": "Ecological Intensification",
-                    "labelShort": "AEI",
+                    "id": 3,
+                    "name": "urbanGreening",
+                    "label": "Urban Greening",
+                    "labelShort": "UG",
                     "description": "",
                     "enabled": false
                   }
                 ],
                 "state": {
-                  "wildPollinators": 10,
-                  "floralResources": 18,
-                  "habitatResources": 9
+                  "wildPollinators": 5,
+                  "floralResources": 4,
+                  "habitatResources": 2
                   } 
               },
               {
@@ -277,9 +269,9 @@
                   }
                 ],
                 "state": {
-                  "wildPollinators": 4,
-                  "floralResources": 8,
-                  "habitatResources": 4
+                  "wildPollinators": 5,
+                  "floralResources": 4,
+                  "habitatResources": 2
                   } 
               },
             {
@@ -288,7 +280,7 @@
                 "y": 3,
                 "K": 100,
                 "type": {
-                  "active": "Urban"
+                  "active": "Semi-natural"
                 },
                 "response": [
                   {
@@ -306,20 +298,12 @@
                     "labelShort": "NPR",
                     "description": "",
                     "enabled": false
-                  },
-                  {
-                    "id": 3,
-                    "name": "urbanGreening",
-                    "label": "Urban Greening",
-                    "labelShort": "UG",
-                    "description": "",
-                    "enabled": false
                   }
                 ],
                 "state": {
-                  "wildPollinators": 3,
-                  "floralResources": 2,
-                  "habitatResources": 10
+                  "wildPollinators": 25,
+                  "floralResources": 30,
+                  "habitatResources": 55
                   } 
               },
             {
@@ -397,9 +381,9 @@
                 }
               ],
               "state": {
-                "wildPollinators": 22,
-                "floralResources": 25,
-                "habitatResources": 20
+                "wildPollinators": 7,
+                "floralResources": 8,
+                "habitatResources": 4
                 } 
             },
             {
@@ -408,7 +392,7 @@
                 "y": 2,
                 "K": 100,
                 "type": {
-                  "active": "Agricultural"
+                  "active": "Urban"
                 },
                 "response": [
                   {
@@ -428,18 +412,18 @@
                     "enabled": false
                   },
                   {
-                    "id": 2,
-                    "name": "ecoIntensification",
-                    "label": "Ecological Intensification",
-                    "labelShort": "AEI",
+                    "id": 3,
+                    "name": "urbanGreening",
+                    "label": "Urban Greening",
+                    "labelShort": "UG",
                     "description": "",
                     "enabled": false
                   }
                 ],
                 "state": {
-                  "wildPollinators": 0,
-                  "floralResources": 0,
-                  "habitatResources": 0
+                  "wildPollinators": 6,
+                  "floralResources": 2,
+                  "habitatResources": 3
                   } 
               },
               {
@@ -448,7 +432,7 @@
                 "y": 2,
                 "K": 100,
                 "type": {
-                  "active": "Agricultural"
+                  "active": "Semi-natural"
                 },
                 "response": [
                   {
@@ -466,20 +450,12 @@
                     "labelShort": "NPR",
                     "description": "",
                     "enabled": false
-                  },
-                  {
-                    "id": 2,
-                    "name": "ecoIntensification",
-                    "label": "Ecological Intensification",
-                    "labelShort": "AEI",
-                    "description": "",
-                    "enabled": false
                   }
                 ],
                 "state": {
-                  "wildPollinators": 0,
-                  "floralResources": 0,
-                  "habitatResources": 2
+                  "wildPollinators": 50,
+                  "floralResources": 50,
+                  "habitatResources": 50
                   } 
               },
             {
@@ -589,8 +565,8 @@
                 }
               ],
               "state": {
-                "wildPollinators": 50,
-                "floralResources": 50,
+                "wildPollinators": 30,
+                "floralResources": 32,
                 "habitatResources": 50
                 } 
             },
@@ -621,9 +597,9 @@
                 }
               ],
               "state": {
-                "wildPollinators": 50,
-                "floralResources": 50,
-                "habitatResources": 50
+                "wildPollinators": 35,
+                "floralResources": 30,
+                "habitatResources": 46
                 } 
             }
      ],
