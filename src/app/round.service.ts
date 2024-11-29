@@ -349,6 +349,7 @@ export class RoundService {
   }
 
   constructor() {
+    // loaded when service is injected.
   }
 
   async advanceTime(to: number): Promise<Round[]> {
