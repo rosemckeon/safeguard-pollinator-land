@@ -21,6 +21,7 @@ import { Round } from './round';
 // services
 import { HabitatService } from './habitat.service';
 import { RoundService } from './round.service';
+import { SaveDataService } from './save-data.service';
 // components
 import { LandscapeComponent } from './landscape/landscape.component';
 import { RoundDetailsComponent } from './round-details/round-details.component';
@@ -55,6 +56,7 @@ import { HabitatCount } from './habitat-count';
   styleUrl: './app.component.scss'
 })
 export class AppComponent implements OnInit {
+  saveDataService: SaveDataService = inject(SaveDataService);
   habitatService: HabitatService = inject(HabitatService);
   roundService: RoundService = inject(RoundService);
   @ViewChild(GlobalControlsComponent) globalControlsComponent?: GlobalControlsComponent;
@@ -107,6 +109,7 @@ export class AppComponent implements OnInit {
   }
 
   // this function is actionable from the AppComponent template
+  // it triggers on click of the 'advance time' button
   advanceTime(from = this.roundService.activeRound) {
     console.log('triggered advanceTime from AppComponent');
     console.log("Scenario in AppComponent advanceTime", this.roundService.scenario);
@@ -114,10 +117,13 @@ export class AppComponent implements OnInit {
       console.log('advanceTime from RoundService returned: ', roundList);
       // do something with the data after advancing time is complete
       // could remove loading animation here too
+      // check if we still need to play another round...
       if(this.roundService.endRound != this.roundService.activeRound){
         // this.resetGlobalControls();
       } else {
-        // save the complete round json file.
+        // if the game has finished...
+        // save the complete roundList along with scenario played.
+        this.saveDataService.savePlayerData(this.roundService.scenario!, roundList);
       }
     });
   }
