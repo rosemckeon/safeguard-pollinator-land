@@ -18,6 +18,7 @@ import {
 } from '@ng-icons/heroicons/solid';
 // interfaces
 import { Round } from './round';
+import { Habitat } from './habitat';
 // services
 import { HabitatService } from './habitat.service';
 import { RoundService } from './round.service';
@@ -110,22 +111,29 @@ export class AppComponent implements OnInit {
 
   // this function is actionable from the AppComponent template
   // it triggers on click of the 'advance time' button
-  advanceTime(from = this.roundService.activeRound) {
-    console.log('triggered advanceTime from AppComponent');
-    console.log("Scenario in AppComponent advanceTime", this.roundService.scenario);
-    this.roundService.advanceTime(from + 1).then((roundList: Round[]) => {
-      console.log('advanceTime from RoundService returned: ', roundList);
-      // do something with the data after advancing time is complete
-      // could remove loading animation here too
-      // check if we still need to play another round...
-      if(this.roundService.endRound != this.roundService.activeRound){
+  advanceTime(from : number, scenario : string, habitats : Habitat[], roundList : Round[]) {
+    // do something here to pause all other interactions - like a loading animation
+    // ******
+    console.log("AppComponent.advanceTime started", from, scenario, habitats, roundList);
+    let to : number = from + 1;
+    let newRoundList : Round[] | null = this.roundService.advanceTime(from, to, habitats, roundList);
+    // do something with the data after advancing time is complete
+    if ( newRoundList == null ) {
+      // array does not exist, is not an array, or is empty
+      // ⇒ do not attempt to process array
+      console.log("AppComponent.advanceTime conditions not met", newRoundList)
+    } else {
+      // newRoundList has been populated and we still need to play another round
+      if ( this.roundService.endRound != to ) {
         // this.resetGlobalControls();
       } else {
-        // if the game has finished...
-        // save the complete roundList along with scenario played.
-        this.saveDataService.savePlayerData(this.roundService.scenario!, roundList);
+        // Or the game has finished.
+        this.saveDataService.savePlayerData(scenario, newRoundList);
       }
-    });
+      console.log("AppComponent.advanceTime completed", this.roundService.activeRound, scenario, newRoundList);
+    }
+    // remove animation here
+    // ******
   }
 }
 

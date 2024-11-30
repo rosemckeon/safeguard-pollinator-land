@@ -41,9 +41,9 @@
       <p class="mt-10 hidden">You can also select habitat cells on your landscape and <strong>locally overide your global descisions</strong>.</p>
       @if (roundService.activeRound == 0) {
         <p class="text-slate-100 my-10"><strong>When you're done making descisions...</strong></p>
-        <button (click)="advanceTime()" class="button px-4 pt-2 pb-4">Advance time <ng-icon name="heroArrowRight"></ng-icon></button>
+        <button (click)="advanceTime(roundService.activeRound, roundService.scenario!, habitatService.habitatList, roundService.roundList)" class="button px-4 pt-2 pb-4">Advance time <ng-icon name="heroArrowRight"></ng-icon></button>
       } @else {
-        <button (click)="advanceTime()" class="button px-4 pt-2 pb-4 mt-10">Advance time <ng-icon name="heroArrowRight"></ng-icon></button>
+        <button (click)="advanceTime(roundService.activeRound, roundService.scenario!, habitatService.habitatList, roundService.roundList)" class="button px-4 pt-2 pb-4 mt-10">Advance time <ng-icon name="heroArrowRight"></ng-icon></button>
       }
       
     } @else {

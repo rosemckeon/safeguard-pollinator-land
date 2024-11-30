@@ -4,6 +4,7 @@ import { inject, Injectable} from '@angular/core';
 import * as Math from 'mathjs';
 // components
 import { HabitatService } from './habitat.service';
+import { SaveDataService } from './save-data.service';
 // interfaces 
 import { Round } from './round';
 //import { RoundImpact } from './round-impact';
@@ -14,24 +15,34 @@ import RoundListB from '../data/scenario-B.json';
 import stateToImpactValues from '../data/state-on-impact.json';
 import { Impacts } from './impacts';
 import { ImpactValues } from './impact-values';
+import { HabitatResponse } from './habitat-response';
 
 @Injectable({
   providedIn: 'root'
 })
 export class RoundService {
+  //private readonly localService: LocalService = inject(LocalService);
+  saveDataService: SaveDataService = inject(SaveDataService);
   habitatService: HabitatService = inject(HabitatService);
-  Math = Math;
+  Math = Math; // needed to use js Math functions
   scenario?: string;
   roundList: Round[] = [];
-  roundImpacts: Impacts = this.getStartingImpacts();
+  roundImpacts: Impacts;
   //roundImpacts: RoundImpact[] = [];
-  roundImpactsCalculated: boolean = false;
+  //roundImpactsCalculated: boolean = false;
   activeRound!: number;
   endRound!: number;
 
+  constructor() {
+    // loaded when service is injected.
+    this.roundImpacts = this.getStartingImpacts();
+  }
+
+
   async getStartingScenario(value: string): Promise<Round[]> {
-    console.log("triggered getStartingScenario from RoundService", value);
-    this.scenario = value;
+    console.log("roundService.getStartingScenario", value);
+    //this.scenario = value;
+    this.saveDataService.saveScenario(value);
     if(value == "A"){
       this.roundList = RoundListA;
     } else {
@@ -41,28 +52,35 @@ export class RoundService {
     // console.log('Active Round: ', this.activeRound);
     this.endRound = this.roundList.length - 1;
     // console.log('End Round: ', this.endRound);
-    
     //this.habitatService.getLandscape(this.activeRound);
     this.habitatService.habitatList = this.roundList[this.activeRound].landscape;
+    this.saveDataService.saveLandscape(this.habitatService.habitatList);
+    this.habitatService.globalResponses = this.habitatService.habitatList;
+    this.saveDataService.saveGlobalResponses(this.habitatService.globalResponses);
+    this.habitatService.localResponses = this.habitatService.habitatList;
+    this.saveDataService.saveLocalResponses(this.habitatService.localResponses);
     //this.habitatService.habitatGlobalUpdateList = this.roundList[this.activeRound].landscape;
     // console.log('Active Habitat Types: ', this.habitatService.getActiveHabitatTypes(this.roundList[this.activeRound].landscape));
+    this.saveDataService.saveRoundList(this.roundList);
     return(this.roundList);
   }
  
-  async updateDisabledRounds(roundList: Round[]): Promise<Round[]> {
-    console.log('triggered updateDisabledRounds from RoundService');
+  // set the specified round to be active by altering disabled values on all rounds
+  updateDisabledRounds(round: number, roundList: Round[]): Round[] {
+    console.log('roundService.updateDisabledRounds', round, roundList);
+    let newRoundList : Round[] = roundList;
     for (var i = 0; i <  roundList.length; i++) {
-      if(this.activeRound == roundList[i].id){
-        roundList[i].disabled = '';
+      if(round == roundList[i].id){
+        newRoundList[i].disabled = '';
       } else {
-        roundList[i].disabled = 'disabled';
+        newRoundList[i].disabled = 'disabled';
       }
     }
-    return roundList;
+    return newRoundList;
   }
 
   getStateEffectOnImpactValues(habitatType: string, stateName: string, stateValue: number, impactName: string): ImpactValues {
-    //console.log('Triggered getStateEffectOnImpactValues from RoundService: ', habitatType, stateName, stateValue, impactName);
+    //console.log("roundService.getStateEffectOnImpactValues", habitatType, stateName, stateValue, impactName);
     let h : number | undefined;
     let s : number | undefined;
     let i : number | undefined;
@@ -171,6 +189,7 @@ export class RoundService {
       // Each score becomes proportional to the percentage of the state
       "values": result.map((value: number) => {return Math.round(value * (stateValue / 100), 2)})
     }
+    //console.log("roundService.getStateEffectOnImpactValues", output);
     return output;
   }
 
@@ -185,13 +204,15 @@ export class RoundService {
       "wildPlantPollination": 0,
       "aestheticValues": 0
     }
+    console.log("roundService.getStartingImpacts", impacts);
     return impacts;
   }
 
   // Once there are habitats set to use, we can do something more complicated to get impacts
   // This needs to be done in the app component after the scenario is set, and
   // on advanceTime once updates to the active habitats have been made.
-  getImpacts(activeRound: number, habitats: Habitat[]): Impacts {
+  getImpacts(habitats: Habitat[]): Impacts {
+    console.log("roundService.getImpacts", habitats);
     // do something with the habitats
     let effects : Impacts = this.getHabitatEffects(habitats);
     // get the current impacts scores to change if we want to do something additive
@@ -348,34 +369,108 @@ export class RoundService {
     return impacts;
   }
 
-  constructor() {
-    // loaded when service is injected.
+  // assign impact values to a particular round
+  saveImpacts(round: number, impacts: Impacts, roundList: Round[]): Round[]{
+    // assign the impacts to the round
+    roundList[round].impacts = impacts;
+    let newRoundList : Round[] = roundList;
+    this.saveDataService.saveRoundList(newRoundList);
+    console.log("roundService.saveImpacts", this.saveDataService.getRoundList());
+    return newRoundList;
   }
 
-  async advanceTime(to: number): Promise<Round[]> {
-    console.log('triggered advanceTime from RoundService: ', to);
-    // do something here to pause all other interactions.
+  // assign habitat state to a particular round
+  saveLandscape(round: number, habitats: Habitat[], roundList: Round[]): Round[]{
+    // assign the landscape to the round
+    roundList[round].landscape = habitats;
+    let newRoundList : Round[] = roundList;
+    this.saveDataService.saveRoundList(newRoundList);
+    console.log("roundService.saveLandscape", this.saveDataService.getRoundList());
+    return newRoundList;
+  }
 
-    // store all the changes to habitatList in the roundList the finished active round
-    this.roundList[this.activeRound].landscape = this.habitatService.habitatList;
-    // then update the active round
-    this.activeRound = to;
-    this.updateDisabledRounds(this.roundList).then((roundList: Round[]) => {
-      this.roundList = roundList;
-    });
+  // take response descisions from habitats and enable them on a specific round
+  makeResponses(round: number, habitats: Habitat[], roundList: Round[]): Round[] {
+    // prepare a new habitat list object to update
+    let newHabitats : Habitat[] = habitats;
+    // loop through habitats
+    for (var h = 0; h < habitats.length; h++) {
+      // then loop through responses
+      for (var r = 0; r < habitats[h].response!.length; r++){
+        // apple globalChange followed by localChange to newHabitats array
+        if(habitats[h].response![r].hasOwnProperty('globalChange')){
+          newHabitats[h].response![r].enabled = habitats[h].response![r].globalChange!
+          // could reset the values here but i think keeping state will be nicer to use
+        }
+        // localchange overrrides globalChange
+        if(habitats[h].response![r].hasOwnProperty('localChange')){
+          newHabitats[h].response![r].enabled = habitats[h].response![r].localChange!
+          // do we want to keep state here too?
+        }
+      }
+    }
+    // then update the roundList provided to put the newHabitats in the chosen round
+    // saveLandscape utilises localStorage
+    let newRoundList : Round[] = this.saveLandscape(round, newHabitats, roundList);
+    console.log('roundService.applyResponses', round, this.saveDataService.getRoundList());
+    return newRoundList;
+  }
+
+
+  // applies all the descisions
+  advanceTime(from: number, to: number, habitats: Habitat[], roundList: Round[]): Round[] | null {
+    console.log('roundService.advanceTime', from, to, habitats, roundList);
+   
+    let globalResponses : Habitat[] | null = this.saveDataService.getGlobalResponses();
+    //let localResponses : Habitat[] | null = this.saveDataService.getLocalResponses();
+    if(globalResponses != null) {
+      let savedResponses: Round[] | null = this.saveLandscape(from, globalResponses, roundList);
+      console.log('roundService.advanceTime savedResponses', from, savedResponses);
+      // save the current landscape in the current habitat
+      // records descisions without enabling responses.
+
+      // Apply responses to enable them on the new round (saves landscape in round to)
+      let appliedResponses = this.makeResponses(to, habitats, savedResponses);
+      // Calculate new habitat state values based on the applied responses 
+      let newHabitats : Habitat[] = this.habitatService.updateStates(appliedResponses[to].landscape);
+      // Save the new landscape values in the next round
+      let appliedLandscape = this.saveLandscape(to, newHabitats, appliedResponses);
+      // Recalculate the impact scores based on state values
+      let newImpacts: Impacts = this.getImpacts(newHabitats);
+      // Save the new impacts scores (saves newRoundList to localStorage)
+      let appliedImpacts = this.saveImpacts(to, newImpacts, appliedLandscape);
+      // Set the new round as active 
+      let newRoundList: Round[] = this.updateDisabledRounds(to, appliedImpacts);
+      
+      if ( !Array.isArray(newRoundList) || !newRoundList.length || newImpacts == undefined ) {
+        // array/s do not exist, is not an array, or is empty
+        // ⇒ do not attempt to process array
+        console.log("roundService.advanceTime conditions not met")
+      } else {
+        // update roundService variables
+        this.roundImpacts = newImpacts;
+        this.roundList = newRoundList;
+        this.activeRound = to;
+        console.log("roundService.advanceTime updated roundService variables", newImpacts, newRoundList, to);
+        return newRoundList;
+      }
+    } 
+    return null;
+    
     //this.habitatService.applyGlobalHabitatChanges(this.habitatService.habitatList);
-    // store all the changes to habitatList in the roundList for the next active round (so we have a starting state for that round)
-    this.roundList[this.activeRound].landscape = this.habitatService.habitatList;
-    // do the same with round impacts...
-    //this.roundList[this.activeRound].impacts = this.roundImpacts;
+    // store all the changes in the roundList for the next active round (so we have a starting state for that round)
+    //this.roundList[to].landscape = this.habitatService.habitatList;
+    //this.roundList[to].impacts = this.roundImpacts;
     // apply responses so they are active on the next round
     // might make this a round service function that triggers a habitat service function internally.
     // to do that I need to regig when things are happening. 
     // so that the active round is only updated after everything else is processed.
-
-    this.habitatService.applyResponses(this.habitatService.habitatList).then((habitats : Habitat[]) => {
+/*
+    // apply responses doesn't use activeRound - it just mutates habitats, enabling/disabling responses
+    this.habitatService.applyResponses(this.activeRound, this.habitatService.habitatList).then((habitats : Habitat[]) => {
       console.log('applyResponses completed: ', habitats); // should show all habitats with response enabled values copied from global/localChange. (confirmed)
-      // once all the responses are enabled/disabled we pass the habitatList to updateStates
+      // once all the responses are enabled/disabled we pass the habitatList to updateStates to get state value changes
+      // this also doesn't need activeRound but we want it set to getImpacts after the habitat states are resolved.
       this.habitatService.updateStates(habitats).then((habitats: Habitat[]) => {
         console.log('updateStates completed: ', habitats); // should show all habitats with state values adjusted (confirmed)
         // when all those maths are done we save the service habitatList so it shows as active in LandscapeComponent
@@ -391,14 +486,14 @@ export class RoundService {
           // and update the service variable on completion
           this.roundImpacts = roundImpacts;
         });
-        */
+        *//*
       });
     });
     //this.roundList[this.activeRound].activeHabitatTypes = this.habitatService.getActiveHabitatTypes(this.habitatService.habitatList);
     // why have i copied it back the other way??? don't think we need this
     //this.habitatService.habitatList = this.roundList[this.activeRound].landscape;
-    console.log('New Active Round: ', this.activeRound);   
-    console.log(this.roundList[this.activeRound]);
+    console.log('New Active Round: ', this.roundList[this.activeRound]);  
     return(this.roundList);
+    */
   }
 }

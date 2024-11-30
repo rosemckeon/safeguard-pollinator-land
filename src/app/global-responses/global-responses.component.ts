@@ -69,8 +69,7 @@ export class GlobalResponsesComponent implements OnInit {
   ngOnInit(): void {}
 
   async toggleChanges($event: MatSlideToggleChange): Promise<void> {
-    console.log('Triggered toggleChanges from GlobalResponsesComponent')
-    console.log($event.source.ariaLabel, $event.checked);
+    console.log('GlobalResponsesComponent.toggleChanges', $event.source.ariaLabel, $event.checked);
     switch($event.source.ariaLabel){
       case('globalSeminaturalRestoration'):
         this.habitatService.setGlobalResponseChange('Semi-natural', this.restorationName, $event.checked);
@@ -110,7 +109,6 @@ export class GlobalResponsesComponent implements OnInit {
   }
   
   submitGlobalResponses(globalResponsesForm: FormGroup){
-    console.log('triggered submitGlobalResponses from GlobalResponsesComponent');
-    console.log(JSON.stringify(globalResponsesForm.value, null, 2))
+    console.log('GlobalResponsesComponent.submitGlobalResponses', JSON.stringify(globalResponsesForm.value, null, 2));
   }
 }

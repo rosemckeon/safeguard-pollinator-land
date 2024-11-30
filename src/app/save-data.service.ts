@@ -1,14 +1,17 @@
 // @angular
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { HttpClient, HttpHeaders} from '@angular/common/http'; // also setup in app.config.ts
 // interfaces
 import { Round } from './round';
+import { Habitat } from './habitat';
 import { PlayedGame } from './played-game';
+import { LocalService } from './local.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SaveDataService {
+  private readonly localService: LocalService = inject(LocalService);
 
   api_url : string;
   httpOptions = {
@@ -24,8 +27,47 @@ export class SaveDataService {
     //this.http available here
     this.api_url = "http://api.rosemckeon.uk/elo2024/";
   }
-  // and also in any service functions this.http is available 
   
+
+  // By wrapping the localService functions we can specify type for specific keys
+  // Might be good to move all the service variables to localStorage.
+  // probably more efficient
+  saveScenario(value: string){
+    // we could also do checks on the value here
+    this.localService.set("scenario", value);
+  }
+  getScenario(): string | null {
+    return this.localService.get<string>('scenario');
+  }
+
+  saveRoundList(value: Round[]){
+    this.localService.set("roundList", value);
+  }
+  getRoundList(): string | null {
+    return this.localService.get<string>('roundList');
+  }
+
+  saveLandscape(value: Habitat[]) {
+    this.localService.set("landscape", value);
+  }
+  getLandscape(): string | null {
+    return this.localService.get<string>('landscape');
+  }
+
+  saveGlobalResponses(value: Habitat[]) {
+    this.localService.set("globalResponses", value);
+  }
+  getGlobalResponses(): Habitat[] | null {
+    return this.localService.get<Habitat[]>('globalResponses');
+  }
+
+  saveLocalResponses(value: Habitat[]) {
+    this.localService.set("localResponses", value);
+  }
+  getLocalResponses(): string | null {
+    return this.localService.get<string>('localResponses');
+  }
+
   savePlayerData(scenario: string, playerData: Round[]): any { 
     console.log("Saving player data", scenario, playerData); 
     // the amount of security this adds is a bit rubbish given that these scripts are publicly available
