@@ -1,8 +1,34 @@
-<div class="p-5 text-center">
-  <strong>{{ habitatResponse.labelShort }}</strong><br />
+
 @if(habitatResponse.enabled){ 
-  <ng-icon name="heroCheckCircleSolid" class="mr-1"></ng-icon>
+  <div class="habitat-response reponse-enabled response-{{ habitatResponse.labelShort.toLowerCase() }} w-20 h-20 text-center">
+    @if(habitatResponse.name == "restoration"){
+      <img src="./assets/restore-ecological-zones-colour.svg" alt="{{ habitatResponse.label }}" title="{{ habitatResponse.label }}" />
+    }
+    @if(habitatResponse.name == "natureProtection"){
+      <img src="./assets/nature-protection-colour.svg" alt="{{ habitatResponse.label }}" title="{{ habitatResponse.label }}" />
+    }
+    @if(habitatResponse.name == "ecoIntensification"){
+      <img src="./assets/ecological-intensification-colour.svg" alt="{{ habitatResponse.label }}" title="{{ habitatResponse.label }}" />
+    }
+    @if(habitatResponse.name == "urbanGreening"){
+      <img src="./assets/urban-greening-colour.svg" alt="{{ habitatResponse.label }}" title="{{ habitatResponse.label }}" />
+    }
+  </div>
+  <!--<ng-icon name="heroCheckCircleSolid" class="mr-1"></ng-icon>-->
 } @else {
-  <ng-icon name="heroXCircleSolid" class="mr-1"></ng-icon>
+  <div class="habitat-response response-disabled response-{{ habitatResponse.labelShort.toLowerCase() }} w-20 h-20 text-center">
+    @if(habitatResponse.name == "restoration"){
+      <img src="./assets/restore-ecological-zones.svg" alt="{{ habitatResponse.label }}" title="{{ habitatResponse.label }}" />
+    }
+    @if(habitatResponse.name == "natureProtection"){
+      <img src="./assets/nature-protection.svg" alt="{{ habitatResponse.label }}" title="{{ habitatResponse.label }}" />
+    }
+    @if(habitatResponse.name == "ecoIntensification"){
+      <img src="./assets/ecological-intensification.svg" alt="{{ habitatResponse.label }}" title="{{ habitatResponse.label }}" />
+    }
+    @if(habitatResponse.name == "urbanGreening"){
+      <img src="./assets/urban-greening.svg" alt="{{ habitatResponse.label }}" title="{{ habitatResponse.label }}" />
+    }
+  </div>
+  <!--<ng-icon name="heroXCircleSolid" class="mr-1"></ng-icon>-->
 }
-</div>

@@ -1,4 +1,10 @@
 ::ng-deep {
+    .habitat-response {
+      opacity: 1;
+      &.response-disabled img {
+        opacity: 0.4;
+      }
+    }
     .mat-mdc-tab-label-container {
         @apply border-indigo-900;
     }
