@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { HabitatService } from '../habitat.service';
 import { RoundService } from '../round.service';
 //import { LandscapeComponent } from '../landscape/landscape.component';
-import { FormControl, FormsModule, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { FormControl, FormsModule, FormGroup, ReactiveFormsModule, FormBuilder } from '@angular/forms';
 import { provideIcons } from '@ng-icons/core';
 import { heroArrowUpOnSquare } from '@ng-icons/heroicons/outline';
 import { heroCheckCircleSolid } from '@ng-icons/heroicons/solid';
@@ -28,6 +28,8 @@ export class GlobalResponsesComponent implements OnInit {
   habitatService = inject(HabitatService);
   roundService = inject(RoundService);
   
+  globalResponsesForm: FormGroup;
+  /*
   globalResponsesForm = new FormGroup({
     globalSeminaturalRestoration: new FormControl(''),
     globalAgriculturalRestoration: new FormControl(''),
@@ -40,30 +42,71 @@ export class GlobalResponsesComponent implements OnInit {
     globalAgriculturalEcoIntensification: new FormControl(''),
     globalUrbanGreening: new FormControl(''),
   });
+  */
   
-  isGlobalSeminaturalRestorationChecked: boolean = false;
-  isGlobalAgriculturalRestorationChecked: boolean = false;
-  isGlobalUrbanRestorationChecked: boolean = false;
+  isGlobalSeminaturalRestorationChecked: boolean;
+  isGlobalAgriculturalRestorationChecked: boolean;
+  isGlobalUrbanRestorationChecked: boolean;
 
-  isGlobalSeminaturalNatProtRegChecked: boolean = false;
-  isGlobalAgriculturalNatProtRegChecked: boolean = false;
-  isGlobalUrbanNatProtRegChecked: boolean = false;
+  isGlobalSeminaturalNatProtRegChecked: boolean;
+  isGlobalAgriculturalNatProtRegChecked: boolean;
+  isGlobalUrbanNatProtRegChecked: boolean;
 
-  isGlobalUrbanGreeningChecked: boolean = false;
-  isGlobalAgriculturalEcoIntensificationChecked: boolean = false;
-
-  restorationLabel = "Recreate/Restore Ecological Zones";
-  natureProtectionLabel = "Nature Protection Regulations";
-  urbanGreeningLabel = "Urban Greening";
-  ecoIntensificationLabel = "Ecological intensification";
-
-  restorationName = "restoration";
-  natureProtectionName = "natureProtection";
-  urbanGreeningName = "urbanGreening";
-  ecoIntensificationName = "ecoIntensification";
+  isGlobalUrbanGreeningChecked: boolean;
+  isGlobalAgriculturalEcoIntensificationChecked: boolean;
   
-  constructor() {
-    //this.globalResponsesForm.controls.globalSeminaturalRestoration.disabled == true;
+  restorationLabel: string = "Recreate/Restore Ecological Zones";
+  natureProtectionLabel: string = "Nature Protection Regulations";
+  urbanGreeningLabel: string = "Urban Greening";
+  ecoIntensificationLabel: string = "Ecological intensification";
+
+  restorationName: string = "restoration";
+  natureProtectionName: string = "natureProtection";
+  urbanGreeningName: string = "urbanGreening";
+  ecoIntensificationName: string = "ecoIntensification";
+  
+ 
+  constructor(formBuilder: FormBuilder) {
+    //console.log("GlobalResponseComponent constructor scenario", this.roundService.scenario);
+    if (this.roundService.scenario == "B") {
+      this.isGlobalSeminaturalRestorationChecked = true;
+      this.isGlobalAgriculturalRestorationChecked = true;
+      this.isGlobalUrbanRestorationChecked = true;
+    
+      this.isGlobalSeminaturalNatProtRegChecked = true;
+      this.isGlobalAgriculturalNatProtRegChecked = true;
+      this.isGlobalUrbanNatProtRegChecked = true;
+    
+      this.isGlobalUrbanGreeningChecked = true;
+      this.isGlobalAgriculturalEcoIntensificationChecked = true;
+    } else {
+      this.isGlobalSeminaturalRestorationChecked = false;
+      this.isGlobalAgriculturalRestorationChecked = false;
+      this.isGlobalUrbanRestorationChecked = false;
+    
+      this.isGlobalSeminaturalNatProtRegChecked = false;
+      this.isGlobalAgriculturalNatProtRegChecked = false;
+      this.isGlobalUrbanNatProtRegChecked = false;
+    
+      this.isGlobalUrbanGreeningChecked = false;
+      this.isGlobalAgriculturalEcoIntensificationChecked = false;
+    }
+    // now make sure those checked values are honoured by the the formgroup
+    // by initialising it all here in the constructor
+    this.globalResponsesForm = formBuilder.group({
+      globalSeminaturalRestoration: [this.isGlobalSeminaturalRestorationChecked], 
+      globalAgriculturalRestoration: [this.isGlobalAgriculturalRestorationChecked], 
+      globalUrbanRestoration: [this.isGlobalUrbanRestorationChecked], 
+
+      globalSeminaturalNatProtReg: [this.isGlobalSeminaturalNatProtRegChecked], 
+      globalAgriculturalNatProtReg: [this.isGlobalAgriculturalNatProtRegChecked], 
+      globalUrbanNatProtReg: [this.isGlobalUrbanNatProtRegChecked], 
+
+      globalAgriculturalEcoIntensification: [this.isGlobalAgriculturalEcoIntensificationChecked], 
+      globalUrbanGreening: [this.isGlobalUrbanGreeningChecked], 
+    });
+    // alternative way -> patchValue ; after the form is initialized and you want to set the values of the slider, you can use patchvalue like so
+    // this.globalResponsesForm.patchValue({globalSeminaturalRestoration: true, globalAgriculturalRestoration: false});
   }
 
   ngOnInit(): void {}

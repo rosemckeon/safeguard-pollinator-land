@@ -45,8 +45,12 @@ export class RoundService {
     this.saveDataService.saveScenario(value);
     if(value == "A"){
       this.roundList = RoundListA;
+      this.scenario = "A";
+      this.saveDataService.saveScenario("A");
     } else {
       this.roundList = RoundListB;
+      this.scenario = "B";
+      this.saveDataService.saveScenario("B");
     }
     this.activeRound = 0;
     // console.log('Active Round: ', this.activeRound);
