@@ -1,4 +1,5 @@
-<div id="habitat_{{ habitat.id }}" class="habitat {{ habitat.type.active.toLowerCase() }} h-full flex items-center justify-center p-5 border-2">
+<div id="habitat_{{ habitat.id }}" class="habitat-container h-full">
+  <div class="habitat {{ habitat.type.active.toLowerCase() }} h-full w-full flex items-center justify-center p-5">
     <div class="align-text-middle grid grid-cols-3 grid-rows-2">
 
       <div class="wildPollinators p-5 text-center"><strong>WP</strong><br />{{ habitat.state?.wildPollinators }}%</div>
@@ -10,5 +11,6 @@
       @if(habitat.type.hasOwnProperty('globalChange')){
         <div id="habitatChange_{{habitat.id}}" class="habitat-change {{ habitat.type.globalChange!.toLowerCase() }} text-center inline-block size-24 m-5"><span class="text-sm">{{ habitat.type.globalChange! }}</span></div>
       }
+  </div>
   </div>
 </div>

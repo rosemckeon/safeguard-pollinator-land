@@ -99,25 +99,6 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
       @apply bg-stone-500;
       @apply text-stone-200;
     }
-    .habitat {
-      &.semi-natural {
-        @apply hover:bg-lime-600;
-      }
-      &.agricultural {
-        @apply hover:bg-amber-400;
-      }
-      &.urban {
-        @apply hover:bg-stone-400;
-      }
-      &:hover {
-        @apply border-indigo-600;
-        @apply text-indigo-700;
-        @apply cursor-pointer;
-      }
-      &:focus {
-        @apply border-indigo-600;
-      }
-    }
     #global_controls select {
       &.semi-natural {
         @apply enabled:hover:bg-lime-300;

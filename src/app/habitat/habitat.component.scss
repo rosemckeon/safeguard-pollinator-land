@@ -2,4 +2,39 @@
     .mdc-linear-progress__bar-inner {
         @apply border-slate-200 #{!important};
     }
+    .habitat-container {
+        border: 1px solid black;
+    }
+    .habitat {
+        //background-color: #ffffff;
+        //background-color: rgb(171, 215, 237);
+        //background-image: linear-gradient(rgb(171, 215, 237), white);
+        background-size: 110%;
+        background-position: bottom center;
+        background-repeat: no-repeat;
+        &.semi-natural {
+          background-image: url("^./../../public/assets/bg-seminatural.svg");
+          @apply hover:bg-lime-200;
+          border: 6px solid #027B3C;
+        }
+        &.agricultural {
+          background-image: url("^./../../public/assets/bg-agricultural.svg");
+          @apply hover:bg-amber-100;
+          border: 6px solid #FDC906;
+        }
+        &.urban {
+          background-color: #94948B;
+          background-image: url("^./../../public/assets/bg-urban.svg");
+          @apply hover:bg-stone-200;
+          border: 6px solid #6B6B66;
+        }
+        &:hover {
+          @apply border-indigo-600;
+          @apply text-indigo-700;
+          @apply cursor-pointer;
+        }
+        &:focus {
+          @apply border-indigo-600;
+        }
+      }
 }
