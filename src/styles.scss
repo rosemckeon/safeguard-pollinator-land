@@ -13,28 +13,41 @@
 @tailwind components;
 @tailwind utilities;
 
-/*
-$game-theme: mat.define-theme((
- color: (
-    theme-type: light,
-    primary: mat.$violet-palette,
-  ),
-));
-*/
-
 
 // Include theme styles for core and each component used in your app.
 // Alternatively, you can import and @include the theme mixins for each component
 // that you are using.
-:root {
+//:root {
   //@include mat.core-theme($game-theme);
   //@include mat.slide-toggle-theme($game-theme);
   //@include mat.slide-tab-theme($game-theme);
   //@include mat.button-theme(m3-theme.$light-theme);
   //@include mat.all-component-themes(m3-theme.$light-theme);
   //@include mat.all-component-themes($game-theme);
-}
-
+//}
+// Customize the entire app. Change :root to your selector if you want to scope the styles.
+/*
+:root {
+  $game-theme: mat.define-theme((
+  color: (
+     theme-type: light,
+     primary: mat.$orange-palette,
+   ),
+ ));
+ @include mat.all-component-themes($game-theme);
+ //@include mat.slide-toggle-theme($game-theme);
+  @include mat.tabs-overrides((
+    active-indicator-height: 0px,
+    divider-height: 0px,
+    inactive-label-text-color: black,
+    inactive-focus-label-text-color: black,
+    inactive-hover-label-text-color: black,
+    active-label-text-color: #4F46E5,
+    active-focus-label-text-color: #4F46E5,
+    active-hover-label-text-color: #4F46E5
+  ));
+  }
+*/
 //@import 'tailwindcss/base';
 //@import 'tailwindcss/components';
 //@import 'tailwindcss/utilities';
@@ -49,6 +62,7 @@ $game-theme: mat.define-theme((
 /* You can add global styles to this file, and also import other style files */
 
 @import './app/styles/tw-preflight.scss';
+
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
@@ -69,59 +83,27 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
       @apply text-2xl;
     }
     button ng-icon {
-      @apply hover:text-indigo-400;
+      //@apply hover:text-indigo-400;
     }
     .button,
     .mat-mdc-button:not(:disabled) {
-      @apply bg-indigo-600;
-      @apply text-slate-200 #{!important};
-      @apply hover:bg-slate-200 #{!important};
-      @apply border-indigo-600 border-2;
-      @apply hover:text-indigo-600 #{!important};
+      background-color: #ff7d14;
+      border: 2px solid black;
+      color: black;
+      font-weight: 500;
       @apply hover:shadow-md;
-      @apply rounded-lg
+      @apply rounded-lg;
+      &:hover {
+        background-color: #fdc906;
+      }
     }
-    .semi-natural,
-    .mat-mdc-tab.semi-natural {
-      @apply bg-lime-700;
-      @apply text-lime-200;
-      @apply border-lime-700;
+    .semi-natural {
+      background-color: #bde08d;
     }
-    .agricultural,
-    .mat-mdc-tab.agricultural {
-      @apply bg-amber-500;
-      @apply text-amber-950;
-      @apply border-amber-500;
+    .agricultural {
+      background-color: #ffe68e;
     }
-    .urban,
-    .mat-mdc-tab.urban {
-      @apply border-stone-500;
-      @apply bg-stone-500;
-      @apply text-stone-200;
+    .urban {
+      background-color: #b7b7ac;
     }
-    #global_controls select {
-      &.semi-natural {
-        @apply enabled:hover:bg-lime-300;
-      }
-      &.agricultural {
-        @apply enabled:hover:bg-amber-300;
-      }
-      &.urban {
-        @apply enabled:hover:bg-stone-300;
-      }
-      &:hover:not([disabled]){
-        @apply border-indigo-600;
-        @apply text-indigo-700;
-        @apply cursor-pointer;
-      }
-      &:focus {
-        @apply border-indigo-600;
-      }
-      .habitat-change {
-          &.semi-natural, &.agricultural, &.urban {
-             @apply border-2;
-             @apply border-slate-800;
-          }
-      }
-  }
 }

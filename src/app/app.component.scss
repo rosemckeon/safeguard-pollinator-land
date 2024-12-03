@@ -1,16 +1,36 @@
 ::ng-deep {
+    .controls {
+        background-color: #AADFE9;
+        color: #203235;
+        .round-impacts {
+            background-color: #d5edf2;
+        }
+        .bee-icon {
+            display: block;
+            background-image: url("^./../../public/assets/bee-colour.svg");
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-position: top right;
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            top: 0;
+            right: -10px;
+            z-index: 10;
+        }
+    }
     .mat-mdc-dialog-surface {
-        @apply bg-slate-900 #{!important};
+        //@apply bg-slate-900 #{!important};
         //background-color: red #{!important};
     }
     .mat-mdc-dialog-container {
         .mat-mdc-dialog-title,
         .mat-mdc-dialog-content {
-            @apply text-slate-300 #{!important};
+            //@apply text-slate-300 #{!important};
         }
     }
     .cdk-overlay-dark-backdrop {
-        @apply bg-slate-950;
-        @apply opacity-60 #{!important};
+        //@apply bg-slate-950;
+        //@apply opacity-60 #{!important};
     }
 }

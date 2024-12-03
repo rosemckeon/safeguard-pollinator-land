@@ -1,0 +1,94 @@
+::ng-deep {
+
+    .mat-mdc-tab-label-container {
+        //@apply border-indigo-900;
+        display: none;
+    }
+    .mat-mdc-tab-header {
+        .mat-mdc-tab-header-pagination-chevron {
+            border-color: black #{!important};
+            &:hover {
+                @apply border-indigo-700 #{!important};
+            }
+        }
+        .mat-mdc-tab-label-container {
+            border-bottom-width: 0 #{!important};
+        }
+    }
+    .mat-mdc-tab {
+        @apply cursor-default #{!important};
+        .mdc-tab__text-label {
+          color: black #{!important};
+        }
+        &.semi-natural {
+          @apply mr-2;
+          background-color: #bde08d;
+          border: 6px solid #027B3C;
+          &:not(.mdc-tab--active) {
+            @apply hover:bg-lime-200;
+          }
+        }
+        &.agricultural {
+            @apply mr-2;
+            background-color: #ffe68e;
+            border: 6px solid #FDC906;
+            &:not(.mdc-tab--active) {
+                @apply hover:bg-amber-100;
+            }
+        }
+        &.urban {
+            @apply mr-2;
+            background-color: #b7b7ac;
+            border: 6px solid #6B6B66;
+            &:not(.mdc-tab--active) {
+                @apply hover:bg-stone-200;
+            }
+        }
+        &:hover,
+        &:focus,
+        &.mdc-tab--active {
+          @apply border-indigo-700;
+          &:not(.mdc-tab--active) {
+            @apply cursor-pointer #{!important};
+          }
+          .mdc-tab__text-label {
+            @apply text-indigo-700 #{!important};
+          }
+        }
+        .mdc-tab-indicator__content--underline {
+            display: none;
+            //@apply border-indigo-600 #{!important};
+            //@apply border-t-8;
+        }
+    }
+    .mdc-tab__content {
+        height: auto #{!important};
+    }
+    .mat-mdc-tab-body {
+        @apply pt-5;
+    }
+    .mat-mdc-slide-toggle {
+        .mat-internal-form-field {
+            color: black #{!important};
+            //@apply text-slate-300;
+            //@apply hover:text-indigo-400;
+        }
+        .mdc-label {
+            @apply pl-2;
+        }
+        .mdc-switch__track,
+        .mdc-switch__track:hover,
+        .mdc-switch__track:active,
+        .mdc-switch__track:focus {
+            &:before {
+                //@apply bg-slate-950;
+                //background-color: #ff7d14;
+                //background-color: #fdc906;
+            }
+            &:after {
+                //@apply bg-indigo-600;
+                //background-color: #ff7d14;
+            }
+        }
+    }
+}

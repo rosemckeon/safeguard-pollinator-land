@@ -1,18 +1,74 @@
 <form class="example-form" [formGroup]="globalResponsesForm">
-    <mat-tab-group mat-stretch-tabs="false" mat-align-tabs="start" animationDuration="500ms" class="h-52">
+    <mat-tab-group mat-stretch-tabs="false" mat-align-tabs="start" animationDuration="500ms" dynamicHeight="true">
         <mat-tab labelClass="semi-natural" label="Semi-natural" isActive="true">
-            <mat-slide-toggle formControlName="globalSeminaturalRestoration" aria-label="globalSeminaturalRestoration" [checked]="isGlobalSeminaturalRestorationChecked" (change)="toggleChanges($event)" class="my-2">{{ restorationLabel }}</mat-slide-toggle><br />
-            <mat-slide-toggle formControlName="globalSeminaturalNatProtReg" aria-label="globalSeminaturalNatProtReg" [checked]="isGlobalSeminaturalNatProtRegChecked" (change)="toggleChanges($event)" class="my-2">{{ natureProtectionLabel }}</mat-slide-toggle>
+            <mat-slide-toggle formControlName="globalSeminaturalRestoration" aria-label="globalSeminaturalRestoration" [checked]="isGlobalSeminaturalRestorationChecked" (change)="toggleChanges($event)" class="my-2">
+                @if(isGlobalSeminaturalRestorationChecked){
+                    <img class="response-icon h-10 inline" src="./assets/restore-ecological-zones-colour.svg" alt="{{ restorationLabel }}" title="{{ restorationLabel }}" /> 
+                } @else {
+                    <img class="response-icon h-10 inline" src="./assets/restore-ecological-zones.svg" alt="{{ restorationLabel }}" title="{{ restorationLabel }}" /> 
+                }
+                {{ restorationLabel }}
+            </mat-slide-toggle><br />
+            <mat-slide-toggle formControlName="globalSeminaturalNatProtReg" aria-label="globalSeminaturalNatProtReg" [checked]="isGlobalSeminaturalNatProtRegChecked" (change)="toggleChanges($event)" class="my-2">
+                @if(isGlobalSeminaturalNatProtRegChecked){
+                    <img class="response-icon h-10 inline" src="./assets/nature-protection-colour.svg" alt="{{ natureProtectionLabel }}" title="" />
+                } @else {
+                    <img class="response-icon h-10 inline" src="./assets/nature-protection.svg" alt="{{ natureProtectionLabel }}" title="" />
+                }
+                {{ natureProtectionLabel }}
+            </mat-slide-toggle>
         </mat-tab>
         <mat-tab labelClass="agricultural" label="Agricultural">
-            <mat-slide-toggle formControlName="globalAgriculturalRestoration" aria-label="globalAgriculturalRestoration" [checked]="isGlobalAgriculturalRestorationChecked" (change)="toggleChanges($event)" class="my-2">{{ restorationLabel }}</mat-slide-toggle><br />
-            <mat-slide-toggle formControlName="globalAgriculturalNatProtReg" aria-label="globalAgriculturalNatProtReg" [checked]="isGlobalAgriculturalNatProtRegChecked" (change)="toggleChanges($event)" class="my-2">{{ natureProtectionLabel }}</mat-slide-toggle><br />
-            <mat-slide-toggle formControlName="globalAgriculturalEcoIntensification" aria-label="globalAgriculturalEcoIntensification" [checked]="isGlobalAgriculturalEcoIntensificationChecked" (change)="toggleChanges($event)" class="my-2">{{ ecoIntensificationLabel }}</mat-slide-toggle>
+            <mat-slide-toggle formControlName="globalAgriculturalRestoration" aria-label="globalAgriculturalRestoration" [checked]="isGlobalAgriculturalRestorationChecked" (change)="toggleChanges($event)" class="my-2">
+                @if(isGlobalAgriculturalRestorationChecked){
+                    <img class="response-icon h-10 inline" src="./assets/restore-ecological-zones-colour.svg" alt="{{ restorationLabel }}" title="" />
+                } @else {
+                    <img class="response-icon h-10 inline" src="./assets/restore-ecological-zones.svg" alt="{{ restorationLabel }}" title="" />
+                }
+                {{ restorationLabel }}
+            </mat-slide-toggle><br />
+            <mat-slide-toggle formControlName="globalAgriculturalNatProtReg" aria-label="globalAgriculturalNatProtReg" [checked]="isGlobalAgriculturalNatProtRegChecked" (change)="toggleChanges($event)" class="my-2">
+                @if(isGlobalAgriculturalNatProtRegChecked){
+                    <img class="response-icon h-10 inline" src="./assets/nature-protection-colour.svg" alt="{{ natureProtectionLabel }}" title="" />
+                } @else {
+                    <img class="response-icon h-10 inline" src="./assets/nature-protection.svg" alt="{{ natureProtectionLabel }}" title="" />
+                }
+                {{ natureProtectionLabel }}
+            </mat-slide-toggle><br />
+            <mat-slide-toggle formControlName="globalAgriculturalEcoIntensification" aria-label="globalAgriculturalEcoIntensification" [checked]="isGlobalAgriculturalEcoIntensificationChecked" (change)="toggleChanges($event)" class="my-2">
+                @if(isGlobalAgriculturalEcoIntensificationChecked){
+                    <img class="response-icon h-10 inline" src="./assets/ecological-intensification-colour.svg" alt="{{ ecoIntensificationLabel }}" title="" />
+                } @else {
+                    <img class="response-icon h-10 inline" src="./assets/ecological-intensification.svg" alt="{{ ecoIntensificationLabel }}" title="" />
+                }
+                {{ ecoIntensificationLabel }}
+            </mat-slide-toggle>
         </mat-tab>
         <mat-tab labelClass="urban" label="Urban">
-            <mat-slide-toggle formControlName="globalUrbanRestoration" aria-label="globalUrbanRestoration" [checked]="isGlobalUrbanRestorationChecked" (change)="toggleChanges($event)" class="my-2">{{ restorationLabel }}</mat-slide-toggle><br />
-            <mat-slide-toggle formControlName="globalUrbanNatProtReg" aria-label="globalUrbanNatProtReg" [checked]="isGlobalUrbanNatProtRegChecked" (change)="toggleChanges($event)" class="my-2">{{ natureProtectionLabel }}</mat-slide-toggle><br />
-            <mat-slide-toggle formControlName="globalUrbanGreening" aria-label="globalUrbanGreening" [checked]="isGlobalUrbanGreeningChecked" (change)="toggleChanges($event)" class="my-2">{{ urbanGreeningLabel }}</mat-slide-toggle>
+            <mat-slide-toggle formControlName="globalUrbanRestoration" aria-label="globalUrbanRestoration" [checked]="isGlobalUrbanRestorationChecked" (change)="toggleChanges($event)" class="my-2">
+                @if(isGlobalUrbanRestorationChecked){
+                    <img class="response-icon h-10 inline" src="./assets/restore-ecological-zones-colour.svg" alt="{{ restorationLabel }}" title="" />
+                } @else {
+                    <img class="response-icon h-10 inline" src="./assets/restore-ecological-zones.svg" alt="{{ restorationLabel }}" title="" />
+                }
+                {{ restorationLabel }}
+            </mat-slide-toggle><br />
+            <mat-slide-toggle formControlName="globalUrbanNatProtReg" aria-label="globalUrbanNatProtReg" [checked]="isGlobalUrbanNatProtRegChecked" (change)="toggleChanges($event)" class="my-2">
+                @if(isGlobalUrbanNatProtRegChecked){
+                    <img class="response-icon h-10 inline" src="./assets/nature-protection-colour.svg" alt="{{ natureProtectionLabel }}" title="" />
+                } @else {
+                    <img class="response-icon h-10 inline" src="./assets/nature-protection.svg" alt="{{ natureProtectionLabel }}" title="" />
+                }
+                {{ natureProtectionLabel }}
+            </mat-slide-toggle><br />
+            <mat-slide-toggle formControlName="globalUrbanGreening" aria-label="globalUrbanGreening" [checked]="isGlobalUrbanGreeningChecked" (change)="toggleChanges($event)" class="my-2">
+                @if(isGlobalUrbanGreeningChecked){
+                    <img class="response-icon h-10 inline" src="./assets/urban-greening-colour.svg" alt="{{ urbanGreeningLabel }}" title="" />
+                } @else {
+                    <img class="response-icon h-10 inline" src="./assets/urban-greening.svg" alt="{{ urbanGreeningLabel }}" title="" />
+                }
+                {{ urbanGreeningLabel }}
+            </mat-slide-toggle>
         </mat-tab>
     </mat-tab-group>
 </form>

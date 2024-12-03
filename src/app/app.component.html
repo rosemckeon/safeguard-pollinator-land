@@ -5,7 +5,10 @@
   <section class="controls h-full w-1/4 p-10">
     @if (roundService.activeRound == 0) {
       <h1 class="mb-2">This game has three rounds</h1>
+    } @else {
+      <h1 class="mb-2">Can you keep improving your impact scores?</h1>
     }
+    <span class="bee-icon"></span>
     <div class="grid grid-cols-4 gap-2 mb-5">
       <app-round-details  *ngFor="let round of roundService.roundList" [round]="round"></app-round-details>
     </div>
@@ -16,7 +19,7 @@
       <p class="mb-5"><ng-icon name="heroArrowLeft"></ng-icon> Your landscape is made of three habitat types. The state of wild pollinator populations and their resources is shown on every square.</p>
       <p class="mb-5">The overall state of your landscape has impacts on people <ng-icon name="heroArrowDown"></ng-icon></p>
     }
-      <div class="round-impacts bg-indigo-900 p-5 mb-5">
+      <div class="round-impacts p-5 mb-5">
         @if(roundService.endRound != roundService.activeRound) {
           <h2 class="mb-2"><strong>Landscape Impacts:</strong></h2>
         } @else {
@@ -32,15 +35,14 @@
       </div>
     @if(roundService.endRound != roundService.activeRound) {
       @if (roundService.activeRound == 0) {
-        <p class="mb-5">To change your impact result <ng-icon name="heroArrowUp"></ng-icon></p>
-        <p class="mb-5"><strong>Make responses</strong> which affect all habitats of a particular type <ng-icon name="heroArrowDown"></ng-icon></p>
+        <p class="mb-5">To change your impact result <strong>Make responses</strong> which affect all habitats of a particular type <ng-icon name="heroArrowDown"></ng-icon></p>
       } @else {
         <p class="mb-5 mt-10"><strong>Make responses:</strong></p>
       }
         <app-global-responses />
       <p class="mt-10 hidden">You can also select habitat cells on your landscape and <strong>locally overide your global descisions</strong>.</p>
       @if (roundService.activeRound == 0) {
-        <p class="text-slate-100 my-10"><strong>When you're done making descisions...</strong></p>
+        <p class="my-10"><strong>When you're done making descisions...</strong></p>
         <button (click)="advanceTime(roundService.activeRound, roundService.scenario!, habitatService.habitatList, roundService.roundList)" class="button px-4 pt-2 pb-4">Advance time <ng-icon name="heroArrowRight"></ng-icon></button>
       } @else {
         <button (click)="advanceTime(roundService.activeRound, roundService.scenario!, habitatService.habitatList, roundService.roundList)" class="button px-4 pt-2 pb-4 mt-10">Advance time <ng-icon name="heroArrowRight"></ng-icon></button>

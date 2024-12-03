@@ -1,0 +1,9 @@
+::ng-deep {
+    .round-indicator {
+        background-color: #FDC906;
+        border: 2px solid black;
+        @apply text-xl;
+        @apply hover:cursor-default;
+        
+    }
+}
