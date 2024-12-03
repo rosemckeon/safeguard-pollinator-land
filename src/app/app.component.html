@@ -21,16 +21,40 @@
     }
       <div class="round-impacts p-5 mb-5">
         @if(roundService.endRound != roundService.activeRound) {
-          <h2 class="mb-2"><strong>Landscape Impacts:</strong></h2>
+          <h2 class="mb-5 text-center"><strong>Landscape Impacts</strong></h2>
         } @else {
-          <h2 class="mb-2"><strong>Final Landscape Impacts:</strong></h2>
+          <h2 class="mb-5 text-center"><strong>Final Landscape Impacts</strong></h2>
         }
-        <ul id="impact-scores" class="list-none">
-          <li><span class="impact-score">{{ roundService.roundImpacts.cropPollinationProduction }}%</span> Crop Pollination & Production</li>
-          <li><span class="impact-score">{{ roundService.roundImpacts.economicValueChain }}%</span> Economic Value Chain (Farm2Fork)</li>
-          <li><span class="impact-score">{{ roundService.roundImpacts.wildPlantPollination }}%</span> Wild Plant Pollinations Services</li>
-          <li><span class="impact-score">{{ roundService.roundImpacts.aestheticValues }}%</span> Aesthetic Values</li>
-        </ul>
+        <div id="impact-scores" class="grid grid-cols-4 gap-5">
+          <div class="impact text-center align-top">
+            <p class="text-center">
+              <img class="impact-icon h-20" src="./assets/pollination-and-production-colour.svg" alt="Crop Pollination & Production" title="" />
+              <strong class="impact-score block text-xl">{{ roundService.roundImpacts.cropPollinationProduction }}%</strong>
+              <strong class="impact-label block text-sm">Crop Pollination & Production</strong>
+            </p>
+          </div>
+          <div class="impact text-center align-top">
+            <p class="text-center">
+              <img class="impact-icon h-20" src="./assets/economic-value-chain-colour.svg" alt="Economic Value Chain (Farm2Fork)" title="" />
+              <strong class="impact-score block text-xl">{{ roundService.roundImpacts.economicValueChain }}%</strong>
+              <strong class="impact-label block text-sm">Economic Value Chain (Farm2Fork)</strong>
+            </p>
+          </div>
+          <div class="impact text-center align-top">
+            <p class="text-center">
+              <img class="impact-icon h-20" src="./assets/wild-plant-pollination-services-colour.svg" alt="Wild Plant Pollinations Services" title="" />
+              <strong class="impact-score block text-xl">{{ roundService.roundImpacts.wildPlantPollination }}%</strong>
+              <strong class="impact-label block text-sm">Wild Plant Pollinations Services</strong>
+            </p>
+          </div>
+          <div class="impact text-center align-top">
+            <p class="text-center">
+              <img class="impact-icon h-20" src="./assets/aesthetic-values-colour.svg" alt="Aesthetic Values" title="" />
+              <strong class="impact-score block text-xl">{{ roundService.roundImpacts.aestheticValues }}%</strong>
+              <strong class="impact-label block text-sm">Aesthetic Values</strong>
+            </p>
+          </div>
+        </div>
         <!--<app-round-impacts  *ngFor="let impact of roundService.roundImpacts" [roundImpact]="impact"></app-round-impacts>-->
       </div>
     @if(roundService.endRound != roundService.activeRound) {
