@@ -3,6 +3,7 @@ import { ChangeDetectionStrategy, Component, inject, ViewChild, OnInit} from '@a
 import { CommonModule } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+import { MatTooltipModule } from '@angular/material/tooltip';
 import { RouterOutlet } from '@angular/router';
 // @ng-icons imports
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
@@ -40,7 +41,8 @@ import { HabitatCount } from './habitat-count';
     CommonModule, 
     RoundDetailsComponent, 
     MatButtonModule, 
-    MatDialogModule
+    MatDialogModule,
+    MatTooltipModule
   ],
   providers: [
     provideIcons({ 
@@ -101,10 +103,30 @@ export class AppComponent implements OnInit {
     // too early to calculate impacts
   }
 
-  openGameInfo() {
-    const dialogRef = this.dialog.open(gameInfoContent);
-
-    dialogRef.afterClosed().subscribe(result => {
+  openInfo(value: string):void {
+    let temp: any;
+    switch(value){
+      case 'gameInfo':
+        temp = this.dialog.open(GameInfoContent);
+        break;
+      case 'cropPollination':
+        temp = this.dialog.open(CropPollination);
+        break;
+      case 'economicValueChain':
+        temp = this.dialog.open(EconomicValueChain);
+        break;
+      case 'wildPlantPollination':
+        temp = this.dialog.open(WildPlantPollination);
+        break;
+      case 'aestheticValues':
+        temp = this.dialog.open(AestheticValues);
+        break;
+      default:
+        console.log("AppComponent.openInfo - requested dialogue does not exist", value);
+        break;
+    }
+    const dialogRef = temp;
+    dialogRef.afterClosed().subscribe((result: any) => {
       console.log(`Dialog result: ${result}`);
     });
   }
@@ -144,4 +166,41 @@ export class AppComponent implements OnInit {
   imports: [MatDialogModule, MatButtonModule],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class gameInfoContent {}
+export class GameInfoContent {}
+
+
+@Component({
+  selector: 'crop-pollination',
+  templateUrl: 'app.component.crop-pollination.html',
+  standalone: true,
+  imports: [MatDialogModule, MatButtonModule],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+})
+export class CropPollination {}
+
+@Component({
+  selector: 'economic-value-chain',
+  templateUrl: 'app.component.economic-value-chain.html',
+  standalone: true,
+  imports: [MatDialogModule, MatButtonModule],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+})
+export class EconomicValueChain {}
+
+@Component({
+  selector: 'wild-plant-pollination',
+  templateUrl: 'app.component.wild-plant-pollination.html',
+  standalone: true,
+  imports: [MatDialogModule, MatButtonModule],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+})
+export class WildPlantPollination {}
+
+@Component({
+  selector: 'aesthetic-values',
+  templateUrl: 'app.component.aesthetic-values.html',
+  standalone: true,
+  imports: [MatDialogModule, MatButtonModule],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+})
+export class AestheticValues {}

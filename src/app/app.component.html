@@ -13,7 +13,7 @@
       <app-round-details  *ngFor="let round of roundService.roundList" [round]="round"></app-round-details>
     </div>
     @if(roundService.endRound != roundService.activeRound) {
-      <p class="mb-5"><strong>Your aim is to improve pollinator numbers without making people unhappy </strong> <button class="icon-only" (click)="openGameInfo()"><ng-icon name="heroInformationCircleSolid"></ng-icon></button></p>
+      <p class="mb-5"><strong>Your aim is to improve pollinator numbers without making people unhappy </strong> <button class="icon-only" (click)="openInfo('gameInfo')"><ng-icon name="heroInformationCircleSolid"></ng-icon></button></p>
     }
     @if (roundService.activeRound == 0) {
       <p class="mb-5"><ng-icon name="heroArrowLeft"></ng-icon> Your landscape is made of three habitat types. The state of wild pollinator populations and their resources is shown on every square.</p>
@@ -28,30 +28,31 @@
         <div id="impact-scores" class="grid grid-cols-4 gap-5">
           <div class="impact text-center align-top">
             <p class="text-center">
-              <img class="impact-icon h-20" src="./assets/pollination-and-production-colour.svg" alt="Crop Pollination & Production" title="" />
+              <img class="impact-icon h-20" src="./assets/pollination-and-production-colour.svg" alt="Crop Pollination & Production" matTooltip="Crop Pollination & Production" [matTooltipPosition]="'above'" />
               <strong class="impact-score block text-xl">{{ roundService.roundImpacts.cropPollinationProduction }}%</strong>
-              <strong class="impact-label block text-sm">Crop Pollination & Production</strong>
+              <button class="icon-only" (click)="openInfo('cropPollination')" matTooltip="Find out more"><ng-icon name="heroInformationCircleSolid"></ng-icon></button>
             </p>
           </div>
           <div class="impact text-center align-top">
             <p class="text-center">
-              <img class="impact-icon h-20" src="./assets/economic-value-chain-colour.svg" alt="Economic Value Chain (Farm2Fork)" title="" />
+              <img class="impact-icon h-20" src="./assets/economic-value-chain-colour.svg" alt="Economic Value Chain (Farm2Fork)" matTooltip="Economic Value Chain" [matTooltipPosition]="'above'" />
               <strong class="impact-score block text-xl">{{ roundService.roundImpacts.economicValueChain }}%</strong>
-              <strong class="impact-label block text-sm">Economic Value Chain (Farm2Fork)</strong>
+              <!--<strong class="impact-label block text-sm"></strong>-->
+              <button class="icon-only" (click)="openInfo('economicValueChain')" matTooltip="Find out more"><ng-icon name="heroInformationCircleSolid"></ng-icon></button>
             </p>
           </div>
           <div class="impact text-center align-top">
             <p class="text-center">
-              <img class="impact-icon h-20" src="./assets/wild-plant-pollination-services-colour.svg" alt="Wild Plant Pollinations Services" title="" />
+              <img class="impact-icon h-20" src="./assets/wild-plant-pollination-services-colour.svg" alt="Wild Plant Pollinations Services" matTooltip="Wild Plant Pollinations Services" [matTooltipPosition]="'above'" />
               <strong class="impact-score block text-xl">{{ roundService.roundImpacts.wildPlantPollination }}%</strong>
-              <strong class="impact-label block text-sm">Wild Plant Pollinations Services</strong>
+              <button class="icon-only" (click)="openInfo('wildPlantPollination')" matTooltip="Find out more"><ng-icon name="heroInformationCircleSolid"></ng-icon></button>
             </p>
           </div>
           <div class="impact text-center align-top">
             <p class="text-center">
-              <img class="impact-icon h-20" src="./assets/aesthetic-values-colour.svg" alt="Aesthetic Values" title="" />
+              <img class="impact-icon h-20" src="./assets/aesthetic-values-colour.svg" alt="Aesthetic Values" matTooltip="Aesthetic Values" [matTooltipPosition]="'above'" />
               <strong class="impact-score block text-xl">{{ roundService.roundImpacts.aestheticValues }}%</strong>
-              <strong class="impact-label block text-sm">Aesthetic Values</strong>
+              <button class="icon-only" (click)="openInfo('aestheticValues')" matTooltip="Find out more"><ng-icon name="heroInformationCircleSolid"></ng-icon></button>
             </p>
           </div>
         </div>

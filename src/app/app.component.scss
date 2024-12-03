@@ -41,22 +41,15 @@
         }
     }
     .round-impacts {
+        .impact-icon {
+            @apply hover:cursor-help;
+        }
         .impact-score {
             color: #ff7d14;
         }
     }
-    .mat-mdc-dialog-surface {
-        //@apply bg-slate-900 #{!important};
-        //background-color: red #{!important};
-    }
-    .mat-mdc-dialog-container {
-        .mat-mdc-dialog-title,
-        .mat-mdc-dialog-content {
-            //@apply text-slate-300 #{!important};
-        }
-    }
     .cdk-overlay-dark-backdrop {
-        //@apply bg-slate-950;
-        //@apply opacity-60 #{!important};
+        @apply bg-slate-950;
+        @apply opacity-60 #{!important};
     }
 }
