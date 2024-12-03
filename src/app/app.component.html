@@ -19,13 +19,13 @@
       <p class="mb-5"><ng-icon name="heroArrowLeft"></ng-icon> Your landscape is made of three habitat types. The state of wild pollinator populations and their resources is shown on every square.</p>
       <p class="mb-5">The overall state of your landscape has impacts on people <ng-icon name="heroArrowDown"></ng-icon></p>
     }
-      <div class="round-impacts p-5 mb-5">
+      <div class="round-impacts p-1 pt-0 pl-2 mb-5">
         @if(roundService.endRound != roundService.activeRound) {
-          <h2 class="mb-5 text-center"><strong>Landscape Impacts</strong></h2>
+          <h2 class="mb-5 text-sm"><strong>LANDSCAPE IMPACTS</strong></h2>
         } @else {
-          <h2 class="mb-5 text-center"><strong>Final Landscape Impacts</strong></h2>
+          <h2 class="mb-5 text-sm"><strong>FINAL LANDSCAPE IMPACTS</strong></h2>
         }
-        <div id="impact-scores" class="grid grid-cols-4 gap-5">
+        <div id="impact-scores" class="grid grid-cols-4 gap-5 m-2">
           <div class="impact text-center align-top">
             <p class="text-center">
               <img class="impact-icon h-20" src="./assets/pollination-and-production-colour.svg" alt="Crop Pollination & Production" matTooltip="Crop Pollination & Production" [matTooltipPosition]="'above'" />
