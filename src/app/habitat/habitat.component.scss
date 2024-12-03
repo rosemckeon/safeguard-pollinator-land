@@ -37,5 +37,40 @@
             background-color: #ffffff;
             background-color: rgba(255, 255, 255, 0.75);
         }
+        .habitat-state {
+          .state-icon {
+            background-repeat: no-repeat;
+            background-size: contain;
+            height: 50px;
+            width: 100px;
+            max-width: 100px;
+            margin: auto;
+            background-position: bottom center;
+            &.state-poor {
+              width: 30px;
+            }
+            &.state-ok {
+              width: 60px;
+            }
+            &.state-good {
+              width: 100px;
+            }
+          }
+          &.wildPollinators {
+            .state-icon {
+              background-image: url("^./../../public/assets/wild-pollinator-colour.svg");
+            }
+          }
+          &.floralResources {
+            .state-icon {
+              background-image: url("^./../../public/assets/floral-resource-colour.svg");
+            }
+          }
+          &.habitatResources {
+            .state-icon {
+              background-image: url("^./../../public/assets/habitat-resources-colour.svg");
+            }
+          }
+        }
       }
 }

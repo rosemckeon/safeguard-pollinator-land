@@ -35,4 +35,18 @@ export class HabitatComponent implements OnInit {
     // this.habitat.stateValue = this.habitatService.calculateHabitatStateValue([this.habitat.state!.wildPollinators!, this.habitat.state!.floralResources!, this.habitat.state!.habitatResources!]);
     //console.log('Responses: ', this.habitat.response)
   }
+
+  // might do custom mouseover and mouseleave events to show helper info.
+  // could change this for angular material tooltips
+  // need to compare options.
+  showLabel(habitat_id: number, element_id: string):void {
+    console.log("HabitatComponent.showLabel", habitat_id, element_id);
+    //let button = <HTMLButtonElement>document.getElementById('buttonSubmitGlobalChanges');
+    let habitat = document.getElementById("habitat_"+habitat_id);
+    //let label = habitat?.children.  (element_id);
+  }
+
+  hideLabel(habitat_id: number, element_id: string):void {
+    console.log("HabitatComponent.showLabel", habitat_id, element_id);
+  }
 }

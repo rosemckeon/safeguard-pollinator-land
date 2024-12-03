@@ -1,13 +1,33 @@
 <div id="habitat_{{ habitat.id }}" class="habitat-container h-full">
   <div class="habitat {{ habitat.type.active.toLowerCase() }} h-full w-full flex">
     <div class ="grow">
-      <div class="grow align-text-middle grid grid-cols-3">
-
-        <div class="wildPollinators p-10 text-center"><strong>WP</strong><br />{{ habitat.state?.wildPollinators }}%</div>
-        <div class="floralResources p-10 text-center"><strong>FR</strong><br />{{ habitat.state?.floralResources }}%</div>
-        <div class="habitatResources p-10 text-center"><strong>HR</strong><br />{{ habitat.state?.habitatResources }}%</div>
-
+      <h5 class="text-xs text-black ml-1"><strong>HABITAT STATE</strong></h5>
+      <div class="grow align-text-middle grid grid-cols-3 gap-5">
+        <div class="habitat-state wildPollinators text-center align-top" (mouseover)="showLabel(habitat.id, 'wildPollinators')">
+            <div class="state-icon"></div>
+            <p class="text-center">
+            <!--<img class="state-icon" src="./assets/wild-pollinator-colour.svg" alt="Wild Pollinator Abundance and Diversity" title="Wild Pollinator Abundance and Diversity" />-->
+            <strong class="state-score text-lg">{{ habitat.state?.wildPollinators }}%</strong>
+          </p>
+        </div>
+        <div class="habitat-state floralResources text-center align-top" (mouseover)="showLabel(habitat.id, 'floralResources')">
+          <div class="state-icon"></div>
+          <p class="text-center">
+            <!--<img class="state-icon h-20" src="./assets/floral-resource-colour.svg" alt="Floral Resources" title="Floral Resources" />-->
+            <strong class="state-score text-lg">{{ habitat.state?.floralResources }}%</strong>
+          </p>
+        </div>
+        <div class="habitat-state habitatResources text-center align-top" (mouseover)="showLabel(habitat.id, 'habitatResources')">
+          <div class="state-icon"></div>
+          <p class="text-center">
+            <!--<img class="state-icon h-20" src="./assets/habitat-resources-colour.svg" alt="Habitat Resources" title="Habitat Resources" />-->
+            <strong class="state-score text-lg">{{ habitat.state?.habitatResources }}%</strong>
+          </p>
+        </div>
       </div>
+      <div id="wildPollinators" class="habitat-state-label text-center mt-5 ml-auto mr-auto w-3/4 hidden"><h3 class="text-black inline"><strong>Wild Pollinator Abundance & Diversity</strong></h3></div>
+      <div id="floralResources" class="habitat-state-label text-center mt-5 ml-auto mr-auto w-3/4 hidden"><h3 class="text-black inline"><strong>Floral Resources</strong></h3></div>
+      <div id="habitatResources" class="habitat-state-label text-center mt-5 ml-auto mr-auto w-3/4 hidden"><h3 class="text-black inline"><strong>Habitat Resources</strong></h3></div>
     </div>
     <div class="flex-none habitat-responses text-center align-middle">
       <h5 class="text-xs text-black"><strong>RESPONSES</strong></h5>
