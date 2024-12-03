@@ -13,7 +13,7 @@
       <app-round-details  *ngFor="let round of roundService.roundList" [round]="round"></app-round-details>
     </div>
     @if(roundService.endRound != roundService.activeRound) {
-      <p class="mb-5"><strong>Your aim is to improve pollinator numbers without making people unhappy </strong> <button (click)="openGameInfo()"><ng-icon name="heroInformationCircleSolid"></ng-icon></button></p>
+      <p class="mb-5"><strong>Your aim is to improve pollinator numbers without making people unhappy </strong> <button class="icon-only" (click)="openGameInfo()"><ng-icon name="heroInformationCircleSolid"></ng-icon></button></p>
     }
     @if (roundService.activeRound == 0) {
       <p class="mb-5"><ng-icon name="heroArrowLeft"></ng-icon> Your landscape is made of three habitat types. The state of wild pollinator populations and their resources is shown on every square.</p>

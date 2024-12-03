@@ -1,7 +1,15 @@
-<h2 mat-dialog-title>Your Aim is to Improve Pollination Services</h2>
-<mat-dialog-content>Or something along those lines, with some extra blurb.</mat-dialog-content>
+<h2 mat-dialog-title><strong>General info</strong></h2>
+<mat-dialog-content>
+  <p class="mb-5">We could put some general info here if it would be useful along with attributions.</p>
+  <h3 class="text-black text-xl mb-5"><strong>Attributions</strong></h3>
+  <p class="mb-5">Are there specific statements we need to make about any organisations?</p>
+  <div class="grid grid-cols-4 gap-5">
+  <a class="block logo inrae" href="https://www.inrae.fr/" target="_blank" title="This project is funded by INRAE"><span>Inrae</span></a>
+  <a class="block logo bioagora" href="https://bioagora.eu/" target="_blank" title="This project is a BioAgora Demonstration Case"><span>BioAgora</span></a>
+  <a class="bloc logo elo" href="https://europeanlandowners.org/" target="_blank" title="This project was developed for a workshop at ELO2024"><span>European Land Owners (ELO)</span></a>
+  <a class="block logo pap" href="https://www.penandpaper-sci.com/" target="_blank" title="Graphics courtesy of Pen & Paper"><span>Pen & Paper</span></a>
+  </div>
+</mat-dialog-content>
 <mat-dialog-actions>
-  <button mat-button mat-dialog-close>Cancel</button>
-  <!-- The mat-dialog-close directive optionally accepts a value as a result for the dialog. -->
-  <button mat-button [mat-dialog-close]="true">Or do something else</button>
+  <button mat-button mat-dialog-close>Continue</button>
 </mat-dialog-actions>

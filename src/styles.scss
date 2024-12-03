@@ -82,14 +82,14 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
       top: 0.3rem;
       @apply text-2xl;
     }
-    button ng-icon {
-      //@apply hover:text-indigo-400;
+    button.icon-only:hover ng-icon {
+      color: #ff7d14;
     }
     .button,
     .mat-mdc-button:not(:disabled) {
       background-color: #ff7d14;
       border: 2px solid black;
-      color: black;
+      color: black #{!important};
       font-weight: 500;
       @apply hover:shadow-md;
       @apply rounded-lg;
