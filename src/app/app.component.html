@@ -1,8 +1,8 @@
 <main class="h-dvh flex gap-0">
-  <section class="h-full w-3/4">
+  <section class="h-full grow">
     <router-outlet />
   </section>
-  <section class="controls h-full w-1/4 p-10">
+  <section class="controls h-full flex-none lg:w-[470px] xl:w-[550px] w-[470px] p-10">
     @if (roundService.activeRound == 0) {
       <h1 class="mb-2">This game has three rounds</h1>
     } @else {
