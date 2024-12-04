@@ -47,18 +47,13 @@
         &:hover,
         &:focus,
         &.mdc-tab--active {
-          @apply border-indigo-700;
+          border-color: #00b6d6;
           &:not(.mdc-tab--active) {
             @apply cursor-pointer #{!important};
-          }
-          .mdc-tab__text-label {
-            @apply text-indigo-700 #{!important};
           }
         }
         .mdc-tab-indicator__content--underline {
             display: none;
-            //@apply border-indigo-600 #{!important};
-            //@apply border-t-8;
         }
     }
     .mdc-tab__content {
@@ -70,25 +65,14 @@
     .mat-mdc-slide-toggle {
         .mat-internal-form-field {
             color: black #{!important};
-            //@apply text-slate-300;
-            //@apply hover:text-indigo-400;
         }
         .mdc-label {
             @apply pl-2;
         }
-        .mdc-switch__track,
-        .mdc-switch__track:hover,
-        .mdc-switch__track:active,
-        .mdc-switch__track:focus {
-            &:before {
-                //@apply bg-slate-950;
-                //background-color: #ff7d14;
-                //background-color: #fdc906;
-            }
-            &:after {
-                //@apply bg-indigo-600;
-                //background-color: #ff7d14;
-            }
+        .mdc-switch__track::after,
+        .mdc-switch__track::before {
+            border: none;
+            background-color: #00b6d6 #{!important};
         }
     }
 }

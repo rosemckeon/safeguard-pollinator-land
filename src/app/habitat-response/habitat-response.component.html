@@ -2,32 +2,32 @@
 @if(habitatResponse.enabled){ 
   <div class="habitat-response reponse-enabled response-{{ habitatResponse.labelShort.toLowerCase() }} w-20 h-20 text-center">
     @if(habitatResponse.name == "restoration"){
-      <img src="./assets/restore-ecological-zones-colour.svg" alt="{{ habitatResponse.label }}" matTooltip="{{ habitatResponse.label }} Enabled" />
+      <img src="./assets/restore-ecological-zones-colour.svg" alt="{{ habitatResponse.label }}" matTooltip="{{ habitatResponse.label }} Enabled" matTooltipPosition="right" class="hover:cursor-help" />
     }
     @if(habitatResponse.name == "natureProtection"){
-      <img src="./assets/nature-protection-colour.svg" alt="{{ habitatResponse.label }}" matTooltip="{{ habitatResponse.label }} Enabled" />
+      <img src="./assets/nature-protection-colour.svg" alt="{{ habitatResponse.label }}" matTooltip="{{ habitatResponse.label }} Enabled" matTooltipPosition="right" class="hover:cursor-help" />
     }
     @if(habitatResponse.name == "ecoIntensification"){
-      <img src="./assets/ecological-intensification-colour.svg" alt="{{ habitatResponse.label }}" matTooltip="{{ habitatResponse.label }} Enabled" />
+      <img src="./assets/ecological-intensification-colour.svg" alt="{{ habitatResponse.label }}" matTooltip="{{ habitatResponse.label }} Enabled" matTooltipPosition="right" class="hover:cursor-help" />
     }
     @if(habitatResponse.name == "urbanGreening"){
-      <img src="./assets/urban-greening-colour.svg" alt="{{ habitatResponse.label }}" matTooltip="{{ habitatResponse.label }} Enabled" />
+      <img src="./assets/urban-greening-colour.svg" alt="{{ habitatResponse.label }}" matTooltip="{{ habitatResponse.label }} Enabled" matTooltipPosition="right" class="hover:cursor-help" />
     }
   </div>
   <!--<ng-icon name="heroCheckCircleSolid" class="mr-1"></ng-icon>-->
 } @else {
   <div class="habitat-response response-disabled response-{{ habitatResponse.labelShort.toLowerCase() }} w-20 h-20 text-center">
     @if(habitatResponse.name == "restoration"){
-      <img src="./assets/restore-ecological-zones.svg" alt="{{ habitatResponse.label }}" matTooltip="{{ habitatResponse.label }} Disabled" />
+      <img src="./assets/restore-ecological-zones.svg" alt="{{ habitatResponse.label }}" matTooltip="{{ habitatResponse.label }} Disabled" matTooltipPosition="right" class="hover:cursor-help" />
     }
     @if(habitatResponse.name == "natureProtection"){
-      <img src="./assets/nature-protection.svg" alt="{{ habitatResponse.label }}" matTooltip="{{ habitatResponse.label }} Disabled" />
+      <img src="./assets/nature-protection.svg" alt="{{ habitatResponse.label }}" matTooltip="{{ habitatResponse.label }} Disabled" matTooltipPosition="right" class="hover:cursor-help" />
     }
     @if(habitatResponse.name == "ecoIntensification"){
-      <img src="./assets/ecological-intensification.svg" alt="{{ habitatResponse.label }}" matTooltip="{{ habitatResponse.label }} Disabled" />
+      <img src="./assets/ecological-intensification.svg" alt="{{ habitatResponse.label }}" matTooltip="{{ habitatResponse.label }} Disabled" matTooltipPosition="right" class="hover:cursor-help" />
     }
     @if(habitatResponse.name == "urbanGreening"){
-      <img src="./assets/urban-greening.svg" alt="{{ habitatResponse.label }}" matTooltip="{{ habitatResponse.label }} Disabled" />
+      <img src="./assets/urban-greening.svg" alt="{{ habitatResponse.label }}" matTooltip="{{ habitatResponse.label }} Disabled" matTooltipPosition="right" class="hover:cursor-help" />
     }
   </div>
   <!--<ng-icon name="heroXCircleSolid" class="mr-1"></ng-icon>-->
