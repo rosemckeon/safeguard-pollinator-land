@@ -12,13 +12,14 @@
     <div class="grid grid-cols-4 gap-2 mb-5">
       <app-round-details  *ngFor="let round of roundService.roundList" [round]="round"></app-round-details>
     </div>
-    @if(roundService.endRound != roundService.activeRound) {
-      <p class="mb-5"><strong>Your aim is to improve pollinator numbers without making people unhappy </strong> <button class="icon-only" (click)="openInfo('gameInfo')"><ng-icon name="heroInformationCircleSolid"></ng-icon></button></p>
-    }
-    @if (roundService.activeRound == 0) {
-      <p class="mb-5"><ng-icon name="heroArrowLeft"></ng-icon> Your landscape is made of three habitat types. The state of wild pollinator populations and their resources is shown on every square.</p>
-      <p class="mb-5">The overall state of your landscape has impacts on people <ng-icon name="heroArrowDown"></ng-icon></p>
-    }
+    <p class="mb-5">
+      <strong>Your aim is to improve pollinator numbers and make people happy - fill the bars as much as you can </strong> <button class="icon-only" (click)="openInfo('gameInfo')"><ng-icon name="heroInformationCircleSolid"></ng-icon></button> 
+      @if(roundService.endRound == roundService.activeRound) {
+        <strong class="pl-2">How did you do?</strong>
+      }
+    </p>
+    
+    
       <div class="round-impacts p-1 pt-2 mb-5">
         @if(roundService.endRound != roundService.activeRound) {
           <h2 class="text-sm pl-2"><strong>LANDSCAPE IMPACTS</strong></h2>
