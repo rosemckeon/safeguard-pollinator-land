@@ -41,4 +41,5 @@ export class HabitatComponent implements OnInit {
     // this.habitat.stateValue = this.habitatService.calculateHabitatStateValue([this.habitat.state!.wildPollinators!, this.habitat.state!.floralResources!, this.habitat.state!.habitatResources!]);
     //console.log('Responses: ', this.habitat.response)
   }
+
 }

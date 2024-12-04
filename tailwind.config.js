@@ -10,6 +10,10 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontSize: {
+        xxs: ['0.5rem', '0.8rem'],
+        xs: ['0.75rem', '0.8rem'],
+      },
       listStyleType: {
         none: 'none',
         disc: 'disc',

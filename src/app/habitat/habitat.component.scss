@@ -62,6 +62,7 @@
           .state-icon {
             position: absolute;
             bottom: -2px;
+            left: 0;
             background-repeat: no-repeat;
             background-size: contain;
             height: 50px;
@@ -81,6 +82,8 @@
           }
           &.wildPollinators {
             .state-icon {
+              -webkit-transform: scaleX(-1);
+              transform: scaleX(-1);
               background-image: url("^./../../public/assets/wild-pollinator.svg");
             }
             &:hover,
@@ -103,6 +106,9 @@
           }
           &.habitatResources {
             .state-icon {
+              -webkit-transform: scaleX(-1);
+              transform: scaleX(-1);
+              left: -4px;
               background-image: url("^./../../public/assets/habitat-resources.svg");
             }
             &:hover,
