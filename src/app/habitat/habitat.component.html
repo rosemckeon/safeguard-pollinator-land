@@ -1,25 +1,28 @@
 <div id="habitat_{{ habitat.id }}" class="habitat-container h-full">
   <div class="habitat {{ habitat.type.active.toLowerCase() }} h-full w-full flex">
     <div class ="grow">
-      <h5 class="text-xs text-black ml-1"><strong>HABITAT STATE</strong></h5>
-      <div class="grow align-text-middle grid grid-cols-3 gap-5">
-        <div class="habitat-state wildPollinators text-center align-top" matTooltip="Wild Pollinator Abundance & Diversity">
-            <div class="state-icon"><div class="state-colour"></div></div>
-            <p class="text-center">
-            <strong class="state-score text-lg">{{ habitat.state?.wildPollinators }}%</strong>
-          </p>
+      <h5 class="text-xs text-black ml-2"><strong>HABITAT STATE</strong></h5>
+      <div class="grow align-text-middle grid grid-cols-3 gap-2 ml-2 mr-2 h-full">
+        <div class="habitat-state wildPollinators text-center align-top h-3/4">
+          <div class="state-icon-container" matTooltip="{{ habitat.state?.wildPollinators }}%">
+            <div class="state-icon-label text-center leading-none opacity-60"><strong class="text-xs text-black">WILD POLLINATORS</strong></div>
+            <div class="state-icon-fill" style="height: {{habitat.state?.wildPollinators}}%"></div>
+            <div class="state-icon"></div>
+          </div>
         </div>
-        <div class="habitat-state floralResources text-center align-top" matTooltip="Floral Resources">
-          <div class="state-icon"></div>
-          <p class="text-center">
-            <strong class="state-score text-lg">{{ habitat.state?.floralResources }}%</strong>
-          </p>
+        <div class="habitat-state floralResources text-center align-top h-3/4">
+          <div class="state-icon-container" matTooltip="{{ habitat.state?.floralResources }}%">
+            <div class="state-icon-label text-center leading-none opacity-60"><strong class="text-xs text-black">FLORAL RESOURCES</strong></div>
+            <div class="state-icon-fill" style="height: {{habitat.state?.floralResources}}%"></div>
+            <div class="state-icon"></div>
+          </div>
         </div>
-        <div class="habitat-state habitatResources text-center align-top" matTooltip="Habitat Resources">
-          <div class="state-icon"></div>
-          <p class="text-center">
-            <strong class="state-score text-lg">{{ habitat.state?.habitatResources }}%</strong>
-          </p>
+        <div class="habitat-state habitatResources text-center align-top h-3/4">
+          <div class="state-icon-container" matTooltip="{{ habitat.state?.habitatResources }}%">
+            <div class="state-icon-label text-center leading-none opacity-60"><strong class="text-xs text-black">HABITAT RESOURCES</strong></div>
+            <div class="state-icon-fill" style="height: {{habitat.state?.habitatResources}}%"></div>
+            <div class="state-icon"></div>
+          </div>
         </div>
       </div>
     </div>
