@@ -119,5 +119,28 @@
             }
           }
         }
-      }
+        &.mat-mdc-dialog-content {
+          .state-icon {
+            height: 80px;
+            width: 200px;
+            max-width: 200px;
+            bottom: -5px;
+          }
+          .wildPollinators {
+            .state-icon {
+              background-image: url("^./../../public/assets/wild-pollinator-colour.svg");
+            }
+          }
+          .floralResources {
+            .state-icon {
+              background-image: url("^./../../public/assets/floral-resource-colour.svg");
+            }
+          }
+          .habitatResources {
+            .state-icon {
+              background-image: url("^./../../public/assets/habitat-resources-colour.svg");
+            }
+          }
+        }
+    }
 }
