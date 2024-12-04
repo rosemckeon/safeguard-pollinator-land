@@ -45,6 +45,7 @@
             background-color: black;
             background-color: rgba(0, 0, 0, 0.2);
             @apply h-3/4;
+            @apply hover:cursor-help;
           }
           .state-icon-label {
             position: absolute;
