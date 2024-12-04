@@ -7,15 +7,15 @@
                 } @else {
                     <img class="response-icon h-10 inline" src="./assets/restore-ecological-zones.svg" alt="{{ restorationLabel }}" title="{{ restorationLabel }}" /> 
                 }
-                {{ restorationLabel }}
-            </mat-slide-toggle><br />
+                {{ restorationLabel }} <button class="icon-only hover:cursor-help" matTooltip="find out more..." (click)="openInfo('restoration')"><ng-icon name="heroInformationCircleSolid"></ng-icon></button>
+            </mat-slide-toggle> <br />
             <mat-slide-toggle formControlName="globalSeminaturalNatProtReg" aria-label="globalSeminaturalNatProtReg" [checked]="isGlobalSeminaturalNatProtRegChecked" (change)="toggleChanges($event)" class="my-2">
                 @if(isGlobalSeminaturalNatProtRegChecked){
                     <img class="response-icon h-10 inline" src="./assets/nature-protection-colour.svg" alt="{{ natureProtectionLabel }}" title="" />
                 } @else {
                     <img class="response-icon h-10 inline" src="./assets/nature-protection.svg" alt="{{ natureProtectionLabel }}" title="" />
                 }
-                {{ natureProtectionLabel }}
+                {{ natureProtectionLabel }} <button class="icon-only hover:cursor-help" matTooltip="find out more..." (click)="openInfo('natProtReg')"><ng-icon name="heroInformationCircleSolid"></ng-icon></button>
             </mat-slide-toggle>
         </mat-tab>
         <mat-tab labelClass="agricultural" label="Agricultural">
@@ -25,7 +25,7 @@
                 } @else {
                     <img class="response-icon h-10 inline" src="./assets/restore-ecological-zones.svg" alt="{{ restorationLabel }}" title="" />
                 }
-                {{ restorationLabel }}
+                {{ restorationLabel }} <button class="icon-only hover:cursor-help" matTooltip="find out more..." (click)="openInfo('restoration')"><ng-icon name="heroInformationCircleSolid"></ng-icon></button>
             </mat-slide-toggle><br />
             <mat-slide-toggle formControlName="globalAgriculturalNatProtReg" aria-label="globalAgriculturalNatProtReg" [checked]="isGlobalAgriculturalNatProtRegChecked" (change)="toggleChanges($event)" class="my-2">
                 @if(isGlobalAgriculturalNatProtRegChecked){
@@ -33,7 +33,7 @@
                 } @else {
                     <img class="response-icon h-10 inline" src="./assets/nature-protection.svg" alt="{{ natureProtectionLabel }}" title="" />
                 }
-                {{ natureProtectionLabel }}
+                {{ natureProtectionLabel }} <button class="icon-only hover:cursor-help" matTooltip="find out more..." (click)="openInfo('natProtReg')"><ng-icon name="heroInformationCircleSolid"></ng-icon></button>
             </mat-slide-toggle><br />
             <mat-slide-toggle formControlName="globalAgriculturalEcoIntensification" aria-label="globalAgriculturalEcoIntensification" [checked]="isGlobalAgriculturalEcoIntensificationChecked" (change)="toggleChanges($event)" class="my-2">
                 @if(isGlobalAgriculturalEcoIntensificationChecked){
@@ -41,7 +41,7 @@
                 } @else {
                     <img class="response-icon h-10 inline" src="./assets/ecological-intensification.svg" alt="{{ ecoIntensificationLabel }}" title="" />
                 }
-                {{ ecoIntensificationLabel }}
+                {{ ecoIntensificationLabel }} <button class="icon-only hover:cursor-help" matTooltip="find out more..." (click)="openInfo('ecoIntensification')"><ng-icon name="heroInformationCircleSolid"></ng-icon></button>
             </mat-slide-toggle>
         </mat-tab>
         <mat-tab labelClass="urban" label="Urban">
@@ -51,7 +51,7 @@
                 } @else {
                     <img class="response-icon h-10 inline" src="./assets/restore-ecological-zones.svg" alt="{{ restorationLabel }}" title="" />
                 }
-                {{ restorationLabel }}
+                {{ restorationLabel }} <button class="icon-only hover:cursor-help" matTooltip="find out more..." (click)="openInfo('restoration')"><ng-icon name="heroInformationCircleSolid"></ng-icon></button>
             </mat-slide-toggle><br />
             <mat-slide-toggle formControlName="globalUrbanNatProtReg" aria-label="globalUrbanNatProtReg" [checked]="isGlobalUrbanNatProtRegChecked" (change)="toggleChanges($event)" class="my-2">
                 @if(isGlobalUrbanNatProtRegChecked){
@@ -59,7 +59,7 @@
                 } @else {
                     <img class="response-icon h-10 inline" src="./assets/nature-protection.svg" alt="{{ natureProtectionLabel }}" title="" />
                 }
-                {{ natureProtectionLabel }}
+                {{ natureProtectionLabel }} <button class="icon-only hover:cursor-help" matTooltip="find out more..." (click)="openInfo('natProtReg')"><ng-icon name="heroInformationCircleSolid"></ng-icon></button>
             </mat-slide-toggle><br />
             <mat-slide-toggle formControlName="globalUrbanGreening" aria-label="globalUrbanGreening" [checked]="isGlobalUrbanGreeningChecked" (change)="toggleChanges($event)" class="my-2">
                 @if(isGlobalUrbanGreeningChecked){
@@ -67,7 +67,7 @@
                 } @else {
                     <img class="response-icon h-10 inline" src="./assets/urban-greening.svg" alt="{{ urbanGreeningLabel }}" title="" />
                 }
-                {{ urbanGreeningLabel }}
+                {{ urbanGreeningLabel }} <button class="icon-only hover:cursor-help" matTooltip="find out more..." (click)="openInfo('urbanGreening')"><ng-icon name="heroInformationCircleSolid"></ng-icon></button>
             </mat-slide-toggle>
         </mat-tab>
     </mat-tab-group>

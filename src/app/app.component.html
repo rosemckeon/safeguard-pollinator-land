@@ -13,7 +13,8 @@
       <app-round-details  *ngFor="let round of roundService.roundList" [round]="round"></app-round-details>
     </div>
     <p class="mb-5">
-      <strong>Your aim is to improve pollinator numbers and make people happy - fill the bars as much as you can </strong> <button class="icon-only hover:cursor-help" matTooltip="find out more..." (click)="openInfo('gameInfo')"><ng-icon name="heroInformationCircleSolid"></ng-icon></button> 
+      <strong>Your aim is to improve pollinator numbers and make people happy - fill the bars as much as you can </strong> 
+      <button class="icon-only hover:cursor-help" matTooltip="find out more..." (click)="openInfo('gameInfo')"><ng-icon name="heroInformationCircleSolid"></ng-icon></button> 
       @if(roundService.endRound == roundService.activeRound) {
         <strong class="pl-2">How did you do?</strong>
       }

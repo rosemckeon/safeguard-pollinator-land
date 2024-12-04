@@ -1,25 +1,33 @@
-import { Component, inject , OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject , OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HabitatService } from '../habitat.service';
 import { RoundService } from '../round.service';
-//import { LandscapeComponent } from '../landscape/landscape.component';
-import { FormControl, FormsModule, FormGroup, ReactiveFormsModule, FormBuilder } from '@angular/forms';
-import { provideIcons } from '@ng-icons/core';
-import { heroArrowUpOnSquare } from '@ng-icons/heroicons/outline';
-import { heroCheckCircleSolid } from '@ng-icons/heroicons/solid';
+import { FormsModule, FormGroup, ReactiveFormsModule, FormBuilder } from '@angular/forms';
+import { NgIconComponent, provideIcons } from '@ng-icons/core';
+import { 
+  heroInformationCircleSolid 
+} from '@ng-icons/heroicons/solid';
 import { ActivatedRoute } from '@angular/router';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatSlideToggleChange } from '@angular/material/slide-toggle';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatButtonModule } from '@angular/material/button';
-//import { MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 
 
 @Component({
   selector: 'app-global-responses',
   standalone: true,
-  imports: [CommonModule, FormsModule, ReactiveFormsModule, MatTabsModule, MatSlideToggleModule, MatButtonModule],
-  providers: [provideIcons({ heroCheckCircleSolid, heroArrowUpOnSquare})],
+  imports: [
+    CommonModule, 
+    FormsModule, 
+    ReactiveFormsModule, 
+    MatTabsModule, 
+    MatSlideToggleModule, 
+    MatButtonModule,
+    NgIconComponent
+  ],
+  providers: [provideIcons({ heroInformationCircleSolid })],
   templateUrl: './global-responses.component.html',
   styleUrl: './global-responses.component.scss'
 })
@@ -27,22 +35,9 @@ export class GlobalResponsesComponent implements OnInit {
   route: ActivatedRoute = inject(ActivatedRoute);
   habitatService = inject(HabitatService);
   roundService = inject(RoundService);
-  
-  globalResponsesForm: FormGroup;
-  /*
-  globalResponsesForm = new FormGroup({
-    globalSeminaturalRestoration: new FormControl(''),
-    globalAgriculturalRestoration: new FormControl(''),
-    globalUrbanRestoration: new FormControl(''),
+  readonly dialog = inject(MatDialog);
 
-    globalSeminaturalNatProtReg: new FormControl(''),
-    globalAgriculturalNatProtReg: new FormControl(''),
-    globalUrbanNatProtReg: new FormControl(''),
-    
-    globalAgriculturalEcoIntensification: new FormControl(''),
-    globalUrbanGreening: new FormControl(''),
-  });
-  */
+  globalResponsesForm: FormGroup;
   
   isGlobalSeminaturalRestorationChecked: boolean;
   isGlobalAgriculturalRestorationChecked: boolean;
@@ -150,8 +145,70 @@ export class GlobalResponsesComponent implements OnInit {
         console.log('Warning: change triggered but no target found.')
     }
   }
+
+  openInfo(value: string):void {
+    let temp: any;
+    switch(value){
+      case 'restoration':
+        temp = this.dialog.open(Restoration);
+        break;
+      case 'natProtReg':
+        temp = this.dialog.open(NatProtReg);
+        break;
+      case 'ecoIntensification':
+        temp = this.dialog.open(EcoIntensification);
+        break;
+      case 'urbanGreening':
+        temp = this.dialog.open(UrbanGreening);
+        break;
+      default:
+        console.log("GlobalResponsesComponent.openInfo - requested dialogue does not exist", value);
+        break;
+    }
+    const dialogRef = temp;
+    dialogRef.afterClosed().subscribe((result: any) => {
+      console.log(`Dialog result: ${result}`);
+    });
+  }
   
   submitGlobalResponses(globalResponsesForm: FormGroup){
     console.log('GlobalResponsesComponent.submitGlobalResponses', JSON.stringify(globalResponsesForm.value, null, 2));
   }
 }
+
+
+@Component({
+  selector: 'restoration',
+  templateUrl: './global-responses.component.restoration.html',
+  standalone: true,
+  imports: [MatDialogModule, MatButtonModule],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+})
+export class Restoration {}
+
+@Component({
+  selector: 'nat-prot-reg',
+  templateUrl: './global-responses.component.nat-prot-reg.html',
+  standalone: true,
+  imports: [MatDialogModule, MatButtonModule],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+})
+export class NatProtReg {}
+
+@Component({
+  selector: 'eco-intensification',
+  templateUrl: './global-responses.component.eco-intensification.html',
+  standalone: true,
+  imports: [MatDialogModule, MatButtonModule],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+})
+export class EcoIntensification {}
+
+@Component({
+  selector: 'urban-greening',
+  templateUrl: './global-responses.component.urban-greening.html',
+  standalone: true,
+  imports: [MatDialogModule, MatButtonModule],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+})
+export class UrbanGreening {}
