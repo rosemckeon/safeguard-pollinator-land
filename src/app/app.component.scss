@@ -25,19 +25,31 @@
         background-repeat: no-repeat;
         height: 70px;
         span {
-            display: none;
+          display: none;
         }
         &.inrae {
-            background-image: url("^./../../public/assets/inrae.svg");
+          background-image: url("^./../../public/assets/inrae.svg");
         }
         &.bioagora {
-            background-image: url("^./../../public/assets/bioagora.png");
+          background-image: url("^./../../public/assets/bioagora.png");
+        }
+        &.iucn {
+          background-image: url("^./../../public/assets/iucn.svg");
+        }
+        &.safeguard {
+          background-image: url("^./../../public/assets/safeguard.png");
+        }
+        &.stirling {
+          background-image: url("^./../../public/assets/stirling.png");
         }
         &.elo {
-            background-image: url("^./../../public/assets/ELO.png");
+          background-image: url("^./../../public/assets/ELO.png");
+        }
+        &.myreton {
+          background-image: url("^./../../public/assets/myreton.png");
         }
         &.pap {
-            background-image: url("^./../../public/assets/p&p.png");
+          background-image: url("^./../../public/assets/p&p.png");
         }
     }
     .round-impacts {
