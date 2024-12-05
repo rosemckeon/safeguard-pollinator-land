@@ -4,12 +4,12 @@
   </section>
   <section class="controls h-full flex-none lg:w-[470px] xl:w-[550px] w-[470px] p-10">
     @if (roundService.activeRound == 0) {
-      <h1 class="mb-2">This game has three rounds</h1>
+      <h1 class="mb-2">This game has five rounds. Each round is 1 year.</h1>
     } @else {
-      <h1 class="mb-2">Can you keep improving your impact scores?</h1>
+      <h1 class="mb-2">Can you keep improving your impact every year?</h1>
     }
     <span class="bee-icon"></span>
-    <div class="grid grid-cols-4 gap-2 mb-5">
+    <div class="grid grid-cols-6 gap-2 mb-5">
       <app-round-details  *ngFor="let round of roundService.roundList" [round]="round"></app-round-details>
     </div>
     <p class="mb-5">
