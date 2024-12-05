@@ -67,7 +67,6 @@ export class AppComponent implements OnInit {
   @ViewChild(GlobalControlsComponent) globalControlsComponent?: GlobalControlsComponent;
   @ViewChild(GlobalResponsesComponent) globalResponsesComponent?: GlobalResponsesComponent;
   @ViewChild(LandscapeComponent) landscapeComponent?: LandscapeComponent;
-  title = 'A Pollination Demonstration Case';
 
   resetGlobalControls(): void {
     console.log('triggered resetGlobalControls from AppComponent');
