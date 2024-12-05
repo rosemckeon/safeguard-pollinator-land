@@ -146,7 +146,7 @@ export class GlobalResponsesComponent implements OnInit {
     }
   }
 
-  public openInfo(value: string) {
+  openInfo(value: string) {
     console.log("GlobalResponsesComponent.openInfo", value);
     let temp: any;
     switch(value){
