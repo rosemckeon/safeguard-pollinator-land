@@ -94,6 +94,7 @@
             &:focus {
               .impact-icon-container {
                 border-color: black;
+                background-color: rgba(0, 0, 0, 0.1);
               }
               .impact-icon-label {
                 opacity: 1;
@@ -101,43 +102,22 @@
             }
             &.cropPollination {
               .impact-icon {
-                background-image: url("^./../../public/assets/pollination-and-production.svg");
-              }
-              &:hover,
-              &:focus {
-                .impact-icon {
-                  background-image: url("^./../../public/assets/pollination-and-production-colour.svg");
-                }
+                background-image: url("^./../../public/assets/pollination-and-production-colour.svg");
               }
             }
             &.economicValueChain {
               .impact-icon {
-                background-image: url("^./../../public/assets/economic-value-chain.svg");
-              }
-              &:hover {
-                .impact-icon {
-                  background-image: url("^./../../public/assets/economic-value-chain-colour.svg");
-                }
+                background-image: url("^./../../public/assets/economic-value-chain-colour.svg");
               }
             }
             &.wildPlantPollination {
               .impact-icon {
-                background-image: url("^./../../public/assets/wild-plant-pollination-services.svg");
-              }
-              &:hover {
-                .impact-icon {
-                  background-image: url("^./../../public/assets/wild-plant-pollination-services-colour.svg");
-                }
+                background-image: url("^./../../public/assets/wild-plant-pollination-services-colour.svg");
               }
             }
             &.aestheticValues {
               .impact-icon {
-                background-image: url("^./../../public/assets/aesthetic-values.svg");
-              }
-              &:hover {
-                .impact-icon {
-                  background-image: url("^./../../public/assets/aesthetic-values-colour.svg");
-                }
+                background-image: url("^./../../public/assets/aesthetic-values-colour.svg");
               }
             }
           }
