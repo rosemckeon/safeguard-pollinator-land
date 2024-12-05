@@ -52,7 +52,7 @@
           <div class="impact aestheticValues text-center align-top">
             <div class="impact-icon-container mt-2" (click)="openInfo('aestheticValues')" matTooltip="{{ roundService.roundImpacts.aestheticValues }}%">
               <div class="impact-icon-label text-center leading-none opacity-60"><strong class="text-xs text-black">AESTHETIC VALUES</strong></div>
-              <div class="impact-icon-fill" style="height: {{roundService.roundImpacts.aestheticValues}}%"></div>
+              <div class="impact-icon-fill" style="height: {{ roundService.roundImpacts.aestheticValues }}%"></div>
               <div class="impact-icon"></div>
             </div>
           </div>
@@ -68,17 +68,15 @@
         <app-global-responses />
       <p class="mt-10 hidden">You can also select habitat cells on your landscape and <strong>locally overide your global descisions</strong>.</p>
       @if (roundService.activeRound == 0) {
-        <p class="my-10"><strong>When you're done making descisions...</strong></p>
-        <button (click)="advanceTime(roundService.activeRound, roundService.scenario!, habitatService.habitatList, roundService.roundList)" class="button px-4 pt-2 pb-4">Advance time <ng-icon name="heroArrowRight"></ng-icon></button>
-      } @else {
-        <button (click)="advanceTime(roundService.activeRound, roundService.scenario!, habitatService.habitatList, roundService.roundList)" class="button px-4 pt-2 pb-4 mt-10">Advance time <ng-icon name="heroArrowRight"></ng-icon></button>
+        <p class="mt-10"><strong>When you're done making descisions...</strong></p>
       }
-      
+      <button (click)="advanceTime(roundService.activeRound, roundService.scenario!, roundService.dataCode!, habitatService.habitatList, roundService.roundList)" class="button px-4 pt-2 pb-4 mt-10">Advance time <ng-icon name="heroArrowRight"></ng-icon></button>
+            
     } @else {
       @if(roundService.scenario == 'B') {
-        <a href="/B" class="button px-4 py-2">Play Again <ng-icon name="heroArrowPath"></ng-icon></a>
+        <a href="{{ roundService.playAgainURL }}" class="button px-4 py-2">Play Again <ng-icon name="heroArrowPath"></ng-icon></a>
       } @else {
-        <a href="/A" class="button px-4 py-2">Play Again <ng-icon name="heroArrowPath"></ng-icon></a>
+        <a href="{{ roundService.playAgainURL }}" class="button px-4 py-2">Play Again <ng-icon name="heroArrowPath"></ng-icon></a>
       }
     }
   </section>

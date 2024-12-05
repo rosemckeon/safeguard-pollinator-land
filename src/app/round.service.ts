@@ -25,7 +25,9 @@ export class RoundService {
   saveDataService: SaveDataService = inject(SaveDataService);
   habitatService: HabitatService = inject(HabitatService);
   Math = Math; // needed to use js Math functions
+  dataCode?: string | null;
   scenario?: string;
+  playAgainURL?: string;
   roundList: Round[] = [];
   roundImpacts: Impacts;
   //roundImpacts: RoundImpact[] = [];
@@ -371,6 +373,23 @@ export class RoundService {
       impacts.aestheticValues = value;
     }
     return impacts;
+  }
+
+  setPlayAgainURL(scenario: string, dataCode: string | null): string {
+    let url: string;
+    if(!dataCode){
+      url = "/" + scenario;
+    } else {
+      url = "/" + scenario + "/" + dataCode;
+    }
+    console.log("roundService.setPlayAgainURL", url);
+    return url;
+  }
+
+  saveDataCode(value: string | null): string | null {
+    this.saveDataService.saveDataCode(value);
+    console.log("roundService.saveDataCode", this.saveDataService.getDataCode());
+    return value;
   }
 
   // assign impact values to a particular round

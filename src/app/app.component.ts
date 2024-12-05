@@ -62,12 +62,12 @@ export class AppComponent implements OnInit {
   saveDataService: SaveDataService = inject(SaveDataService);
   habitatService: HabitatService = inject(HabitatService);
   roundService: RoundService = inject(RoundService);
+  readonly dialog = inject(MatDialog);
+
   @ViewChild(GlobalControlsComponent) globalControlsComponent?: GlobalControlsComponent;
   @ViewChild(GlobalResponsesComponent) globalResponsesComponent?: GlobalResponsesComponent;
   @ViewChild(LandscapeComponent) landscapeComponent?: LandscapeComponent;
-  title = 'game';
-
-  readonly dialog = inject(MatDialog);
+  title = 'A Pollination Demonstration Case';
 
   resetGlobalControls(): void {
     console.log('triggered resetGlobalControls from AppComponent');
@@ -97,7 +97,7 @@ export class AppComponent implements OnInit {
   constructor() {
     //makes sure scenario is never undefined.
     this.roundService.scenario = 'A';
-  }
+ }
 
   ngOnInit(): void {
     // too early to calculate impacts
@@ -133,10 +133,10 @@ export class AppComponent implements OnInit {
 
   // this function is actionable from the AppComponent template
   // it triggers on click of the 'advance time' button
-  advanceTime(from : number, scenario : string, habitats : Habitat[], roundList : Round[]) {
+  advanceTime(from : number, scenario : string, dataCode: string | null, habitats : Habitat[], roundList : Round[]) {
     // do something here to pause all other interactions - like a loading animation
     // ******
-    console.log("AppComponent.advanceTime started", from, scenario, habitats, roundList);
+    console.log("AppComponent.advanceTime started", from, scenario, dataCode, habitats, roundList);
     let to : number = from + 1;
     let newRoundList : Round[] | null = this.roundService.advanceTime(from, to, habitats, roundList);
     // do something with the data after advancing time is complete
@@ -150,12 +150,20 @@ export class AppComponent implements OnInit {
         // this.resetGlobalControls();
       } else {
         // Or the game has finished.
-        this.saveDataService.savePlayerData(scenario, newRoundList);
+        // Only save the data if we have a dataCode
+        if ( dataCode != null ) {
+          this.saveDataService.savePlayerData(scenario, dataCode, newRoundList);
+        }
       }
       console.log("AppComponent.advanceTime completed", this.roundService.activeRound, scenario, newRoundList);
     }
     // remove animation here
     // ******
+  }
+
+  submitDataCode(value: string) {
+    console.log("AppComponent.submitDataCode", value);
+
   }
 }
 
@@ -167,7 +175,6 @@ export class AppComponent implements OnInit {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class GameInfoContent {}
-
 
 @Component({
   selector: 'crop-pollination',

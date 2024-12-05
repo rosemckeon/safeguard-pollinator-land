@@ -1,6 +1,5 @@
 import { Routes } from '@angular/router';
 import { LandscapeComponent } from './landscape/landscape.component';
-//import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 type PathMatch = "full" | "prefix" | undefined;
  
 // interesting solution to disabling back and refresh if game has started
@@ -15,7 +14,21 @@ export const routes: Routes = [] = [
         }
     },
     {
+        path: 'A/:requestCode',
+        component: LandscapeComponent,
+        data: {
+            scenario: 'A'
+        }
+    },
+    {
         path: 'B',
+        component: LandscapeComponent,
+        data: {
+            scenario: 'B'
+        } 
+    },
+    {
+        path: 'B/:requestCode',
         component: LandscapeComponent,
         data: {
             scenario: 'B'

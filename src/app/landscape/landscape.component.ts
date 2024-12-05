@@ -1,9 +1,9 @@
 // angular
-import { Component, inject, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ActivatedRoute } from '@angular/router';
+import { Router, ActivatedRoute, ParamMap} from '@angular/router';
 // Maths - we need this to do proper maths (default only has limited functions)
-import * as Math from 'mathjs';
+//import * as Math from 'mathjs';
 // interfaces
 import { Round } from '../round';
 import { Habitat } from '../habitat';
@@ -12,6 +12,8 @@ import { HabitatService } from '../habitat.service';
 import { RoundService } from '../round.service';
 // components
 import { HabitatComponent } from '../habitat/habitat.component'
+//import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+//import { MatButtonModule } from '@angular/material/button';
 
 
 @Component({
@@ -22,9 +24,10 @@ import { HabitatComponent } from '../habitat/habitat.component'
   styleUrl: './landscape.component.scss'
 })
 export class LandscapeComponent {
-  route: ActivatedRoute = inject(ActivatedRoute);
+  //route: ActivatedRoute = inject(ActivatedRoute);
   habitatService: HabitatService = inject(HabitatService);
   roundService: RoundService = inject(RoundService);
+  //readonly dialog = inject(MatDialog);
 
   @Input() set scenario(scenario: string){
     this.roundService.getStartingScenario(scenario).then(
@@ -38,6 +41,40 @@ export class LandscapeComponent {
     });
   }
 
-  constructor(){  }
+  constructor(private route: ActivatedRoute, private router: Router) {}
 
+  ngOnInit() {
+    const requestCode = this.route.snapshot.paramMap.get('requestCode');
+    //console.log("LandscapeComponent.ngOnInint requestCode", requestCode);
+    this.roundService.playAgainURL = this.roundService.setPlayAgainURL(this.roundService.scenario!, requestCode);
+    if(!requestCode){
+      console.log("no request code");
+      // can request a code here or open the default game info?
+      //this.openRequestCode();
+    } else {
+      // we have a code.
+      // we could do a pop up here that verifies consent if needed
+      this.roundService.dataCode = this.roundService.saveDataCode(requestCode);
+    }
+  }
+
+  /*
+  openRequestCode() {
+    const dialogRef = this.dialog.open(DataCode);
+    dialogRef.afterClosed().subscribe((result: any) => {
+      console.log(`DataCode Dialog result: ${result}`);
+    });
+  }
+  */
 }
+
+/*
+@Component({
+  selector: 'data-code',
+  templateUrl: './landscape.component.data-code.html',
+  standalone: true,
+  imports: [MatDialogModule, MatButtonModule],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+})
+export class DataCode {}
+*/
