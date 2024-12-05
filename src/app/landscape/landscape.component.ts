@@ -47,15 +47,8 @@ export class LandscapeComponent {
     const requestCode = this.route.snapshot.paramMap.get('requestCode');
     //console.log("LandscapeComponent.ngOnInint requestCode", requestCode);
     this.roundService.playAgainURL = this.roundService.setPlayAgainURL(this.roundService.scenario!, requestCode);
-    if(!requestCode){
-      console.log("no request code");
-      // can request a code here or open the default game info?
-      //this.openRequestCode();
-    } else {
-      // we have a code.
-      // we could do a pop up here that verifies consent if needed
-      this.roundService.dataCode = this.roundService.saveDataCode(requestCode);
-    }
+    // save the requestCode = whatever string follows /A/ or /B/ or null.
+    this.roundService.dataCode = this.roundService.saveDataCode(requestCode);
   }
 
   /*
