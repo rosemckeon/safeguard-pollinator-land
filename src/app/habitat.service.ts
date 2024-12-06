@@ -315,10 +315,10 @@ export class HabitatService {
             m = 2;
             break;
           case 'ecoIntensification':
-            m = 1.5;
+            m = 1;
             break;
           case 'urbanGreening':
-            m = 1.5;
+            m = 1;
             break;
           default:
             console.log("habitatService.updateHabitatStates responseName not recognized", responseName);
@@ -340,7 +340,13 @@ export class HabitatService {
           }
           let newValue : number = this.getScore(0, 100, currentStateValues[s], chosenValue, m, true); 
           //update the currentStateValue
-          currentStateValues[s] = newValue;
+          if(s == 2){
+            // reduce the reduction for habitat resources as we can make less assumptions here.
+            currentStateValues[s] = Math.round(Math.mean(currentStateValues[s], newValue));
+          } else {
+            currentStateValues[s] = newValue;
+          }
+          
         } else {
           console.log("Something went wrong.");
           break;

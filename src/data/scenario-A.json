@@ -38,8 +38,8 @@
               ],
             "state": {
               "wildPollinators": 5,
-              "floralResources": 15,
-              "habitatResources": 5
+              "floralResources": 5,
+              "habitatResources": 6
               } 
             },
             {
@@ -78,8 +78,8 @@
                 ],
                 "state": {
                   "wildPollinators": 6,
-                  "floralResources": 12,
-                  "habitatResources": 6
+                  "floralResources": 6,
+                  "habitatResources": 2
                   } 
               },
               {
@@ -117,9 +117,9 @@
                   }
                 ],
                 "state": {
-                  "wildPollinators": 10,
-                  "floralResources": 5,
-                  "habitatResources": 15
+                  "wildPollinators": 3,
+                  "floralResources": 4,
+                  "habitatResources": 5
                   } 
               },
             {
@@ -149,9 +149,9 @@
                   }
                 ],
                 "state": {
-                  "wildPollinators": 48,
+                  "wildPollinators": 52,
                   "floralResources": 55,
-                  "habitatResources": 20
+                  "habitatResources": 36
                   } 
               },
             {
@@ -190,8 +190,8 @@
               ],
               "state": {
                 "wildPollinators": 4,
-                "floralResources": 11,
-                "habitatResources": 4
+                "floralResources": 3,
+                "habitatResources": 5
                 } 
             },
             {
@@ -229,9 +229,9 @@
                   }
                 ],
                 "state": {
-                  "wildPollinators": 5,
-                  "floralResources": 4,
-                  "habitatResources": 2
+                  "wildPollinators": 12,
+                  "floralResources": 13,
+                  "habitatResources": 8
                   } 
               },
               {
@@ -269,9 +269,9 @@
                   }
                 ],
                 "state": {
-                  "wildPollinators": 5,
-                  "floralResources": 4,
-                  "habitatResources": 2
+                  "wildPollinators": 8,
+                  "floralResources": 9,
+                  "habitatResources": 6
                   } 
               },
             {
@@ -301,9 +301,9 @@
                   }
                 ],
                 "state": {
-                  "wildPollinators": 25,
+                  "wildPollinators": 28,
                   "floralResources": 30,
-                  "habitatResources": 55
+                  "habitatResources": 22
                   } 
               },
             {
@@ -341,9 +341,9 @@
                 }
               ],
               "state": {
-                "wildPollinators": 15,
-                "floralResources": 10,
-                "habitatResources": 20
+                "wildPollinators": 6,
+                "floralResources": 7,
+                "habitatResources": 3
                 } 
             },
             {
@@ -381,9 +381,9 @@
                 }
               ],
               "state": {
-                "wildPollinators": 7,
-                "floralResources": 8,
-                "habitatResources": 4
+                "wildPollinators": 11,
+                "floralResources": 13,
+                "habitatResources": 12
                 } 
             },
             {
@@ -421,9 +421,9 @@
                   }
                 ],
                 "state": {
-                  "wildPollinators": 6,
-                  "floralResources": 2,
-                  "habitatResources": 3
+                  "wildPollinators": 9,
+                  "floralResources": 10,
+                  "habitatResources": 8
                   } 
               },
               {
@@ -453,9 +453,9 @@
                   }
                 ],
                 "state": {
-                  "wildPollinators": 50,
+                  "wildPollinators": 48,
                   "floralResources": 50,
-                  "habitatResources": 50
+                  "habitatResources": 55
                   } 
               },
             {
@@ -495,7 +495,7 @@
               "state": {
                 "wildPollinators": 5,
                 "floralResources": 6,
-                "habitatResources": 5
+                "habitatResources": 3
                 } 
             },
             {
@@ -535,7 +535,7 @@
                 "state": {
                   "wildPollinators": 5,
                   "floralResources": 5,
-                  "habitatResources": 8
+                  "habitatResources": 3
                   } 
               },
             {
@@ -597,9 +597,9 @@
                 }
               ],
               "state": {
-                "wildPollinators": 35,
-                "floralResources": 30,
-                "habitatResources": 46
+                "wildPollinators": 42,
+                "floralResources": 40,
+                "habitatResources": 56
                 } 
             }
      ]
