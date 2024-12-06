@@ -115,31 +115,72 @@ export class HabitatService {
     } 
   }
 
-  
-  async setGlobalResponseChange(habitatType: string, responseName: string, value: boolean): Promise<void>{
+  async setLocalResponseChange(habitatID: number, responseName: string, value: boolean): Promise<void>{
     //let habitats = this.saveDataService.getGlobalResponses();
     // this.habitatList has the globalChange value we need wheras habitats has the raw loaded state.
     // if we comment out the loop below, this.habitatList is the same as habitats.
     // loop through habitats
     
-    for (var i = 0; i < this.globalResponses?.length; i++) {
-      // to match habitatType
-      if(this.globalResponses[i].type.active == habitatType){
+    for (var i = 0; i < this.localResponses?.length; i++) {
+      // to match ID
+      if(this.localResponses[i].id == habitatID){
         // loop through responses
-        for (var r = 0; r < this.globalResponses[i].response!.length; r++){
+        for (var r = 0; r < this.localResponses[i].response!.length; r++){
           // to match responseType
-          if(this.globalResponses[i].response![r].name == responseName){
+          if(this.localResponses[i].response![r].name == responseName){
             // update response
             //console.log('Updating response on habitat: ', this.habitatList[i].id);
-            this.globalResponses[i].response![r].globalChange = value;
+            this.localResponses[i].response![r].localChange = value;
             //console.log(this.habitatList[i].response![r]);
           }
         }
         //console.log(this.habitatList[i])
       }
     }
-    console.log('habitatService.setGlobalResponseChange: ', habitatType, responseName, value, this.globalResponses);
-    this.saveDataService.saveGlobalResponses(this.globalResponses);
+    console.log('habitatService.setLocalResponseChange: ', habitatID, responseName, value, this.localResponses);
+    this.saveDataService.saveLocalResponses(this.localResponses);
+  }
+  
+  // triggered by the GlobalResponseComponent when a global descision is made.
+  async setResponseChangeByType(habitatType: string, responseName: string, value: boolean, switchType: string | void): Promise<void> {
+    console.log("HabitatService.setResponseChangeByType", habitatType, responseName, value, switchType);
+    let local: boolean = false;
+    let habitatList: Habitat[] = this.globalResponses;
+    if(switchType !== null && typeof switchType != undefined && switchType == "local") {
+      //console.log("HabitatService.setResponseChangeByType local correctly detected")
+      local = true;
+      habitatList = this.localResponses;
+    }
+
+    for (var i = 0; i < habitatList!.length; i++) {
+      // to match habitatType
+      if(habitatList[i].type.active == habitatType){
+        // loop through responses
+        for (var r = 0; r < habitatList[i].response!.length; r++){
+          // to match responseType
+          if(habitatList[i].response![r].name == responseName){
+            // update response
+            //console.log('Updating response on habitat: ', this.habitatList[i].id);
+            if(local) {
+              habitatList[i].response![r].localChange = value;
+            } else {
+              habitatList[i].response![r].globalChange = value;
+            }
+            //console.log(this.habitatList[i].response![r]);
+          }
+        }
+        //console.log(this.habitatList[i])
+      }
+    }
+    if(local){
+      this.localResponses = habitatList;
+      this.saveDataService.saveLocalResponses(habitatList);
+    } else {
+      //console.log('habitatService.setGlobalResponseChange: ', habitatType, responseName, value, this.globalResponses);
+      this.globalResponses = habitatList;
+      this.saveDataService.saveGlobalResponses(habitatList);
+    }
+    console.log("HabitatService.setResponseChangeByType completed", habitatList);
   }
 
   async updateHabitatStates(habitat: Habitat, responseName: string): Promise<Habitat> {

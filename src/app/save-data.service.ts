@@ -71,8 +71,8 @@ export class SaveDataService {
   saveLocalResponses(value: Habitat[]) {
     this.localService.set("localResponses", value);
   }
-  getLocalResponses(): string | null {
-    return this.localService.get<string>('localResponses');
+  getLocalResponses(): Habitat[] | null {
+    return this.localService.get<Habitat[]>('localResponses');
   }
 
   savePlayerData(scenario: string, dataCode: string, playerData: Round[]): any { 

@@ -1,7 +1,14 @@
 ::ng-deep {
     .habitat-response {
+      img {
+        width: 60px;
+        margin: auto;
+      }
       &.response-disabled img {
         opacity: 0.4;
+      }
+      .mat-mdc-slide-toggle {
+        margin-top: 11px;
       }
     }
 }
