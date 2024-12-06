@@ -443,19 +443,14 @@ export class RoundService {
   // applies all the descisions
   advanceTime(from: number, to: number, habitats: Habitat[], roundList: Round[]): Round[] | null {
     console.log('roundService.advanceTime', from, to, habitats, roundList);
-    // globalResponses are default, but localResponses ovveride changes
-    let habitatList : Habitat[] | null = this.saveDataService.getGlobalResponses();
-    let localResponses : Habitat[] | null = this.saveDataService.getLocalResponses();
-    if(localResponses != null) {
-      habitatList = localResponses;
-    }
-
-    if(habitatList != null) {
-      let savedResponses: Round[] | null = this.saveLandscape(from, habitatList, roundList);
-      console.log('roundService.advanceTime savedResponses', from, savedResponses);
+   
+    let globalResponses : Habitat[] | null = this.saveDataService.getGlobalResponses();
+    //let localResponses : Habitat[] | null = this.saveDataService.getLocalResponses();
+    if(globalResponses != null) {
       // save the current landscape in the current habitat
       // records descisions without enabling responses.
-
+      let savedResponses: Round[] | null = this.saveLandscape(from, globalResponses, roundList);
+      console.log('roundService.advanceTime savedResponses', from, savedResponses);
       // Apply responses to enable them on the new round (saves landscape in round to)
       let appliedResponses = this.makeResponses(to, habitats, savedResponses);
       // Calculate new habitat state values based on the applied responses 
