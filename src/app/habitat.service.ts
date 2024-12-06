@@ -9,6 +9,7 @@ import { HabitatCount } from './habitat-count';
 import { SaveDataService } from './save-data.service';
 // raw data
 import responseToStateValues from '../data/response-on-state.json';
+import { WildPollinators } from './habitat/habitat.component';
 
 @Injectable({
   providedIn: 'root'
@@ -183,8 +184,29 @@ export class HabitatService {
     console.log("HabitatService.setResponseChangeByType completed", habitatList);
   }
 
+  getScore(min: number, max: number, currentValue: number, expertScore: number, m: number): number {
+    // in a range min to max (eg: 0-100), 80 becomes 20, 40 becomes 60, 90 becomes 10.
+    let inverseCurrentValue : number = max - currentValue + min;
+    // if the real current score is over 70 the inverse will be under 30.
+    // we reduce that to 5 so that habitat improvement gets harder
+    if(inverseCurrentValue <= 30){ inverseCurrentValue = 5}
+    // and we do similar at the bottom range so there is a noticible large increase when repsonses are made in shit starting conditions.
+    else if(inverseCurrentValue >= 80){ inverseCurrentValue = 100 }
+    // adjust the usual score with the inverse percentage. 
+    let score : number = (m * expertScore) * (inverseCurrentValue/100);
+    let newValue : number = Math.round(currentValue + score);
+    //console.log("habitatService.getScore", currentValue, inverseCurrentValue, expertScore, m, (m*expertScore), score, newValue);
+    if( newValue > 100 ) {
+      return 100;
+    } else if ( newValue < 0 ) {
+      return 0;
+    } else {
+      return newValue;
+    }
+  }
+
   async updateHabitatStates(habitat: Habitat, responseName: string): Promise<Habitat> {
-    console.log('habitatService.updateHabitatStates:, ', habitat, responseName);
+    //console.log('habitatService.updateHabitatStates:, ', habitat, responseName);
     let stateNames: string[] = ['wildPollinators', 'floralResources', 'habitatResources'];
     let currentStateValues: number[] = [
       habitat.state!.wildPollinators!,
@@ -199,54 +221,53 @@ export class HabitatService {
       // check for the final loop being completed
       if(s == stateNames.length){
         // trigger something we can only do with all state iterations complete
-        // console.log('Looping through states on this habitat is complete.', habitat);
-        // assign the calculated overall state score here
-        // uses the values updated by the loop.
-        /*
-        habitat.stateValue = this.calculateHabitatStateValue([
-          habitat.state!.wildPollinators!,
-          habitat.state!.floralResources!,
-          habitat.state!.habitatResources!
-        ]);
-        */
+        // We will force the WP score to be tightly linked with floral resources.
+        habitat.state!.wildPollinators = Math.round(Math.mean(currentStateValues[0], currentStateValues[1]));
+        habitat.state!.floralResources = currentStateValues[1];
+        habitat.state!.habitatResources = currentStateValues[2];
+        //console.log('habitatService.updateHabitatStates Loop complete', habitat.state);
         break;
       } else {
         // do things to each state
-        // use the multiplyer 'm' on the sampled value and add it to the current score
-        // if we wanted we could set m to be different on each state in the switch below.
-        // an m of 2 allows a maximum improvement of 10 in a round as the possibleValues range from 0-5
-        let m : number = 2;
-        possibleValues = this.getResponseEffectOnStateValues(habitat.type.active, responseName, stateNames[s]);
-        // console.log('Possible values: ', possibleValues);
-        let chosenValue : number = this.sample(possibleValues!);
-        let newValue : number = ( chosenValue * m ) + currentStateValues[s];
-        // adding a switch in here incase we want to do different things to each value...
-        switch(s){
-          case 0:
-            if( newValue > 100 ) {
-              habitat.state!.wildPollinators = 100;
-            } else {
-              habitat.state!.wildPollinators = newValue;
-            }
+        // m * 5 = max improvement possible for a given response.
+        let m: number = 0 ;
+        switch(responseName){
+          case 'restoration':
+            m = 4;
             break;
-          case 1:
-            if( newValue > 100 ) {
-              habitat.state!.floralResources = 100;
-            } else {
-              habitat.state!.floralResources = newValue;
-            }
+          case 'natProtReg':
+            m = 4;
             break;
-          case 2:
-            if( newValue > 100 ) {
-              habitat.state!.habitatResources = 100;
-            } else {
-              habitat.state!.habitatResources = newValue;
-            }
+          case 'ecoIntensification':
+            m = 3;
+            break;
+          case 'urbanGreening':
+            m = 3;
             break;
           default:
-            console.log('Warning: state not recognised.');
-            // do nothing
+            console.log("habitatService.updateHabitatStates responseName not recognized", responseName);
             break;
+        }
+        if(m > 0){
+          possibleValues = this.getResponseEffectOnStateValues(habitat.type.active, responseName, stateNames[s]);
+          // console.log('Possible values: ', possibleValues);
+          let chosenValue : number = this.sample(possibleValues!);
+          // make m bigger/smaller in some situations because this effect is known to be very important.
+          if(responseName == "restoration" && habitat.type.active == "Semi-natural"){
+            m = m * 1.3
+          } else if (responseName == "natureProtection" && habitat.type.active == "Semi-natural"){
+            m = m * 1.2
+          } else if (responseName == "restoration" && habitat.type.active != "Semi-natural"){
+            m = m * 0.5
+          } else if (responseName == "natureProtection" && habitat.type.active != "Semi-natural"){
+            m = m * 0.5
+          }
+          let newValue : number = this.getScore(0, 100, currentStateValues[s], chosenValue, m); 
+          //update the currentStateValue
+          currentStateValues[s] = newValue;
+        } else {
+          console.log("Something went wrong.");
+          break;
         }
         s++;
       }
