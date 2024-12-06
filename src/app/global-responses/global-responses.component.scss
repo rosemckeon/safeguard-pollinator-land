@@ -72,6 +72,7 @@
         .mdc-switch__track::after,
         .mdc-switch__track::before {
             border: none;
+            background-color: #89B3BB #{!important};
             background-color: rgba(0,0,0, 0.2) #{!important};
         }
     }
