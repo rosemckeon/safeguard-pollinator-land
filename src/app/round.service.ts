@@ -443,11 +443,15 @@ export class RoundService {
   // applies all the descisions
   advanceTime(from: number, to: number, habitats: Habitat[], roundList: Round[]): Round[] | null {
     console.log('roundService.advanceTime', from, to, habitats, roundList);
-   
-    let globalResponses : Habitat[] | null = this.saveDataService.getGlobalResponses();
-    //let localResponses : Habitat[] | null = this.saveDataService.getLocalResponses();
-    if(globalResponses != null) {
-      let savedResponses: Round[] | null = this.saveLandscape(from, globalResponses, roundList);
+    // globalResponses are default, but localResponses ovveride changes
+    let habitatList : Habitat[] | null = this.saveDataService.getGlobalResponses();
+    let localResponses : Habitat[] | null = this.saveDataService.getLocalResponses();
+    if(localResponses != null) {
+      habitatList = localResponses;
+    }
+
+    if(habitatList != null) {
+      let savedResponses: Round[] | null = this.saveLandscape(from, habitatList, roundList);
       console.log('roundService.advanceTime savedResponses', from, savedResponses);
       // save the current landscape in the current habitat
       // records descisions without enabling responses.
@@ -479,44 +483,5 @@ export class RoundService {
       }
     } 
     return null;
-    
-    //this.habitatService.applyGlobalHabitatChanges(this.habitatService.habitatList);
-    // store all the changes in the roundList for the next active round (so we have a starting state for that round)
-    //this.roundList[to].landscape = this.habitatService.habitatList;
-    //this.roundList[to].impacts = this.roundImpacts;
-    // apply responses so they are active on the next round
-    // might make this a round service function that triggers a habitat service function internally.
-    // to do that I need to regig when things are happening. 
-    // so that the active round is only updated after everything else is processed.
-/*
-    // apply responses doesn't use activeRound - it just mutates habitats, enabling/disabling responses
-    this.habitatService.applyResponses(this.activeRound, this.habitatService.habitatList).then((habitats : Habitat[]) => {
-      console.log('applyResponses completed: ', habitats); // should show all habitats with response enabled values copied from global/localChange. (confirmed)
-      // once all the responses are enabled/disabled we pass the habitatList to updateStates to get state value changes
-      // this also doesn't need activeRound but we want it set to getImpacts after the habitat states are resolved.
-      this.habitatService.updateStates(habitats).then((habitats: Habitat[]) => {
-        console.log('updateStates completed: ', habitats); // should show all habitats with state values adjusted (confirmed)
-        // when all those maths are done we save the service habitatList so it shows as active in LandscapeComponent
-        this.habitatService.habitatList = habitats;
-        // and then we can update the round impacts.
-        // this simple addition works fine.
-        this.roundImpacts = this.getImpacts(this.activeRound, habitats);
-        console.log("--roundImpacts set by advanceTime in RoundService", this.roundImpacts);
-        // however the attempt below didn't work.
-        /*
-        this.updateImpacts(this.roundImpacts, habitats).then((roundImpacts : RoundImpact[]) => {
-          console.log('updateImpacts completed ', roundImpacts);
-          // and update the service variable on completion
-          this.roundImpacts = roundImpacts;
-        });
-        *//*
-      });
-    });
-    //this.roundList[this.activeRound].activeHabitatTypes = this.habitatService.getActiveHabitatTypes(this.habitatService.habitatList);
-    // why have i copied it back the other way??? don't think we need this
-    //this.habitatService.habitatList = this.roundList[this.activeRound].landscape;
-    console.log('New Active Round: ', this.roundList[this.activeRound]);  
-    return(this.roundList);
-    */
   }
 }

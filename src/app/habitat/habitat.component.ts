@@ -24,7 +24,6 @@ export class HabitatComponent implements OnInit {
   habitatService: HabitatService = inject(HabitatService);
   readonly dialog = inject(MatDialog);
   @Input() habitat!: Habitat;
-
   
   constructor(){}
   

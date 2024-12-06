@@ -26,9 +26,9 @@
         </div>
       </div>
     </div>
-    <div class="flex-none habitat-responses text-center align-middle">
-      <h5 class="text-xs text-black"><strong>RESPONSES</strong></h5>
-        <app-habitat-response *ngFor="let habitatResponse of habitat.response!" [habitatResponse]="habitatResponse"></app-habitat-response>
+    <div class="flex-none habitat-responses text-right align-middle">
+      <h5 class="text-xs text-black text-right pr-2"><strong>RESPONSES</strong></h5>
+        <app-habitat-response *ngFor="let habitatResponse of habitat.response!" [habitatResponse]="habitatResponse" [habitatID]="habitat.id"></app-habitat-response>
         @if(habitat.type.hasOwnProperty('globalChange')){
           <div id="habitatChange_{{habitat.id}}" class="habitat-change {{ habitat.type.globalChange!.toLowerCase() }} text-center inline-block size-24 m-5"><span class="text-sm">{{ habitat.type.globalChange! }}</span></div>
         }

@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, inject , OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject , OnInit, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HabitatService } from '../habitat.service';
 import { RoundService } from '../round.service';
@@ -8,11 +8,11 @@ import {
   heroInformationCircleSolid 
 } from '@ng-icons/heroicons/solid';
 import { ActivatedRoute } from '@angular/router';
-import { MatSlideToggleModule } from '@angular/material/slide-toggle';
-import { MatSlideToggleChange } from '@angular/material/slide-toggle';
+import { MatSlideToggleModule, MatSlideToggleChange } from '@angular/material/slide-toggle';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+import { HabitatResponseComponent } from '../habitat-response/habitat-response.component';
 
 
 @Component({
@@ -36,6 +36,7 @@ export class GlobalResponsesComponent implements OnInit {
   habitatService = inject(HabitatService);
   roundService = inject(RoundService);
   readonly dialog = inject(MatDialog);
+  @ViewChild(HabitatResponseComponent) habitatResponseComponent? :HabitatResponseComponent;
 
   globalResponsesForm: FormGroup;
   
@@ -110,35 +111,43 @@ export class GlobalResponsesComponent implements OnInit {
     console.log('GlobalResponsesComponent.toggleChanges', $event.source.ariaLabel, $event.checked);
     switch($event.source.ariaLabel){
       case('globalSeminaturalRestoration'):
-        this.habitatService.setGlobalResponseChange('Semi-natural', this.restorationName, $event.checked);
+        this.habitatService.setResponseChangeByType('Semi-natural', this.restorationName, $event.checked);
+        this.habitatService.setResponseChangeByType('Semi-natural', this.restorationName, $event.checked, "local");
         this.isGlobalSeminaturalRestorationChecked = $event.checked;
         break;
       case('globalAgriculturalRestoration'):
-        this.habitatService.setGlobalResponseChange('Agricultural', this.restorationName, $event.checked);
+        this.habitatService.setResponseChangeByType('Agricultural', this.restorationName, $event.checked);
+        this.habitatService.setResponseChangeByType('Agricultural', this.restorationName, $event.checked, "local");
         this.isGlobalAgriculturalRestorationChecked = $event.checked;
         break;
       case('globalUrbanRestoration'):
-        this.habitatService.setGlobalResponseChange('Urban', this.restorationName, $event.checked);
+        this.habitatService.setResponseChangeByType('Urban', this.restorationName, $event.checked);
+        this.habitatService.setResponseChangeByType('Urban', this.restorationName, $event.checked, "local");
         this.isGlobalUrbanRestorationChecked = $event.checked;
         break;
       case('globalSeminaturalNatProtReg'):
-        this.habitatService.setGlobalResponseChange('Semi-natural', this.natureProtectionName, $event.checked);
+        this.habitatService.setResponseChangeByType('Semi-natural', this.natureProtectionName, $event.checked);
+        this.habitatService.setResponseChangeByType('Semi-natural', this.natureProtectionName, $event.checked, "local");
         this.isGlobalSeminaturalNatProtRegChecked = $event.checked;
         break;
       case('globalAgriculturalNatProtReg'):
-        this.habitatService.setGlobalResponseChange('Agricultural', this.natureProtectionName, $event.checked);
+        this.habitatService.setResponseChangeByType('Agricultural', this.natureProtectionName, $event.checked);
+        this.habitatService.setResponseChangeByType('Agricultural', this.natureProtectionName, $event.checked, "local");
         this.isGlobalAgriculturalNatProtRegChecked = $event.checked;
         break;
       case('globalUrbanNatProtReg'):
-        this.habitatService.setGlobalResponseChange('Urban', this.natureProtectionName, $event.checked);
+        this.habitatService.setResponseChangeByType('Urban', this.natureProtectionName, $event.checked);
+        this.habitatService.setResponseChangeByType('Urban', this.natureProtectionName, $event.checked, "local");
         this.isGlobalUrbanNatProtRegChecked = $event.checked;
         break;
       case('globalUrbanGreening'):
-        this.habitatService.setGlobalResponseChange('Urban', this.urbanGreeningName, $event.checked);
+       this.habitatService.setResponseChangeByType('Urban', this.urbanGreeningName, $event.checked);
+        this.habitatService.setResponseChangeByType('Urban', this.urbanGreeningName, $event.checked, "local");
         this.isGlobalUrbanGreeningChecked = $event.checked;
         break;
       case('globalAgriculturalEcoIntensification'):
-        this.habitatService.setGlobalResponseChange('Agricultural', this.ecoIntensificationName, $event.checked);
+        this.habitatService.setResponseChangeByType('Agricultural', this.ecoIntensificationName, $event.checked);
+        this.habitatService.setResponseChangeByType('Agricultural', this.ecoIntensificationName, $event.checked, "local");
         this.isGlobalAgriculturalEcoIntensificationChecked = $event.checked;
         break;
       default:
@@ -172,9 +181,6 @@ export class GlobalResponsesComponent implements OnInit {
     });
   }
   
-  submitGlobalResponses(globalResponsesForm: FormGroup){
-    console.log('GlobalResponsesComponent.submitGlobalResponses', JSON.stringify(globalResponsesForm.value, null, 2));
-  }
 }
 
 

@@ -1,4 +1,4 @@
-<form class="example-form" [formGroup]="globalResponsesForm">
+<form [formGroup]="globalResponsesForm">
     <mat-tab-group mat-stretch-tabs="false" mat-align-tabs="start" animationDuration="500ms" dynamicHeight="true">
         <mat-tab labelClass="semi-natural" label="Semi-natural" isActive="true">
             <mat-slide-toggle formControlName="globalSeminaturalRestoration" aria-label="globalSeminaturalRestoration" [checked]="isGlobalSeminaturalRestorationChecked" (change)="toggleChanges($event)" class="my-2">
