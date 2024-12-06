@@ -1,10 +1,12 @@
 // angular
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 // Maths - we need this to do proper maths (default only has limited functions)
 import * as Math from 'mathjs';
 // interfaces
 import { Habitat } from './habitat';
 import { HabitatCount } from './habitat-count';
+// services 
+import { SaveDataService } from './save-data.service';
 // raw data
 import responseToStateValues from '../data/response-on-state.json';
 
@@ -12,7 +14,14 @@ import responseToStateValues from '../data/response-on-state.json';
   providedIn: 'root'
 })
 export class HabitatService {
+  saveDataService: SaveDataService = inject(SaveDataService);
   habitatList: Habitat[] = [];
+  globalResponses: Habitat[] = [];
+  localResponses: Habitat[] = [];
+
+  constructor() {
+    //this.getActiveHabitatTypes(this.habitatList);
+  }
 
   sample(values: number[] | string[]): any {
     let result : any = values[Math.floor(Math.random()*values.length)];
@@ -20,21 +29,8 @@ export class HabitatService {
     return(result);
   }
 
-  /*
-  calculateHabitatStateValue(stateValues: number[]): number {
-    console.log('Triggered calculateHabitatStateValue from HabitatService', stateValues);
-    //let wildPollinators: number = stateValues[0]; 
-    //let floralResources: number = stateValues[1];
-    //let habitatResources: number = stateValues[2];
-    //let value = Math.round((wildPollinators + floralResources + habitatResources)/3);
-    let value = Math.round(stateValues.reduce((partialSum, a) => partialSum + a, 0)/stateValues.length);
-    console.log('Value: ', value);
-    return(value);
-  }
-  */
-
   getStateValues(h: number, r: number, stateName: string): number[] | void {
-    console.log('Triggered getStateValues from HabitatService', h, r, stateName);
+    console.log('habitatServcie.getStateValues', h, r, stateName);
     let s: number | undefined;
     switch(stateName){
       case 'wildPollinators':
@@ -56,7 +52,7 @@ export class HabitatService {
   }
 
   getResponseEffectOnStateValues(habitatType: string, responseName: string, stateName: string): number[] | void {
-    console.log('Triggered getResponseEffectOnStateValues from HabitatService: ', habitatType, responseName, stateName);
+    console.log('habitatService.getResponseEffectOnStateValues', habitatType, responseName, stateName);
     let h : number | undefined;
     let r : number | undefined;
     let result : number[] | void;
@@ -121,48 +117,33 @@ export class HabitatService {
 
   
   async setGlobalResponseChange(habitatType: string, responseName: string, value: boolean): Promise<void>{
-    console.log('Triggered setGlobalResponseChange: ', habitatType, responseName, value);
+    //let habitats = this.saveDataService.getGlobalResponses();
+    // this.habitatList has the globalChange value we need wheras habitats has the raw loaded state.
+    // if we comment out the loop below, this.habitatList is the same as habitats.
     // loop through habitats
-    for (var i = 0; i < this.habitatList.length; i++) {
+    
+    for (var i = 0; i < this.globalResponses?.length; i++) {
       // to match habitatType
-      if(this.habitatList[i].type.active == habitatType){
+      if(this.globalResponses[i].type.active == habitatType){
         // loop through responses
-        for (var r = 0; r < this.habitatList[i].response!.length; r++){
+        for (var r = 0; r < this.globalResponses[i].response!.length; r++){
           // to match responseType
-          if(this.habitatList[i].response![r].name == responseName){
+          if(this.globalResponses[i].response![r].name == responseName){
             // update response
             //console.log('Updating response on habitat: ', this.habitatList[i].id);
-            this.habitatList[i].response![r].globalChange = value;
+            this.globalResponses[i].response![r].globalChange = value;
             //console.log(this.habitatList[i].response![r]);
           }
         }
         //console.log(this.habitatList[i])
       }
     }
-  }
-
-  async applyResponses(habitats: Habitat[]): Promise<Habitat[]>{
-    console.log('Triggered applyResponses from HabitatService', habitats);
-    // Take globalChange and localChange values and apply 'enabled' properties accordingly.
-    // loop through habitats for response settings
-    for (var i = 0; i < habitats.length; i++) {
-      // then loop through responses
-      for (var r = 0; r < habitats[i].response!.length; r++){
-        // apple globalChange followed by localChange
-        if(habitats[i].response![r].hasOwnProperty('globalChange')){
-          habitats[i].response![r].enabled = habitats[i].response![r].globalChange!
-          // could reset the values here but i think keeping state will be niceer ot use
-        }
-        if(habitats[i].response![r].hasOwnProperty('localChange')){
-          habitats[i].response![r].enabled = habitats[i].response![r].localChange!
-        }
-      }
-    }
-    return(habitats);
+    console.log('habitatService.setGlobalResponseChange: ', habitatType, responseName, value, this.globalResponses);
+    this.saveDataService.saveGlobalResponses(this.globalResponses);
   }
 
   async updateHabitatStates(habitat: Habitat, responseName: string): Promise<Habitat> {
-    console.log('Triggered updateHabitatStates:, ', habitat, responseName);
+    console.log('habitatService.updateHabitatStates:, ', habitat, responseName);
     let stateNames: string[] = ['wildPollinators', 'floralResources', 'habitatResources'];
     let currentStateValues: number[] = [
       habitat.state!.wildPollinators!,
@@ -171,9 +152,9 @@ export class HabitatService {
     ];
     let possibleValues: number[] | void;
     let s: number = 0;
-    console.log('While: ', stateNames.length);
+    //console.log('While: ', stateNames.length);
     while(s <= stateNames.length){
-      console.log('s = ', s);
+      //console.log('s = ', s);
       // check for the final loop being completed
       if(s == stateNames.length){
         // trigger something we can only do with all state iterations complete
@@ -232,7 +213,7 @@ export class HabitatService {
     return(habitat); 
   }
 
-  async updateStates(habitats: Habitat[]): Promise<Habitat[]> {
+  updateStates(habitats: Habitat[]): Habitat[] {
     console.log('Triggered updateStates from HabitatService', habitats);
     let habitatType: string;
     let responseName: string;
@@ -339,10 +320,6 @@ export class HabitatService {
       "Agricultural": N_agricultural,
       "Urban": N_urban,
     }
-  }
-  
-  constructor() {
-    //this.getActiveHabitatTypes(this.habitatList);
   }
 
   submitGlobalChanges(globalSeminatural: string, globalAgricultural: string, globalUrban: string) {

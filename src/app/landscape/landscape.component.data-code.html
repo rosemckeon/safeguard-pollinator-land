@@ -1,0 +1,19 @@
+<div mat-dialog-title>
+    <div class="flex">
+      <div class="header-icon w-32">
+        <img class="inline-block mr-5" src="./assets/bee-colour.svg" alt="A bee" title="" />
+      </div>
+      <div class="header-title grow">
+        <h2><strong>Welcome to our Pollination Demonstration Case</strong></h2>
+      </div>
+    </div>
+</div>
+<mat-dialog-content>
+      <p class="mb-5">If you have been given a code to take part in a workshop, please enter that code here:</p>
+      <p class="mb-5">Submitting your code allows us to store your anonymous gameplay data.</p>
+</mat-dialog-content>
+  <mat-dialog-actions>
+    <button mat-button [mat-dialog-close]="true">Submit code</button>
+    <!-- The mat-dialog-close directive optionally accepts a value as a result for the dialog. -->
+    <button class="secondary" mat-button [mat-dialog-close]="false">Or play without a code</button>
+  </mat-dialog-actions>

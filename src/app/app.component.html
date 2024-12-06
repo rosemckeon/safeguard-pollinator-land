@@ -1,56 +1,82 @@
-<main class="h-full flex gap-0">
-  <section class="h-full w-3/4">
+<main class="h-dvh flex gap-0">
+  <section class="h-full grow">
     <router-outlet />
   </section>
-  <section class="controls h-full w-1/4 p-10">
+  <section class="controls h-full flex-none lg:w-[470px] xl:w-[550px] w-[470px] p-10">
     @if (roundService.activeRound == 0) {
-      <h1 class="mb-2">This game has three rounds</h1>
+      <h1 class="mb-2">This game has five rounds. Each round is 1 year.</h1>
+    } @else {
+      <h1 class="mb-2">Can you keep improving your impact every year?</h1>
     }
-    <div class="grid grid-cols-4 gap-2 mb-5">
+    <span class="bee-icon"></span>
+    <div class="grid grid-cols-6 gap-2 mb-5">
       <app-round-details  *ngFor="let round of roundService.roundList" [round]="round"></app-round-details>
     </div>
-    @if(roundService.endRound != roundService.activeRound) {
-      <p class="mb-5"><strong>Your aim is to improve pollinator numbers without making people unhappy </strong> <button (click)="openGameInfo()"><ng-icon name="heroInformationCircleSolid"></ng-icon></button></p>
-    }
-    @if (roundService.activeRound == 0) {
-      <p class="mb-5"><ng-icon name="heroArrowLeft"></ng-icon> Your landscape is made of three habitat types. The state of wild pollinator populations and their resources is shown on every square.</p>
-      <p class="mb-5">The overall state of your landscape has impacts on people <ng-icon name="heroArrowDown"></ng-icon></p>
-    }
-      <div class="round-impacts bg-indigo-900 p-5 mb-5">
+    <p class="mb-5">
+      <strong>Your aim is to improve pollinator numbers and make people happy - fill the bars as much as you can </strong> 
+      <button class="icon-only hover:cursor-help" matTooltip="find out more..." (click)="openInfo('gameInfo')"><ng-icon name="heroInformationCircleSolid"></ng-icon></button> 
+      @if(roundService.endRound == roundService.activeRound) {
+        <strong class="pl-2">How did you do?</strong>
+      }
+    </p>
+    
+    
+      <div class="round-impacts p-1 pt-2 mb-5">
         @if(roundService.endRound != roundService.activeRound) {
-          <h2 class="mb-2"><strong>Landscape Impacts:</strong></h2>
+          <h2 class="text-sm pl-2"><strong>LANDSCAPE IMPACTS</strong></h2>
         } @else {
-          <h2 class="mb-2"><strong>Final Landscape Impacts:</strong></h2>
+          <h2 class="text-sm"><strong>FINAL LANDSCAPE IMPACTS</strong></h2>
         }
-        <ul id="impact-scores" class="list-none">
-          <li><span class="impact-score">{{ roundService.roundImpacts.cropPollinationProduction }}%</span> Crop Pollination & Production</li>
-          <li><span class="impact-score">{{ roundService.roundImpacts.economicValueChain }}%</span> Economic Value Chain (Farm2Fork)</li>
-          <li><span class="impact-score">{{ roundService.roundImpacts.wildPlantPollination }}%</span> Wild Plant Pollinations Services</li>
-          <li><span class="impact-score">{{ roundService.roundImpacts.aestheticValues }}%</span> Aesthetic Values</li>
-        </ul>
+        <div id="impact-scores" class="grid grid-cols-4 gap-2 m-2 mt-0 mb-4 h-40">
+          <div class="impact cropPollination h-full text-center align-top">
+            <div class="impact-icon-container mt-2" (click)="openInfo('cropPollination')" matTooltip="{{ roundService.roundImpacts.cropPollinationProduction }}%">
+              <div class="impact-icon-label text-center leading-none opacity-60"><strong class="text-xs text-black">CROP POLLINATION & PRODUCTION</strong></div>
+              <div class="impact-icon-fill" style="height: {{roundService.roundImpacts.cropPollinationProduction}}%"></div>
+              <div class="impact-icon"></div>
+            </div>
+          </div>
+          <div class="impact economicValueChain text-center align-top">
+            <div class="impact-icon-container mt-2" (click)="openInfo('economicValueChain')" matTooltip="{{ roundService.roundImpacts.economicValueChain }}%">
+              <div class="impact-icon-label text-center leading-none opacity-60"><strong class="text-xs text-black">ECONOMIC VALUE CHAIN</strong></div>
+              <div class="impact-icon-fill" style="height: {{roundService.roundImpacts.economicValueChain}}%"></div>
+              <div class="impact-icon"></div>
+            </div>
+          </div>
+          <div class="impact wildPlantPollination text-center align-top">
+            <div class="impact-icon-container mt-2" (click)="openInfo('wildPlantPollination')" matTooltip="{{ roundService.roundImpacts.wildPlantPollination }}%">
+              <div class="impact-icon-label text-center leading-none opacity-60"><strong class="text-xs text-black">WILD PLANT POLLINATION</strong></div>
+              <div class="impact-icon-fill" style="height: {{roundService.roundImpacts.wildPlantPollination}}%"></div>
+              <div class="impact-icon"></div>
+            </div>
+          </div>
+          <div class="impact aestheticValues text-center align-top">
+            <div class="impact-icon-container mt-2" (click)="openInfo('aestheticValues')" matTooltip="{{ roundService.roundImpacts.aestheticValues }}%">
+              <div class="impact-icon-label text-center leading-none opacity-60"><strong class="text-xs text-black">AESTHETIC VALUES</strong></div>
+              <div class="impact-icon-fill" style="height: {{ roundService.roundImpacts.aestheticValues }}%"></div>
+              <div class="impact-icon"></div>
+            </div>
+          </div>
+        </div>
         <!--<app-round-impacts  *ngFor="let impact of roundService.roundImpacts" [roundImpact]="impact"></app-round-impacts>-->
       </div>
     @if(roundService.endRound != roundService.activeRound) {
       @if (roundService.activeRound == 0) {
-        <p class="mb-5">To change your impact result <ng-icon name="heroArrowUp"></ng-icon></p>
-        <p class="mb-5"><strong>Make responses</strong> which affect all habitats of a particular type <ng-icon name="heroArrowDown"></ng-icon></p>
+        <p class="mb-5">To change your impact result <strong>Make responses</strong> which affect all habitats of a particular type <ng-icon name="heroArrowDown"></ng-icon></p>
       } @else {
         <p class="mb-5 mt-10"><strong>Make responses:</strong></p>
       }
         <app-global-responses />
       <p class="mt-10 hidden">You can also select habitat cells on your landscape and <strong>locally overide your global descisions</strong>.</p>
       @if (roundService.activeRound == 0) {
-        <p class="text-slate-100 my-10"><strong>When you're done making descisions...</strong></p>
-        <button (click)="advanceTime()" class="button px-4 pt-2 pb-4">Advance time <ng-icon name="heroArrowRight"></ng-icon></button>
-      } @else {
-        <button (click)="advanceTime()" class="button px-4 pt-2 pb-4 mt-10">Advance time <ng-icon name="heroArrowRight"></ng-icon></button>
+        <p class="mt-10"><strong>When you're done making descisions...</strong></p>
       }
-      
+      <button (click)="advanceTime(roundService.activeRound, roundService.scenario!, roundService.dataCode!, habitatService.habitatList, roundService.roundList)" class="button px-4 pt-2 pb-4 mt-10">Advance time <ng-icon name="heroArrowRight"></ng-icon></button>
+            
     } @else {
       @if(roundService.scenario == 'B') {
-        <a href="/B" class="button px-4 py-2">Play Again <ng-icon name="heroArrowPath"></ng-icon></a>
+        <a href="{{ roundService.playAgainURL }}" class="button px-4 py-2">Play Again <ng-icon name="heroArrowPath"></ng-icon></a>
       } @else {
-        <a href="/" class="button px-4 py-2">Play Again <ng-icon name="heroArrowPath"></ng-icon></a>
+        <a href="{{ roundService.playAgainURL }}" class="button px-4 py-2">Play Again <ng-icon name="heroArrowPath"></ng-icon></a>
       }
     }
   </section>

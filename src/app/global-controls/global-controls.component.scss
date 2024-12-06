@@ -1,0 +1,27 @@
+::ng-deep {
+    #global_controls select {
+        &.semi-natural {
+          @apply enabled:hover:bg-lime-300;
+        }
+        &.agricultural {
+          @apply enabled:hover:bg-amber-300;
+        }
+        &.urban {
+          @apply enabled:hover:bg-stone-300;
+        }
+        &:hover:not([disabled]){
+          @apply border-indigo-600;
+          @apply text-indigo-700;
+          @apply cursor-pointer;
+        }
+        &:focus {
+          @apply border-indigo-600;
+        }
+        .habitat-change {
+            &.semi-natural, &.agricultural, &.urban {
+               @apply border-2;
+               @apply border-slate-800;
+            }
+        }
+    }
+}

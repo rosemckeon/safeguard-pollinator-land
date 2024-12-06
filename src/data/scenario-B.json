@@ -25,7 +25,7 @@
                   "label": "Nature Protection Regulations",
                   "labelShort": "NPR",
                   "description": "",
-                  "enabled": false
+                  "enabled": true
                 },
                 {
                   "id": 2,
@@ -65,7 +65,7 @@
                     "label": "Nature Protection Regulations",
                     "labelShort": "NPR",
                     "description": "",
-                    "enabled": false
+                    "enabled": true
                   },
                   {
                     "id": 2,
@@ -105,7 +105,7 @@
                     "label": "Nature Protection Regulations",
                     "labelShort": "NPR",
                     "description": "",
-                    "enabled": false
+                    "enabled": true
                   },
                   {
                     "id": 2,
@@ -137,7 +137,7 @@
                     "label": "Recreate/Restore Ecological Zones",
                     "labelShort": "REZ",
                     "description": "",
-                    "enabled": false
+                    "enabled": true
                   },
                   {
                     "id": 1,
@@ -177,7 +177,7 @@
                   "label": "Nature Protection Regulations",
                   "labelShort": "NPR",
                   "description": "",
-                  "enabled": false
+                  "enabled": true
                 },
                 {
                   "id": 2,
@@ -209,7 +209,7 @@
                     "label": "Recreate/Restore Ecological Zones",
                     "labelShort": "REZ",
                     "description": "",
-                    "enabled": false
+                    "enabled": true
                   },
                   {
                     "id": 1,
@@ -217,7 +217,7 @@
                     "label": "Nature Protection Regulations",
                     "labelShort": "NPR",
                     "description": "",
-                    "enabled": false
+                    "enabled": true
                   },
                   {
                     "id": 3,
@@ -249,7 +249,7 @@
                     "label": "Recreate/Restore Ecological Zones",
                     "labelShort": "REZ",
                     "description": "",
-                    "enabled": false
+                    "enabled": true
                   },
                   {
                     "id": 1,
@@ -257,7 +257,7 @@
                     "label": "Nature Protection Regulations",
                     "labelShort": "NPR",
                     "description": "",
-                    "enabled": false
+                    "enabled": true
                   },
                   {
                     "id": 3,
@@ -289,7 +289,7 @@
                     "label": "Recreate/Restore Ecological Zones",
                     "labelShort": "REZ",
                     "description": "",
-                    "enabled": false
+                    "enabled": true
                   },
                   {
                     "id": 1,
@@ -329,7 +329,7 @@
                   "label": "Nature Protection Regulations",
                   "labelShort": "NPR",
                   "description": "",
-                  "enabled": false
+                  "enabled": true
                 },
                 {
                   "id": 2,
@@ -361,7 +361,7 @@
                   "label": "Recreate/Restore Ecological Zones",
                   "labelShort": "REZ",
                   "description": "",
-                  "enabled": false
+                  "enabled": true
                 },
                 {
                   "id": 1,
@@ -369,7 +369,7 @@
                   "label": "Nature Protection Regulations",
                   "labelShort": "NPR",
                   "description": "",
-                  "enabled": false
+                  "enabled": true
                 },
                 {
                   "id": 3,
@@ -401,7 +401,7 @@
                     "label": "Recreate/Restore Ecological Zones",
                     "labelShort": "REZ",
                     "description": "",
-                    "enabled": false
+                    "enabled": true
                   },
                   {
                     "id": 1,
@@ -409,7 +409,7 @@
                     "label": "Nature Protection Regulations",
                     "labelShort": "NPR",
                     "description": "",
-                    "enabled": false
+                    "enabled": true
                   },
                   {
                     "id": 3,
@@ -441,7 +441,7 @@
                     "label": "Recreate/Restore Ecological Zones",
                     "labelShort": "REZ",
                     "description": "",
-                    "enabled": false
+                    "enabled": true
                   },
                   {
                     "id": 1,
@@ -481,7 +481,7 @@
                   "label": "Nature Protection Regulations",
                   "labelShort": "NPR",
                   "description": "",
-                  "enabled": false
+                  "enabled": true
                 },
                 {
                   "id": 2,
@@ -521,7 +521,7 @@
                     "label": "Nature Protection Regulations",
                     "labelShort": "NPR",
                     "description": "",
-                    "enabled": false
+                    "enabled": true
                   },
                   {
                     "id": 2,
@@ -553,7 +553,7 @@
                   "label": "Recreate/Restore Ecological Zones",
                   "labelShort": "REZ",
                   "description": "",
-                  "enabled": false
+                  "enabled": true
                 },
                 {
                   "id": 1,
@@ -585,7 +585,7 @@
                   "label": "Recreate/Restore Ecological Zones",
                   "labelShort": "REZ",
                   "description": "",
-                  "enabled": false
+                  "enabled": true
                 },
                 {
                   "id": 1,
@@ -602,32 +602,6 @@
                 "habitatResources": 50
                 } 
             }
-     ],
-     "impact": [
-      {
-        "id": 0,
-        "name": "cropPollinationProduction",
-        "label": "Crop Pollination and Production",
-        "value": 0
-      },
-      {
-        "id": 1,
-        "name": "economicValueChain",
-        "label": "Economic Value Chain",
-        "value": 0
-      },
-      {
-        "id": 2,
-        "name": "wildPlantPollination",
-        "label": "Wild Plant Pollination Services",
-        "value": 0
-      },
-      {
-        "id": 3,
-        "name": "aestheticValues",
-        "label": "Aesthetic Values",
-        "value": 0
-      }
      ]
   },
   {
@@ -642,6 +616,16 @@
   },
   {
     "id": 3,
+    "disabled": "disabled",
+    "landscape": []
+  },
+  {
+    "id": 4,
+    "disabled": "disabled",
+    "landscape": []
+  },
+  {
+    "id": 5,
     "disabled": "disabled",
     "landscape": []
   }

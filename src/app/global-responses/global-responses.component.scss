@@ -1,0 +1,82 @@
+::ng-deep {
+
+    .mat-mdc-tab-label-container {
+        //@apply border-indigo-900;
+        display: none;
+    }
+    .mat-mdc-tab-header {
+        .mat-mdc-tab-header-pagination-chevron {
+            border-color: black #{!important};
+            &:hover {
+                @apply border-indigo-700 #{!important};
+            }
+        }
+        .mat-mdc-tab-label-container {
+            border-bottom-width: 0 #{!important};
+        }
+    }
+    .mat-mdc-tab {
+        @apply cursor-default #{!important};
+        .mdc-tab__text-label {
+          color: black #{!important};
+        }
+        &.semi-natural {
+          @apply mr-2;
+          background-color: #bde08d;
+          border: 6px solid #027B3C;
+          &:not(.mdc-tab--active) {
+            @apply hover:bg-lime-200;
+          }
+        }
+        &.agricultural {
+            @apply mr-2;
+            background-color: #ffe68e;
+            border: 6px solid #FDC906;
+            &:not(.mdc-tab--active) {
+                @apply hover:bg-amber-100;
+            }
+        }
+        &.urban {
+            @apply mr-2;
+            background-color: #b7b7ac;
+            border: 6px solid #6B6B66;
+            &:not(.mdc-tab--active) {
+                @apply hover:bg-stone-200;
+            }
+        }
+        &:hover,
+        &:focus,
+        &.mdc-tab--active {
+          border-color: #00b6d6;
+          &:not(.mdc-tab--active) {
+            @apply cursor-pointer #{!important};
+          }
+        }
+        .mdc-tab-indicator__content--underline {
+            display: none;
+        }
+    }
+    .mdc-tab__content {
+        height: auto #{!important};
+    }
+    .mat-mdc-tab-body {
+        @apply pt-5;
+    }
+    .mat-mdc-slide-toggle {
+        .mat-internal-form-field {
+            color: black #{!important};
+        }
+        .mdc-label {
+            @apply pl-2;
+        }
+        .mdc-switch__track::after,
+        .mdc-switch__track::before {
+            border: none;
+            background-color: #00b6d6 #{!important};
+        }
+    }
+    .header-icon img {
+        position: relative;
+        top: -1.8rem;
+    }
+}

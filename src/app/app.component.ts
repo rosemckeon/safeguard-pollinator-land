@@ -3,6 +3,7 @@ import { ChangeDetectionStrategy, Component, inject, ViewChild, OnInit} from '@a
 import { CommonModule } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+import { MatTooltipModule } from '@angular/material/tooltip';
 import { RouterOutlet } from '@angular/router';
 // @ng-icons imports
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
@@ -18,9 +19,11 @@ import {
 } from '@ng-icons/heroicons/solid';
 // interfaces
 import { Round } from './round';
+import { Habitat } from './habitat';
 // services
 import { HabitatService } from './habitat.service';
 import { RoundService } from './round.service';
+import { SaveDataService } from './save-data.service';
 // components
 import { LandscapeComponent } from './landscape/landscape.component';
 import { RoundDetailsComponent } from './round-details/round-details.component';
@@ -38,7 +41,8 @@ import { HabitatCount } from './habitat-count';
     CommonModule, 
     RoundDetailsComponent, 
     MatButtonModule, 
-    MatDialogModule
+    MatDialogModule,
+    MatTooltipModule
   ],
   providers: [
     provideIcons({ 
@@ -55,14 +59,14 @@ import { HabitatCount } from './habitat-count';
   styleUrl: './app.component.scss'
 })
 export class AppComponent implements OnInit {
+  saveDataService: SaveDataService = inject(SaveDataService);
   habitatService: HabitatService = inject(HabitatService);
   roundService: RoundService = inject(RoundService);
+  readonly dialog = inject(MatDialog);
+
   @ViewChild(GlobalControlsComponent) globalControlsComponent?: GlobalControlsComponent;
   @ViewChild(GlobalResponsesComponent) globalResponsesComponent?: GlobalResponsesComponent;
   @ViewChild(LandscapeComponent) landscapeComponent?: LandscapeComponent;
-  title = 'game';
-
-  readonly dialog = inject(MatDialog);
 
   resetGlobalControls(): void {
     console.log('triggered resetGlobalControls from AppComponent');
@@ -92,34 +96,73 @@ export class AppComponent implements OnInit {
   constructor() {
     //makes sure scenario is never undefined.
     this.roundService.scenario = 'A';
-  }
+ }
 
   ngOnInit(): void {
     // too early to calculate impacts
   }
 
-  openGameInfo() {
-    const dialogRef = this.dialog.open(gameInfoContent);
-
-    dialogRef.afterClosed().subscribe(result => {
+  openInfo(value: string):void {
+    let temp: any;
+    switch(value){
+      case 'gameInfo':
+        temp = this.dialog.open(GameInfoContent);
+        break;
+      case 'cropPollination':
+        temp = this.dialog.open(CropPollination);
+        break;
+      case 'economicValueChain':
+        temp = this.dialog.open(EconomicValueChain);
+        break;
+      case 'wildPlantPollination':
+        temp = this.dialog.open(WildPlantPollination);
+        break;
+      case 'aestheticValues':
+        temp = this.dialog.open(AestheticValues);
+        break;
+      default:
+        console.log("AppComponent.openInfo - requested dialogue does not exist", value);
+        break;
+    }
+    const dialogRef = temp;
+    dialogRef.afterClosed().subscribe((result: any) => {
       console.log(`Dialog result: ${result}`);
     });
   }
 
   // this function is actionable from the AppComponent template
-  advanceTime(from = this.roundService.activeRound) {
-    console.log('triggered advanceTime from AppComponent');
-    console.log("Scenario in AppComponent advanceTime", this.roundService.scenario);
-    this.roundService.advanceTime(from + 1).then((roundList: Round[]) => {
-      console.log('advanceTime from RoundService returned: ', roundList);
-      // do something with the data after advancing time is complete
-      // could remove loading animation here too
-      if(this.roundService.endRound != this.roundService.activeRound){
+  // it triggers on click of the 'advance time' button
+  advanceTime(from : number, scenario : string, dataCode: string | null, habitats : Habitat[], roundList : Round[]) {
+    // do something here to pause all other interactions - like a loading animation
+    // ******
+    console.log("AppComponent.advanceTime started", from, scenario, dataCode, habitats, roundList);
+    let to : number = from + 1;
+    let newRoundList : Round[] | null = this.roundService.advanceTime(from, to, habitats, roundList);
+    // do something with the data after advancing time is complete
+    if ( newRoundList == null ) {
+      // array does not exist, is not an array, or is empty
+      // ⇒ do not attempt to process array
+      console.log("AppComponent.advanceTime conditions not met", newRoundList)
+    } else {
+      // newRoundList has been populated and we still need to play another round
+      if ( this.roundService.endRound != to ) {
         // this.resetGlobalControls();
       } else {
-        // save the complete round json file.
+        // Or the game has finished.
+        // Only save the data if we have a dataCode
+        if ( dataCode != null ) {
+          this.saveDataService.savePlayerData(scenario, dataCode, newRoundList);
+        }
       }
-    });
+      console.log("AppComponent.advanceTime completed", this.roundService.activeRound, scenario, newRoundList);
+    }
+    // remove animation here
+    // ******
+  }
+
+  submitDataCode(value: string) {
+    console.log("AppComponent.submitDataCode", value);
+
   }
 }
 
@@ -130,4 +173,40 @@ export class AppComponent implements OnInit {
   imports: [MatDialogModule, MatButtonModule],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class gameInfoContent {}
+export class GameInfoContent {}
+
+@Component({
+  selector: 'crop-pollination',
+  templateUrl: 'app.component.crop-pollination.html',
+  standalone: true,
+  imports: [MatDialogModule, MatButtonModule],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+})
+export class CropPollination {}
+
+@Component({
+  selector: 'economic-value-chain',
+  templateUrl: 'app.component.economic-value-chain.html',
+  standalone: true,
+  imports: [MatDialogModule, MatButtonModule],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+})
+export class EconomicValueChain {}
+
+@Component({
+  selector: 'wild-plant-pollination',
+  templateUrl: 'app.component.wild-plant-pollination.html',
+  standalone: true,
+  imports: [MatDialogModule, MatButtonModule],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+})
+export class WildPlantPollination {}
+
+@Component({
+  selector: 'aesthetic-values',
+  templateUrl: 'app.component.aesthetic-values.html',
+  standalone: true,
+  imports: [MatDialogModule, MatButtonModule],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+})
+export class AestheticValues {}

@@ -1,13 +1,126 @@
 ::ng-deep {
-    .mat-mdc-dialog-surface {
-        @apply bg-slate-900 #{!important};
-        //background-color: red #{!important};
-    }
-    .mat-mdc-dialog-container {
-        .mat-mdc-dialog-title,
-        .mat-mdc-dialog-content {
-            @apply text-slate-300 #{!important};
+    .controls {
+        background-color: #AADFE9;
+        color: #203235;
+        .round-impacts {
+            background-color: #d5edf2;
         }
+        .bee-icon {
+            display: block;
+            background-image: url("^./../../public/assets/bee-colour.svg");
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-position: top right;
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            top: 0;
+            right: -10px;
+            z-index: 10;
+        }
+    }
+    .logo {
+        background-position: center center;
+        background-size: contain;
+        background-repeat: no-repeat;
+        height: 70px;
+        span {
+          display: none;
+        }
+        &.inrae {
+          background-image: url("^./../../public/assets/inrae.svg");
+        }
+        &.bioagora {
+          background-image: url("^./../../public/assets/bioagora.png");
+        }
+        &.iucn {
+          background-image: url("^./../../public/assets/iucn.svg");
+        }
+        &.safeguard {
+          background-image: url("^./../../public/assets/safeguard.png");
+        }
+        &.stirling {
+          background-image: url("^./../../public/assets/stirling.png");
+        }
+        &.elo {
+          background-image: url("^./../../public/assets/ELO.png");
+        }
+        &.myreton {
+          background-image: url("^./../../public/assets/myreton.png");
+        }
+        &.pap {
+          background-image: url("^./../../public/assets/p&p.png");
+        }
+    }
+    .round-impacts {
+        .impact-score {
+            color: #ff7d14;
+        }
+        .impact {
+            .impact-icon-container {
+              position: relative;
+              overflow: hidden;
+              border: 2px solid black;
+              border: 2px solid rgba(0, 0, 0, 0.4);
+              background-color: black;
+              background-color: rgba(0, 0, 0, 0.2);
+              @apply h-full;
+              @apply hover:cursor-help;
+            }
+            .impact-icon-label {
+              position: absolute;
+              top: 0;
+              z-index: 10;
+            }
+            .impact-icon-fill {
+              position: absolute;
+              bottom: 0;
+              width: 120px;
+              background-color: #FDC906;
+              border-top: 2px solid #e2b204;
+            }
+            .impact-icon {
+              position: absolute;
+              bottom: 2px;
+              background-repeat: no-repeat;
+              background-size: contain;
+              height: 50px;
+              width: 100px;
+              max-width: 100px;
+              margin: auto;
+              background-position: bottom center;
+            }
+            &:hover,
+            &:focus {
+              .impact-icon-container {
+                border-color: black;
+                background-color: rgba(0, 0, 0, 0.1);
+              }
+              .impact-icon-label {
+                opacity: 1;
+              }
+            }
+            &.cropPollination {
+              .impact-icon {
+                background-image: url("^./../../public/assets/pollination-and-production-colour.svg");
+              }
+            }
+            &.economicValueChain {
+              .impact-icon {
+                background-image: url("^./../../public/assets/economic-value-chain-colour.svg");
+              }
+            }
+            &.wildPlantPollination {
+              .impact-icon {
+                background-image: url("^./../../public/assets/wild-plant-pollination-services-colour.svg");
+              }
+            }
+            &.aestheticValues {
+              .impact-icon {
+                background-image: url("^./../../public/assets/aesthetic-values-colour.svg");
+              }
+            }
+          }
     }
     .cdk-overlay-dark-backdrop {
         @apply bg-slate-950;

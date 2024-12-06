@@ -1,32 +1,30 @@
-import { Component, inject, Input, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, Input, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Habitat } from '../habitat';
 import { HabitatService } from '../habitat.service';
 import { HabitatResponseComponent } from '../habitat-response/habitat-response.component';
 import { HabitatResponseService } from '../habitat-response.service';
-import { ProgressBarMode, MatProgressBarModule} from '@angular/material/progress-bar';
-//import { MatButtonModule } from '@angular/material/button';
-//import { MatDialog, MatDialogModule, MatDialogActions, MatDialogClose, MatDialogContent, MatDialogTitle } from '@angular/material/dialog';
-//import { NgIconComponent, provideIcons } from '@ng-icons/core';
-//import { heroCheckCircleSolid } from '@ng-icons/heroicons/solid';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-habitat',
   standalone: true,
-  imports: [CommonModule, HabitatResponseComponent, MatProgressBarModule],
-  //providers: [provideIcons({ heroCheckCircleSolid })],
-  //changeDetection: ChangeDetectionStrategy.OnPush,
+  imports: [
+    CommonModule, 
+    HabitatResponseComponent, 
+    MatTooltipModule
+  ],
   templateUrl: './habitat.component.html',
   styleUrl: './habitat.component.scss'
 })
 export class HabitatComponent implements OnInit {
   habitatResponseService: HabitatResponseService = inject(HabitatResponseService);
   habitatService: HabitatService = inject(HabitatService);
+  readonly dialog = inject(MatDialog);
   @Input() habitat!: Habitat;
 
-  mode: ProgressBarMode = 'determinate';
-  //value: number = 0;
-  bufferValue: number = 0;
   
   constructor(){}
   
@@ -35,4 +33,54 @@ export class HabitatComponent implements OnInit {
     // this.habitat.stateValue = this.habitatService.calculateHabitatStateValue([this.habitat.state!.wildPollinators!, this.habitat.state!.floralResources!, this.habitat.state!.habitatResources!]);
     //console.log('Responses: ', this.habitat.response)
   }
+
+  openInfo(value: string):void {
+    let temp: any;
+    switch(value){
+      case 'wildPollinators':
+        temp = this.dialog.open(WildPollinators);
+        break;
+      case 'floralResources':
+        temp = this.dialog.open(FloralResources);
+        break;
+      case 'habitatResources':
+        temp = this.dialog.open(HabitatResources);
+        break;
+      default:
+        console.log("HabitatComponent.openInfo - requested dialogue does not exist", value);
+        break;
+    }
+    const dialogRef = temp;
+    dialogRef.afterClosed().subscribe((result: any) => {
+      console.log(`Dialog result: ${result}`);
+    });
+  }
+
 }
+
+@Component({
+  selector: 'wild-pollinators',
+  templateUrl: './habitat.component.wild-pollinators.html',
+  standalone: true,
+  imports: [MatDialogModule, MatButtonModule],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+})
+export class WildPollinators {}
+
+@Component({
+  selector: 'floral-resources',
+  templateUrl: './habitat.component.floral-resources.html',
+  standalone: true,
+  imports: [MatDialogModule, MatButtonModule],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+})
+export class FloralResources {}
+
+@Component({
+  selector: 'HabitatResources',
+  templateUrl: './habitat.component.habitat-resources.html',
+  standalone: true,
+  imports: [MatDialogModule, MatButtonModule],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+})
+export class HabitatResources {}

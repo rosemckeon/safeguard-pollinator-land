@@ -2,4 +2,146 @@
     .mdc-linear-progress__bar-inner {
         @apply border-slate-200 #{!important};
     }
+    .habitat-container {
+        border: 1px solid black;
+    }
+    .habitat {
+        background-size: 110%;
+        background-position: bottom center;
+        background-repeat: no-repeat;
+        &.semi-natural {
+          background-image: url("^./../../public/assets/bg-seminatural.svg");
+          @apply hover:bg-lime-200;
+          border: 6px solid #027B3C;
+        }
+        &.agricultural {
+          background-image: url("^./../../public/assets/bg-agricultural.svg");
+          @apply hover:bg-amber-100;
+          border: 6px solid #FDC906;
+        }
+        &.urban {
+          background-color: #b7b7ac;
+          background-image: url("^./../../public/assets/bg-urban.svg");
+          @apply hover:bg-stone-200;
+          border: 6px solid #6B6B66;
+        }
+        &:hover,
+        &:focus {
+          border-color: #00ddff;
+          //@apply border-indigo-600;
+          //@apply text-indigo-700;
+          //@apply cursor-pointer;
+        }
+        .habitat-responses {
+            background-color: #ffffff;
+            background-color: rgba(255, 255, 255, 0.75);
+        }
+        .habitat-state {
+          .state-icon-container {
+            position: relative;
+            overflow: hidden;
+            border: 2px solid black;
+            border: 2px solid rgba(0, 0, 0, 0.4);
+            background-color: black;
+            background-color: rgba(0, 0, 0, 0.2);
+            @apply h-3/4;
+            @apply hover:cursor-help;
+          }
+          .state-icon-label {
+            position: absolute;
+            top: 0;
+            z-index: 10;
+          }
+          .state-icon-fill {
+            position: absolute;
+            bottom: 0;
+            width: 100px;
+            background-color: #00b6d6;
+            border-top: 2px solid #039cb7;
+          }
+          .state-icon {
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            background-repeat: no-repeat;
+            background-size: contain;
+            height: 50px;
+            width: 100px;
+            max-width: 100px;
+            margin: auto;
+            background-position: bottom center;
+          }
+          &:hover,
+          &:focus {
+            .state-icon-container {
+              border-color: black;
+              background-color: rgba(0, 0, 0, 0.1);
+            }
+            .state-icon-label {
+              opacity: 1;
+            }
+          }
+          &.wildPollinators {
+            .state-icon {
+              -webkit-transform: scaleX(-1);
+              transform: scaleX(-1);
+              background-image: url("^./../../public/assets/wild-pollinator.svg");
+            }
+            &:hover,
+            &:focus {
+              .state-icon {
+                background-image: url("^./../../public/assets/wild-pollinator-colour.svg");
+              }
+            }
+          }
+          &.floralResources {
+            .state-icon {
+              background-image: url("^./../../public/assets/floral-resource.svg");
+            }
+            &:hover,
+            &:focus {
+              .state-icon {
+                background-image: url("^./../../public/assets/floral-resource-colour.svg");
+              }
+            }
+          }
+          &.habitatResources {
+            .state-icon {
+              -webkit-transform: scaleX(-1);
+              transform: scaleX(-1);
+              left: -4px;
+              background-image: url("^./../../public/assets/habitat-resources.svg");
+            }
+            &:hover,
+            &:focus {
+              .state-icon {
+                background-image: url("^./../../public/assets/habitat-resources-colour.svg");
+              }
+            }
+          }
+        }
+        &.mat-mdc-dialog-content {
+          .state-icon {
+            height: 80px;
+            width: 200px;
+            max-width: 200px;
+            bottom: -5px;
+          }
+          .wildPollinators {
+            .state-icon {
+              background-image: url("^./../../public/assets/wild-pollinator-colour.svg");
+            }
+          }
+          .floralResources {
+            .state-icon {
+              background-image: url("^./../../public/assets/floral-resource-colour.svg");
+            }
+          }
+          .habitatResources {
+            .state-icon {
+              background-image: url("^./../../public/assets/habitat-resources-colour.svg");
+            }
+          }
+        }
+    }
 }

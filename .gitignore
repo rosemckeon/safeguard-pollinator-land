@@ -44,3 +44,6 @@ Thumbs.db
 game.Rproj
 .Rhistory
 .RData
+
+# Secrets
+/api/*

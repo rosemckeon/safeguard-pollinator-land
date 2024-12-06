@@ -1,54 +1,7 @@
 ::ng-deep {
-    .mat-mdc-tab-label-container {
-        @apply border-indigo-900;
-    }
-    .mat-mdc-tab {
-        .mdc-tab__text-label {
-          color: inherit #{!important};
-        }
-        &.semi-natural {
-          @apply hover:bg-lime-600;
-        }
-        &.agricultural {
-          @apply hover:bg-amber-400;
-        }
-        &.urban {
-          @apply hover:bg-stone-400;
-        }
-        &:hover {
-          @apply border-indigo-600;
-          @apply text-indigo-700;
-          @apply cursor-pointer;
-        }
-        &:focus {
-          @apply border-indigo-700;
-        }
-        .mdc-tab-indicator__content--underline {
-            @apply border-indigo-600 #{!important};
-            @apply border-t-4;
-        }
-    }
-    .mat-mdc-tab-body {
-        @apply pt-5;
-    }
-    .mat-mdc-slide-toggle {
-        .mat-internal-form-field {
-            @apply text-slate-300;
-            @apply hover:text-indigo-400;
-        }
-        .mdc-label {
-            @apply pl-5;
-        }
-        .mdc-switch__track,
-        .mdc-switch__track:hover,
-        .mdc-switch__track:active,
-        .mdc-switch__track:focus {
-            &:before {
-                @apply bg-slate-950;
-            }
-            &:after {
-                @apply bg-indigo-600;
-            }
-        }
+    .habitat-response {
+      &.response-disabled img {
+        opacity: 0.4;
+      }
     }
 }
