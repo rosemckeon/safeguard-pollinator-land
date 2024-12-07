@@ -17,7 +17,6 @@ import { WildPollinators } from './habitat/habitat.component';
 export class HabitatService {
   saveDataService: SaveDataService = inject(SaveDataService);
   habitatList: Habitat[] = [];
-  globalResponses: Habitat[] = [];
   localResponses: Habitat[] = [];
 
   constructor() {

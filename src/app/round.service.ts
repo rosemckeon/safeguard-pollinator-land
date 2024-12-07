@@ -61,8 +61,6 @@ export class RoundService {
     //this.habitatService.getLandscape(this.activeRound);
     this.habitatService.habitatList = this.roundList[this.activeRound].landscape;
     this.saveDataService.saveLandscape(this.habitatService.habitatList);
-    this.habitatService.globalResponses = this.habitatService.habitatList;
-    this.saveDataService.saveGlobalResponses(this.habitatService.globalResponses);
     this.habitatService.localResponses = this.habitatService.habitatList;
     this.saveDataService.saveLocalResponses(this.habitatService.localResponses);
     //this.habitatService.habitatGlobalUpdateList = this.roundList[this.activeRound].landscape;

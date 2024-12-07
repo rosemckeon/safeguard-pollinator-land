@@ -61,13 +61,6 @@ export class SaveDataService {
     return this.localService.get<string>('landscape');
   }
 
-  saveGlobalResponses(value: Habitat[]) {
-    this.localService.set("globalResponses", value);
-  }
-  getGlobalResponses(): Habitat[] | null {
-    return this.localService.get<Habitat[]>('globalResponses');
-  }
-
   saveLocalResponses(value: Habitat[]) {
     this.localService.set("localResponses", value);
   }
