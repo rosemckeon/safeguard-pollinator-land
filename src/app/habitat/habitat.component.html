@@ -1,24 +1,24 @@
 <div id="habitat_{{ habitat.id }}" class="habitat-container h-full">
-  <div class="habitat {{ habitat.type.active.toLowerCase() }} h-full w-full flex">
+  <div class="habitat {{ habitat.type.active.toLowerCase() }} h-full w-full flex border-2 lg:border-4 xl:border-[6px]">
     <div class ="grow">
-      <h5 class="text-xs text-black ml-2"><strong>HABITAT STATE</strong></h5>
-      <div class="grow align-text-middle grid grid-cols-3 gap-2 ml-2 mr-2 h-full">
+      <h5 class="text-xs text-black ml-0 lg:ml-1 xl:ml-2"><strong>HABITAT STATE</strong></h5>
+      <div class="grow align-text-middle grid grid-cols-3 gap-0 xl:gap-1 mx-0 md:mx-1 xl:mx-2 h-full">
         <div class="habitat-state wildPollinators text-center align-top h-3/4">
-          <div class="state-icon-container" matTooltip="{{ habitat.state?.wildPollinators }}% Wild Pollinator Abundance & Diversity" (click)="openInfo('wildPollinators')">
+          <div class="state-icon-container border-2 border-r-0 xl:border-r-2" matTooltip="{{ habitat.state?.wildPollinators }}% Wild Pollinator Abundance & Diversity" (click)="openInfo('wildPollinators')">
             <div class="state-icon-label text-center leading-none opacity-60 w-full"><strong class="text-xs text-black">WP</strong></div>
             <div class="state-icon-fill" style="height: {{habitat.state?.wildPollinators}}%"></div>
             <div class="state-icon"></div>
           </div>
         </div>
         <div class="habitat-state floralResources text-center align-top h-3/4">
-          <div class="state-icon-container" matTooltip="{{ habitat.state?.floralResources }}% Floral Resources" (click)="openInfo('floralResources')">
+          <div class="state-icon-container border-2 border-r-0 xl:border-r-2" matTooltip="{{ habitat.state?.floralResources }}% Floral Resources" (click)="openInfo('floralResources')">
             <div class="state-icon-label text-center leading-none opacity-60 w-full"><strong class="text-xs text-black">FR</strong></div>
             <div class="state-icon-fill" style="height: {{habitat.state?.floralResources}}%"></div>
             <div class="state-icon"></div>
           </div>
         </div>
         <div class="habitat-state habitatResources text-center align-top h-3/4">
-          <div class="state-icon-container" matTooltip="{{ habitat.state?.habitatResources }}% Habitat Resources" (click)="openInfo('habitatResources')">
+          <div class="state-icon-container border-2" matTooltip="{{ habitat.state?.habitatResources }}% Habitat Resources" (click)="openInfo('habitatResources')">
             <div class="state-icon-label text-center leading-none opacity-60 w-full"><strong class="text-xs text-black">HR</strong></div>
             <div class="state-icon-fill" style="height: {{habitat.state?.habitatResources}}%"></div>
             <div class="state-icon"></div>
@@ -27,7 +27,7 @@
       </div>
     </div>
     <div class="flex-none habitat-responses text-right align-middle">
-      <h5 class="text-xs text-black text-right pr-2"><strong>RESPONSES</strong></h5>
+      <h5 class="text-xs text-black text-right mr-0 lg:mr-1 xl:mr-2"><strong>RESPONSES</strong></h5>
         <app-habitat-response *ngFor="let habitatResponse of habitat.response!" [habitatResponse]="habitatResponse" [habitatID]="habitat.id"></app-habitat-response>
         @if(habitat.type.hasOwnProperty('globalChange')){
           <div id="habitatChange_{{habitat.id}}" class="habitat-change {{ habitat.type.globalChange!.toLowerCase() }} text-center inline-block size-24 m-5"><span class="text-sm">{{ habitat.type.globalChange! }}</span></div>

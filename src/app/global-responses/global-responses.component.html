@@ -3,17 +3,17 @@
         <mat-tab labelClass="semi-natural" label="Semi-natural" isActive="true">
             <mat-slide-toggle formControlName="globalSeminaturalRestoration" aria-label="globalSeminaturalRestoration" [checked]="isGlobalSeminaturalRestorationChecked" (change)="toggleChanges($event)" class="my-2">
                 @if(isGlobalSeminaturalRestorationChecked){
-                    <img class="response-icon h-10 inline" src="./assets/restore-ecological-zones-colour.svg" alt="{{ restorationLabel }}" title="{{ restorationLabel }}" /> 
+                    <img class="response-icon h-7 xl:h-10 inline" src="./assets/restore-ecological-zones-colour.svg" alt="{{ restorationLabel }}" title="{{ restorationLabel }}" /> 
                 } @else {
-                    <img class="response-icon h-10 inline" src="./assets/restore-ecological-zones.svg" alt="{{ restorationLabel }}" title="{{ restorationLabel }}" /> 
+                    <img class="response-icon h-7 xl:h-10 inline" src="./assets/restore-ecological-zones.svg" alt="{{ restorationLabel }}" title="{{ restorationLabel }}" /> 
                 }
                 {{ restorationLabel }} <button class="icon-only hover:cursor-help" matTooltip="find out more..." (click)="openInfo('restoration')"><ng-icon name="heroInformationCircleSolid"></ng-icon></button>
             </mat-slide-toggle> <br />
             <mat-slide-toggle formControlName="globalSeminaturalNatProtReg" aria-label="globalSeminaturalNatProtReg" [checked]="isGlobalSeminaturalNatProtRegChecked" (change)="toggleChanges($event)" class="my-2">
                 @if(isGlobalSeminaturalNatProtRegChecked){
-                    <img class="response-icon h-10 inline" src="./assets/nature-protection-colour.svg" alt="{{ natureProtectionLabel }}" title="" />
+                    <img class="response-icon h-7 xl:h-10 inline" src="./assets/nature-protection-colour.svg" alt="{{ natureProtectionLabel }}" title="" />
                 } @else {
-                    <img class="response-icon h-10 inline" src="./assets/nature-protection.svg" alt="{{ natureProtectionLabel }}" title="" />
+                    <img class="response-icon h-7 xl:h-10 inline" src="./assets/nature-protection.svg" alt="{{ natureProtectionLabel }}" title="" />
                 }
                 {{ natureProtectionLabel }} <button class="icon-only hover:cursor-help" matTooltip="find out more..." (click)="openInfo('natProtReg')"><ng-icon name="heroInformationCircleSolid"></ng-icon></button>
             </mat-slide-toggle>
@@ -21,15 +21,15 @@
         <mat-tab labelClass="agricultural" label="Agricultural">
             <mat-slide-toggle formControlName="globalAgriculturalRestoration" aria-label="globalAgriculturalRestoration" [checked]="isGlobalAgriculturalRestorationChecked" (change)="toggleChanges($event)" class="my-2">
                 @if(isGlobalAgriculturalRestorationChecked){
-                    <img class="response-icon h-10 inline" src="./assets/restore-ecological-zones-colour.svg" alt="{{ restorationLabel }}" title="" />
+                    <img class="response-icon h-7 xl:h-10 inline" src="./assets/restore-ecological-zones-colour.svg" alt="{{ restorationLabel }}" title="" />
                 } @else {
-                    <img class="response-icon h-10 inline" src="./assets/restore-ecological-zones.svg" alt="{{ restorationLabel }}" title="" />
+                    <img class="response-icon h-7 xl:h-10 inline" src="./assets/restore-ecological-zones.svg" alt="{{ restorationLabel }}" title="" />
                 }
                 {{ restorationLabel }} <button class="icon-only hover:cursor-help" matTooltip="find out more..." (click)="openInfo('restoration')"><ng-icon name="heroInformationCircleSolid"></ng-icon></button>
             </mat-slide-toggle><br />
             <mat-slide-toggle formControlName="globalAgriculturalNatProtReg" aria-label="globalAgriculturalNatProtReg" [checked]="isGlobalAgriculturalNatProtRegChecked" (change)="toggleChanges($event)" class="my-2">
                 @if(isGlobalAgriculturalNatProtRegChecked){
-                    <img class="response-icon h-10 inline" src="./assets/nature-protection-colour.svg" alt="{{ natureProtectionLabel }}" title="" />
+                    <img class="response-icon h-7 xl:h-10 inline" src="./assets/nature-protection-colour.svg" alt="{{ natureProtectionLabel }}" title="" />
                 } @else {
                     <img class="response-icon h-10 inline" src="./assets/nature-protection.svg" alt="{{ natureProtectionLabel }}" title="" />
                 }

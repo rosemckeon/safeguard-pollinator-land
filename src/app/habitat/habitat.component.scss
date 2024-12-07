@@ -9,21 +9,22 @@
         background-size: 110%;
         background-position: bottom center;
         background-repeat: no-repeat;
+        border-style: solid;
         &.semi-natural {
           background-image: url("^./../../public/assets/bg-seminatural.svg");
           @apply hover:bg-lime-200;
-          border: 6px solid #027B3C;
+          border-color: #027B3C;
         }
         &.agricultural {
           background-image: url("^./../../public/assets/bg-agricultural.svg");
           @apply hover:bg-amber-100;
-          border: 6px solid #FDC906;
+          border-color: #FDC906;
         }
         &.urban {
           background-color: #b7b7ac;
           background-image: url("^./../../public/assets/bg-urban.svg");
           @apply hover:bg-stone-200;
-          border: 6px solid #6B6B66;
+          border-color: #6B6B66;
         }
         &:hover,
         &:focus {
@@ -45,8 +46,9 @@
           .state-icon-container {
             position: relative;
             overflow: hidden;
-            border: 2px solid black;
-            border: 2px solid rgba(0, 0, 0, 0.4);
+            border-style: solid;
+            border-color: black;
+            border-color: rgba(0, 0, 0, 0.4);
             background-color: black;
             background-color: rgba(255, 255, 255, 0.25);
             @apply h-3/4;

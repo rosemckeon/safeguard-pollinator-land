@@ -1,42 +1,74 @@
 @if(habitatResponse.enabled){ 
   
-  <div class="habitat-response reponse-enabled response-{{ habitatResponse.labelShort.toLowerCase() }} w-auto grid grid-cols-2 gap-1">
+  <div class="habitat-response reponse-enabled response-{{ habitatResponse.labelShort.toLowerCase() }} w-auto flex">
     @if(habitatResponse.name == "restoration"){
-      <img (click)="openInfo('restoration')" src="./assets/restore-ecological-zones-colour.svg" alt="{{ habitatResponse.label }}" matTooltip="{{ habitatResponse.label }} Enabled" matTooltipPosition="left" class="hover:cursor-help" />
-      <mat-slide-toggle aria-label="localRestoration" [checked]="habitatResponse.localChange" (change)="toggleChanges($event)" matTooltip="Override your landscape wide descision" matTooltipPosition="right"></mat-slide-toggle>
+      <div class="shrink">
+        <img (click)="openInfo('restoration')" src="./assets/restore-ecological-zones-colour.svg" alt="{{ habitatResponse.label }}" matTooltip="{{ habitatResponse.label }} Enabled" matTooltipPosition="left" class="hover:cursor-help w-7 lg:w-10 xl:w-14" />
+      </div>
+      <div class="shrink">
+        <mat-slide-toggle aria-label="localRestoration" [checked]="habitatResponse.localChange" (change)="toggleChanges($event)" matTooltip="Override your landscape wide descision" matTooltipPosition="right"></mat-slide-toggle>
+      </div>
     }
     @if(habitatResponse.name == "natureProtection"){
-      <img (click)="openInfo('natProtReg')" src="./assets/nature-protection-colour.svg" alt="{{ habitatResponse.label }}" matTooltip="{{ habitatResponse.label }} Enabled" matTooltipPosition="left" class="hover:cursor-help" />
-      <mat-slide-toggle aria-label="localNatProtReg" [checked]="habitatResponse.localChange" (change)="toggleChanges($event)" matTooltip="Override your landscape wide descision" matTooltipPosition="right"></mat-slide-toggle>
+      <div class="shrink">
+        <img (click)="openInfo('natProtReg')" src="./assets/nature-protection-colour.svg" alt="{{ habitatResponse.label }}" matTooltip="{{ habitatResponse.label }} Enabled" matTooltipPosition="left" class="hover:cursor-help w-7 lg:w-10 xl:w-14" />
+      </div>
+      <div class="shrink">
+        <mat-slide-toggle aria-label="localNatProtReg" [checked]="habitatResponse.localChange" (change)="toggleChanges($event)" matTooltip="Override your landscape wide descision" matTooltipPosition="right"></mat-slide-toggle>
+      </div>
     }
     @if(habitatResponse.name == "ecoIntensification"){
-      <img (click)="openInfo('ecoIntensification')" src="./assets/ecological-intensification-colour.svg" alt="{{ habitatResponse.label }}" matTooltip="{{ habitatResponse.label }} Enabled" matTooltipPosition="left" class="hover:cursor-help" />
-      <mat-slide-toggle aria-label="localEcoIntensification" [checked]="habitatResponse.localChange" (change)="toggleChanges($event)" matTooltip="Override your landscape wide descision" matTooltipPosition="right"></mat-slide-toggle>
+      <div class="shrink">
+        <img (click)="openInfo('ecoIntensification')" src="./assets/ecological-intensification-colour.svg" alt="{{ habitatResponse.label }}" matTooltip="{{ habitatResponse.label }} Enabled" matTooltipPosition="left" class="hover:cursor-help w-7 lg:w-10 xl:w-14" />
+      </div>
+      <div class="shrink">
+        <mat-slide-toggle aria-label="localEcoIntensification" [checked]="habitatResponse.localChange" (change)="toggleChanges($event)" matTooltip="Override your landscape wide descision" matTooltipPosition="right"></mat-slide-toggle>
+      </div>
     }
     @if(habitatResponse.name == "urbanGreening"){
-      <img (click)="openInfo('urbanGreening')" src="./assets/urban-greening-colour.svg" alt="{{ habitatResponse.label }}" matTooltip="{{ habitatResponse.label }} Enabled" matTooltipPosition="left" class="hover:cursor-help" />
-      <mat-slide-toggle aria-label="localUrbanGreening" [checked]="habitatResponse.localChange" (change)="toggleChanges($event)" matTooltip="Override your landscape wide descision" matTooltipPosition="right"></mat-slide-toggle>
+      <div class="shrink">
+        <img (click)="openInfo('urbanGreening')" src="./assets/urban-greening-colour.svg" alt="{{ habitatResponse.label }}" matTooltip="{{ habitatResponse.label }} Enabled" matTooltipPosition="left" class="hover:cursor-help w-7 lg:w-10 xl:w-14" />
+      </div>
+      <div class="shrink">
+        <mat-slide-toggle aria-label="localUrbanGreening" [checked]="habitatResponse.localChange" (change)="toggleChanges($event)" matTooltip="Override your landscape wide descision" matTooltipPosition="right"></mat-slide-toggle>
+      </div>
     }
   </div>
   
 } @else {
  
-  <div class="habitat-response response-disabled response-{{ habitatResponse.labelShort.toLowerCase() }} w-auto grid grid-cols-2 gap-1">
+  <div class="habitat-response response-disabled response-{{ habitatResponse.labelShort.toLowerCase() }} w-auto flex">
     @if(habitatResponse.name == "restoration"){
-      <img (click)="openInfo('restoration')" src="./assets/restore-ecological-zones.svg" alt="{{ habitatResponse.label }}" matTooltip="{{ habitatResponse.label }} Disabled" matTooltipPosition="left" class="hover:cursor-help" />
-      <mat-slide-toggle  aria-label="localRestoration" [checked]="habitatResponse.localChange" (change)="toggleChanges($event)" matTooltip="Override your landscape wide descision" matTooltipPosition="right"></mat-slide-toggle>
+      <div class="shrink">
+        <img (click)="openInfo('restoration')" src="./assets/restore-ecological-zones.svg" alt="{{ habitatResponse.label }}" matTooltip="{{ habitatResponse.label }} Disabled" matTooltipPosition="left" class="hover:cursor-help w-7 lg:w-10 xl:w-14" />
+      </div>
+      <div class="shrink">
+        <mat-slide-toggle  aria-label="localRestoration" [checked]="habitatResponse.localChange" (change)="toggleChanges($event)" matTooltip="Override your landscape wide descision" matTooltipPosition="right"></mat-slide-toggle>
+      </div>
     }
     @if(habitatResponse.name == "natureProtection"){
-      <img (click)="openInfo('natProtReg')" src="./assets/nature-protection.svg" alt="{{ habitatResponse.label }}" matTooltip="{{ habitatResponse.label }} Disabled" matTooltipPosition="left" class="hover:cursor-help" />
-      <mat-slide-toggle aria-label="localNatProtReg" [checked]="habitatResponse.localChange" (change)="toggleChanges($event)" matTooltip="Override your landscape wide descision" matTooltipPosition="right"></mat-slide-toggle>
+      <div class="shrink">
+        <img (click)="openInfo('natProtReg')" src="./assets/nature-protection.svg" alt="{{ habitatResponse.label }}" matTooltip="{{ habitatResponse.label }} Disabled" matTooltipPosition="left" class="hover:cursor-help w-7 lg:w-10 xl:w-14" />
+      </div>
+      <div class="shrink">
+        <mat-slide-toggle aria-label="localNatProtReg" [checked]="habitatResponse.localChange" (change)="toggleChanges($event)" matTooltip="Override your landscape wide descision" matTooltipPosition="right"></mat-slide-toggle>
+      </div>
     }
     @if(habitatResponse.name == "ecoIntensification"){
-      <img (click)="openInfo('ecoIntensification')" src="./assets/ecological-intensification.svg" alt="{{ habitatResponse.label }}" matTooltip="{{ habitatResponse.label }} Disabled" matTooltipPosition="left" class="hover:cursor-help" />
-      <mat-slide-toggle aria-label="localEcoIntensification" [checked]="habitatResponse.localChange" (change)="toggleChanges($event)" matTooltip="Override your landscape wide descision" matTooltipPosition="right"></mat-slide-toggle>
+      <div class="shrink">
+        <img (click)="openInfo('ecoIntensification')" src="./assets/ecological-intensification.svg" alt="{{ habitatResponse.label }}" matTooltip="{{ habitatResponse.label }} Disabled" matTooltipPosition="left" class="hover:cursor-help w-7 lg:w-10 xl:w-14" />
+      </div>
+      <div class="shrink">
+        <mat-slide-toggle aria-label="localEcoIntensification" [checked]="habitatResponse.localChange" (change)="toggleChanges($event)" matTooltip="Override your landscape wide descision" matTooltipPosition="right"></mat-slide-toggle>
+      </div>
     }
     @if(habitatResponse.name == "urbanGreening"){
-      <img (click)="openInfo('urbanGreening')" src="./assets/urban-greening.svg" alt="{{ habitatResponse.label }}" matTooltip="{{ habitatResponse.label }} Disabled" matTooltipPosition="left" class="hover:cursor-help" />
-      <mat-slide-toggle aria-label="localUrbanGreening" [checked]="habitatResponse.localChange" (change)="toggleChanges($event)" matTooltip="Override your landscape wide descision" matTooltipPosition="right"></mat-slide-toggle>
+      <div class="shrink">
+        <img (click)="openInfo('urbanGreening')" src="./assets/urban-greening.svg" alt="{{ habitatResponse.label }}" matTooltip="{{ habitatResponse.label }} Disabled" matTooltipPosition="left" class="hover:cursor-help w-7 lg:w-10 xl:w-14" />
+      </div>
+      <div class="shrink">
+        <mat-slide-toggle aria-label="localUrbanGreening" [checked]="habitatResponse.localChange" (change)="toggleChanges($event)" matTooltip="Override your landscape wide descision" matTooltipPosition="right"></mat-slide-toggle>
+      </div>
     }
   </div>
 }
