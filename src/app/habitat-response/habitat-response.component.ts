@@ -1,5 +1,5 @@
 // @angular
-import { Component, inject, Input, ViewChild } from '@angular/core';
+import { Component, inject, Input, OnInit, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, FormGroup, ReactiveFormsModule, FormBuilder } from '@angular/forms';
 // @angular material
@@ -27,7 +27,7 @@ import { Restoration, NatProtReg, EcoIntensification, UrbanGreening } from '../g
   templateUrl: './habitat-response.component.html',
   styleUrl: './habitat-response.component.scss'
 })
-export class HabitatResponseComponent {
+export class HabitatResponseComponent implements OnInit {
   habitatService = inject(HabitatService);
   roundService = inject(RoundService);
   readonly dialog = inject(MatDialog);
@@ -37,14 +37,14 @@ export class HabitatResponseComponent {
   @ViewChild(NatProtReg) natProtReg?: NatProtReg;
   @ViewChild(EcoIntensification) ecoIntensification?: EcoIntensification;
   @ViewChild(UrbanGreening) urbanGreening?: UrbanGreening;
-
+/*
   localResponsesForm: FormGroup;
 
   isLocalRestorationChecked: boolean;
   isLocalNatProtRegChecked: boolean;
   isLocalEcoIntensificationChecked: boolean;
   isLocalUrbanGreeningChecked: boolean;
-
+*/
   restorationLabel: string = "Recreate/Restore Ecological Zones";
   natureProtectionLabel: string = "Nature Protection Regulations";
   urbanGreeningLabel: string = "Urban Greening";
@@ -55,51 +55,27 @@ export class HabitatResponseComponent {
   urbanGreeningName: string = "urbanGreening";
   ecoIntensificationName: string = "ecoIntensification";
 
-  constructor(formBuilder: FormBuilder){
-    if (this.roundService.scenario == "B") {
-      this.isLocalRestorationChecked = true;
-      this.isLocalNatProtRegChecked = true;
-      // can i conditionally do these next two depending on the habitat type?
-      // can i pass habitat.type.active to this component?
-      this.isLocalUrbanGreeningChecked = true;
-      this.isLocalEcoIntensificationChecked = true;
-    } else {
-      this.isLocalRestorationChecked = false;
-      this.isLocalNatProtRegChecked = false;
-      // see above comment
-      this.isLocalUrbanGreeningChecked = false;
-      this.isLocalEcoIntensificationChecked = false;
-    }
+  constructor(){}
 
-    // now make sure those checked values are honoured by the the formgroup
-    // by initialising it all here in the constructor
-    this.localResponsesForm = formBuilder.group({
-      localRestoration: [this.isLocalRestorationChecked], 
-      localNatProtReg: [this.isLocalNatProtRegChecked], 
-      localEcoIntensification: [this.isLocalEcoIntensificationChecked], 
-      localUrbanGreening: [this.isLocalUrbanGreeningChecked], 
-    });
+  ngOnInit(): void {
+    //console.log("habitatRepsonseComponent.ngOnInit habitatResponse", this.habitatID, this.habitatResponse);
   }
 
   async toggleChanges($event: MatSlideToggleChange): Promise<void> {
     console.log('HabitatResponseComponent.toggleChanges', $event.source.ariaLabel, $event.checked);
-    this.habitatResponse.localChange = $event.checked;
+    //this.habitatResponse.localChange = $event.checked;
     switch($event.source.ariaLabel){
       case('localRestoration'):
         this.habitatService.setLocalResponseChange(this.habitatID, this.restorationName, $event.checked);
-        this.isLocalRestorationChecked = $event.checked;
         break;
       case('localNatProtReg'):
         this.habitatService.setLocalResponseChange(this.habitatID, this.natureProtectionName, $event.checked);
-        this.isLocalNatProtRegChecked = $event.checked;
         break;
       case('localGreening'):
         this.habitatService.setLocalResponseChange(this.habitatID, this.urbanGreeningName, $event.checked);
-        this.isLocalUrbanGreeningChecked = $event.checked;
         break;
       case('localEcoIntensification'):
         this.habitatService.setLocalResponseChange(this.habitatID, this.ecoIntensificationName, $event.checked);
-        this.isLocalEcoIntensificationChecked = $event.checked;
         break;
       default:
         console.log('HabitatResponseComponent.toggleChanges response requested not recognised', $event.source.ariaLabel);

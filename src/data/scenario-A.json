@@ -17,6 +17,7 @@
                   "label": "Recreate/Restore Ecological Zones",
                   "labelShort": "REZ",
                   "description": "",
+                  "localChange": false,
                   "enabled": false
                 },
                 {
@@ -25,6 +26,7 @@
                   "label": "Nature Protection Regulations",
                   "labelShort": "NPR",
                   "description": "",
+                  "localChange": false,
                   "enabled": false
                 },
                 {
@@ -33,6 +35,7 @@
                   "label": "Ecological Intensification",
                   "labelShort": "AEI",
                   "description": "",
+                  "localChange": false,
                   "enabled": false
                 }
               ],
@@ -57,6 +60,7 @@
                     "label": "Recreate/Restore Ecological Zones",
                     "labelShort": "REZ",
                     "description": "",
+                    "localChange": false,
                     "enabled": false
                   },
                   {
@@ -65,6 +69,7 @@
                     "label": "Nature Protection Regulations",
                     "labelShort": "NPR",
                     "description": "",
+                    "localChange": false,
                     "enabled": false
                   },
                   {
@@ -73,6 +78,7 @@
                     "label": "Ecological Intensification",
                     "labelShort": "AEI",
                     "description": "",
+                    "localChange": false,
                     "enabled": false
                   }
                 ],
@@ -97,6 +103,7 @@
                     "label": "Recreate/Restore Ecological Zones",
                     "labelShort": "REZ",
                     "description": "",
+                    "localChange": false,
                     "enabled": false
                   },
                   {
@@ -105,6 +112,7 @@
                     "label": "Nature Protection Regulations",
                     "labelShort": "NPR",
                     "description": "",
+                    "localChange": false,
                     "enabled": false
                   },
                   {
@@ -113,6 +121,7 @@
                     "label": "Ecological Intensification",
                     "labelShort": "AEI",
                     "description": "",
+                    "localChange": false,
                     "enabled": false
                   }
                 ],
@@ -137,6 +146,7 @@
                     "label": "Recreate/Restore Ecological Zones",
                     "labelShort": "REZ",
                     "description": "",
+                    "localChange": false,
                     "enabled": false
                   },
                   {
@@ -145,6 +155,7 @@
                     "label": "Nature Protection Regulations",
                     "labelShort": "NPR",
                     "description": "",
+                    "localChange": false,
                     "enabled": false
                   }
                 ],
@@ -169,6 +180,7 @@
                   "label": "Recreate/Restore Ecological Zones",
                   "labelShort": "REZ",
                   "description": "",
+                  "localChange": false,
                   "enabled": false
                 },
                 {
@@ -177,6 +189,7 @@
                   "label": "Nature Protection Regulations",
                   "labelShort": "NPR",
                   "description": "",
+                  "localChange": false,
                   "enabled": false
                 },
                 {
@@ -185,6 +198,7 @@
                   "label": "Ecological Intensification",
                   "labelShort": "AEI",
                   "description": "",
+                  "localChange": false,
                   "enabled": false
                 }
               ],
@@ -209,6 +223,7 @@
                     "label": "Recreate/Restore Ecological Zones",
                     "labelShort": "REZ",
                     "description": "",
+                    "localChange": false,
                     "enabled": false
                   },
                   {
@@ -217,6 +232,7 @@
                     "label": "Nature Protection Regulations",
                     "labelShort": "NPR",
                     "description": "",
+                    "localChange": false,
                     "enabled": false
                   },
                   {
@@ -225,6 +241,7 @@
                     "label": "Urban Greening",
                     "labelShort": "UG",
                     "description": "",
+                    "localChange": false,
                     "enabled": false
                   }
                 ],
@@ -249,6 +266,7 @@
                     "label": "Recreate/Restore Ecological Zones",
                     "labelShort": "REZ",
                     "description": "",
+                    "localChange": false,
                     "enabled": false
                   },
                   {
@@ -257,6 +275,7 @@
                     "label": "Nature Protection Regulations",
                     "labelShort": "NPR",
                     "description": "",
+                    "localChange": false,
                     "enabled": false
                   },
                   {
@@ -265,6 +284,7 @@
                     "label": "Urban Greening",
                     "labelShort": "UG",
                     "description": "",
+                    "localChange": false,
                     "enabled": false
                   }
                 ],
@@ -289,6 +309,7 @@
                     "label": "Recreate/Restore Ecological Zones",
                     "labelShort": "REZ",
                     "description": "",
+                    "localChange": false,
                     "enabled": false
                   },
                   {
@@ -297,6 +318,7 @@
                     "label": "Nature Protection Regulations",
                     "labelShort": "NPR",
                     "description": "",
+                    "localChange": false,
                     "enabled": false
                   }
                 ],
@@ -321,6 +343,7 @@
                   "label": "Recreate/Restore Ecological Zones",
                   "labelShort": "REZ",
                   "description": "",
+                  "localChange": false,
                   "enabled": false
                 },
                 {
@@ -329,6 +352,7 @@
                   "label": "Nature Protection Regulations",
                   "labelShort": "NPR",
                   "description": "",
+                  "localChange": false,
                   "enabled": false
                 },
                 {
@@ -337,6 +361,7 @@
                   "label": "Ecological Intensification",
                   "labelShort": "AEI",
                   "description": "",
+                  "localChange": false,
                   "enabled": false
                 }
               ],
@@ -361,6 +386,7 @@
                   "label": "Recreate/Restore Ecological Zones",
                   "labelShort": "REZ",
                   "description": "",
+                  "localChange": false,
                   "enabled": false
                 },
                 {
@@ -369,6 +395,7 @@
                   "label": "Nature Protection Regulations",
                   "labelShort": "NPR",
                   "description": "",
+                  "localChange": false,
                   "enabled": false
                 },
                 {
@@ -377,6 +404,7 @@
                   "label": "Urban Greening",
                   "labelShort": "UG",
                   "description": "",
+                  "localChange": false,
                   "enabled": false
                 }
               ],
@@ -401,6 +429,7 @@
                     "label": "Recreate/Restore Ecological Zones",
                     "labelShort": "REZ",
                     "description": "",
+                    "localChange": false,
                     "enabled": false
                   },
                   {
@@ -409,6 +438,7 @@
                     "label": "Nature Protection Regulations",
                     "labelShort": "NPR",
                     "description": "",
+                    "localChange": false,
                     "enabled": false
                   },
                   {
@@ -417,6 +447,7 @@
                     "label": "Urban Greening",
                     "labelShort": "UG",
                     "description": "",
+                    "localChange": false,
                     "enabled": false
                   }
                 ],
@@ -441,6 +472,7 @@
                     "label": "Recreate/Restore Ecological Zones",
                     "labelShort": "REZ",
                     "description": "",
+                    "localChange": false,
                     "enabled": false
                   },
                   {
@@ -449,6 +481,7 @@
                     "label": "Nature Protection Regulations",
                     "labelShort": "NPR",
                     "description": "",
+                    "localChange": false,
                     "enabled": false
                   }
                 ],
@@ -473,6 +506,7 @@
                   "label": "Recreate/Restore Ecological Zones",
                   "labelShort": "REZ",
                   "description": "",
+                  "localChange": false,
                   "enabled": false
                 },
                 {
@@ -481,6 +515,7 @@
                   "label": "Nature Protection Regulations",
                   "labelShort": "NPR",
                   "description": "",
+                  "localChange": false,
                   "enabled": false
                 },
                 {
@@ -489,6 +524,7 @@
                   "label": "Ecological Intensification",
                   "labelShort": "AEI",
                   "description": "",
+                  "localChange": false,
                   "enabled": false
                 }
               ],
@@ -513,6 +549,7 @@
                     "label": "Recreate/Restore Ecological Zones",
                     "labelShort": "REZ",
                     "description": "",
+                    "localChange": false,
                     "enabled": false
                   },
                   {
@@ -521,6 +558,7 @@
                     "label": "Nature Protection Regulations",
                     "labelShort": "NPR",
                     "description": "",
+                    "localChange": false,
                     "enabled": false
                   },
                   {
@@ -529,6 +567,7 @@
                     "label": "Ecological Intensification",
                     "labelShort": "AEI",
                     "description": "",
+                    "localChange": false,
                     "enabled": false
                   }
                 ],
@@ -553,6 +592,7 @@
                   "label": "Recreate/Restore Ecological Zones",
                   "labelShort": "REZ",
                   "description": "",
+                  "localChange": false,
                   "enabled": false
                 },
                 {
@@ -561,6 +601,7 @@
                   "label": "Nature Protection Regulations",
                   "labelShort": "NPR",
                   "description": "",
+                  "localChange": false,
                   "enabled": false
                 }
               ],
@@ -585,6 +626,7 @@
                   "label": "Recreate/Restore Ecological Zones",
                   "labelShort": "REZ",
                   "description": "",
+                  "localChange": false,
                   "enabled": false
                 },
                 {
@@ -593,6 +635,7 @@
                   "label": "Nature Protection Regulations",
                   "labelShort": "NPR",
                   "description": "",
+                  "localChange": false,
                   "enabled": false
                 }
               ],

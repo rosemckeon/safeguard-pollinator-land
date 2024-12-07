@@ -112,42 +112,34 @@ export class GlobalResponsesComponent implements OnInit {
     switch($event.source.ariaLabel){
       case('globalSeminaturalRestoration'):
         this.habitatService.setResponseChangeByType('Semi-natural', this.restorationName, $event.checked);
-        this.habitatService.setResponseChangeByType('Semi-natural', this.restorationName, $event.checked, "local");
         this.isGlobalSeminaturalRestorationChecked = $event.checked;
         break;
       case('globalAgriculturalRestoration'):
         this.habitatService.setResponseChangeByType('Agricultural', this.restorationName, $event.checked);
-        this.habitatService.setResponseChangeByType('Agricultural', this.restorationName, $event.checked, "local");
         this.isGlobalAgriculturalRestorationChecked = $event.checked;
         break;
       case('globalUrbanRestoration'):
         this.habitatService.setResponseChangeByType('Urban', this.restorationName, $event.checked);
-        this.habitatService.setResponseChangeByType('Urban', this.restorationName, $event.checked, "local");
         this.isGlobalUrbanRestorationChecked = $event.checked;
         break;
       case('globalSeminaturalNatProtReg'):
         this.habitatService.setResponseChangeByType('Semi-natural', this.natureProtectionName, $event.checked);
-        this.habitatService.setResponseChangeByType('Semi-natural', this.natureProtectionName, $event.checked, "local");
         this.isGlobalSeminaturalNatProtRegChecked = $event.checked;
         break;
       case('globalAgriculturalNatProtReg'):
         this.habitatService.setResponseChangeByType('Agricultural', this.natureProtectionName, $event.checked);
-        this.habitatService.setResponseChangeByType('Agricultural', this.natureProtectionName, $event.checked, "local");
         this.isGlobalAgriculturalNatProtRegChecked = $event.checked;
         break;
       case('globalUrbanNatProtReg'):
         this.habitatService.setResponseChangeByType('Urban', this.natureProtectionName, $event.checked);
-        this.habitatService.setResponseChangeByType('Urban', this.natureProtectionName, $event.checked, "local");
         this.isGlobalUrbanNatProtRegChecked = $event.checked;
         break;
       case('globalUrbanGreening'):
-       this.habitatService.setResponseChangeByType('Urban', this.urbanGreeningName, $event.checked);
-        this.habitatService.setResponseChangeByType('Urban', this.urbanGreeningName, $event.checked, "local");
+        this.habitatService.setResponseChangeByType('Urban', this.urbanGreeningName, $event.checked);
         this.isGlobalUrbanGreeningChecked = $event.checked;
         break;
       case('globalAgriculturalEcoIntensification'):
         this.habitatService.setResponseChangeByType('Agricultural', this.ecoIntensificationName, $event.checked);
-        this.habitatService.setResponseChangeByType('Agricultural', this.ecoIntensificationName, $event.checked, "local");
         this.isGlobalAgriculturalEcoIntensificationChecked = $event.checked;
         break;
       default:

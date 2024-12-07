@@ -420,15 +420,9 @@ export class RoundService {
     for (var h = 0; h < habitats.length; h++) {
       // then loop through responses
       for (var r = 0; r < habitats[h].response!.length; r++){
-        // apple globalChange followed by localChange to newHabitats array
-        if(habitats[h].response![r].hasOwnProperty('globalChange')){
-          newHabitats[h].response![r].enabled = habitats[h].response![r].globalChange!
-          // could reset the values here but i think keeping state will be nicer to use
-        }
-        // localchange overrrides globalChange
+        // localchange 
         if(habitats[h].response![r].hasOwnProperty('localChange')){
           newHabitats[h].response![r].enabled = habitats[h].response![r].localChange!
-          // do we want to keep state here too?
         }
       }
     }
@@ -440,17 +434,17 @@ export class RoundService {
   }
 
 
-  // applies all the descisions
+  /// applies all the descisions
   advanceTime(from: number, to: number, habitats: Habitat[], roundList: Round[]): Round[] | null {
     console.log('roundService.advanceTime', from, to, habitats, roundList);
-   
-    let globalResponses : Habitat[] | null = this.saveDataService.getGlobalResponses();
-    //let localResponses : Habitat[] | null = this.saveDataService.getLocalResponses();
-    if(globalResponses != null) {
+    let habitatList : Habitat[] | null = this.saveDataService.getLocalResponses();
+
+    if(habitatList != null) {
+      let savedResponses: Round[] | null = this.saveLandscape(from, habitatList, roundList);
+      console.log('roundService.advanceTime savedResponses', from, savedResponses);
       // save the current landscape in the current habitat
       // records descisions without enabling responses.
-      let savedResponses: Round[] | null = this.saveLandscape(from, globalResponses, roundList);
-      console.log('roundService.advanceTime savedResponses', from, savedResponses);
+
       // Apply responses to enable them on the new round (saves landscape in round to)
       let appliedResponses = this.makeResponses(to, habitats, savedResponses);
       // Calculate new habitat state values based on the applied responses 

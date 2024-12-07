@@ -4,6 +4,5 @@ export interface HabitatResponse {
     label: string;
     labelShort: string;
     enabled: boolean;
-    globalChange?: boolean;
     localChange?: boolean;
 }
