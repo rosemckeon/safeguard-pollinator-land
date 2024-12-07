@@ -69,7 +69,7 @@ export class SaveDataService {
   }
 
   savePlayerData(scenario: string, dataCode: string, playerData: Round[]): any { 
-    console.log("Saving player data", scenario, dataCode, playerData); 
+    //console.log("Saving player data", scenario, dataCode, playerData); 
     // the amount of security this adds is a bit rubbish given that these scripts are publicly available
     // upgrade to use JWT if possible
     let token : string = '7TqZhxlrPyRPAKwkU6Ud620TOpuRlI35623RyG68iA5tUyxrINStm5U35NUEcIJyCaP9UOOY0gl1XA677TGElnGJXHU5zRpGR04r';

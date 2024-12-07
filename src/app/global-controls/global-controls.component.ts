@@ -37,7 +37,7 @@ export class GlobalControlsComponent {
   selectedUrbanClasses = this.urbanClasses;
 
   updateGlobalControlClasses(id:string, classes:string): void {
-    console.log('triggered updateGlobalControlClasses');
+    //console.log('triggered updateGlobalControlClasses');
     if(id == 'globalSeminatural'){
       this.selectedSeminaturalClasses = classes;
     } else if(id == 'globalAgricultural'){
@@ -48,7 +48,7 @@ export class GlobalControlsComponent {
   }
 
   onSelectedGlobalControl(value:string, id:string): void {
-    console.log('triggered onSelectedGlobalControl', id, value);
+    //console.log('triggered onSelectedGlobalControl', id, value);
 		if(value == 'Semi-natural'){
       this.updateGlobalControlClasses(id, this.seminaturalClasses);
     } else if(value == 'Agricultural'){

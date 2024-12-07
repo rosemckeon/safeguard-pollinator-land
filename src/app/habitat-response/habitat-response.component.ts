@@ -37,14 +37,7 @@ export class HabitatResponseComponent implements OnInit {
   @ViewChild(NatProtReg) natProtReg?: NatProtReg;
   @ViewChild(EcoIntensification) ecoIntensification?: EcoIntensification;
   @ViewChild(UrbanGreening) urbanGreening?: UrbanGreening;
-/*
-  localResponsesForm: FormGroup;
 
-  isLocalRestorationChecked: boolean;
-  isLocalNatProtRegChecked: boolean;
-  isLocalEcoIntensificationChecked: boolean;
-  isLocalUrbanGreeningChecked: boolean;
-*/
   restorationLabel: string = "Recreate/Restore Ecological Zones";
   natureProtectionLabel: string = "Nature Protection Regulations";
   urbanGreeningLabel: string = "Urban Greening";
@@ -62,7 +55,7 @@ export class HabitatResponseComponent implements OnInit {
   }
 
   async toggleChanges($event: MatSlideToggleChange): Promise<void> {
-    console.log('HabitatResponseComponent.toggleChanges', $event.source.ariaLabel, $event.checked);
+    //console.log('HabitatResponseComponent.toggleChanges', $event.source.ariaLabel, $event.checked);
     //this.habitatResponse.localChange = $event.checked;
     switch($event.source.ariaLabel){
       case('localRestoration'):
@@ -104,7 +97,7 @@ export class HabitatResponseComponent implements OnInit {
     }
     const dialogRef = temp;
     dialogRef.afterClosed().subscribe((result: any) => {
-      console.log(`Dialog result: ${result}`);
+      //console.log(`Dialog result: ${result}`);
     });
   }
   

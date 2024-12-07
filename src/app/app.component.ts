@@ -69,11 +69,11 @@ export class AppComponent implements OnInit {
   @ViewChild(LandscapeComponent) landscapeComponent?: LandscapeComponent;
 
   resetGlobalControls(): void {
-    console.log('triggered resetGlobalControls from AppComponent');
+    //console.log('triggered resetGlobalControls from AppComponent');
     this.habitatService.getActiveHabitatTypes(this.roundService.roundList[this.roundService.activeRound].landscape).then(
       (habitatCount: HabitatCount) => {
         let activeHabitatTypes = habitatCount;
-        console.log(activeHabitatTypes);
+        //console.log(activeHabitatTypes);
         // put these into a loop to be more concise? Bit tricky 
         let globalSeminatural = <HTMLButtonElement>document.getElementById('globalSeminatural');
         globalSeminatural.value = "";
@@ -126,7 +126,7 @@ export class AppComponent implements OnInit {
     }
     const dialogRef = temp;
     dialogRef.afterClosed().subscribe((result: any) => {
-      console.log(`Dialog result: ${result}`);
+      //console.log(`Dialog result: ${result}`);
     });
   }
 
@@ -135,14 +135,14 @@ export class AppComponent implements OnInit {
   advanceTime(from : number, scenario : string, dataCode: string | null, habitats : Habitat[], roundList : Round[]) {
     // do something here to pause all other interactions - like a loading animation
     // ******
-    console.log("AppComponent.advanceTime started", from, scenario, dataCode, habitats, roundList);
+    //console.log("AppComponent.advanceTime started", from, scenario, dataCode, habitats, roundList);
     let to : number = from + 1;
     let newRoundList : Round[] | null = this.roundService.advanceTime(from, to, habitats, roundList);
     // do something with the data after advancing time is complete
     if ( newRoundList == null ) {
       // array does not exist, is not an array, or is empty
       // ⇒ do not attempt to process array
-      console.log("AppComponent.advanceTime conditions not met", newRoundList)
+      //console.log("AppComponent.advanceTime conditions not met", newRoundList)
     } else {
       // newRoundList has been populated and we still need to play another round
       if ( this.roundService.endRound != to ) {
@@ -154,15 +154,14 @@ export class AppComponent implements OnInit {
           this.saveDataService.savePlayerData(scenario, dataCode, newRoundList);
         }
       }
-      console.log("AppComponent.advanceTime completed", this.roundService.activeRound, scenario, newRoundList);
+      //console.log("AppComponent.advanceTime completed", this.roundService.activeRound, scenario, newRoundList);
     }
     // remove animation here
     // ******
   }
 
   submitDataCode(value: string) {
-    console.log("AppComponent.submitDataCode", value);
-
+    //console.log("AppComponent.submitDataCode", value);
   }
 }
 

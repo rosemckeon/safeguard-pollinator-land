@@ -51,7 +51,7 @@ export class HabitatComponent implements OnInit {
     }
     const dialogRef = temp;
     dialogRef.afterClosed().subscribe((result: any) => {
-      console.log(`Dialog result: ${result}`);
+      //console.log(`Dialog result: ${result}`);
     });
   }
 

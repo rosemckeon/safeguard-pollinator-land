@@ -30,7 +30,7 @@ export class HabitatService {
   }
 
   getStateValues(h: number, r: number, stateName: string): number[] | void {
-    console.log('habitatServcie.getStateValues', h, r, stateName);
+    //console.log('habitatServcie.getStateValues', h, r, stateName);
     let s: number | undefined;
     switch(stateName){
       case 'wildPollinators':
@@ -52,7 +52,7 @@ export class HabitatService {
   }
 
   getResponseEffectOnStateValues(habitatType: string, responseName: string, stateName: string): number[] | void {
-    console.log('habitatService.getResponseEffectOnStateValues', habitatType, responseName, stateName);
+    //console.log('habitatService.getResponseEffectOnStateValues', habitatType, responseName, stateName);
     let h : number | undefined;
     let r : number | undefined;
     let result : number[] | void;
@@ -137,7 +137,7 @@ export class HabitatService {
         //console.log(this.habitatList[i])
       }
     }
-    console.log('habitatService.setLocalResponseChange: ', habitatID, responseName, value, this.localResponses);
+    //console.log('habitatService.setLocalResponseChange: ', habitatID, responseName, value, this.localResponses);
     this.saveDataService.saveLocalResponses(this.localResponses);
   }
   
@@ -163,7 +163,7 @@ export class HabitatService {
     this.localResponses = habitatList;
     this.saveDataService.saveLocalResponses(habitatList);
     
-    console.log("HabitatService.setResponseChangeByType completed", habitatList);
+    //console.log("HabitatService.setResponseChangeByType completed", habitatList);
   }
 
   getScore(min: number, max: number, currentValue: number, expertScore: number, m: number, decrease: boolean): number {
@@ -340,7 +340,7 @@ export class HabitatService {
   }
 
   updateStates(habitats: Habitat[]): Habitat[] {
-    console.log('Triggered updateStates from HabitatService', habitats);
+    //console.log('Triggered updateStates from HabitatService', habitats);
     let habitatType: string;
     let responseName: string;
     let currentStateValues: number[];
@@ -369,7 +369,7 @@ export class HabitatService {
   }
 
   makeGlobalHabitatChanges(globalSeminatural: string, globalAgricultural: string, globalUrban: string) {
-    console.log('triggered makeGlobalHabitatChanges');
+    //console.log('triggered makeGlobalHabitatChanges');
     //this.updateHabitats = true;
     //this.habitatGlobalUpdateList = this.habitatList;
     //const data = await fetch(this.url);
@@ -433,7 +433,7 @@ export class HabitatService {
   }
 
   submitGlobalChanges(globalSeminatural: string, globalAgricultural: string, globalUrban: string) {
-    console.log(`triggered submitGlobalChanges`);
+    //console.log(`triggered submitGlobalChanges`);
     /*
     if(globalSeminatural != ""){
       console.log(`Semi-natural: ${globalSeminatural}`);
