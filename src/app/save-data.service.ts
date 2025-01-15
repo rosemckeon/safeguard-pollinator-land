@@ -25,7 +25,7 @@ export class SaveDataService {
 
   constructor(private http: HttpClient) {
     //this.http available here
-    this.api_url = "http://api.rosemckeon.uk/elo2024/";
+    this.api_url = "https://api.rosemckeon.uk/elo2024/";
   }
   
 
