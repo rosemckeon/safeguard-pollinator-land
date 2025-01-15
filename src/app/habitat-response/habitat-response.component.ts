@@ -64,7 +64,7 @@ export class HabitatResponseComponent implements OnInit {
       case('localNatProtReg'):
         this.habitatService.setLocalResponseChange(this.habitatID, this.natureProtectionName, $event.checked);
         break;
-      case('localGreening'):
+      case('localUrbanGreening'):
         this.habitatService.setLocalResponseChange(this.habitatID, this.urbanGreeningName, $event.checked);
         break;
       case('localEcoIntensification'):
