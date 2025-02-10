@@ -2,7 +2,7 @@
 
 Our pilot run trialled the game at a workshop with policymakers at the European Land Owners Conference - ELO2024.
 
- and requires [npm package manager](https://www.npmjs.com/). 
+It requires [npm package manager](https://www.npmjs.com/). 
 
 ## Initial setup
 
