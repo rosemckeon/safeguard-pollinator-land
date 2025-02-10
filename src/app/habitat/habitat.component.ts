@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { Habitat } from '../habitat';
 import { HabitatService } from '../habitat.service';
 import { HabitatResponseComponent } from '../habitat-response/habitat-response.component';
-import { HabitatResponseService } from '../habitat-response.service';
+//import { HabitatResponseService } from '../habitat-response.service';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
@@ -20,7 +20,7 @@ import { MatButtonModule } from '@angular/material/button';
   styleUrl: './habitat.component.scss'
 })
 export class HabitatComponent implements OnInit {
-  habitatResponseService: HabitatResponseService = inject(HabitatResponseService);
+  //habitatResponseService: HabitatResponseService = inject(HabitatResponseService);
   habitatService: HabitatService = inject(HabitatService);
   readonly dialog = inject(MatDialog);
   @Input() habitat!: Habitat;
@@ -51,7 +51,7 @@ export class HabitatComponent implements OnInit {
     }
     const dialogRef = temp;
     dialogRef.afterClosed().subscribe((result: any) => {
-      console.log(`Dialog result: ${result}`);
+      //console.log(`Dialog result: ${result}`);
     });
   }
 

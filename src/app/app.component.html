@@ -2,24 +2,26 @@
   <section class="h-full grow">
     <router-outlet />
   </section>
-  <section class="controls h-full flex-none lg:w-[470px] xl:w-[550px] w-[470px] p-10">
-    @if (roundService.activeRound == 0) {
-      <h1 class="mb-2">This game has five rounds. Each round is 1 year.</h1>
-    } @else {
-      <h1 class="mb-2">Can you keep improving your impact every year?</h1>
-    }
-    <span class="bee-icon"></span>
-    <div class="grid grid-cols-6 gap-2 mb-5">
-      <app-round-details  *ngFor="let round of roundService.roundList" [round]="round"></app-round-details>
+  <section class="controls h-full flex-none w-[400px] xl:w-[470px] p-2 lg:p-3 xl:p-5">
+    <div class="flex">
+      <div class="grow">
+        <h1 class="mb-2 leading-tight"><strong>Our Goal:</strong> To obtain insights from stakeholders on the acceptability (from their perspective) of policy and practice response options identified by scientific experts as being effective solutions for safeguarding wild pollinators.</h1>
+      </div>
+      <div class="flex-none w-24">
+        <div class="bee-icon w-full h-full"></div>
+      </div>
     </div>
-    <p class="mb-5">
-      <strong>Your aim is to improve pollinator numbers and make people happy - fill the bars as much as you can </strong> 
-      <button class="icon-only hover:cursor-help" matTooltip="find out more..." (click)="openInfo('gameInfo')"><ng-icon name="heroInformationCircleSolid"></ng-icon></button> 
-      @if(roundService.endRound == roundService.activeRound) {
-        <strong class="pl-2">How did you do?</strong>
+    <p class="mb-2">
+      <button class="icon-only hover:cursor-help mr-1" matTooltip="find out more..." (click)="openInfo('gameInfo')"><ng-icon name="heroInformationCircleSolid"></ng-icon></button>
+      @if (roundService.activeRound == 0) {
+        <strong>This game has five rounds. Each round is 1 year.</strong>
+      } @else {
+        <strong>Can you keep improving your impact every year?</strong>
       }
     </p>
-    
+    <div class="grid grid-cols-6 gap-0 xl:gap-1 mb-5">
+      <app-round-details  *ngFor="let round of roundService.roundList" [round]="round"></app-round-details>
+    </div>    
     
       <div class="round-impacts p-1 pt-2 mb-5">
         @if(roundService.endRound != roundService.activeRound) {
@@ -27,7 +29,7 @@
         } @else {
           <h2 class="text-sm"><strong>FINAL LANDSCAPE IMPACTS</strong></h2>
         }
-        <div id="impact-scores" class="grid grid-cols-4 gap-2 m-2 mt-0 mb-4 h-40">
+        <div id="impact-scores" class="grid grid-cols-4 gap-0 xl:gap-1 m-2 mt-0 mb-4 h-40">
           <div class="impact cropPollination h-full text-center align-top">
             <div class="impact-icon-container mt-2" (click)="openInfo('cropPollination')" matTooltip="{{ roundService.roundImpacts.cropPollinationProduction }}%">
               <div class="impact-icon-label text-center leading-none opacity-60"><strong class="text-xs text-black">CROP POLLINATION & PRODUCTION</strong></div>
@@ -57,11 +59,10 @@
             </div>
           </div>
         </div>
-        <!--<app-round-impacts  *ngFor="let impact of roundService.roundImpacts" [roundImpact]="impact"></app-round-impacts>-->
       </div>
     @if(roundService.endRound != roundService.activeRound) {
       @if (roundService.activeRound == 0) {
-        <p class="mb-5">To change your impact result <strong>Make responses</strong> which affect all habitats of a particular type <ng-icon name="heroArrowDown"></ng-icon></p>
+        <p class="mb-5 leading-tight">To change your impact result <strong>Make responses</strong> below.</p>
       } @else {
         <p class="mb-5 mt-10"><strong>Make responses:</strong></p>
       }
@@ -70,7 +71,7 @@
       @if (roundService.activeRound == 0) {
         <p class="mt-10"><strong>When you're done making descisions...</strong></p>
       }
-      <button (click)="advanceTime(roundService.activeRound, roundService.scenario!, roundService.dataCode!, habitatService.habitatList, roundService.roundList)" class="button px-4 pt-2 pb-4 mt-10">Advance time <ng-icon name="heroArrowRight"></ng-icon></button>
+      <button (click)="advanceTime(roundService.activeRound, roundService.scenario!, roundService.dataCode!, habitatService.habitatList, roundService.roundList)" class="button px-4 pt-2 pb-4 mt-2">Advance time <ng-icon name="heroArrowRight"></ng-icon></button>
             
     } @else {
       @if(roundService.scenario == 'B') {
