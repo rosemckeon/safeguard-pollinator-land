@@ -22,13 +22,13 @@ In the root directory:
 
 This application is built mainly in [TypeScript](https://www.typescriptlang.org/) using [Angular](https://angular.dev/overview). Services contain the majority of the functions and parameters, with some functionality being controlled by components. 
 
-[Starting JSON data](https://github.com/rosemckeon/elo2024/blob/main/src/data/scenario-A.json) is loaded by the [landscape component](https://github.com/rosemckeon/elo2024/tree/main/src/app/landscape) and adjusted via the `advanceTime` function in the [round service](https://github.com/rosemckeon/elo2024/blob/main/src/app/round.service.ts). Most other services - for example, those that store player data, are required and utilised by the round service which is at the core of everything the application does.
+[Starting JSON data](https://github.com/rosemckeon/elo2024/blob/main/src/data/scenario-A.json) is loaded by the [landscape component](https://github.com/rosemckeon/elo2024/tree/main/src/app/landscape) and adjusted via the `advanceTime` function in the [round service](https://github.com/rosemckeon/elo2024/blob/main/src/app/round.service.ts) using the expert scores. Most other services - for example, those that store player data, are required and utilised by the round service which is at the core of everything the application does.
+
+Scripts in the [R folder](https://github.com/rosemckeon/elo2024/tree/main/R) generate JSON files from the [mean expert scoring data](https://github.com/rosemckeon/elo2024/blob/main/R/meanscores.csv) (and associated filtered subsets) provided in CSV format. The JSON subsets of the expert scores are loaded from the [data folder](https://github.com/rosemckeon/elo2024/tree/main/src/data) in the [round service](https://github.com/rosemckeon/elo2024/blob/main/src/app/round.service.ts) and used to adjust habitat and impact scores when time advances.
 
 [Angular Material](https://material.angular.io/) components and styles are utilised for UX elements like toggle switches, buttons and tabs. Stylesheets are compiled from [SCSS](https://sass-lang.com/) and [Tailwind CSS](https://tailwindcss.com/) classes are used throughout.
 
-This application is set up to optionally store played game history via an API. Any API can be used by adjusting the save data service. 
-
-Scripts in the [R folder](https://github.com/rosemckeon/elo2024/tree/main/R) generate JSON files from the [mean expert scoring data](https://github.com/rosemckeon/elo2024/blob/main/R/meanscores.csv) (and associated filtered subsets) provided in CSV format.
+This application is set up to optionally store played game history via an API. The game senses particular url structures which trigger it to store anonymous player data containing the decisions and landscape scores for all rounds played. Any alternative API can be used by adjusting the save data service. If you are serving your version of this game over https, make sure any API url included is also using https.
 
 ## Angular Basics
 
