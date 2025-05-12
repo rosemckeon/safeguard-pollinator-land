@@ -26,7 +26,16 @@
             <div class="state-icon"></div>
           </div>
         </div>
+
+        <div class="habitat-state pestsAndWeeds text-center align-top h-3/4">
+          <div class="state-icon-container border-2" matTooltip="{{ habitat.state?.pestsAndWeeds }}% Pests and Weeds" (click)="openInfo('pestsAndWeeds')">
+            <div class="state-icon-label text-center leading-none opacity-60 w-full"><strong class="text-xs text-black">P&W</strong></div>
+            <div class="state-icon-fill" style="height: {{habitat.state?.pestsAndWeeds}}%"></div>
+            <div class="state-icon"></div>
+          </div>
+        </div>
       </div>
+
     </div>
     <div class="flex-none habitat-responses text-right align-middle">
       <h5 class="text-xs text-black text-right mr-0 lg:mr-1 xl:mr-2"><strong>RESPONSES</strong></h5>

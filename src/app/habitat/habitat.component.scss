@@ -126,6 +126,24 @@
               }
             }
           }
+          &.pestsAndWeeds {
+            .state-icon {
+              -webkit-transform: scaleX(-1);
+              transform: scaleX(-1);
+              left: -4px;
+              background-image: url("^./../../public/assets/pests-and-weeds.png");
+            }
+            .state-icon-fill {
+              background-color: #87160e;
+              border-top: 2px solid #6b100a;
+            }
+            &:hover,
+            &:focus {
+              .state-icon {
+                background-image: url("^./../../public/assets/pests-and-weeds-colour.png");
+              }
+            }
+          }
         }
         &.mat-mdc-dialog-content {
           .state-icon {
@@ -147,6 +165,11 @@
           .habitatResources {
             .state-icon {
               background-image: url("^./../../public/assets/habitat-resources-colour.svg");
+            }
+          }
+          .pestsAndWeeds {
+            .state-icon {
+              background-image: url("^./../../public/assets/pests-and-weeds-colour.png");
             }
           }
         }

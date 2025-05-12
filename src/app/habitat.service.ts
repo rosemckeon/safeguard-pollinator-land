@@ -36,11 +36,14 @@ export class HabitatService {
       case 'wildPollinators':
         s = 0;
         break;
-      case 'floralResources':
-        s = 1;
-        break;
+      //case 'floralResources':
+      //  s = 1;
+      //  break;
       case 'habitatResources':
         s = 2;
+        break;
+      case 'pestsAndWeeds':
+        s = 1;
         break;
       default:
         console.log('WARNING: stateName not recognised: ', stateName);
@@ -194,11 +197,13 @@ export class HabitatService {
 
   async increaseHabitatStates(habitat: Habitat, responseName: string): Promise<Habitat> {
     //console.log('habitatService.updateHabitatStates:, ', habitat, responseName);
-    let stateNames: string[] = ['wildPollinators', 'floralResources', 'habitatResources'];
+    //let stateNames: string[] = ['wildPollinators', 'floralResources', 'habitatResources'];
+    let stateNames: string[] = ['wildPollinators', 'habitatResources', 'pestsAndWeeds'];
     let currentStateValues: number[] = [
       habitat.state!.wildPollinators!,
-      habitat.state!.floralResources!,
-      habitat.state!.habitatResources!
+      //habitat.state!.floralResources!,
+      habitat.state!.habitatResources!,
+      habitat.state!.pestsAndWeeds!
     ];
     let possibleValues: number[] | void;
     let s: number = 0;
@@ -210,8 +215,9 @@ export class HabitatService {
         // trigger something we can only do with all state iterations complete
         // We will force the WP score to be tightly linked with floral resources.
         habitat.state!.wildPollinators = Math.round(Math.mean(currentStateValues[0], currentStateValues[1]));
-        habitat.state!.floralResources = currentStateValues[1];
+        //habitat.state!.floralResources = currentStateValues[1];
         habitat.state!.habitatResources = currentStateValues[2];
+        habitat.state!.pestsAndWeeds = currentStateValues[4];
         //console.log('habitatService.updateHabitatStates Loop complete', habitat.state);
         break;
       } else {
@@ -268,8 +274,9 @@ export class HabitatService {
     let stateNames: string[] = ['wildPollinators', 'floralResources', 'habitatResources'];
     let currentStateValues: number[] = [
       habitat.state!.wildPollinators!,
-      habitat.state!.floralResources!,
-      habitat.state!.habitatResources!
+      //habitat.state!.floralResources!,
+      habitat.state!.habitatResources!,
+      habitat.state!.pestsAndWeeds!
     ];
     let possibleValues: number[] | void;
     let s: number = 0;
@@ -281,8 +288,9 @@ export class HabitatService {
         // trigger something we can only do with all state iterations complete
         // We will force the WP score to be tightly linked with floral resources.
         habitat.state!.wildPollinators = Math.round(Math.mean(currentStateValues[0], currentStateValues[1]));
-        habitat.state!.floralResources = currentStateValues[1];
+        //habitat.state!.floralResources = currentStateValues[1];
         habitat.state!.habitatResources = currentStateValues[2];
+        habitat.state!.pestsAndWeeds = currentStateValues[4];
         //console.log('habitatService.updateHabitatStates Loop complete', habitat.state);
         break;
       } else {
@@ -351,8 +359,9 @@ export class HabitatService {
       habitatType = habitats[i].type.active;
       currentStateValues = [
         habitats[i].state!.wildPollinators!,
-        habitats[i].state!.floralResources!,
-        habitats[i].state!.habitatResources!
+        //habitats[i].state!.floralResources!,
+        habitats[i].state!.habitatResources!,
+        habitats[i].state!.pestsAndWeeds!
       ];
       //newStateValues = currentStateValues;
       for (var r = 0; r < habitats[i].response!.length; r++){

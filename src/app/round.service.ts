@@ -159,11 +159,14 @@ export class RoundService {
       case 'wildPollinators':
         s = 0;
         break;
-      case 'floralResources':
-        s = 1;
-        break;
+      //case 'floralResources':
+        //s = 1;
+        //break;
       case 'habitatResources':
         s = 2;
+        break;
+      case 'pestsAndWeeds':
+        s = 1;
         break;
       default:
         console.log('WARNING: stateName not recognised.', stateName);
@@ -258,9 +261,9 @@ export class RoundService {
         wildPlantPollination.push(this.habitatService.sample(
           this.getStateEffectOnImpactValues(habitat.type.active, "wildPollinators", habitat.state!.wildPollinators!, "wildPlantPollination").values
         ));
-        wildPlantPollination.push(this.habitatService.sample(
-          this.getStateEffectOnImpactValues(habitat.type.active, "floralResources", habitat.state!.floralResources!, "wildPlantPollination").values
-        ));
+        //wildPlantPollination.push(this.habitatService.sample(
+        //  this.getStateEffectOnImpactValues(habitat.type.active, "floralResources", habitat.state!.floralResources!, "wildPlantPollination").values
+        //));
         wildPlantPollination.push(this.habitatService.sample(
           this.getStateEffectOnImpactValues(habitat.type.active, "habitatResources", habitat.state!.habitatResources!, "wildPlantPollination").values
         ));
@@ -268,9 +271,9 @@ export class RoundService {
         aestheticValues.push(this.habitatService.sample(
           this.getStateEffectOnImpactValues(habitat.type.active, "wildPollinators", habitat.state!.wildPollinators!, "aestheticValues").values
         ));
-        aestheticValues.push(this.habitatService.sample(
-          this.getStateEffectOnImpactValues(habitat.type.active, "floralResources", habitat.state!.floralResources!, "aestheticValues").values
-        ));
+        //aestheticValues.push(this.habitatService.sample(
+        //  this.getStateEffectOnImpactValues(habitat.type.active, "floralResources", habitat.state!.floralResources!, "aestheticValues").values
+        //));
         aestheticValues.push(this.habitatService.sample(
           this.getStateEffectOnImpactValues(habitat.type.active, "habitatResources", habitat.state!.habitatResources!, "aestheticValues").values
         ));
@@ -286,9 +289,9 @@ export class RoundService {
         wildPlantPollination.push(this.habitatService.sample(
           this.getStateEffectOnImpactValues(habitat.type.active, "wildPollinators", habitat.state!.wildPollinators!, "wildPlantPollination").values
         ));
-        wildPlantPollination.push(this.habitatService.sample(
-          this.getStateEffectOnImpactValues(habitat.type.active, "floralResources", habitat.state!.floralResources!, "wildPlantPollination").values
-        ));
+        //wildPlantPollination.push(this.habitatService.sample(
+        //  this.getStateEffectOnImpactValues(habitat.type.active, "floralResources", habitat.state!.floralResources!, "wildPlantPollination").values
+        //));
         wildPlantPollination.push(this.habitatService.sample(
           this.getStateEffectOnImpactValues(habitat.type.active, "habitatResources", habitat.state!.habitatResources!, "wildPlantPollination").values
         ));
@@ -296,9 +299,9 @@ export class RoundService {
         aestheticValues.push(this.habitatService.sample(
           this.getStateEffectOnImpactValues(habitat.type.active, "wildPollinators", habitat.state!.wildPollinators!, "aestheticValues").values
         ));
-        aestheticValues.push(this.habitatService.sample(
-          this.getStateEffectOnImpactValues(habitat.type.active, "floralResources", habitat.state!.floralResources!, "aestheticValues").values
-        ));
+        //aestheticValues.push(this.habitatService.sample(
+        //  this.getStateEffectOnImpactValues(habitat.type.active, "floralResources", habitat.state!.floralResources!, "aestheticValues").values
+        //));
         aestheticValues.push(this.habitatService.sample(
           this.getStateEffectOnImpactValues(habitat.type.active, "habitatResources", habitat.state!.habitatResources!, "aestheticValues").values
         ));
@@ -306,9 +309,9 @@ export class RoundService {
         cropPollinationProduction.push(this.habitatService.sample(
           this.getStateEffectOnImpactValues(habitat.type.active, "wildPollinators", habitat.state!.wildPollinators!, "cropPollinationProduction").values
         ));
-        cropPollinationProduction.push(this.habitatService.sample(
-          this.getStateEffectOnImpactValues(habitat.type.active, "floralResources", habitat.state!.floralResources!, "cropPollinationProduction").values
-        ));
+        //cropPollinationProduction.push(this.habitatService.sample(
+        //  this.getStateEffectOnImpactValues(habitat.type.active, "floralResources", habitat.state!.floralResources!, "cropPollinationProduction").values
+        //));
         cropPollinationProduction.push(this.habitatService.sample(
           this.getStateEffectOnImpactValues(habitat.type.active, "habitatResources", habitat.state!.habitatResources!, "cropPollinationProduction").values
         ));
@@ -316,9 +319,9 @@ export class RoundService {
         economicValueChain.push(this.habitatService.sample(
           this.getStateEffectOnImpactValues(habitat.type.active, "wildPollinators", habitat.state!.wildPollinators!, "economicValueChain").values
         ));
-        economicValueChain.push(this.habitatService.sample(
-          this.getStateEffectOnImpactValues(habitat.type.active, "floralResources", habitat.state!.floralResources!, "economicValueChain").values
-        ));
+        //economicValueChain.push(this.habitatService.sample(
+        //  this.getStateEffectOnImpactValues(habitat.type.active, "floralResources", habitat.state!.floralResources!, "economicValueChain").values
+        //));
         economicValueChain.push(this.habitatService.sample(
           this.getStateEffectOnImpactValues(habitat.type.active, "habitatResources", habitat.state!.habitatResources!, "economicValueChain").values
         ));
