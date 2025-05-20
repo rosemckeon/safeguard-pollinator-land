@@ -11,8 +11,11 @@ import { Round } from './round';
 import { Habitat } from './habitat';
 // raw data
 import RoundListUrbanDegraded from '../data/scenario-urban-degraded.json';
-import RoundListA from '../data/scenario-A.json';
-import RoundListB from '../data/scenario-B.json';
+import RoundListUrbanRestored from '../data/scenario-urban-restored.json';
+import RoundListSeminatDegraded from '../data/scenario-seminat-degraded.json';
+import RoundListSeminatRestored from '../data/scenario-seminat-restored.json';
+import RoundListAgriDegraded from '../data/scenario-agri-degraded.json';
+import RoundListAgriRestored from '../data/scenario-agri-restored.json';
 import stateToImpactValues from '../data/state-on-impact.v2.json';
 import { Impacts } from './impacts';
 import { ImpactValues } from './impact-values';
@@ -52,15 +55,30 @@ export class RoundService {
         this.scenario = "urban_degraded";
         this.saveDataService.saveScenario("urban_degraded");
         break;
-      case 'A':
-        this.roundList = RoundListA;
-        this.scenario = "A";
-        this.saveDataService.saveScenario("A");
+      case 'urban_restored':
+        this.roundList = RoundListUrbanRestored;
+        this.scenario = "urban_restored";
+        this.saveDataService.saveScenario("urban_restored");
         break;
-      case 'B':
-        this.roundList = RoundListB;
-        this.scenario = "B";
-        this.saveDataService.saveScenario("B");
+      case 'seminat_degraded':
+        this.roundList = RoundListSeminatDegraded;
+        this.scenario = "seminat_degraded";
+        this.saveDataService.saveScenario("seminat_degraded");
+        break;
+      case 'seminat_restored':
+        this.roundList = RoundListSeminatRestored;
+        this.scenario = "seminat_restored";
+        this.saveDataService.saveScenario("seminat_restored");
+        break;
+      case 'agri_degraded':
+        this.roundList = RoundListAgriDegraded;
+        this.scenario = "agri_degraded";
+        this.saveDataService.saveScenario("agri_degraded");
+        break;
+      case 'agri_restored':
+        this.roundList = RoundListAgriRestored;
+        this.scenario = "agri_restored";
+        this.saveDataService.saveScenario("agri_restored");
         break;
       default:
         this.roundList = RoundListUrbanDegraded;

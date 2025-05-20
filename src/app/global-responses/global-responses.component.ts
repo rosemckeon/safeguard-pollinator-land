@@ -64,7 +64,8 @@ export class GlobalResponsesComponent implements OnInit {
  
   constructor(formBuilder: FormBuilder) {
     //console.log("GlobalResponseComponent constructor scenario", this.roundService.scenario);
-    if (this.roundService.scenario == "B") {
+    let restoredScenarios : string[] = ['urban_restored', 'agri_restored', 'seminat_restored'];
+    if (restoredScenarios.includes(this.roundService.scenario ?? '')) {
       this.isGlobalSeminaturalRestorationChecked = true;
       this.isGlobalAgriculturalRestorationChecked = true;
       this.isGlobalUrbanRestorationChecked = true;

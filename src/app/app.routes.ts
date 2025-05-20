@@ -17,36 +17,77 @@ export const routes: Routes = [] = [
         path: 'urban_degraded/:requestCode',
         component: LandscapeComponent,
         data: {
-            scenario: 'urban_degraded'
+            scenario: 'urban_restored'
         }
     },
     {
-        path: 'A',
+        path: 'urban_restored',
         component: LandscapeComponent,
         data: {
-            scenario: 'A'
+            scenario: 'urban_restored'
         }
     },
     {
-        path: 'A/:requestCode',
+        path: 'urban_restored/:requestCode',
         component: LandscapeComponent,
         data: {
-            scenario: 'A'
+            scenario: 'urban_restored'
         }
     },
     {
-        path: 'B',
+        path: 'seminat_degraded',
         component: LandscapeComponent,
         data: {
-            scenario: 'B'
-        } 
+            scenario: 'seminat_degraded'
+        }
     },
     {
-        path: 'B/:requestCode',
+        path: 'seminat_degraded/:requestCode',
         component: LandscapeComponent,
         data: {
-            scenario: 'B'
-        } 
+            scenario: 'seminat_degraded'
+        }
+    },
+    {
+        path: 'seminat_restored',
+        component: LandscapeComponent,
+        data: {
+            scenario: 'seminat_restored'
+        }
+    },
+    {
+        path: 'seminat_restored/:requestCode',
+        component: LandscapeComponent,
+        data: {
+            scenario: 'seminat_restored'
+        }
+    },{
+        path: 'agri_degraded',
+        component: LandscapeComponent,
+        data: {
+            scenario: 'agri_degraded'
+        }
+    },
+    {
+        path: 'agri_degraded/:requestCode',
+        component: LandscapeComponent,
+        data: {
+            scenario: 'agri_restored'
+        }
+    },
+    {
+        path: 'agri_restored',
+        component: LandscapeComponent,
+        data: {
+            scenario: 'agri_restored'
+        }
+    },
+    {
+        path: 'agri_restored/:requestCode',
+        component: LandscapeComponent,
+        data: {
+            scenario: 'agri_restored'
+        }
     },
     {
         path: '',
