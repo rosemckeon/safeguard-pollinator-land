@@ -17,10 +17,9 @@ export interface Habitat {
     };
     //stateValue?: number;
     state?: {
-        wildPollinators?: number;
-        //floralResources?: number;
         habitatResources?: number;
         pestsAndWeeds?: number;
+        wildPollinators?: number;
     };
     pollinators?: {
         N?: number;

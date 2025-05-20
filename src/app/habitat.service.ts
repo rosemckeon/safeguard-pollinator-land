@@ -8,8 +8,8 @@ import { HabitatCount } from './habitat-count';
 // services 
 import { SaveDataService } from './save-data.service';
 // raw data
-import responseToStateValues from '../data/response-on-state.json';
-import { WildPollinators } from './habitat/habitat.component';
+import responseToStateValues from '../data/response-on-state.v2.json';
+//import { WildPollinators } from './habitat/habitat.component';
 
 @Injectable({
   providedIn: 'root'
@@ -25,22 +25,20 @@ export class HabitatService {
 
   sample(values: number[] | string[]): any {
     let result : any = values[Math.floor(Math.random()*values.length)];
-    //console.log('Triggered sample from HabitatService ', result);
+    console.log('Triggered sample from HabitatService ', result);
     return(result);
   }
 
   getStateValues(h: number, r: number, stateName: string): number[] | void {
-    //console.log('habitatServcie.getStateValues', h, r, stateName);
+    console.log('habitatService.getStateValues', h, r, stateName);
+    //s is the array index for the state values in responseToStateValues
     let s: number | undefined;
     switch(stateName){
       case 'wildPollinators':
-        s = 0;
-        break;
-      //case 'floralResources':
-      //  s = 1;
-      //  break;
-      case 'habitatResources':
         s = 2;
+        break;
+      case 'habitatResources':
+        s = 0;
         break;
       case 'pestsAndWeeds':
         s = 1;
@@ -55,7 +53,7 @@ export class HabitatService {
   }
 
   getResponseEffectOnStateValues(habitatType: string, responseName: string, stateName: string): number[] | void {
-    //console.log('habitatService.getResponseEffectOnStateValues', habitatType, responseName, stateName);
+    console.log('habitatService.getResponseEffectOnStateValues', habitatType, responseName, stateName);
     let h : number | undefined;
     let r : number | undefined;
     let result : number[] | void;
@@ -132,21 +130,21 @@ export class HabitatService {
           // to match responseType
           if(this.localResponses[i].response![r].name == responseName){
             // update response
-            //console.log('Updating response on habitat: ', this.habitatList[i].id);
+            console.log('Updating response on habitat: ', this.habitatList[i].id);
             this.localResponses[i].response![r].localChange = value;
-            //console.log(this.habitatList[i].response![r]);
+            console.log(this.habitatList[i].response![r]);
           }
         }
-        //console.log(this.habitatList[i])
+        console.log(this.habitatList[i])
       }
     }
-    //console.log('habitatService.setLocalResponseChange: ', habitatID, responseName, value, this.localResponses);
+    console.log('habitatService.setLocalResponseChange: ', habitatID, responseName, value, this.localResponses);
     this.saveDataService.saveLocalResponses(this.localResponses);
   }
   
   // triggered by the GlobalResponseComponent when a global descision is made.
   async setResponseChangeByType(habitatType: string, responseName: string, value: boolean): Promise<void> {
-    //console.log("HabitatService.setResponseChangeByType", habitatType, responseName, value);
+    console.log("HabitatService.setResponseChangeByType", habitatType, responseName, value);
     let local: boolean = false;
     let habitatList = this.localResponses;
     // loop through habitats
@@ -166,7 +164,7 @@ export class HabitatService {
     this.localResponses = habitatList;
     this.saveDataService.saveLocalResponses(habitatList);
     
-    //console.log("HabitatService.setResponseChangeByType completed", habitatList);
+    console.log("HabitatService.setResponseChangeByType completed", habitatList);
   }
 
   getScore(min: number, max: number, currentValue: number, expertScore: number, m: number, decrease: boolean): number {
@@ -185,7 +183,7 @@ export class HabitatService {
     } else {
       newValue = Math.round(currentValue + score);
     }
-    //console.log("habitatService.getScore", currentValue, inverseCurrentValue, expertScore, m, (m*expertScore), score, newValue);
+    console.log("habitatService.getScore", currentValue, inverseCurrentValue, expertScore, m, (m*expertScore), score, newValue);
     if( newValue > 100 ) {
       return 100;
     } else if ( newValue < 0 ) {
@@ -196,7 +194,7 @@ export class HabitatService {
   }
 
   async increaseHabitatStates(habitat: Habitat, responseName: string): Promise<Habitat> {
-    //console.log('habitatService.updateHabitatStates:, ', habitat, responseName);
+    console.log('habitatService.updateHabitatStates:, ', habitat, responseName);
     //let stateNames: string[] = ['wildPollinators', 'floralResources', 'habitatResources'];
     let stateNames: string[] = ['wildPollinators', 'habitatResources', 'pestsAndWeeds'];
     let currentStateValues: number[] = [
@@ -207,17 +205,18 @@ export class HabitatService {
     ];
     let possibleValues: number[] | void;
     let s: number = 0;
-    //console.log('While: ', stateNames.length);
+    console.log('While: ', stateNames.length);
     while(s <= stateNames.length){
       //console.log('s = ', s);
       // check for the final loop being completed
       if(s == stateNames.length){
-        // trigger something we can only do with all state iterations complete
-        // We will force the WP score to be tightly linked with floral resources.
-        habitat.state!.wildPollinators = Math.round(Math.mean(currentStateValues[0], currentStateValues[1]));
+        // this is where we used to trigger something we could only do with all state iterations complete
+        // Here we used to force the WP score to be tightly linked with floral resources by doing a mean of both scores.
+        //habitat.state!.wildPollinators = Math.round(Math.mean(currentStateValues[0], currentStateValues[1]));
+        habitat.state!.wildPollinators = currentStateValues[0];
         //habitat.state!.floralResources = currentStateValues[1];
-        habitat.state!.habitatResources = currentStateValues[2];
-        habitat.state!.pestsAndWeeds = currentStateValues[4];
+        habitat.state!.habitatResources = currentStateValues[1];
+        habitat.state!.pestsAndWeeds = currentStateValues[2];
         //console.log('habitatService.updateHabitatStates Loop complete', habitat.state);
         break;
       } else {
@@ -271,7 +270,8 @@ export class HabitatService {
 
   async decreaseHabitatStates(habitat: Habitat, responseName: string): Promise<Habitat> {
     //console.log('habitatService.updateHabitatStates:, ', habitat, responseName);
-    let stateNames: string[] = ['wildPollinators', 'floralResources', 'habitatResources'];
+    //let stateNames: string[] = ['wildPollinators', 'floralResources', 'habitatResources'];
+    let stateNames: string[] = ['wildPollinators', 'habitatResources', 'pestsAndWeeds'];
     let currentStateValues: number[] = [
       habitat.state!.wildPollinators!,
       //habitat.state!.floralResources!,
@@ -282,15 +282,16 @@ export class HabitatService {
     let s: number = 0;
     //console.log('While: ', stateNames.length);
     while(s <= stateNames.length){
-      //console.log('s = ', s);
+      console.log('s = ', s);
       // check for the final loop being completed
       if(s == stateNames.length){
         // trigger something we can only do with all state iterations complete
         // We will force the WP score to be tightly linked with floral resources.
-        habitat.state!.wildPollinators = Math.round(Math.mean(currentStateValues[0], currentStateValues[1]));
+        //habitat.state!.wildPollinators = Math.round(Math.mean(currentStateValues[0], currentStateValues[1]));
+        habitat.state!.wildPollinators = currentStateValues[0];
         //habitat.state!.floralResources = currentStateValues[1];
-        habitat.state!.habitatResources = currentStateValues[2];
-        habitat.state!.pestsAndWeeds = currentStateValues[4];
+        habitat.state!.habitatResources = currentStateValues[1];
+        habitat.state!.pestsAndWeeds = currentStateValues[2];
         //console.log('habitatService.updateHabitatStates Loop complete', habitat.state);
         break;
       } else {
@@ -348,7 +349,7 @@ export class HabitatService {
   }
 
   updateStates(habitats: Habitat[]): Habitat[] {
-    //console.log('Triggered updateStates from HabitatService', habitats);
+    console.log('Triggered updateStates from HabitatService', habitats);
     let habitatType: string;
     let responseName: string;
     let currentStateValues: number[];
@@ -378,7 +379,7 @@ export class HabitatService {
   }
 
   makeGlobalHabitatChanges(globalSeminatural: string, globalAgricultural: string, globalUrban: string) {
-    //console.log('triggered makeGlobalHabitatChanges');
+    console.log('triggered makeGlobalHabitatChanges');
     //this.updateHabitats = true;
     //this.habitatGlobalUpdateList = this.habitatList;
     //const data = await fetch(this.url);
@@ -400,13 +401,13 @@ export class HabitatService {
         } 
       }
     }
-    // console.log(this.habitatList);
+    console.log(this.habitatList);
     //return;
     //return (await data.json()) ?? [];
   }
 
   applyGlobalHabitatChanges(habitats: Habitat[]){
-    //console.log(habitats);
+    console.log(habitats);
     // need to return updated habitat array and apply said array to this.habtaList and other default habitat lists ready for this rounds new changes.
     for (var i = 0; i < habitats.length; i++) {
       if(habitats[i].type.globalChange != ''){
@@ -442,7 +443,7 @@ export class HabitatService {
   }
 
   submitGlobalChanges(globalSeminatural: string, globalAgricultural: string, globalUrban: string) {
-    //console.log(`triggered submitGlobalChanges`);
+    console.log(`triggered submitGlobalChanges`);
     /*
     if(globalSeminatural != ""){
       console.log(`Semi-natural: ${globalSeminatural}`);
