@@ -95,7 +95,7 @@ export class AppComponent implements OnInit {
 
   constructor() {
     //makes sure scenario is never undefined.
-    this.roundService.scenario = 'A';
+    this.roundService.scenario = 'urban_degraded';
  }
 
   ngOnInit(): void {

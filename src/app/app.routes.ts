@@ -7,6 +7,20 @@ type PathMatch = "full" | "prefix" | undefined;
 
 export const routes: Routes = [] = [
     {
+        path: 'urban_degraded',
+        component: LandscapeComponent,
+        data: {
+            scenario: 'urban_degraded'
+        }
+    },
+    {
+        path: 'urban_degraded/:requestCode',
+        component: LandscapeComponent,
+        data: {
+            scenario: 'urban_degraded'
+        }
+    },
+    {
         path: 'A',
         component: LandscapeComponent,
         data: {
@@ -36,12 +50,12 @@ export const routes: Routes = [] = [
     },
     {
         path: '',
-        redirectTo: '/A',
+        redirectTo: '/urban_degraded',
         pathMatch: 'full' as PathMatch
     },
     {
         path: '**',
-        redirectTo: '/A',
+        redirectTo: '/urban_degraded',
         pathMatch: 'full' as PathMatch
     }
 

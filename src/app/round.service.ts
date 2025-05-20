@@ -10,6 +10,7 @@ import { Round } from './round';
 //import { RoundImpact } from './round-impact';
 import { Habitat } from './habitat';
 // raw data
+import RoundListUrbanDegraded from '../data/scenario-urban-degraded.json';
 import RoundListA from '../data/scenario-A.json';
 import RoundListB from '../data/scenario-B.json';
 import stateToImpactValues from '../data/state-on-impact.v2.json';
@@ -42,10 +43,37 @@ export class RoundService {
 
 
   async getStartingScenario(value: string): Promise<Round[]> {
-    //console.log("roundService.getStartingScenario", value);
+    console.log("roundService.getStartingScenario", value);
     //this.scenario = value;
     this.saveDataService.saveScenario(value);
-    if(value == "A"){
+    switch(value){
+      case 'urban_degraded':
+        this.roundList = RoundListUrbanDegraded;
+        this.scenario = "urban_degraded";
+        this.saveDataService.saveScenario("urban_degraded");
+        break;
+      case 'A':
+        this.roundList = RoundListA;
+        this.scenario = "A";
+        this.saveDataService.saveScenario("A");
+        break;
+      case 'B':
+        this.roundList = RoundListB;
+        this.scenario = "B";
+        this.saveDataService.saveScenario("B");
+        break;
+      default:
+        this.roundList = RoundListUrbanDegraded;
+        this.scenario = "urban_degraded";
+        this.saveDataService.saveScenario("urban_degraded");
+        break;
+    }
+    /*
+    if(value == "urban_degraded"){
+      this.roundList = RoundListUrbanDegraded;
+      this.scenario = "urban_degraded";
+      this.saveDataService.saveScenario("urban_degraded");
+    } else if(value == "A"){
       this.roundList = RoundListA;
       this.scenario = "A";
       this.saveDataService.saveScenario("A");
@@ -54,6 +82,7 @@ export class RoundService {
       this.scenario = "B";
       this.saveDataService.saveScenario("B");
     }
+    */
     this.activeRound = 0;
      //console.log('Active Round: ', this.activeRound);
     this.endRound = this.roundList.length - 1;
