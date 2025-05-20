@@ -33,7 +33,10 @@
           <div class="impact cropPollination h-full text-center align-top">
             <div class="impact-icon-container mt-2" (click)="openInfo('cropPollination')" matTooltip="{{ roundService.roundImpacts.cropPollinationProduction }}%">
               <div class="impact-icon-label text-center leading-none opacity-60"><strong class="text-xs text-black">CROP POLLINATION & PRODUCTION</strong></div>
-              <div class="impact-icon-fill" style="height: {{roundService.roundImpacts.cropPollinationProduction}}%"></div>
+              <!--<div class="impact-icon-fill" style="height: {{roundService.roundImpacts.cropPollinationProduction}}%"></div>-->
+              <div class="grid grid-cols-6 gap-0 xl:gap-1 mb-5 h-full">
+                <app-impact-details  *ngFor="let round of roundService.roundList" [round]="round" class="relative"></app-impact-details>
+              </div> 
               <div class="impact-icon"></div>
             </div>
           </div>

@@ -26,6 +26,7 @@ import { RoundService } from './round.service';
 import { SaveDataService } from './save-data.service';
 // components
 import { LandscapeComponent } from './landscape/landscape.component';
+import { ImpactDetailsComponent } from './impact-details/impact-details.component';
 import { RoundDetailsComponent } from './round-details/round-details.component';
 import { GlobalControlsComponent } from './global-controls/global-controls.component';
 import { GlobalResponsesComponent } from './global-responses/global-responses.component';
@@ -40,6 +41,7 @@ import { HabitatCount } from './habitat-count';
     NgIconComponent, 
     CommonModule, 
     RoundDetailsComponent, 
+    ImpactDetailsComponent,
     MatButtonModule, 
     MatDialogModule,
     MatTooltipModule
