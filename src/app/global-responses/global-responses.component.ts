@@ -60,11 +60,15 @@ export class GlobalResponsesComponent implements OnInit {
   natureProtectionName: string = "natureProtection";
   urbanGreeningName: string = "urbanGreening";
   ecoIntensificationName: string = "ecoIntensification";
-  
+
  
   constructor(formBuilder: FormBuilder) {
     //console.log("GlobalResponseComponent constructor scenario", this.roundService.scenario);
-    if (this.roundService.scenario == "B") {
+    let restoredScenarios : string[] = ['urban_restored', 'agri_restored', 'seminat_restored'];
+    //let semiNaturalScenarios : string[] = ['seminat_restored', 'seminat_degraded'];
+    //let urbanScenarios : string[] = ['urban_restored', 'urban_degraded', 'mixed_restored', 'mixed_degraded'];
+    //let agriculturalScenarios : string[] = ['agri_restored', 'agri_degraded'];
+    if (restoredScenarios.includes(this.roundService.scenario ?? '')) {
       this.isGlobalSeminaturalRestorationChecked = true;
       this.isGlobalAgriculturalRestorationChecked = true;
       this.isGlobalUrbanRestorationChecked = true;

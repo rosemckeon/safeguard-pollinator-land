@@ -10,8 +10,14 @@ import { Round } from './round';
 //import { RoundImpact } from './round-impact';
 import { Habitat } from './habitat';
 // raw data
-import RoundListA from '../data/scenario-A.json';
-import RoundListB from '../data/scenario-B.json';
+import RoundListUrbanDegraded from '../data/scenario-urban-degraded.json';
+import RoundListUrbanRestored from '../data/scenario-urban-restored.json';
+import RoundListSeminatDegraded from '../data/scenario-seminat-degraded.json';
+import RoundListSeminatRestored from '../data/scenario-seminat-restored.json';
+import RoundListAgriDegraded from '../data/scenario-agri-degraded.json';
+import RoundListAgriRestored from '../data/scenario-agri-restored.json';
+import RoundListMixedDegraded from '../data/scenario-mixed-degraded.json';
+import RoundListMixedRestored from '../data/scenario-mixed-restored.json';
 import stateToImpactValues from '../data/state-on-impact.v2.json';
 import { Impacts } from './impacts';
 import { ImpactValues } from './impact-values';
@@ -34,6 +40,9 @@ export class RoundService {
   //roundImpactsCalculated: boolean = false;
   activeRound!: number;
   endRound!: number;
+  agriculturalCount!: number;
+  semiNaturalCount!: number;
+  urbanCount!: number;
 
   constructor() {
     // loaded when service is injected.
@@ -42,17 +51,55 @@ export class RoundService {
 
 
   async getStartingScenario(value: string): Promise<Round[]> {
-    //console.log("roundService.getStartingScenario", value);
+    console.log("roundService.getStartingScenario", value);
     //this.scenario = value;
     this.saveDataService.saveScenario(value);
-    if(value == "A"){
-      this.roundList = RoundListA;
-      this.scenario = "A";
-      this.saveDataService.saveScenario("A");
-    } else {
-      this.roundList = RoundListB;
-      this.scenario = "B";
-      this.saveDataService.saveScenario("B");
+    switch(value){
+      case 'urban_degraded':
+        this.roundList = RoundListUrbanDegraded;
+        this.scenario = "urban_degraded";
+        this.saveDataService.saveScenario("urban_degraded");
+        break;
+      case 'urban_restored':
+        this.roundList = RoundListUrbanRestored;
+        this.scenario = "urban_restored";
+        this.saveDataService.saveScenario("urban_restored");
+        break;
+      case 'seminat_degraded':
+        this.roundList = RoundListSeminatDegraded;
+        this.scenario = "seminat_degraded";
+        this.saveDataService.saveScenario("seminat_degraded");
+        break;
+      case 'seminat_restored':
+        this.roundList = RoundListSeminatRestored;
+        this.scenario = "seminat_restored";
+        this.saveDataService.saveScenario("seminat_restored");
+        break;
+      case 'agri_degraded':
+        this.roundList = RoundListAgriDegraded;
+        this.scenario = "agri_degraded";
+        this.saveDataService.saveScenario("agri_degraded");
+        break;
+      case 'agri_restored':
+        this.roundList = RoundListAgriRestored;
+        this.scenario = "agri_restored";
+        this.saveDataService.saveScenario("agri_restored");
+        break;
+      case 'mixed_degraded':
+        this.roundList = RoundListMixedDegraded;
+        this.scenario = "mixed_degraded";
+        this.saveDataService.saveScenario("mixed_degraded");
+        break;
+      case 'mixed_restored':
+        this.roundList = RoundListMixedRestored;
+        this.scenario = "mixed_restored";
+        this.saveDataService.saveScenario("mixed_restored");
+        break;
+      default:
+        this.roundList = RoundListMixedDegraded;
+        this.scenario = "mixed_degraded";
+        this.saveDataService.saveScenario("mixed_degraded");
+        break;
     }
     this.activeRound = 0;
      //console.log('Active Round: ', this.activeRound);
@@ -64,7 +111,10 @@ export class RoundService {
     this.habitatService.localResponses = this.habitatService.habitatList;
     this.saveDataService.saveLocalResponses(this.habitatService.localResponses);
     //this.habitatService.habitatGlobalUpdateList = this.roundList[this.activeRound].landscape;
-     //console.log('Active Habitat Types: ', this.habitatService.getActiveHabitatTypes(this.roundList[this.activeRound].landscape));
+    //console.log('Active Habitat Types: ', this.habitatService.getActiveHabitatTypes(this.roundList[this.activeRound].landscape));
+    this.agriculturalCount = (await this.habitatService.getActiveHabitatTypes(this.roundList[this.activeRound].landscape)).Agricultural;
+    this.semiNaturalCount = (await this.habitatService.getActiveHabitatTypes(this.roundList[this.activeRound].landscape))["Semi-natural"];
+    this.urbanCount = (await this.habitatService.getActiveHabitatTypes(this.roundList[this.activeRound].landscape)).Urban;
     this.saveDataService.saveRoundList(this.roundList);
     return(this.roundList);
   }

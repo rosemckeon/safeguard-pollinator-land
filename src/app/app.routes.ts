@@ -7,41 +7,125 @@ type PathMatch = "full" | "prefix" | undefined;
 
 export const routes: Routes = [] = [
     {
-        path: 'A',
+        path: 'urban_degraded',
         component: LandscapeComponent,
         data: {
-            scenario: 'A'
+            scenario: 'urban_degraded'
         }
     },
     {
-        path: 'A/:requestCode',
+        path: 'urban_degraded/:requestCode',
         component: LandscapeComponent,
         data: {
-            scenario: 'A'
+            scenario: 'urban_restored'
         }
     },
     {
-        path: 'B',
+        path: 'urban_restored',
         component: LandscapeComponent,
         data: {
-            scenario: 'B'
-        } 
+            scenario: 'urban_restored'
+        }
     },
     {
-        path: 'B/:requestCode',
+        path: 'urban_restored/:requestCode',
         component: LandscapeComponent,
         data: {
-            scenario: 'B'
-        } 
+            scenario: 'urban_restored'
+        }
+    },
+    {
+        path: 'seminat_degraded',
+        component: LandscapeComponent,
+        data: {
+            scenario: 'seminat_degraded'
+        }
+    },
+    {
+        path: 'seminat_degraded/:requestCode',
+        component: LandscapeComponent,
+        data: {
+            scenario: 'seminat_degraded'
+        }
+    },
+    {
+        path: 'seminat_restored',
+        component: LandscapeComponent,
+        data: {
+            scenario: 'seminat_restored'
+        }
+    },
+    {
+        path: 'seminat_restored/:requestCode',
+        component: LandscapeComponent,
+        data: {
+            scenario: 'seminat_restored'
+        }
+    },
+    {
+        path: 'agri_degraded',
+        component: LandscapeComponent,
+        data: {
+            scenario: 'agri_degraded'
+        }
+    },
+    {
+        path: 'agri_degraded/:requestCode',
+        component: LandscapeComponent,
+        data: {
+            scenario: 'agri_restored'
+        }
+    },
+    {
+        path: 'agri_restored',
+        component: LandscapeComponent,
+        data: {
+            scenario: 'agri_restored'
+        }
+    },
+    {
+        path: 'agri_restored/:requestCode',
+        component: LandscapeComponent,
+        data: {
+            scenario: 'agri_restored'
+        }
+    },
+    {
+        path: 'mixed_degraded',
+        component: LandscapeComponent,
+        data: {
+            scenario: 'mixed_degraded'
+        }
+    },
+    {
+        path: 'mixed_degraded/:requestCode',
+        component: LandscapeComponent,
+        data: {
+            scenario: 'mixed_restored'
+        }
+    },
+    {
+        path: 'mixed_restored',
+        component: LandscapeComponent,
+        data: {
+            scenario: 'mixed_restored'
+        }
+    },
+    {
+        path: 'mixed_restored/:requestCode',
+        component: LandscapeComponent,
+        data: {
+            scenario: 'mixed_restored'
+        }
     },
     {
         path: '',
-        redirectTo: '/A',
+        redirectTo: '/mixed_degraded',
         pathMatch: 'full' as PathMatch
     },
     {
         path: '**',
-        redirectTo: '/A',
+        redirectTo: '/mixed_degraded',
         pathMatch: 'full' as PathMatch
     }
 
