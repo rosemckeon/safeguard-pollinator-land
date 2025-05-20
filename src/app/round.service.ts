@@ -42,7 +42,7 @@ export class RoundService {
 
 
   async getStartingScenario(value: string): Promise<Round[]> {
-    console.log("roundService.getStartingScenario", value);
+    //console.log("roundService.getStartingScenario", value);
     //this.scenario = value;
     this.saveDataService.saveScenario(value);
     if(value == "A"){
@@ -55,23 +55,23 @@ export class RoundService {
       this.saveDataService.saveScenario("B");
     }
     this.activeRound = 0;
-     console.log('Active Round: ', this.activeRound);
+     //console.log('Active Round: ', this.activeRound);
     this.endRound = this.roundList.length - 1;
-     console.log('End Round: ', this.endRound);
+     //console.log('End Round: ', this.endRound);
     //this.habitatService.getLandscape(this.activeRound);
     this.habitatService.habitatList = this.roundList[this.activeRound].landscape;
     this.saveDataService.saveLandscape(this.habitatService.habitatList);
     this.habitatService.localResponses = this.habitatService.habitatList;
     this.saveDataService.saveLocalResponses(this.habitatService.localResponses);
     //this.habitatService.habitatGlobalUpdateList = this.roundList[this.activeRound].landscape;
-     console.log('Active Habitat Types: ', this.habitatService.getActiveHabitatTypes(this.roundList[this.activeRound].landscape));
+     //console.log('Active Habitat Types: ', this.habitatService.getActiveHabitatTypes(this.roundList[this.activeRound].landscape));
     this.saveDataService.saveRoundList(this.roundList);
     return(this.roundList);
   }
  
   // set the specified round to be active by altering disabled values on all rounds
   updateDisabledRounds(round: number, roundList: Round[]): Round[] {
-    console.log('roundService.updateDisabledRounds', round, roundList);
+    //console.log('roundService.updateDisabledRounds', round, roundList);
     let newRoundList : Round[] = roundList;
     for (var i = 0; i <  roundList.length; i++) {
       if(round == roundList[i].id){
@@ -84,7 +84,7 @@ export class RoundService {
   }
 
   getStateEffectOnImpactValues(habitatType: string, stateName: string, stateValue: number, impactName: string): ImpactValues {
-    console.log("roundService.getStateEffectOnImpactValues", habitatType, stateName, stateValue, impactName);
+    //console.log("roundService.getStateEffectOnImpactValues", habitatType, stateName, stateValue, impactName);
     let h : number | undefined;
     let s : number | undefined;
     let i : number | undefined;
@@ -170,10 +170,10 @@ export class RoundService {
         break;
     }
     if (typeof h != 'undefined' && typeof s != 'undefined' && typeof i != 'undefined') {
-      console.log('Fetching values: ', h, s, i);
+      //console.log('Fetching values: ', h, s, i);
       // here we're getting the ditribution of possible values for a given state and impact
       result = stateToImpactValues.state[h].impact[s].values[i];
-      console.log(result);
+      //console.log(result);
       //return(result);
     } else {
       if (typeof h != 'undefined' && typeof s != 'undefined' && typeof i == 'undefined') {
@@ -216,7 +216,7 @@ export class RoundService {
   // This needs to be done in the app component after the scenario is set, and
   // on advanceTime once updates to the active habitats have been made.
   getImpacts(habitats: Habitat[]): Impacts {
-    console.log("roundService.getImpacts", habitats);
+    //console.log("roundService.getImpacts", habitats);
     // do something with the habitats
     let effects : Impacts = this.getHabitatEffects(habitats);
     // get the current impacts scores to change if we want to do something additive
@@ -333,7 +333,7 @@ export class RoundService {
       }
 
     });
-    console.log("Landscape wildPlantPollination", landscapeWildPlantPollination);
+    //console.log("Landscape wildPlantPollination", landscapeWildPlantPollination);
     // then setup the output variable
     let effects : Impacts = this.getStartingImpacts();
     // and do something with our possible values to return a single effect number for each impact
@@ -369,13 +369,13 @@ export class RoundService {
     } else {
       url = "/" + scenario + "/" + dataCode;
     }
-    console.log("roundService.setPlayAgainURL", url);
+    //console.log("roundService.setPlayAgainURL", url);
     return url;
   }
 
   saveDataCode(value: string | null): string | null {
     this.saveDataService.saveDataCode(value);
-    console.log("roundService.saveDataCode", this.saveDataService.getDataCode());
+    //console.log("roundService.saveDataCode", this.saveDataService.getDataCode());
     return value;
   }
 
@@ -385,7 +385,7 @@ export class RoundService {
     roundList[round].impacts = impacts;
     let newRoundList : Round[] = roundList;
     this.saveDataService.saveRoundList(newRoundList);
-    console.log("roundService.saveImpacts", this.saveDataService.getRoundList());
+    //console.log("roundService.saveImpacts", this.saveDataService.getRoundList());
     return newRoundList;
   }
 
@@ -395,7 +395,7 @@ export class RoundService {
     roundList[round].landscape = habitats;
     let newRoundList : Round[] = roundList;
     this.saveDataService.saveRoundList(newRoundList);
-    console.log("roundService.saveLandscape", this.saveDataService.getRoundList());
+    //console.log("roundService.saveLandscape", this.saveDataService.getRoundList());
     return newRoundList;
   }
 
@@ -423,12 +423,12 @@ export class RoundService {
 
   /// applies all the descisions
   advanceTime(from: number, to: number, habitats: Habitat[], roundList: Round[]): Round[] | null {
-    console.log('roundService.advanceTime', from, to, habitats, roundList);
+    //console.log('roundService.advanceTime', from, to, habitats, roundList);
     let habitatList : Habitat[] | null = this.saveDataService.getLocalResponses();
 
     if(habitatList != null) {
       let savedResponses: Round[] | null = this.saveLandscape(from, habitatList, roundList);
-      console.log('roundService.advanceTime savedResponses', from, savedResponses);
+      //console.log('roundService.advanceTime savedResponses', from, savedResponses);
       // save the current landscape in the current habitat
       // records descisions without enabling responses.
 
@@ -448,13 +448,13 @@ export class RoundService {
       if ( !Array.isArray(newRoundList) || !newRoundList.length || newImpacts == undefined ) {
         // array/s do not exist, is not an array, or is empty
         // ⇒ do not attempt to process array
-        console.log("roundService.advanceTime conditions not met")
+        console.log("ERROR: roundService.advanceTime conditions not met")
       } else {
         // update roundService variables
         this.roundImpacts = newImpacts;
         this.roundList = newRoundList;
         this.activeRound = to;
-        console.log("roundService.advanceTime updated roundService variables", newImpacts, newRoundList, to);
+        //console.log("roundService.advanceTime updated roundService variables", newImpacts, newRoundList, to);
         return newRoundList;
       }
     } 
