@@ -3,6 +3,7 @@ library(rjson)
 
 #' @author C. Rose McKeon
 #' @description Takes data as a CSV, subsets what we need for the game, creates distributions to sample scores from and outputs as json. # nolint
+#' response-on-state.json file is not the correct format for the game. Output needs correcting. 20/05/2025
 
 scores <- readr::read_csv(file.path("R", "meanscores.csv")) %>%
   dplyr::mutate(
@@ -46,14 +47,16 @@ from_responses_new_names <- c(
 
 from_states_to_keep <- c(
   "1. WP abund and div D",
-  "3. Flor res. on WP I",
-  "4. Habitat res. on WP I"
+  #"3. Flor res. on WP I",
+  "4. Habitat res. on WP I",
+  "6. Pest weed D"
 )
 
 from_states_new_names <- c(
   "wildPollinators",
-  "floralResources",
-  "habitatResources"
+  #"floralResources",
+  "habitatResources",
+  "pestsAndWeeds"
 )
 
 scores$to %>% levels()
@@ -61,17 +64,19 @@ scores$to %>% levels()
 to_states_to_keep <- c(
   "Wild.pol.score",
   "Wild.poll.score",
-  "Flor.res.score",
-  "Flor.score",
-  "Habitat.score"
+  #"Flor.res.score",
+  #"Flor.score",
+  "Habitat.score",
+  "Pest.score"
 )
 
 to_states_new_names <- c(
   "wildPollinators",
   "wildPollinators",
-  "floralResources",
-  "floralResources",
-  "habitatResources"
+  #"floralResources",
+  #"floralResources",
+  "habitatResources",
+  "pestsAndWeeds"
 )
 
 to_impacts_to_keep <- c(
