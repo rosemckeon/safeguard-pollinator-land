@@ -205,9 +205,9 @@ export class HabitatService {
     ];
     let possibleValues: number[] | void;
     let s: number = 0;
-    console.log('While: ', stateNames.length);
+    //console.log('While: ', stateNames.length);
     while(s <= stateNames.length){
-      console.log('s = ', s);
+      //console.log('s = ', s);
       // check for the final loop being completed
       if(s == stateNames.length){
         // this is where we used to trigger something we could only do with all state iterations complete
