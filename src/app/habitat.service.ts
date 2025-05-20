@@ -207,7 +207,7 @@ export class HabitatService {
     let s: number = 0;
     console.log('While: ', stateNames.length);
     while(s <= stateNames.length){
-      //console.log('s = ', s);
+      console.log('s = ', s);
       // check for the final loop being completed
       if(s == stateNames.length){
         // this is where we used to trigger something we could only do with all state iterations complete
@@ -254,7 +254,14 @@ export class HabitatService {
           } else if (responseName == "natureProtection" && habitat.type.active != "Semi-natural"){
             m = m * 0.5
           }
-          let newValue : number = this.getScore(0, 100, currentStateValues[s], chosenValue, m, false); 
+          let newValue : number;
+          if(s == 2){
+            // reduce pestsAndWeeds when all other states increase
+            newValue = this.getScore(0, 100, currentStateValues[s], chosenValue, m, true); 
+          } else {
+            // increase the values by default
+            newValue = this.getScore(0, 100, currentStateValues[s], chosenValue, m, false); 
+          }
           //update the currentStateValue
           currentStateValues[s] = newValue;
         } else {
@@ -329,9 +336,16 @@ export class HabitatService {
           } else if (responseName == "natureProtection" && habitat.type.active != "Semi-natural"){
             m = m * 0.5
           }
-          let newValue : number = this.getScore(0, 100, currentStateValues[s], chosenValue, m, true); 
-          //update the currentStateValue
+          let newValue : number;
           if(s == 2){
+            // increase pestsAndWeeds when all other states decrease
+            newValue = this.getScore(0, 100, currentStateValues[s], chosenValue, m, false); 
+          } else {
+            // decrease the values by default
+            newValue = this.getScore(0, 100, currentStateValues[s], chosenValue, m, true); 
+          }
+          //update the currentStateValue
+          if(s == 1){
             // reduce the reduction for habitat resources as we can make less assumptions here.
             currentStateValues[s] = Math.round(Math.mean(currentStateValues[s], newValue));
           } else {
@@ -360,7 +374,6 @@ export class HabitatService {
       habitatType = habitats[i].type.active;
       currentStateValues = [
         habitats[i].state!.wildPollinators!,
-        //habitats[i].state!.floralResources!,
         habitats[i].state!.habitatResources!,
         habitats[i].state!.pestsAndWeeds!
       ];
