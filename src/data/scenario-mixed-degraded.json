@@ -8,7 +8,7 @@
         "y": 4,
         "K": 100,
         "type": {
-          "active": "Urban"
+          "active": "Semi-natural"
         },
         "response": [
           {
@@ -17,8 +17,8 @@
             "label": "Recreate/Restore Ecological Zones",
             "labelShort": "REZ",
             "description": "",
-            "localChange": true,
-            "enabled": true
+            "localChange": false,
+            "enabled": false
           },
           {
             "id": 1,
@@ -26,23 +26,14 @@
             "label": "Nature Protection Regulations",
             "labelShort": "NPR",
             "description": "",
-            "localChange": true,
-            "enabled": true
-          },
-          {
-            "id": 3,
-            "name": "urbanGreening",
-            "label": "Urban Greening",
-            "labelShort": "UG",
-            "description": "",
-            "localChange": true,
-            "enabled": true
+            "localChange": false,
+            "enabled": false
           }
         ],
         "state": {
-          "wildPollinators": 75,
-          "pestsAndWeeds": 5,
-          "habitatResources": 65
+          "wildPollinators": 42,
+          "habitatResources": 56,
+          "pestsAndWeeds": 20
         }
       },
       {
@@ -60,8 +51,8 @@
             "label": "Recreate/Restore Ecological Zones",
             "labelShort": "REZ",
             "description": "",
-            "localChange": true,
-            "enabled": true
+            "localChange": false,
+            "enabled": false
           },
           {
             "id": 1,
@@ -69,8 +60,8 @@
             "label": "Nature Protection Regulations",
             "labelShort": "NPR",
             "description": "",
-            "localChange": true,
-            "enabled": true
+            "localChange": false,
+            "enabled": false
           },
           {
             "id": 3,
@@ -78,14 +69,14 @@
             "label": "Urban Greening",
             "labelShort": "UG",
             "description": "",
-            "localChange": true,
-            "enabled": true
+            "localChange": false,
+            "enabled": false
           }
         ],
         "state": {
-          "wildPollinators": 75,
-          "pestsAndWeeds": 5,
-          "habitatResources": 65
+          "wildPollinators": 12,
+          "habitatResources": 8,
+          "pestsAndWeeds": 32
         }
       },
       {
@@ -103,8 +94,8 @@
             "label": "Recreate/Restore Ecological Zones",
             "labelShort": "REZ",
             "description": "",
-            "localChange": true,
-            "enabled": true
+            "localChange": false,
+            "enabled": false
           },
           {
             "id": 1,
@@ -112,8 +103,8 @@
             "label": "Nature Protection Regulations",
             "labelShort": "NPR",
             "description": "",
-            "localChange": true,
-            "enabled": true
+            "localChange": false,
+            "enabled": false
           },
           {
             "id": 3,
@@ -121,14 +112,14 @@
             "label": "Urban Greening",
             "labelShort": "UG",
             "description": "",
-            "localChange": true,
-            "enabled": true
+            "localChange": false,
+            "enabled": false
           }
         ],
         "state": {
-          "wildPollinators": 75,
-          "pestsAndWeeds": 5,
-          "habitatResources": 65
+          "wildPollinators": 12,
+          "habitatResources": 8,
+          "pestsAndWeeds": 32
         }
       },
       {
@@ -146,8 +137,8 @@
             "label": "Recreate/Restore Ecological Zones",
             "labelShort": "REZ",
             "description": "",
-            "localChange": true,
-            "enabled": true
+            "localChange": false,
+            "enabled": false
           },
           {
             "id": 1,
@@ -155,8 +146,8 @@
             "label": "Nature Protection Regulations",
             "labelShort": "NPR",
             "description": "",
-            "localChange": true,
-            "enabled": true
+            "localChange": false,
+            "enabled": false
           },
           {
             "id": 3,
@@ -164,14 +155,14 @@
             "label": "Urban Greening",
             "labelShort": "UG",
             "description": "",
-            "localChange": true,
-            "enabled": true
+            "localChange": false,
+            "enabled": false
           }
         ],
         "state": {
-          "wildPollinators": 75,
-          "pestsAndWeeds": 5,
-          "habitatResources": 65
+          "wildPollinators": 12,
+          "habitatResources": 8,
+          "pestsAndWeeds": 32
         }
       },
       {
@@ -189,8 +180,8 @@
             "label": "Recreate/Restore Ecological Zones",
             "labelShort": "REZ",
             "description": "",
-            "localChange": true,
-            "enabled": true
+            "localChange": false,
+            "enabled": false
           },
           {
             "id": 1,
@@ -198,8 +189,8 @@
             "label": "Nature Protection Regulations",
             "labelShort": "NPR",
             "description": "",
-            "localChange": true,
-            "enabled": true
+            "localChange": false,
+            "enabled": false
           },
           {
             "id": 3,
@@ -207,14 +198,14 @@
             "label": "Urban Greening",
             "labelShort": "UG",
             "description": "",
-            "localChange": true,
-            "enabled": true
+            "localChange": false,
+            "enabled": false
           }
         ],
         "state": {
-          "wildPollinators": 75,
-          "pestsAndWeeds": 5,
-          "habitatResources": 65
+          "wildPollinators": 12,
+          "habitatResources": 8,
+          "pestsAndWeeds": 32
         }
       },
       {
@@ -232,8 +223,8 @@
             "label": "Recreate/Restore Ecological Zones",
             "labelShort": "REZ",
             "description": "",
-            "localChange": true,
-            "enabled": true
+            "localChange": false,
+            "enabled": false
           },
           {
             "id": 1,
@@ -241,8 +232,8 @@
             "label": "Nature Protection Regulations",
             "labelShort": "NPR",
             "description": "",
-            "localChange": true,
-            "enabled": true
+            "localChange": false,
+            "enabled": false
           },
           {
             "id": 3,
@@ -250,14 +241,14 @@
             "label": "Urban Greening",
             "labelShort": "UG",
             "description": "",
-            "localChange": true,
-            "enabled": true
+            "localChange": false,
+            "enabled": false
           }
         ],
         "state": {
-          "wildPollinators": 75,
-          "pestsAndWeeds": 5,
-          "habitatResources": 65
+          "wildPollinators": 12,
+          "habitatResources": 8,
+          "pestsAndWeeds": 32
         }
       },
       {
@@ -275,8 +266,8 @@
             "label": "Recreate/Restore Ecological Zones",
             "labelShort": "REZ",
             "description": "",
-            "localChange": true,
-            "enabled": true
+            "localChange": false,
+            "enabled": false
           },
           {
             "id": 1,
@@ -284,8 +275,8 @@
             "label": "Nature Protection Regulations",
             "labelShort": "NPR",
             "description": "",
-            "localChange": true,
-            "enabled": true
+            "localChange": false,
+            "enabled": false
           },
           {
             "id": 3,
@@ -293,14 +284,14 @@
             "label": "Urban Greening",
             "labelShort": "UG",
             "description": "",
-            "localChange": true,
-            "enabled": true
+            "localChange": false,
+            "enabled": false
           }
         ],
         "state": {
-          "wildPollinators": 75,
-          "pestsAndWeeds": 5,
-          "habitatResources": 65
+          "wildPollinators": 12,
+          "habitatResources": 8,
+          "pestsAndWeeds": 32
         }
       },
       {
@@ -318,8 +309,8 @@
             "label": "Recreate/Restore Ecological Zones",
             "labelShort": "REZ",
             "description": "",
-            "localChange": true,
-            "enabled": true
+            "localChange": false,
+            "enabled": false
           },
           {
             "id": 1,
@@ -327,8 +318,8 @@
             "label": "Nature Protection Regulations",
             "labelShort": "NPR",
             "description": "",
-            "localChange": true,
-            "enabled": true
+            "localChange": false,
+            "enabled": false
           },
           {
             "id": 3,
@@ -336,14 +327,14 @@
             "label": "Urban Greening",
             "labelShort": "UG",
             "description": "",
-            "localChange": true,
-            "enabled": true
+            "localChange": false,
+            "enabled": false
           }
         ],
         "state": {
-          "wildPollinators": 75,
-          "pestsAndWeeds": 5,
-          "habitatResources": 65
+          "wildPollinators": 12,
+          "habitatResources": 8,
+          "pestsAndWeeds": 32
         }
       },
       {
@@ -361,8 +352,8 @@
             "label": "Recreate/Restore Ecological Zones",
             "labelShort": "REZ",
             "description": "",
-            "localChange": true,
-            "enabled": true
+            "localChange": false,
+            "enabled": false
           },
           {
             "id": 1,
@@ -370,8 +361,8 @@
             "label": "Nature Protection Regulations",
             "labelShort": "NPR",
             "description": "",
-            "localChange": true,
-            "enabled": true
+            "localChange": false,
+            "enabled": false
           },
           {
             "id": 3,
@@ -379,14 +370,14 @@
             "label": "Urban Greening",
             "labelShort": "UG",
             "description": "",
-            "localChange": true,
-            "enabled": true
+            "localChange": false,
+            "enabled": false
           }
         ],
         "state": {
-          "wildPollinators": 75,
-          "pestsAndWeeds": 5,
-          "habitatResources": 65
+          "wildPollinators": 12,
+          "habitatResources": 8,
+          "pestsAndWeeds": 32
         }
       },
       {
@@ -404,8 +395,8 @@
             "label": "Recreate/Restore Ecological Zones",
             "labelShort": "REZ",
             "description": "",
-            "localChange": true,
-            "enabled": true
+            "localChange": false,
+            "enabled": false
           },
           {
             "id": 1,
@@ -413,8 +404,8 @@
             "label": "Nature Protection Regulations",
             "labelShort": "NPR",
             "description": "",
-            "localChange": true,
-            "enabled": true
+            "localChange": false,
+            "enabled": false
           },
           {
             "id": 3,
@@ -422,14 +413,14 @@
             "label": "Urban Greening",
             "labelShort": "UG",
             "description": "",
-            "localChange": true,
-            "enabled": true
+            "localChange": false,
+            "enabled": false
           }
         ],
         "state": {
-          "wildPollinators": 75,
-          "pestsAndWeeds": 5,
-          "habitatResources": 65
+          "wildPollinators": 12,
+          "habitatResources": 8,
+          "pestsAndWeeds": 32
         }
       },
       {
@@ -447,8 +438,8 @@
             "label": "Recreate/Restore Ecological Zones",
             "labelShort": "REZ",
             "description": "",
-            "localChange": true,
-            "enabled": true
+            "localChange": false,
+            "enabled": false
           },
           {
             "id": 1,
@@ -456,8 +447,8 @@
             "label": "Nature Protection Regulations",
             "labelShort": "NPR",
             "description": "",
-            "localChange": true,
-            "enabled": true
+            "localChange": false,
+            "enabled": false
           },
           {
             "id": 3,
@@ -465,14 +456,14 @@
             "label": "Urban Greening",
             "labelShort": "UG",
             "description": "",
-            "localChange": true,
-            "enabled": true
+            "localChange": false,
+            "enabled": false
           }
         ],
         "state": {
-          "wildPollinators": 75,
-          "pestsAndWeeds": 5,
-          "habitatResources": 65
+          "wildPollinators": 12,
+          "habitatResources": 8,
+          "pestsAndWeeds": 32
         }
       },
       {
@@ -490,8 +481,8 @@
             "label": "Recreate/Restore Ecological Zones",
             "labelShort": "REZ",
             "description": "",
-            "localChange": true,
-            "enabled": true
+            "localChange": false,
+            "enabled": false
           },
           {
             "id": 1,
@@ -499,8 +490,8 @@
             "label": "Nature Protection Regulations",
             "labelShort": "NPR",
             "description": "",
-            "localChange": true,
-            "enabled": true
+            "localChange": false,
+            "enabled": false
           },
           {
             "id": 3,
@@ -508,14 +499,14 @@
             "label": "Urban Greening",
             "labelShort": "UG",
             "description": "",
-            "localChange": true,
-            "enabled": true
+            "localChange": false,
+            "enabled": false
           }
         ],
         "state": {
-          "wildPollinators": 75,
-          "pestsAndWeeds": 5,
-          "habitatResources": 65
+          "wildPollinators": 12,
+          "habitatResources": 8,
+          "pestsAndWeeds": 32
         }
       },
       {
@@ -533,8 +524,8 @@
             "label": "Recreate/Restore Ecological Zones",
             "labelShort": "REZ",
             "description": "",
-            "localChange": true,
-            "enabled": true
+            "localChange": false,
+            "enabled": false
           },
           {
             "id": 1,
@@ -542,8 +533,8 @@
             "label": "Nature Protection Regulations",
             "labelShort": "NPR",
             "description": "",
-            "localChange": true,
-            "enabled": true
+            "localChange": false,
+            "enabled": false
           },
           {
             "id": 3,
@@ -551,14 +542,14 @@
             "label": "Urban Greening",
             "labelShort": "UG",
             "description": "",
-            "localChange": true,
-            "enabled": true
+            "localChange": false,
+            "enabled": false
           }
         ],
         "state": {
-          "wildPollinators": 75,
-          "pestsAndWeeds": 5,
-          "habitatResources": 65
+          "wildPollinators": 12,
+          "habitatResources": 8,
+          "pestsAndWeeds": 32
         }
       },
       {
@@ -567,7 +558,7 @@
         "y": 1,
         "K": 100,
         "type": {
-          "active": "Urban"
+          "active": "Agricultural"
         },
         "response": [
           {
@@ -576,8 +567,8 @@
             "label": "Recreate/Restore Ecological Zones",
             "labelShort": "REZ",
             "description": "",
-            "localChange": true,
-            "enabled": true
+            "localChange": false,
+            "enabled": false
           },
           {
             "id": 1,
@@ -585,23 +576,23 @@
             "label": "Nature Protection Regulations",
             "labelShort": "NPR",
             "description": "",
-            "localChange": true,
-            "enabled": true
+            "localChange": false,
+            "enabled": false
           },
           {
-            "id": 3,
-            "name": "urbanGreening",
-            "label": "Urban Greening",
-            "labelShort": "UG",
+            "id": 2,
+            "name": "ecoIntensification",
+            "label": "Ecological Intensification",
+            "labelShort": "AEI",
             "description": "",
-            "localChange": true,
-            "enabled": true
+            "localChange": false,
+            "enabled": false
           }
         ],
         "state": {
-          "wildPollinators": 75,
-          "pestsAndWeeds": 5,
-          "habitatResources": 65
+          "wildPollinators": 5,
+          "habitatResources": 6,
+          "pestsAndWeeds": 60
         }
       },
       {
@@ -610,7 +601,7 @@
         "y": 1,
         "K": 100,
         "type": {
-          "active": "Urban"
+          "active": "Agricultural"
         },
         "response": [
           {
@@ -619,8 +610,8 @@
             "label": "Recreate/Restore Ecological Zones",
             "labelShort": "REZ",
             "description": "",
-            "localChange": true,
-            "enabled": true
+            "localChange": false,
+            "enabled": false
           },
           {
             "id": 1,
@@ -628,23 +619,23 @@
             "label": "Nature Protection Regulations",
             "labelShort": "NPR",
             "description": "",
-            "localChange": true,
-            "enabled": true
+            "localChange": false,
+            "enabled": false
           },
           {
-            "id": 3,
-            "name": "urbanGreening",
-            "label": "Urban Greening",
-            "labelShort": "UG",
+            "id": 2,
+            "name": "ecoIntensification",
+            "label": "Ecological Intensification",
+            "labelShort": "AEI",
             "description": "",
-            "localChange": true,
-            "enabled": true
+            "localChange": false,
+            "enabled": false
           }
         ],
         "state": {
-          "wildPollinators": 75,
-          "pestsAndWeeds": 5,
-          "habitatResources": 65
+          "wildPollinators": 5,
+          "habitatResources": 6,
+          "pestsAndWeeds": 60
         }
       },
       {
@@ -653,7 +644,7 @@
         "y": 1,
         "K": 100,
         "type": {
-          "active": "Urban"
+          "active": "Semi-natural"
         },
         "response": [
           {
@@ -662,8 +653,8 @@
             "label": "Recreate/Restore Ecological Zones",
             "labelShort": "REZ",
             "description": "",
-            "localChange": true,
-            "enabled": true
+            "localChange": false,
+            "enabled": false
           },
           {
             "id": 1,
@@ -671,23 +662,14 @@
             "label": "Nature Protection Regulations",
             "labelShort": "NPR",
             "description": "",
-            "localChange": true,
-            "enabled": true
-          },
-          {
-            "id": 3,
-            "name": "urbanGreening",
-            "label": "Urban Greening",
-            "labelShort": "UG",
-            "description": "",
-            "localChange": true,
-            "enabled": true
+            "localChange": false,
+            "enabled": false
           }
         ],
         "state": {
-          "wildPollinators": 75,
-          "pestsAndWeeds": 5,
-          "habitatResources": 65
+          "wildPollinators": 42,
+          "habitatResources": 56,
+          "pestsAndWeeds": 20
         }
       }
     ]

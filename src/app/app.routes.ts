@@ -61,7 +61,8 @@ export const routes: Routes = [] = [
         data: {
             scenario: 'seminat_restored'
         }
-    },{
+    },
+    {
         path: 'agri_degraded',
         component: LandscapeComponent,
         data: {
@@ -90,13 +91,41 @@ export const routes: Routes = [] = [
         }
     },
     {
+        path: 'mixed_degraded',
+        component: LandscapeComponent,
+        data: {
+            scenario: 'mixed_degraded'
+        }
+    },
+    {
+        path: 'mixed_degraded/:requestCode',
+        component: LandscapeComponent,
+        data: {
+            scenario: 'mixed_restored'
+        }
+    },
+    {
+        path: 'mixed_restored',
+        component: LandscapeComponent,
+        data: {
+            scenario: 'mixed_restored'
+        }
+    },
+    {
+        path: 'mixed_restored/:requestCode',
+        component: LandscapeComponent,
+        data: {
+            scenario: 'mixed_restored'
+        }
+    },
+    {
         path: '',
-        redirectTo: '/urban_degraded',
+        redirectTo: '/mixed_degraded',
         pathMatch: 'full' as PathMatch
     },
     {
         path: '**',
-        redirectTo: '/urban_degraded',
+        redirectTo: '/mixed_degraded',
         pathMatch: 'full' as PathMatch
     }
 
