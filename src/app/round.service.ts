@@ -38,6 +38,9 @@ export class RoundService {
   //roundImpactsCalculated: boolean = false;
   activeRound!: number;
   endRound!: number;
+  agriculturalCount!: number;
+  semiNaturalCount!: number;
+  urbanCount!: number;
 
   constructor() {
     // loaded when service is injected.
@@ -86,21 +89,6 @@ export class RoundService {
         this.saveDataService.saveScenario("urban_degraded");
         break;
     }
-    /*
-    if(value == "urban_degraded"){
-      this.roundList = RoundListUrbanDegraded;
-      this.scenario = "urban_degraded";
-      this.saveDataService.saveScenario("urban_degraded");
-    } else if(value == "A"){
-      this.roundList = RoundListA;
-      this.scenario = "A";
-      this.saveDataService.saveScenario("A");
-    } else {
-      this.roundList = RoundListB;
-      this.scenario = "B";
-      this.saveDataService.saveScenario("B");
-    }
-    */
     this.activeRound = 0;
      //console.log('Active Round: ', this.activeRound);
     this.endRound = this.roundList.length - 1;
@@ -111,7 +99,10 @@ export class RoundService {
     this.habitatService.localResponses = this.habitatService.habitatList;
     this.saveDataService.saveLocalResponses(this.habitatService.localResponses);
     //this.habitatService.habitatGlobalUpdateList = this.roundList[this.activeRound].landscape;
-     //console.log('Active Habitat Types: ', this.habitatService.getActiveHabitatTypes(this.roundList[this.activeRound].landscape));
+    console.log('Active Habitat Types: ', this.habitatService.getActiveHabitatTypes(this.roundList[this.activeRound].landscape));
+    this.agriculturalCount = (await this.habitatService.getActiveHabitatTypes(this.roundList[this.activeRound].landscape)).Agricultural;
+    this.semiNaturalCount = (await this.habitatService.getActiveHabitatTypes(this.roundList[this.activeRound].landscape))["Semi-natural"];
+    this.urbanCount = (await this.habitatService.getActiveHabitatTypes(this.roundList[this.activeRound].landscape)).Urban;
     this.saveDataService.saveRoundList(this.roundList);
     return(this.roundList);
   }
