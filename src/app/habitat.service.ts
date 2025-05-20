@@ -8,8 +8,8 @@ import { HabitatCount } from './habitat-count';
 // services 
 import { SaveDataService } from './save-data.service';
 // raw data
-import responseToStateValues from '../data/response-on-state.json';
-import { WildPollinators } from './habitat/habitat.component';
+import responseToStateValues from '../data/response-on-state.v2.json';
+//import { WildPollinators } from './habitat/habitat.component';
 
 @Injectable({
   providedIn: 'root'
@@ -30,17 +30,18 @@ export class HabitatService {
   }
 
   getStateValues(h: number, r: number, stateName: string): number[] | void {
-    //console.log('habitatServcie.getStateValues', h, r, stateName);
+    //console.log('habitatService.getStateValues', h, r, stateName);
+    //s is the array index for the state values in responseToStateValues
     let s: number | undefined;
     switch(stateName){
       case 'wildPollinators':
-        s = 0;
-        break;
-      case 'floralResources':
-        s = 1;
+        s = 2;
         break;
       case 'habitatResources':
-        s = 2;
+        s = 0;
+        break;
+      case 'pestsAndWeeds':
+        s = 1;
         break;
       default:
         console.log('WARNING: stateName not recognised: ', stateName);
@@ -194,24 +195,28 @@ export class HabitatService {
 
   async increaseHabitatStates(habitat: Habitat, responseName: string): Promise<Habitat> {
     //console.log('habitatService.updateHabitatStates:, ', habitat, responseName);
-    let stateNames: string[] = ['wildPollinators', 'floralResources', 'habitatResources'];
+    //let stateNames: string[] = ['wildPollinators', 'floralResources', 'habitatResources'];
+    let stateNames: string[] = ['wildPollinators', 'habitatResources', 'pestsAndWeeds'];
     let currentStateValues: number[] = [
       habitat.state!.wildPollinators!,
-      habitat.state!.floralResources!,
-      habitat.state!.habitatResources!
+      //habitat.state!.floralResources!,
+      habitat.state!.habitatResources!,
+      habitat.state!.pestsAndWeeds!
     ];
     let possibleValues: number[] | void;
     let s: number = 0;
-    //console.log('While: ', stateNames.length);
+    console.log('While: ', stateNames.length);
     while(s <= stateNames.length){
-      //console.log('s = ', s);
+      console.log('s = ', s);
       // check for the final loop being completed
       if(s == stateNames.length){
-        // trigger something we can only do with all state iterations complete
-        // We will force the WP score to be tightly linked with floral resources.
-        habitat.state!.wildPollinators = Math.round(Math.mean(currentStateValues[0], currentStateValues[1]));
-        habitat.state!.floralResources = currentStateValues[1];
-        habitat.state!.habitatResources = currentStateValues[2];
+        // this is where we used to trigger something we could only do with all state iterations complete
+        // Here we used to force the WP score to be tightly linked with floral resources by doing a mean of both scores.
+        //habitat.state!.wildPollinators = Math.round(Math.mean(currentStateValues[0], currentStateValues[1]));
+        habitat.state!.wildPollinators = currentStateValues[0];
+        //habitat.state!.floralResources = currentStateValues[1];
+        habitat.state!.habitatResources = currentStateValues[1];
+        habitat.state!.pestsAndWeeds = currentStateValues[2];
         //console.log('habitatService.updateHabitatStates Loop complete', habitat.state);
         break;
       } else {
@@ -232,7 +237,7 @@ export class HabitatService {
             m = 3;
             break;
           default:
-            console.log("habitatService.updateHabitatStates responseName not recognized", responseName);
+            console.log("WARNING: habitatService.updateHabitatStates responseName not recognized", responseName);
             break;
         }
         if(m > 0){
@@ -249,11 +254,18 @@ export class HabitatService {
           } else if (responseName == "natureProtection" && habitat.type.active != "Semi-natural"){
             m = m * 0.5
           }
-          let newValue : number = this.getScore(0, 100, currentStateValues[s], chosenValue, m, false); 
+          let newValue : number;
+          if(s == 2){
+            // reduce pestsAndWeeds when all other states increase
+            newValue = this.getScore(0, 100, currentStateValues[s], chosenValue, m, true); 
+          } else {
+            // increase the values by default
+            newValue = this.getScore(0, 100, currentStateValues[s], chosenValue, m, false); 
+          }
           //update the currentStateValue
           currentStateValues[s] = newValue;
         } else {
-          console.log("Something went wrong.");
+          console.log("ERROR: Something went wrong.");
           break;
         }
         s++;
@@ -265,11 +277,13 @@ export class HabitatService {
 
   async decreaseHabitatStates(habitat: Habitat, responseName: string): Promise<Habitat> {
     //console.log('habitatService.updateHabitatStates:, ', habitat, responseName);
-    let stateNames: string[] = ['wildPollinators', 'floralResources', 'habitatResources'];
+    //let stateNames: string[] = ['wildPollinators', 'floralResources', 'habitatResources'];
+    let stateNames: string[] = ['wildPollinators', 'habitatResources', 'pestsAndWeeds'];
     let currentStateValues: number[] = [
       habitat.state!.wildPollinators!,
-      habitat.state!.floralResources!,
-      habitat.state!.habitatResources!
+      //habitat.state!.floralResources!,
+      habitat.state!.habitatResources!,
+      habitat.state!.pestsAndWeeds!
     ];
     let possibleValues: number[] | void;
     let s: number = 0;
@@ -280,9 +294,11 @@ export class HabitatService {
       if(s == stateNames.length){
         // trigger something we can only do with all state iterations complete
         // We will force the WP score to be tightly linked with floral resources.
-        habitat.state!.wildPollinators = Math.round(Math.mean(currentStateValues[0], currentStateValues[1]));
-        habitat.state!.floralResources = currentStateValues[1];
-        habitat.state!.habitatResources = currentStateValues[2];
+        //habitat.state!.wildPollinators = Math.round(Math.mean(currentStateValues[0], currentStateValues[1]));
+        habitat.state!.wildPollinators = currentStateValues[0];
+        //habitat.state!.floralResources = currentStateValues[1];
+        habitat.state!.habitatResources = currentStateValues[1];
+        habitat.state!.pestsAndWeeds = currentStateValues[2];
         //console.log('habitatService.updateHabitatStates Loop complete', habitat.state);
         break;
       } else {
@@ -303,7 +319,7 @@ export class HabitatService {
             m = 1;
             break;
           default:
-            console.log("habitatService.updateHabitatStates responseName not recognized", responseName);
+            console.log("WARNING: habitatService.updateHabitatStates responseName not recognized", responseName);
             break;
         }
         if(m > 0){
@@ -320,9 +336,16 @@ export class HabitatService {
           } else if (responseName == "natureProtection" && habitat.type.active != "Semi-natural"){
             m = m * 0.5
           }
-          let newValue : number = this.getScore(0, 100, currentStateValues[s], chosenValue, m, true); 
-          //update the currentStateValue
+          let newValue : number;
           if(s == 2){
+            // increase pestsAndWeeds when all other states decrease
+            newValue = this.getScore(0, 100, currentStateValues[s], chosenValue, m, false); 
+          } else {
+            // decrease the values by default
+            newValue = this.getScore(0, 100, currentStateValues[s], chosenValue, m, true); 
+          }
+          //update the currentStateValue
+          if(s == 1){
             // reduce the reduction for habitat resources as we can make less assumptions here.
             currentStateValues[s] = Math.round(Math.mean(currentStateValues[s], newValue));
           } else {
@@ -330,7 +353,7 @@ export class HabitatService {
           }
           
         } else {
-          console.log("Something went wrong.");
+          console.log("ERROR: Something went wrong.");
           break;
         }
         s++;
@@ -351,8 +374,8 @@ export class HabitatService {
       habitatType = habitats[i].type.active;
       currentStateValues = [
         habitats[i].state!.wildPollinators!,
-        habitats[i].state!.floralResources!,
-        habitats[i].state!.habitatResources!
+        habitats[i].state!.habitatResources!,
+        habitats[i].state!.pestsAndWeeds!
       ];
       //newStateValues = currentStateValues;
       for (var r = 0; r < habitats[i].response!.length; r++){
@@ -391,7 +414,7 @@ export class HabitatService {
         } 
       }
     }
-    // console.log(this.habitatList);
+    //console.log(this.habitatList);
     //return;
     //return (await data.json()) ?? [];
   }

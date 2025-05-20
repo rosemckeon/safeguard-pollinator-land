@@ -12,7 +12,7 @@ import { Habitat } from './habitat';
 // raw data
 import RoundListA from '../data/scenario-A.json';
 import RoundListB from '../data/scenario-B.json';
-import stateToImpactValues from '../data/state-on-impact.json';
+import stateToImpactValues from '../data/state-on-impact.v2.json';
 import { Impacts } from './impacts';
 import { ImpactValues } from './impact-values';
 import { HabitatResponse } from './habitat-response';
@@ -55,16 +55,16 @@ export class RoundService {
       this.saveDataService.saveScenario("B");
     }
     this.activeRound = 0;
-    // console.log('Active Round: ', this.activeRound);
+     //console.log('Active Round: ', this.activeRound);
     this.endRound = this.roundList.length - 1;
-    // console.log('End Round: ', this.endRound);
+     //console.log('End Round: ', this.endRound);
     //this.habitatService.getLandscape(this.activeRound);
     this.habitatService.habitatList = this.roundList[this.activeRound].landscape;
     this.saveDataService.saveLandscape(this.habitatService.habitatList);
     this.habitatService.localResponses = this.habitatService.habitatList;
     this.saveDataService.saveLocalResponses(this.habitatService.localResponses);
     //this.habitatService.habitatGlobalUpdateList = this.roundList[this.activeRound].landscape;
-    // console.log('Active Habitat Types: ', this.habitatService.getActiveHabitatTypes(this.roundList[this.activeRound].landscape));
+     //console.log('Active Habitat Types: ', this.habitatService.getActiveHabitatTypes(this.roundList[this.activeRound].landscape));
     this.saveDataService.saveRoundList(this.roundList);
     return(this.roundList);
   }
@@ -159,10 +159,10 @@ export class RoundService {
       case 'wildPollinators':
         s = 0;
         break;
-      case 'floralResources':
+      case 'habitatResources':
         s = 1;
         break;
-      case 'habitatResources':
+      case 'pestsAndWeeds':
         s = 2;
         break;
       default:
@@ -259,7 +259,7 @@ export class RoundService {
           this.getStateEffectOnImpactValues(habitat.type.active, "wildPollinators", habitat.state!.wildPollinators!, "wildPlantPollination").values
         ));
         wildPlantPollination.push(this.habitatService.sample(
-          this.getStateEffectOnImpactValues(habitat.type.active, "floralResources", habitat.state!.floralResources!, "wildPlantPollination").values
+          this.getStateEffectOnImpactValues(habitat.type.active, "pestsAndWeeds", habitat.state!.pestsAndWeeds!, "wildPlantPollination").values
         ));
         wildPlantPollination.push(this.habitatService.sample(
           this.getStateEffectOnImpactValues(habitat.type.active, "habitatResources", habitat.state!.habitatResources!, "wildPlantPollination").values
@@ -269,7 +269,7 @@ export class RoundService {
           this.getStateEffectOnImpactValues(habitat.type.active, "wildPollinators", habitat.state!.wildPollinators!, "aestheticValues").values
         ));
         aestheticValues.push(this.habitatService.sample(
-          this.getStateEffectOnImpactValues(habitat.type.active, "floralResources", habitat.state!.floralResources!, "aestheticValues").values
+          this.getStateEffectOnImpactValues(habitat.type.active, "pestsAndWeeds", habitat.state!.pestsAndWeeds!, "aestheticValues").values
         ));
         aestheticValues.push(this.habitatService.sample(
           this.getStateEffectOnImpactValues(habitat.type.active, "habitatResources", habitat.state!.habitatResources!, "aestheticValues").values
@@ -287,7 +287,7 @@ export class RoundService {
           this.getStateEffectOnImpactValues(habitat.type.active, "wildPollinators", habitat.state!.wildPollinators!, "wildPlantPollination").values
         ));
         wildPlantPollination.push(this.habitatService.sample(
-          this.getStateEffectOnImpactValues(habitat.type.active, "floralResources", habitat.state!.floralResources!, "wildPlantPollination").values
+          this.getStateEffectOnImpactValues(habitat.type.active, "pestsAndWeeds", habitat.state!.pestsAndWeeds!, "wildPlantPollination").values
         ));
         wildPlantPollination.push(this.habitatService.sample(
           this.getStateEffectOnImpactValues(habitat.type.active, "habitatResources", habitat.state!.habitatResources!, "wildPlantPollination").values
@@ -297,7 +297,7 @@ export class RoundService {
           this.getStateEffectOnImpactValues(habitat.type.active, "wildPollinators", habitat.state!.wildPollinators!, "aestheticValues").values
         ));
         aestheticValues.push(this.habitatService.sample(
-          this.getStateEffectOnImpactValues(habitat.type.active, "floralResources", habitat.state!.floralResources!, "aestheticValues").values
+          this.getStateEffectOnImpactValues(habitat.type.active, "pestsAndWeeds", habitat.state!.pestsAndWeeds!, "aestheticValues").values
         ));
         aestheticValues.push(this.habitatService.sample(
           this.getStateEffectOnImpactValues(habitat.type.active, "habitatResources", habitat.state!.habitatResources!, "aestheticValues").values
@@ -307,7 +307,7 @@ export class RoundService {
           this.getStateEffectOnImpactValues(habitat.type.active, "wildPollinators", habitat.state!.wildPollinators!, "cropPollinationProduction").values
         ));
         cropPollinationProduction.push(this.habitatService.sample(
-          this.getStateEffectOnImpactValues(habitat.type.active, "floralResources", habitat.state!.floralResources!, "cropPollinationProduction").values
+          this.getStateEffectOnImpactValues(habitat.type.active, "pestsAndWeeds", habitat.state!.pestsAndWeeds!, "cropPollinationProduction").values
         ));
         cropPollinationProduction.push(this.habitatService.sample(
           this.getStateEffectOnImpactValues(habitat.type.active, "habitatResources", habitat.state!.habitatResources!, "cropPollinationProduction").values
@@ -317,7 +317,7 @@ export class RoundService {
           this.getStateEffectOnImpactValues(habitat.type.active, "wildPollinators", habitat.state!.wildPollinators!, "economicValueChain").values
         ));
         economicValueChain.push(this.habitatService.sample(
-          this.getStateEffectOnImpactValues(habitat.type.active, "floralResources", habitat.state!.floralResources!, "economicValueChain").values
+          this.getStateEffectOnImpactValues(habitat.type.active, "pestsAndWeeds", habitat.state!.pestsAndWeeds!, "economicValueChain").values
         ));
         economicValueChain.push(this.habitatService.sample(
           this.getStateEffectOnImpactValues(habitat.type.active, "habitatResources", habitat.state!.habitatResources!, "economicValueChain").values
@@ -448,7 +448,7 @@ export class RoundService {
       if ( !Array.isArray(newRoundList) || !newRoundList.length || newImpacts == undefined ) {
         // array/s do not exist, is not an array, or is empty
         // ⇒ do not attempt to process array
-        //console.log("roundService.advanceTime conditions not met")
+        console.log("ERROR: roundService.advanceTime conditions not met")
       } else {
         // update roundService variables
         this.roundImpacts = newImpacts;

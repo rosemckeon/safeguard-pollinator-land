@@ -39,11 +39,14 @@ export class HabitatComponent implements OnInit {
       case 'wildPollinators':
         temp = this.dialog.open(WildPollinators);
         break;
-      case 'floralResources':
-        temp = this.dialog.open(FloralResources);
-        break;
+      //case 'floralResources':
+        //temp = this.dialog.open(FloralResources);
+        //break;
       case 'habitatResources':
         temp = this.dialog.open(HabitatResources);
+        break;
+      case 'pestsAndWeeds':
+        temp = this.dialog.open(PestsAndWeeds);
         break;
       default:
         console.log("HabitatComponent.openInfo - requested dialogue does not exist", value);
@@ -66,14 +69,14 @@ export class HabitatComponent implements OnInit {
 })
 export class WildPollinators {}
 
-@Component({
-  selector: 'floral-resources',
-  templateUrl: './habitat.component.floral-resources.html',
-  standalone: true,
-  imports: [MatDialogModule, MatButtonModule],
-  changeDetection: ChangeDetectionStrategy.OnPush,
-})
-export class FloralResources {}
+//@Component({
+//  selector: 'floral-resources',
+//  templateUrl: './habitat.component.floral-resources.html',
+//  standalone: true,
+//  imports: [MatDialogModule, MatButtonModule],
+//  changeDetection: ChangeDetectionStrategy.OnPush,
+//})
+//export class FloralResources {}
 
 @Component({
   selector: 'HabitatResources',
@@ -83,3 +86,12 @@ export class FloralResources {}
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HabitatResources {}
+
+@Component({
+  selector: 'PestsAndWeeds',
+  templateUrl: './habitat.component.pests-and-weeds.html',
+  standalone: true,
+  imports: [MatDialogModule, MatButtonModule],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+})
+export class PestsAndWeeds {}
