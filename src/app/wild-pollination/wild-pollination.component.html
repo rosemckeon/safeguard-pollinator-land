@@ -1,0 +1,3 @@
+@if(round.id <= roundService.activeRound) {
+    <div id="wildPollination_round_{{ round.id }}" class="impact-icon-fill h-full w-full" style="height: {{roundService.roundList[round.id].impacts?.wildPlantPollination}}%"></div>
+}

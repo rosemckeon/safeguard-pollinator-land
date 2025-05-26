@@ -35,7 +35,7 @@
               <div class="impact-icon-label text-center leading-none opacity-60"><strong class="text-xs text-black">CROP POLLINATION & PRODUCTION</strong></div>
               <!--<div class="impact-icon-fill" style="height: {{roundService.roundImpacts.cropPollinationProduction}}%"></div>-->
               <div class="grid grid-cols-6 gap-0 xl:gap-1 mb-5 h-full">
-                <app-impact-details  *ngFor="let round of roundService.roundList" [round]="round" class="relative"></app-impact-details>
+                <app-crop-pollination  *ngFor="let round of roundService.roundList" [round]="round" class="relative"></app-crop-pollination>
               </div> 
               <div class="impact-icon"></div>
             </div>
@@ -43,21 +43,30 @@
           <div class="impact economicValueChain text-center align-top">
             <div class="impact-icon-container mt-2" (click)="openInfo('economicValueChain')" matTooltip="{{ roundService.roundImpacts.economicValueChain }}%">
               <div class="impact-icon-label text-center leading-none opacity-60"><strong class="text-xs text-black">ECONOMIC VALUE CHAIN</strong></div>
-              <div class="impact-icon-fill" style="height: {{roundService.roundImpacts.economicValueChain}}%"></div>
+              <!--<div class="impact-icon-fill" style="height: {{roundService.roundImpacts.economicValueChain}}%"></div>-->
+              <div class="grid grid-cols-6 gap-0 xl:gap-1 mb-5 h-full">
+                <app-economic-value  *ngFor="let round of roundService.roundList" [round]="round" class="relative"></app-economic-value>
+              </div> 
               <div class="impact-icon"></div>
             </div>
           </div>
           <div class="impact wildPlantPollination text-center align-top">
             <div class="impact-icon-container mt-2" (click)="openInfo('wildPlantPollination')" matTooltip="{{ roundService.roundImpacts.wildPlantPollination }}%">
               <div class="impact-icon-label text-center leading-none opacity-60"><strong class="text-xs text-black">WILD PLANT POLLINATION</strong></div>
-              <div class="impact-icon-fill" style="height: {{roundService.roundImpacts.wildPlantPollination}}%"></div>
+              <!--<div class="impact-icon-fill" style="height: {{roundService.roundImpacts.wildPlantPollination}}%"></div>-->
+              <div class="grid grid-cols-6 gap-0 xl:gap-1 mb-5 h-full">
+                <app-wild-pollination  *ngFor="let round of roundService.roundList" [round]="round" class="relative"></app-wild-pollination>
+              </div> 
               <div class="impact-icon"></div>
             </div>
           </div>
           <div class="impact aestheticValues text-center align-top">
             <div class="impact-icon-container mt-2" (click)="openInfo('aestheticValues')" matTooltip="{{ roundService.roundImpacts.aestheticValues }}%">
               <div class="impact-icon-label text-center leading-none opacity-60"><strong class="text-xs text-black">AESTHETIC VALUES</strong></div>
-              <div class="impact-icon-fill" style="height: {{ roundService.roundImpacts.aestheticValues }}%"></div>
+              <!--<div class="impact-icon-fill" style="height: {{ roundService.roundImpacts.aestheticValues }}%"></div>-->
+              <div class="grid grid-cols-6 gap-0 xl:gap-1 mb-5 h-full">
+                <app-aesthetic-values  *ngFor="let round of roundService.roundList" [round]="round" class="relative"></app-aesthetic-values>
+              </div> 
               <div class="impact-icon"></div>
             </div>
           </div>

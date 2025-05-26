@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ImpactDetailsComponent } from './impact-details.component';
+import { CropPollinationComponent } from './crop-pollination.component';
 
-describe('ImpactDetailsComponent', () => {
-  let component: ImpactDetailsComponent;
-  let fixture: ComponentFixture<ImpactDetailsComponent>;
+describe('CropPollinationComponent', () => {
+  let component: CropPollinationComponent;
+  let fixture: ComponentFixture< CropPollinationComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ImpactDetailsComponent]
+      imports: [CropPollinationComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(ImpactDetailsComponent);
+    fixture = TestBed.createComponent(CropPollinationComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

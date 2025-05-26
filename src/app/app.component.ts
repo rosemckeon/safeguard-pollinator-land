@@ -26,8 +26,11 @@ import { RoundService } from './round.service';
 import { SaveDataService } from './save-data.service';
 // components
 import { LandscapeComponent } from './landscape/landscape.component';
-import { ImpactDetailsComponent } from './impact-details/impact-details.component';
 import { RoundDetailsComponent } from './round-details/round-details.component';
+import { CropPollinationComponent } from './crop-pollination/crop-pollination.component';
+import { EconomicValueComponent } from './economic-value/economic-value.component';
+import { WildPollinationComponent } from './wild-pollination/wild-pollination.component';
+import { AestheticValuesComponent } from './aesthetic-values/aesthetic-values.component';
 import { GlobalControlsComponent } from './global-controls/global-controls.component';
 import { GlobalResponsesComponent } from './global-responses/global-responses.component';
 import { HabitatCount } from './habitat-count';
@@ -41,7 +44,10 @@ import { HabitatCount } from './habitat-count';
     NgIconComponent, 
     CommonModule, 
     RoundDetailsComponent, 
-    ImpactDetailsComponent,
+    CropPollinationComponent,
+    EconomicValueComponent,
+    WildPollinationComponent,
+    AestheticValuesComponent,
     MatButtonModule, 
     MatDialogModule,
     MatTooltipModule
@@ -61,15 +67,17 @@ import { HabitatCount } from './habitat-count';
   styleUrl: './app.component.scss'
 })
 export class AppComponent implements OnInit {
+[x: string]: any;
   saveDataService: SaveDataService = inject(SaveDataService);
   habitatService: HabitatService = inject(HabitatService);
   roundService: RoundService = inject(RoundService);
+  // inject MatDialog to open dialogs
   readonly dialog = inject(MatDialog);
 
   @ViewChild(GlobalControlsComponent) globalControlsComponent?: GlobalControlsComponent;
   @ViewChild(GlobalResponsesComponent) globalResponsesComponent?: GlobalResponsesComponent;
   @ViewChild(LandscapeComponent) landscapeComponent?: LandscapeComponent;
-
+  
   resetGlobalControls(): void {
     //console.log('triggered resetGlobalControls from AppComponent');
     this.habitatService.getActiveHabitatTypes(this.roundService.roundList[this.roundService.activeRound].landscape).then(
@@ -97,7 +105,7 @@ export class AppComponent implements OnInit {
 
   constructor() {
     //makes sure scenario is never undefined.
-    this.roundService.scenario = 'urban_degraded';
+    this.roundService.scenario = 'mixed_degraded';
  }
 
   ngOnInit(): void {
