@@ -66,7 +66,6 @@
               background-color: black;
               background-color: rgba(0, 0, 0, 0.2);
               @apply h-full;
-              @apply hover:cursor-help;
             }
             .impact-icon-label {
               position: absolute;
@@ -76,13 +75,17 @@
             .impact-icon-fill {
               position: absolute;
               bottom: 0;
-              width: 120px;
+              //width: 120px;
               background-color: #FDC906;
               border-top: 2px solid #e2b204;
+              &:hover {
+                background-color: #00b6d6;
+                border-top: 2px solid #008da5;
+              }
             }
             .impact-icon {
               position: absolute;
-              bottom: 2px;
+              top: 2px;
               background-repeat: no-repeat;
               background-size: contain;
               height: 50px;
@@ -90,6 +93,7 @@
               max-width: 100px;
               margin: auto;
               background-position: bottom center;
+              @apply hover:cursor-help;
             }
             &:hover,
             &:focus {
