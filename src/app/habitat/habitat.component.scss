@@ -128,10 +128,8 @@
           }
           &.pestsAndWeeds {
             .state-icon {
-              -webkit-transform: scaleX(-1);
-              transform: scaleX(-1);
-              left: -4px;
-              background-image: url("^./../../public/assets/pests-and-weeds.png");
+              left: -50%;
+              background-image: url("^./../../public/assets/pests-and-weeds.svg");
             }
             .state-icon-fill {
               background-color: #87160e;
@@ -140,7 +138,7 @@
             &:hover,
             &:focus {
               .state-icon {
-                background-image: url("^./../../public/assets/pests-and-weeds-colour.png");
+                background-image: url("^./../../public/assets/pests-and-weeds-colour.svg");
               }
             }
           }
@@ -151,6 +149,7 @@
             width: 200px;
             max-width: 200px;
             bottom: -5px;
+            left: -4px !important;
           }
           .wildPollinators {
             .state-icon {
@@ -169,7 +168,7 @@
           }
           .pestsAndWeeds {
             .state-icon {
-              background-image: url("^./../../public/assets/pests-and-weeds-colour.png");
+              background-image: url("^./../../public/assets/pests-and-weeds-colour.svg");
             }
           }
         }
