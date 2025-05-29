@@ -1,0 +1,19 @@
+<div mat-dialog-title>
+  <div class="flex">
+    <div class="header-icon w-32">
+      <img class="inline-block mr-5" src="./assets/bee-colour.svg" alt="A bee." title="" />
+    </div>
+    <div class="header-title grow">
+      <h2>
+        <strong>Thank you for participating in our research.</strong>
+      </h2>
+    </div>
+  </div>
+</div>
+<mat-dialog-content>
+    <p class="mb-5">All data is stored anonymously. You can opt out at any time by sending a request with your reference code: <strong>{{ this.dataCode }}</strong>. Or you can choose to play without participating below.</p>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button (click)="play()">Play without participating</button>
+  <button mat-button (click)="participate()">I Agree</button>
+</mat-dialog-actions>
