@@ -540,7 +540,7 @@ export class ParticipationThanksContent {
   }
 
   play() {
-    console.log('ParticipationThanksContent.play', this.saveDataService.getScenario(), this.saveDataService.getDataCode());
+    //console.log('ParticipationThanksContent.play', this.saveDataService.getScenario(), this.saveDataService.getDataCode());
     // unset the dataCode
     this.roundService.dataCode = this.roundService.saveDataCode(null);
     // and ensure the request continues for every replay
@@ -550,7 +550,7 @@ export class ParticipationThanksContent {
   }
   
   participate() {
-    console.log('ParticipationThanksContent.participate');
+    //console.log('ParticipationThanksContent.participate');
     this.dialogRef.close();
   }
 }
