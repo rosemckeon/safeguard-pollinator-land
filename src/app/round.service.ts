@@ -545,8 +545,8 @@ export class ParticipationThanksContent {
     this.roundService.dataCode = this.roundService.saveDataCode(null);
     // and ensure the request continues for every replay
     this.roundService.playAgainURL = this.roundService.setPlayAgainURL(this.roundService.scenario!, null);
-    this.router.navigate([this.roundService.scenario]);
     this.dialogRef.close();
+    this.router.navigate([this.roundService.scenario]);
   }
   
   participate() {
