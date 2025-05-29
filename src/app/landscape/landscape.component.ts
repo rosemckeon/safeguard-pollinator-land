@@ -1,7 +1,7 @@
 // angular
-import { ChangeDetectionStrategy, Component, inject, Input } from '@angular/core';
+import { Component, inject, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Router, ActivatedRoute, ParamMap} from '@angular/router';
+import { Router, ActivatedRoute} from '@angular/router';
 // Maths - we need this to do proper maths (default only has limited functions)
 //import * as Math from 'mathjs';
 // interfaces
@@ -12,8 +12,6 @@ import { HabitatService } from '../habitat.service';
 import { RoundService } from '../round.service';
 // components
 import { HabitatComponent } from '../habitat/habitat.component'
-//import { MatDialog, MatDialogModule } from '@angular/material/dialog';
-//import { MatButtonModule } from '@angular/material/button';
 
 
 @Component({
@@ -24,10 +22,8 @@ import { HabitatComponent } from '../habitat/habitat.component'
   styleUrl: './landscape.component.scss'
 })
 export class LandscapeComponent {
-  //route: ActivatedRoute = inject(ActivatedRoute);
   habitatService: HabitatService = inject(HabitatService);
   roundService: RoundService = inject(RoundService);
-  //readonly dialog = inject(MatDialog);
 
   @Input() set scenario(scenario: string){
     this.roundService.getStartingScenario(scenario).then(
@@ -50,24 +46,5 @@ export class LandscapeComponent {
     // save the requestCode = whatever string follows the scenario or null.
     this.roundService.dataCode = this.roundService.saveDataCode(requestCode);
   }
-
-  /*
-  openRequestCode() {
-    const dialogRef = this.dialog.open(DataCode);
-    dialogRef.afterClosed().subscribe((result: any) => {
-      console.log(`DataCode Dialog result: ${result}`);
-    });
-  }
-  */
+  
 }
-
-/*
-@Component({
-  selector: 'data-code',
-  templateUrl: './landscape.component.data-code.html',
-  standalone: true,
-  imports: [MatDialogModule, MatButtonModule],
-  changeDetection: ChangeDetectionStrategy.OnPush,
-})
-export class DataCode {}
-*/

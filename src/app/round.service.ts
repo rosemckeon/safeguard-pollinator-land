@@ -1,5 +1,5 @@
 // @angular
-import { inject, Injectable} from '@angular/core';
+import { inject, Injectable, Component, ChangeDetectionStrategy} from '@angular/core';
 // Maths - we need this to do proper maths (default only has limited functions)
 import * as Math from 'mathjs';
 // components
@@ -21,7 +21,8 @@ import RoundListMixedRestored from '../data/scenario-mixed-restored.json';
 import stateToImpactValues from '../data/state-on-impact.v2.json';
 import { Impacts } from './impacts';
 import { ImpactValues } from './impact-values';
-import { HabitatResponse } from './habitat-response';
+import { MatDialog, MatDialogModule, MatDialogRef } from '@angular/material/dialog';
+import { MatButtonModule } from '@angular/material/button';
 
 @Injectable({
   providedIn: 'root'
@@ -43,6 +44,9 @@ export class RoundService {
   agriculturalCount!: number;
   semiNaturalCount!: number;
   urbanCount!: number;
+
+  // inject MatDialog to open dialogs
+  readonly dialog = inject(MatDialog);
 
   constructor() {
     // loaded when service is injected.
@@ -96,9 +100,9 @@ export class RoundService {
         this.saveDataService.saveScenario("mixed_restored");
         break;
       default:
-        this.roundList = RoundListMixedDegraded;
-        this.scenario = "mixed_degraded";
-        this.saveDataService.saveScenario("mixed_degraded");
+        this.roundList = RoundListAgriDegraded;
+        this.scenario = "agri_degraded";
+        this.saveDataService.saveScenario("agri_degraded");
         break;
     }
     this.activeRound = 0;
@@ -419,12 +423,15 @@ export class RoundService {
     } else {
       url = "/" + scenario + "/" + dataCode;
     }
-    //console.log("roundService.setPlayAgainURL", url);
+    console.log("roundService.setPlayAgainURL", url);
     return url;
   }
 
   saveDataCode(value: string | null): string | null {
     this.saveDataService.saveDataCode(value);
+    if(value != null) {
+      const dialogRef = this.dialog.open(ParticipationThanksContent);
+    }
     //console.log("roundService.saveDataCode", this.saveDataService.getDataCode());
     return value;
   }
@@ -509,5 +516,41 @@ export class RoundService {
       }
     } 
     return null;
+  }
+}
+
+import { Router } from '@angular/router';
+
+@Component({
+  selector: 'participation-thanks',
+  templateUrl: 'round.service.participation-thanks.html',
+  standalone: true,
+  imports: [MatDialogModule, MatButtonModule],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+})
+export class ParticipationThanksContent {
+  private router = inject(Router);
+  saveDataService: SaveDataService = inject(SaveDataService);
+  roundService: RoundService = inject(RoundService);
+  dataCode?: string | null;
+  readonly dialog = inject(MatDialog);
+  
+  constructor(public dialogRef: MatDialogRef<ParticipationThanksContent>) {
+    this.dataCode = this.saveDataService.getDataCode()
+  }
+
+  play() {
+    console.log('ParticipationThanksContent.play', this.saveDataService.getScenario(), this.saveDataService.getDataCode());
+    // unset the dataCode
+    this.roundService.dataCode = this.roundService.saveDataCode(null);
+    // and ensure the request continues for every replay
+    this.roundService.playAgainURL = this.roundService.setPlayAgainURL(this.roundService.scenario!, null);
+    this.router.navigate([this.roundService.scenario]);
+    this.dialogRef.close();
+  }
+  
+  participate() {
+    console.log('ParticipationThanksContent.participate');
+    this.dialogRef.close();
   }
 }

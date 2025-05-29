@@ -2,7 +2,7 @@
 import { ChangeDetectionStrategy, Component, inject, ViewChild, OnInit} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
-import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+import { MatDialog, MatDialogModule, MatDialogRef } from '@angular/material/dialog';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { RouterOutlet } from '@angular/router';
 // @ng-icons imports
@@ -105,11 +105,13 @@ export class AppComponent implements OnInit {
 
   constructor() {
     //makes sure scenario is never undefined.
-    this.roundService.scenario = 'mixed_degraded';
+    this.roundService.scenario = 'agri_degraded';
  }
 
   ngOnInit(): void {
     // too early to calculate impacts
+    // I can only get the stored dataCode here, not the first load of a new dataCode
+    // console.log('ngOnInit', this.saveDataService.getDataCode());
   }
 
   openInfo(value: string):void {
