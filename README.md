@@ -52,7 +52,11 @@ NB: New files with randomised names are generated each build - they will not dir
 
 #### Manual deployment with Nginx
 
-Serve the index file in `/dist/whatever/browser` by setting the server root to point to that path and add `index.csr.html` to the server location for `/`.
+Rename the generated `dist/*/index.csr.html` to `index.html`. This is required when SSR is enabled (see [this thread](https://stackoverflow.com/questions/78700539/ng-build-command-generating-index-csr-html-instead-of-index-html)).
+
+Serve the index file in `/dist/whatever/browser` by setting the server root to point to that path and add `index.html` to the server location for `/`.
+
+If you don't rename the index file, or disable SSR to generate an index with the default name, the root path won't work correctly.
 
 ### Running unit tests
 
