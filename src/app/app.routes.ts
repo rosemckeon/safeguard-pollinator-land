@@ -73,7 +73,7 @@ export const routes: Routes = [] = [
         path: 'agri_degraded/:requestCode',
         component: LandscapeComponent,
         data: {
-            scenario: 'agri_restored'
+            scenario: 'agri_degraded'
         }
     },
     {
@@ -101,7 +101,7 @@ export const routes: Routes = [] = [
         path: 'mixed_degraded/:requestCode',
         component: LandscapeComponent,
         data: {
-            scenario: 'mixed_restored'
+            scenario: 'mixed_degraded'
         }
     },
     {
