@@ -119,13 +119,23 @@ export const routes: Routes = [] = [
         }
     },
     {
+        path: 'A',
+        redirectTo: '/agri_degraded',
+        pathMatch: 'full' as PathMatch
+    },
+    {
+        path: 'B',
+        redirectTo: '/agri_restored',
+        pathMatch: 'full' as PathMatch
+    },
+    {
         path: '',
-        redirectTo: '/mixed_degraded',
+        redirectTo: '/agri_degraded',
         pathMatch: 'full' as PathMatch
     },
     {
         path: '**',
-        redirectTo: '/mixed_degraded',
+        redirectTo: '/agri_degraded',
         pathMatch: 'full' as PathMatch
     }
 
