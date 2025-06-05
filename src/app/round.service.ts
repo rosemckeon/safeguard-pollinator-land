@@ -227,6 +227,17 @@ export class RoundService {
       //console.log('Fetching values: ', h, s, i);
       // here we're getting the ditribution of possible values for a given state and impact
       result = stateToImpactValues.state[h].impact[s].values[i];
+      // now we're going to make any pestsAndWeeds scores negative
+      if(s == 2){
+        let resultNegative = (result: number[]) => {
+          return result.reduce((acc: number[], val: number) => {
+            const negative = val < 0 ? val : val * -1;
+            return acc.concat(negative);
+          }, [] as number[]);
+        };
+        //console.log("getStateEffectOnImpactValues: resultNegative: ", resultNegative(result));
+        result = resultNegative(result);
+      }
       //console.log(result);
       //return(result);
     } else {
@@ -284,6 +295,7 @@ export class RoundService {
     }
     // but also ensure a ceiling of 100
     let output: Impacts = this.checkImpactsCeiling(newImpacts, 100);
+    output = this.checkImpactsFloor(newImpacts, 0);
     return output;
   }
 
@@ -330,7 +342,11 @@ export class RoundService {
         ));
 
         //console.log("Habitat wildPlantPollination", habitat.id, wildPlantPollination);
-        let maxEffect : number = 6.25;
+        // 100 / 16 = 6.25
+        // for a mean score of 5 (highest possible score) the result of the sum equals the maxEffect.
+        // (mean * 2/10) * 6.25
+        // something logarithmic might be better here
+        let maxEffect : number = Math.round(100/16, 3);
         landscapeWildPlantPollination.push(Math.round((Math.round(Math.mean(wildPlantPollination)) * 2 / 10) * maxEffect, 2));
         landscapeAestheticValues.push(Math.round((Math.round(Math.mean(aestheticValues)) * 2 / 10) * maxEffect, 2));
       } else {
@@ -400,6 +416,7 @@ export class RoundService {
             landscapeEconomicValueChain.push(Math.round((Math.round(Math.mean(economicValueChain)) * 2 / 10) * maxEffect2, 2));
         } else {
             // All 16 habitats effect all the impacts
+            // Urban and Agricultural habitat states have scores for all impacts
             console.log('RoundService.getHabitatEffects: Landscape is NOT Seminatural');
             landscapeWildPlantPollination.push(Math.round((Math.round(Math.mean(wildPlantPollination)) * 2 / 10) * maxEffect, 2));
             landscapeAestheticValues.push(Math.round((Math.round(Math.mean(aestheticValues)) * 2 / 10) * maxEffect, 2));
@@ -433,6 +450,23 @@ export class RoundService {
       impacts.wildPlantPollination = value;
     }
     if(impacts.aestheticValues > value){
+      impacts.aestheticValues = value;
+    }
+    return impacts;
+  }
+
+  // Ensures all values expected by type Impacts cannot go below the specified ceiling (value)
+  checkImpactsFloor(impacts: Impacts, value: number): Impacts {
+    if(impacts.cropPollinationProduction < value){
+      impacts.cropPollinationProduction = value;
+    }
+    if(impacts.economicValueChain < value){
+      impacts.economicValueChain = value;
+    }
+    if(impacts.wildPlantPollination < value){
+      impacts.wildPlantPollination = value;
+    }
+    if(impacts.aestheticValues < value){
       impacts.aestheticValues = value;
     }
     return impacts;
